@@ -1,0 +1,26 @@
+{
+  "manifest_probe_count": 485577,
+  "region_counts": {
+    "gene_body": 180200,
+    "5UTR_1stExon": 88367,
+    "TSS1500": 77688,
+    "TSS200": 77431,
+    "intergenic": 61891
+  },
+  "cgi_relation_counts": {
+    "OpenSea": 179061,
+    "Island": 148466,
+    "N_Shore": 58556,
+    "S_Shore": 53470,
+    "N_Shelf": 23171,
+    "S_Shelf": 22853
+  },
+  "promoter_probe_count": 250799,
+  "significant_probes": {
+    "fdr_threshold": 0.05,
+    "n_significant": 321823,
+    "n_annotated_in_manifest": 321705,
+    "n_with_region_call": 279452,
+    "pct_with_region_call": 86.83
+  }
+}
