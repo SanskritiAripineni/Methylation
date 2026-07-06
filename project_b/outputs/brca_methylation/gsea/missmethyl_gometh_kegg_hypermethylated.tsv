@@ -1,0 +1,373 @@
+method	collection	direction	term	Description	N	DE	P.DE	FDR
+missMethyl_gometh	KEGG	hypermethylated	hsa00010	Glycolysis / Gluconeogenesis	66	11	0.779175123637794	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00020	Citrate cycle (TCA cycle)	30	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00030	Pentose phosphate pathway	30	4	0.895940421898785	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00040	Pentose and glucuronate interconversions	36	3	0.941235143515031	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00051	Fructose and mannose metabolism	36	8	0.594431775656571	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00052	Galactose metabolism	30	6	0.718272464052973	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00053	Ascorbate and aldarate metabolism	31	2	0.896724837370191	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00061	Fatty acid biosynthesis	17	1	0.994499968567661	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00062	Fatty acid elongation	28	6	0.603099748669253	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00071	Fatty acid degradation	43	8	0.572720138370201	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00100	Steroid biosynthesis	20	1	0.991143112895369	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00120	Primary bile acid biosynthesis	17	3	0.520641142044934	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00130	Ubiquinone and other terpenoid-quinone biosynthesis	12	1	0.844503872946922	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00140	Steroid hormone biosynthesis	64	9	0.537510652738163	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00190	Oxidative phosphorylation	121	14	0.980756184852566	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00220	Arginine biosynthesis	22	3	0.875756959923756	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00230	Purine metabolism	125	24	0.929695695771295	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00232	Caffeine metabolism	6	1	0.475133433070813	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00240	Pyrimidine metabolism	56	9	0.846884786165572	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00250	Alanine, aspartate and glutamate metabolism	37	7	0.805147138852662	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00260	Glycine, serine and threonine metabolism	39	7	0.467452402488039	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00270	Cysteine and methionine metabolism	52	9	0.82705414093429	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00280	Valine, leucine and isoleucine degradation	48	4	0.995692515195354	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00290	Valine, leucine and isoleucine biosynthesis	4	1	0.628211172783553	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00310	Lysine degradation	62	11	0.971320648645661	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00330	Arginine and proline metabolism	50	8	0.827678258669378	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00340	Histidine metabolism	22	3	0.847633286321884	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00350	Tyrosine metabolism	36	6	0.674531219701169	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00360	Phenylalanine metabolism	16	3	0.689186259206682	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00380	Tryptophan metabolism	41	7	0.632106024001124	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00400	Phenylalanine, tyrosine and tryptophan biosynthesis	6	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00410	beta-Alanine metabolism	31	10	0.193537960103778	0.79243326537639
+missMethyl_gometh	KEGG	hypermethylated	hsa00430	Taurine and hypotaurine metabolism	16	5	0.186126450227227	0.786807266869643
+missMethyl_gometh	KEGG	hypermethylated	hsa00440	Phosphonate and phosphinate metabolism	6	1	0.790815822002702	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00450	Selenocompound metabolism	17	1	0.985182799245615	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00470	D-Amino acid metabolism	6	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00480	Glutathione metabolism	58	12	0.381366656951255	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00500	Starch and sucrose metabolism	34	6	0.652270566333469	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00510	N-Glycan biosynthesis	53	8	0.913374558225606	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00511	Other glycan degradation	18	2	0.966032948224198	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00512	Mucin type O-glycan biosynthesis	34	10	0.368455324150964	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00513	Various types of N-glycan biosynthesis	42	5	0.983194656297496	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00514	Other types of O-glycan biosynthesis	47	17	0.095848514230343	0.594260788228127
+missMethyl_gometh	KEGG	hypermethylated	hsa00515	Mannose type O-glycan biosynthesis	22	4	0.81206778638063	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00520	Amino sugar and nucleotide sugar metabolism	38	7	0.766598399094063	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00524	Neomycin, kanamycin and gentamicin biosynthesis	5	2	0.547924073267848	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00531	Glycosaminoglycan degradation	19	4	0.795700131075985	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00532	Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate	21	9	0.117724929588558	0.625623911527766
+missMethyl_gometh	KEGG	hypermethylated	hsa00533	Glycosaminoglycan biosynthesis - keratan sulfate	14	3	0.811571493148309	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00534	Glycosaminoglycan biosynthesis - heparan sulfate / heparin	24	8	0.299693763354172	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00541	Biosynthesis of various nucleotide sugars	19	3	0.774718175746611	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00561	Glycerolipid metabolism	64	15	0.545889109076418	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00562	Inositol phosphate metabolism	78	10	0.996945731991702	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00563	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	30	4	0.856597826832302	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00564	Glycerophospholipid metabolism	101	21	0.809188877313576	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00565	Ether lipid metabolism	51	6	0.9306944158957	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00590	Arachidonic acid metabolism	62	12	0.300450071352822	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00591	Linoleic acid metabolism	30	3	0.782561943392526	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00592	alpha-Linolenic acid metabolism	26	2	0.927389996051844	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00600	Sphingolipid metabolism	54	10	0.770376118573549	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00601	Glycosphingolipid biosynthesis - lacto and neolacto series	28	4	0.869955346316518	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00603	Glycosphingolipid biosynthesis - globo and isoglobo series	15	3	0.640955962684249	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00604	Glycosphingolipid biosynthesis - ganglio series	15	4	0.689584809632465	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00620	Pyruvate metabolism	49	6	0.912159293588018	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00630	Glyoxylate and dicarboxylate metabolism	31	2	0.9775285213032	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00640	Propanoate metabolism	32	7	0.626287923504285	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00650	Butanoate metabolism	26	6	0.446720392095065	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00660	C5-Branched dibasic acid metabolism	1	1	0.424267087808448	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00670	One carbon pool by folate	36	6	0.85752069286346	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00730	Thiamine metabolism	15	4	0.580620418588728	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00740	Riboflavin metabolism	8	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00750	Vitamin B6 metabolism	6	1	0.721238672389104	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00760	Nicotinate and nicotinamide metabolism	36	9	0.329424249707316	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00770	Pantothenate and CoA biosynthesis	21	4	0.695850566665583	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00780	Biotin metabolism	3	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00785	Lipoic acid metabolism	19	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00790	Folate biosynthesis	28	4	0.801877530172252	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00830	Retinol metabolism	68	12	0.222624446140705	0.86266972879523
+missMethyl_gometh	KEGG	hypermethylated	hsa00860	Porphyrin metabolism	46	2	0.988846674623298	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00900	Terpenoid backbone biosynthesis	22	1	0.994806737429679	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00910	Nitrogen metabolism	17	3	0.718832645166205	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00920	Sulfur metabolism	10	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00970	Aminoacyl-tRNA biosynthesis	43	3	0.997620422330461	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00980	Metabolism of xenobiotics by cytochrome P450	77	12	0.333689920543073	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00982	Drug metabolism - cytochrome P450	71	10	0.324776944865445	1
+missMethyl_gometh	KEGG	hypermethylated	hsa00983	Drug metabolism - other enzymes	82	13	0.476727720227258	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01040	Biosynthesis of unsaturated fatty acids	27	7	0.539470272623835	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01100	Metabolic pathways	1538	270	0.999907655095479	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01200	Carbon metabolism	114	13	0.997147243170952	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01210	2-Oxocarboxylic acid metabolism	32	3	0.966014923830101	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01212	Fatty acid metabolism	56	12	0.776174299479119	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01230	Biosynthesis of amino acids	71	8	0.989741960956792	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01232	Nucleotide metabolism	81	13	0.922027215215062	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01240	Biosynthesis of cofactors	153	19	0.985746242714109	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01250	Biosynthesis of nucleotide sugars	37	8	0.652803920250927	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01320	Sulfur cycle	2	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01521	EGFR tyrosine kinase inhibitor resistance	78	24	0.563028287788766	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01522	Endocrine resistance	96	27	0.639355591229949	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01523	Antifolate resistance	30	5	0.819366444038716	1
+missMethyl_gometh	KEGG	hypermethylated	hsa01524	Platinum drug resistance	74	17	0.517705448277477	1
+missMethyl_gometh	KEGG	hypermethylated	hsa02010	ABC transporters	45	6	0.964718147404933	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03008	Ribosome biogenesis in eukaryotes	75	7	0.988324144209665	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03010	Ribosome	174	6	0.999999958767975	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03013	Nucleocytoplasmic transport	107	10	0.999157880835486	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03015	mRNA surveillance pathway	94	15	0.928607414796772	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03018	RNA degradation	77	10	0.966756524355191	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03020	RNA polymerase	34	1	0.998068150488554	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03022	Basal transcription factors	43	3	0.994048476046452	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03030	DNA replication	36	4	0.972179815233612	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03040	Spliceosome	142	9	0.999999416135099	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03050	Proteasome	45	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03060	Protein export	31	2	0.993306369016719	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03082	ATP-dependent chromatin remodeling	115	15	0.991661751724428	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03083	Polycomb repressive complex	82	18	0.87464831949496	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03250	Viral life cycle - HIV-1	67	14	0.615380162968003	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03260	Virion - Human immunodeficiency virus	5	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03264	Virion - Flavivirus and Alphavirus	6	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03265	Virion - Ebolavirus, Lyssavirus and Morbillivirus	12	2	0.716341039012776	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03266	Virion - Herpesvirus	8	4	0.1340711477879	0.658136224482794
+missMethyl_gometh	KEGG	hypermethylated	hsa03267	Virion - Adenovirus	4	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03271	Virion - Rotavirus	2	1	0.452850145685999	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03272	Virion - Hepatitis viruses	45	13	0.195978119394161	0.79243326537639
+missMethyl_gometh	KEGG	hypermethylated	hsa03273	Virion - Lassa virus and SFTS virus	17	8	0.0914055208618416	0.579161973778478
+missMethyl_gometh	KEGG	hypermethylated	hsa03320	PPAR signaling pathway	75	23	0.0207001272965874	0.248401527559049
+missMethyl_gometh	KEGG	hypermethylated	hsa03410	Base excision repair	44	3	0.99504780063347	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03420	Nucleotide excision repair	61	4	0.998663167818311	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03430	Mismatch repair	23	3	0.913626130881057	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03440	Homologous recombination	40	8	0.666717596817817	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03450	Non-homologous end-joining	13	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa03460	Fanconi anemia pathway	52	6	0.975473030236792	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04010	MAPK signaling pathway	298	94	0.0709298011742945	0.488627519200695
+missMethyl_gometh	KEGG	hypermethylated	hsa04012	ErbB signaling pathway	84	28	0.2796061600783	0.989431058711268
+missMethyl_gometh	KEGG	hypermethylated	hsa04014	Ras signaling pathway	234	73	0.0632253511656118	0.470396612672151
+missMethyl_gometh	KEGG	hypermethylated	hsa04015	Rap1 signaling pathway	210	88	1.21666909271995e-05	0.000754334837486371
+missMethyl_gometh	KEGG	hypermethylated	hsa04020	Calcium signaling pathway	250	102	2.63092379164321e-06	0.000195740730098255
+missMethyl_gometh	KEGG	hypermethylated	hsa04022	cGMP-PKG signaling pathway	165	53	0.0686649439015917	0.481950172290417
+missMethyl_gometh	KEGG	hypermethylated	hsa04024	cAMP signaling pathway	225	92	2.06443003451297e-07	3.83983986419413e-05
+missMethyl_gometh	KEGG	hypermethylated	hsa04060	Cytokine-cytokine receptor interaction	281	59	0.0168504215858845	0.248401527559049
+missMethyl_gometh	KEGG	hypermethylated	hsa04061	Viral protein interaction with cytokine and cytokine receptor	98	12	0.683842588859992	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04062	Chemokine signaling pathway	192	46	0.357943877366486	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04064	NF-kappa B signaling pathway	104	22	0.637828963929266	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04066	HIF-1 signaling pathway	109	30	0.37453295220439	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04068	FoxO signaling pathway	129	26	0.922990454225732	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04070	Phosphatidylinositol signaling system	97	22	0.828647642614285	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04071	Sphingolipid signaling pathway	122	30	0.69929234039389	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04072	Phospholipase D signaling pathway	147	54	0.0241730258237235	0.271571558877157
+missMethyl_gometh	KEGG	hypermethylated	hsa04080	Neuroactive ligand-receptor interaction	365	136	1.28537336928427e-14	4.78158893373747e-12
+missMethyl_gometh	KEGG	hypermethylated	hsa04081	Hormone signaling	217	69	0.000872745512998587	0.0231900950596767
+missMethyl_gometh	KEGG	hypermethylated	hsa04082	Neuroactive ligand signaling	199	83	6.76997903847656e-07	6.2960805057832e-05
+missMethyl_gometh	KEGG	hypermethylated	hsa04110	Cell cycle	158	22	0.998093890236262	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04114	Oocyte meiosis	127	23	0.918997491215218	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04115	p53 signaling pathway	75	18	0.69388407296864	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04120	Ubiquitin mediated proteolysis	141	14	0.999996830746111	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04122	Sulfur relay system	8	0	1	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04130	SNARE interactions in vesicular transport	32	3	0.973424322586155	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04136	Autophagy - other	31	2	0.997540925735501	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04137	Mitophagy - animal	101	7	0.999997581847184	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04140	Autophagy - animal	164	26	0.998096903408466	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04141	Protein processing in endoplasmic reticulum	170	23	0.997251281108642	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04142	Lysosome biogenesis	246	28	0.999997981805353	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04144	Endocytosis	246	48	0.99644394633479	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04145	Phagocytosis	248	45	0.962152409549575	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04146	Peroxisome	83	6	0.999103621515164	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04148	Efferocytosis	155	57	0.00330859179633211	0.0657089053351387
+missMethyl_gometh	KEGG	hypermethylated	hsa04150	mTOR signaling pathway	155	33	0.956437877375158	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04151	PI3K-Akt signaling pathway	347	108	0.0196230186642371	0.248401527559049
+missMethyl_gometh	KEGG	hypermethylated	hsa04152	AMPK signaling pathway	120	31	0.745892557536523	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04156	Integrated stress response (ISR) signaling pathway	51	5	0.9942786761675	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04210	Apoptosis	135	27	0.89543005040859	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04211	Longevity regulating pathway	89	19	0.940311072797204	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04213	Longevity regulating pathway - multiple species	61	13	0.917830939899905	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04215	Apoptosis - multiple species	31	6	0.796799526167689	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04216	Ferroptosis	41	9	0.619390184108737	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04217	Necroptosis	150	23	0.93849202308627	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04218	Cellular senescence	155	40	0.678434652381738	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04260	Cardiac muscle contraction	83	24	0.0891783208325068	0.579161973778478
+missMethyl_gometh	KEGG	hypermethylated	hsa04261	Adrenergic signaling in cardiomyocytes	152	50	0.0542637278283619	0.415285226388628
+missMethyl_gometh	KEGG	hypermethylated	hsa04270	Vascular smooth muscle contraction	134	46	0.0114293489218063	0.177154908287998
+missMethyl_gometh	KEGG	hypermethylated	hsa04310	Wnt signaling pathway	176	64	0.0318413962128306	0.303717933106999
+missMethyl_gometh	KEGG	hypermethylated	hsa04330	Notch signaling pathway	62	24	0.0382942294583001	0.356136333962191
+missMethyl_gometh	KEGG	hypermethylated	hsa04340	Hedgehog signaling pathway	55	18	0.369294258653532	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04350	TGF-beta signaling pathway	109	35	0.0918563345508877	0.579161973778478
+missMethyl_gometh	KEGG	hypermethylated	hsa04360	Axon guidance	181	75	0.00405673539684217	0.0754552783812644
+missMethyl_gometh	KEGG	hypermethylated	hsa04370	VEGF signaling pathway	59	18	0.322836114385275	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04371	Apelin signaling pathway	137	38	0.337200557229634	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04380	Osteoclast differentiation	133	33	0.3485900317089	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04382	Cornified envelope formation	208	35	0.618128447442259	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04390	Hippo signaling pathway	156	66	0.00125594836394355	0.0292007994616875
+missMethyl_gometh	KEGG	hypermethylated	hsa04392	Hippo signaling pathway - multiple species	28	12	0.164015692154794	0.726355208114089
+missMethyl_gometh	KEGG	hypermethylated	hsa04510	Focal adhesion	201	76	0.00335610000367644	0.0657089053351387
+missMethyl_gometh	KEGG	hypermethylated	hsa04512	ECM-receptor interaction	89	34	0.0205804130974801	0.248401527559049
+missMethyl_gometh	KEGG	hypermethylated	hsa04514	Cell adhesion molecule (CAM) interaction	153	56	0.00746201080637671	0.126175819089643
+missMethyl_gometh	KEGG	hypermethylated	hsa04517	IgSF CAM signaling	294	114	0.000187574903583969	0.00697778641332363
+missMethyl_gometh	KEGG	hypermethylated	hsa04518	Integrin signaling	153	63	0.000628898518527413	0.0179961729917075
+missMethyl_gometh	KEGG	hypermethylated	hsa04519	Cadherin signaling	403	134	5.43888274330905e-05	0.00289037768644424
+missMethyl_gometh	KEGG	hypermethylated	hsa04520	Adherens junction	93	34	0.049807574070633	0.40279168596251
+missMethyl_gometh	KEGG	hypermethylated	hsa04530	Tight junction	168	50	0.116290022741874	0.625623911527766
+missMethyl_gometh	KEGG	hypermethylated	hsa04540	Gap junction	87	28	0.235712342101627	0.885706982442477
+missMethyl_gometh	KEGG	hypermethylated	hsa04550	Signaling pathways regulating pluripotency of stem cells	141	53	0.0182072929503461	0.248401527559049
+missMethyl_gometh	KEGG	hypermethylated	hsa04610	Complement and coagulation cascades	87	20	0.0732472263636992	0.49541760376902
+missMethyl_gometh	KEGG	hypermethylated	hsa04611	Platelet activation	125	34	0.374748936512235	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04612	Antigen processing and presentation	71	13	0.961816284483267	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04613	Neutrophil extracellular trap formation	175	32	0.602720335827994	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04614	Renin-angiotensin system	23	4	0.529647172577303	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04620	Toll-like receptor signaling pathway	99	18	0.685909762920014	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04621	NOD-like receptor signaling pathway	173	28	0.877849732681638	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04622	RIG-I-like receptor signaling pathway	61	5	0.996066650105576	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04623	Cytosolic DNA-sensing pathway	73	8	0.950938806946562	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04625	C-type lectin receptor signaling pathway	103	25	0.541094069995119	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04630	JAK-STAT signaling pathway	152	34	0.297979729988133	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04640	Hematopoietic cell lineage	93	28	0.0260090435974782	0.271571558877157
+missMethyl_gometh	KEGG	hypermethylated	hsa04650	Natural killer cell mediated cytotoxicity	115	24	0.737463511427605	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04657	IL-17 signaling pathway	92	12	0.955437230694407	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04658	Th1 and Th2 cell differentiation	91	28	0.264121312252003	0.963265962330835
+missMethyl_gometh	KEGG	hypermethylated	hsa04659	Th17 cell differentiation	107	32	0.173586156665241	0.759694709170229
+missMethyl_gometh	KEGG	hypermethylated	hsa04660	T cell receptor signaling pathway	118	31	0.485375138425529	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04662	B cell receptor signaling pathway	82	18	0.664554502894217	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04664	Fc epsilon RI signaling pathway	67	14	0.800563355350433	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04666	Fc gamma R-mediated phagosome formation	96	28	0.318326167674626	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04668	TNF signaling pathway	117	32	0.229307105791847	0.87043105463844
+missMethyl_gometh	KEGG	hypermethylated	hsa04670	Leukocyte transendothelial migration	112	36	0.0411555142857172	0.364520269387781
+missMethyl_gometh	KEGG	hypermethylated	hsa04672	Intestinal immune network for IgA production	46	10	0.667637776760256	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04710	Circadian rhythm	33	10	0.375324262312987	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04713	Circadian entrainment	97	34	0.149635734416092	0.699961949225112
+missMethyl_gometh	KEGG	hypermethylated	hsa04714	Thermogenesis	219	33	0.99616287860194	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04720	Long-term potentiation	67	21	0.280949160736445	0.989431058711268
+missMethyl_gometh	KEGG	hypermethylated	hsa04721	Synaptic vesicle cycle	78	26	0.101489872725935	0.597952651723566
+missMethyl_gometh	KEGG	hypermethylated	hsa04722	Neurotrophin signaling pathway	119	30	0.723662855160641	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04723	Retrograde endocannabinoid signaling	140	38	0.308240406873944	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04724	Glutamatergic synapse	115	40	0.106088373692891	0.597952651723566
+missMethyl_gometh	KEGG	hypermethylated	hsa04725	Cholinergic synapse	113	43	0.0262811186010152	0.271571558877157
+missMethyl_gometh	KEGG	hypermethylated	hsa04726	Serotonergic synapse	113	33	0.128098535015629	0.658136224482794
+missMethyl_gometh	KEGG	hypermethylated	hsa04727	GABAergic synapse	89	31	0.103554894381684	0.597952651723566
+missMethyl_gometh	KEGG	hypermethylated	hsa04728	Dopaminergic synapse	131	45	0.0517532719191928	0.409621641573185
+missMethyl_gometh	KEGG	hypermethylated	hsa04730	Long-term depression	60	20	0.210211084786237	0.831899186600854
+missMethyl_gometh	KEGG	hypermethylated	hsa04740	Olfactory transduction	394	21	0.991583394944523	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04742	Taste transduction	85	19	0.281934656514501	0.989431058711268
+missMethyl_gometh	KEGG	hypermethylated	hsa04744	Phototransduction	28	5	0.691701159677035	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04750	Inflammatory mediator regulation of TRP channels	98	35	0.0547015486372118	0.415285226388628
+missMethyl_gometh	KEGG	hypermethylated	hsa04810	Regulation of actin cytoskeleton	230	79	0.00594536897237241	0.105317964653454
+missMethyl_gometh	KEGG	hypermethylated	hsa04814	Motor proteins	192	42	0.784839931057695	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04820	Cytoskeleton in muscle cells	233	88	0.000125231604277212	0.00517623964345812
+missMethyl_gometh	KEGG	hypermethylated	hsa04910	Insulin signaling pathway	137	29	0.915263325339317	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04911	Insulin secretion	86	30	0.104758280325603	0.597952651723566
+missMethyl_gometh	KEGG	hypermethylated	hsa04912	GnRH signaling pathway	93	22	0.744681407920216	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04913	Ovarian steroidogenesis	52	12	0.51175389168025	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04914	Progesterone-mediated oocyte maturation	98	20	0.839886664432589	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04915	Estrogen signaling pathway	137	29	0.908519714396178	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04916	Melanogenesis	101	29	0.492025729368333	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04917	Prolactin signaling pathway	70	20	0.392912600924661	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04918	Thyroid hormone synthesis	75	22	0.276738174443529	0.989431058711268
+missMethyl_gometh	KEGG	hypermethylated	hsa04919	Thyroid hormone signaling pathway	121	33	0.596834146387996	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04920	Adipocytokine signaling pathway	70	15	0.822322199263337	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04921	Oxytocin signaling pathway	153	53	0.0477202748095771	0.394487605092504
+missMethyl_gometh	KEGG	hypermethylated	hsa04922	Glucagon signaling pathway	105	23	0.6682525773361	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04923	Regulation of lipolysis in adipocytes	57	18	0.247716031672743	0.921503637822604
+missMethyl_gometh	KEGG	hypermethylated	hsa04924	Renin secretion	69	21	0.134457938335194	0.658136224482794
+missMethyl_gometh	KEGG	hypermethylated	hsa04925	Aldosterone synthesis and secretion	98	30	0.344259886010876	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04926	Relaxin signaling pathway	129	37	0.251803462275353	0.927434534321102
+missMethyl_gometh	KEGG	hypermethylated	hsa04927	Cortisol synthesis and secretion	65	23	0.131423643058416	0.658136224482794
+missMethyl_gometh	KEGG	hypermethylated	hsa04928	Parathyroid hormone synthesis, secretion and action	115	41	0.0897501815773029	0.579161973778478
+missMethyl_gometh	KEGG	hypermethylated	hsa04929	GnRH secretion	64	22	0.218155070310217	0.854249327951586
+missMethyl_gometh	KEGG	hypermethylated	hsa04930	Type II diabetes mellitus	46	19	0.100435444153314	0.597952651723566
+missMethyl_gometh	KEGG	hypermethylated	hsa04931	Insulin resistance	108	26	0.693555747775476	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04932	Non-alcoholic fatty liver disease	150	24	0.960192560815143	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04933	AGE-RAGE signaling pathway in diabetic complications	100	34	0.0407210369808131	0.364520269387781
+missMethyl_gometh	KEGG	hypermethylated	hsa04934	Cushing syndrome	155	50	0.18871370832315	0.788780893215863
+missMethyl_gometh	KEGG	hypermethylated	hsa04935	Growth hormone synthesis, secretion and action	121	36	0.344785242048468	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04936	Alcoholic liver disease	133	23	0.904544761445867	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04940	Type I diabetes mellitus	42	12	0.671170999899021	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04950	Maturity onset diabetes of the young	26	15	0.000617867463374247	0.0179961729917075
+missMethyl_gometh	KEGG	hypermethylated	hsa04960	Aldosterone-regulated sodium reabsorption	37	12	0.349190563553221	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04961	Endocrine and other factor-regulated calcium reabsorption	53	12	0.796416238033065	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04962	Vasopressin-regulated water reabsorption	44	7	0.912381323827274	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04964	Proximal tubule bicarbonate reclamation	23	4	0.713722648668991	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04966	Collecting duct acid secretion	27	6	0.574670867640915	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04970	Salivary secretion	92	22	0.425489639187752	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04971	Gastric acid secretion	76	22	0.499951867494709	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04972	Pancreatic secretion	101	27	0.132104172075057	0.658136224482794
+missMethyl_gometh	KEGG	hypermethylated	hsa04973	Carbohydrate digestion and absorption	45	12	0.32363792839016	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04974	Protein digestion and absorption	102	33	0.0296428785799527	0.290188179782695
+missMethyl_gometh	KEGG	hypermethylated	hsa04975	Fat digestion and absorption	43	7	0.693810251689336	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04976	Bile secretion	89	18	0.533761411374883	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04977	Vitamin digestion and absorption	26	8	0.17572780962137	0.7601249439436
+missMethyl_gometh	KEGG	hypermethylated	hsa04978	Mineral absorption	59	10	0.753834915122225	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04979	Cholesterol metabolism	51	11	0.587988606393667	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04980	Cobalamin transport and metabolism	18	1	0.969461156905934	1
+missMethyl_gometh	KEGG	hypermethylated	hsa04981	Folate transport and metabolism	29	6	0.510403449466419	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05010	Alzheimer disease	366	76	0.901047199726201	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05012	Parkinson disease	249	40	0.987059634520085	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05014	Amyotrophic lateral sclerosis	347	50	0.999290310786088	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05016	Huntington disease	288	39	0.999894574725291	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05017	Spinocerebellar ataxia	140	37	0.452415467312242	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05020	Prion disease	255	44	0.937039743546683	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05022	Pathways of neurodegeneration - multiple diseases	458	98	0.881199329677203	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05030	Cocaine addiction	49	18	0.149592029721703	0.699961949225112
+missMethyl_gometh	KEGG	hypermethylated	hsa05031	Amphetamine addiction	69	23	0.158853534302942	0.711970057357764
+missMethyl_gometh	KEGG	hypermethylated	hsa05032	Morphine addiction	91	33	0.12265527403435	0.64264453437716
+missMethyl_gometh	KEGG	hypermethylated	hsa05033	Nicotine addiction	41	21	0.00116149100568539	0.0288049769409977
+missMethyl_gometh	KEGG	hypermethylated	hsa05034	Alcoholism	174	44	0.116227417972993	0.625623911527766
+missMethyl_gometh	KEGG	hypermethylated	hsa05100	Bacterial invasion of epithelial cells	77	23	0.429206380576109	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05110	Vibrio cholerae infection	50	13	0.485153486864865	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05120	Epithelial cell signaling in Helicobacter pylori infection	70	23	0.0474673064038313	0.394487605092504
+missMethyl_gometh	KEGG	hypermethylated	hsa05130	Pathogenic Escherichia coli infection	194	50	0.338827179019143	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05131	Shigellosis	240	50	0.890602757118445	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05132	Salmonella infection	245	41	0.994883553432777	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05133	Pertussis	76	16	0.341169146192624	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05134	Legionellosis	56	12	0.665972958304078	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05135	Yersinia infection	134	34	0.574780000133343	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05140	Leishmaniasis	75	18	0.552108204259445	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05142	Chagas disease	101	21	0.742056029007317	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05143	African trypanosomiasis	36	7	0.504630922107618	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05144	Malaria	49	10	0.511779833326876	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05145	Toxoplasmosis	110	25	0.882667371035494	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05146	Amoebiasis	100	25	0.409822475536821	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05150	Staphylococcus aureus infection	90	10	0.928442862847564	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05152	Tuberculosis	169	35	0.768032293091012	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05160	Hepatitis C	144	32	0.686350031082086	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05161	Hepatitis B	153	38	0.553880043898754	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05162	Measles	126	24	0.77599583068679	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05163	Human cytomegalovirus infection	217	56	0.554358066083235	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05164	Influenza A	158	32	0.750049835032373	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05165	Human papillomavirus infection	321	105	0.0246453898822344	0.271571558877157
+missMethyl_gometh	KEGG	hypermethylated	hsa05166	Human T-cell leukemia virus 1 infection	220	57	0.663989862622366	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05167	Kaposi sarcoma-associated herpesvirus infection	184	51	0.207220662227166	0.828882648908666
+missMethyl_gometh	KEGG	hypermethylated	hsa05168	Herpes simplex virus 1 infection	167	35	0.85493279496282	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05169	Epstein-Barr virus infection	191	39	0.96853821056151	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05170	Human immunodeficiency virus 1 infection	202	39	0.966794825992274	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05171	Coronavirus disease	221	23	0.998890650623255	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05200	Pathways in cancer	522	168	0.0019631337560266	0.0429579857201115
+missMethyl_gometh	KEGG	hypermethylated	hsa05202	Transcriptional misregulation in cancer	192	65	0.0098544642063289	0.159385247163233
+missMethyl_gometh	KEGG	hypermethylated	hsa05203	Viral carcinogenesis	193	50	0.373744406264628	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05204	Chemical carcinogenesis - DNA adducts	69	11	0.228338185123612	0.87043105463844
+missMethyl_gometh	KEGG	hypermethylated	hsa05205	Proteoglycans in cancer	202	68	0.0669153896063063	0.481950172290417
+missMethyl_gometh	KEGG	hypermethylated	hsa05206	MicroRNAs in cancer	305	75	0.0261867124384667	0.271571558877157
+missMethyl_gometh	KEGG	hypermethylated	hsa05207	Chemical carcinogenesis - receptor activation	215	57	0.154292687732417	0.699961949225112
+missMethyl_gometh	KEGG	hypermethylated	hsa05208	Chemical carcinogenesis - reactive oxygen species	210	36	0.925156748530895	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05210	Colorectal cancer	86	26	0.338332367207257	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05211	Renal cell carcinoma	68	19	0.549976746960575	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05212	Pancreatic cancer	76	25	0.17932826306512	0.766782917933619
+missMethyl_gometh	KEGG	hypermethylated	hsa05213	Endometrial cancer	58	19	0.41609247420019	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05214	Glioma	75	26	0.15266961051962	0.699961949225112
+missMethyl_gometh	KEGG	hypermethylated	hsa05215	Prostate cancer	105	36	0.104021585193417	0.597952651723566
+missMethyl_gometh	KEGG	hypermethylated	hsa05216	Thyroid cancer	37	14	0.150671677129582	0.699961949225112
+missMethyl_gometh	KEGG	hypermethylated	hsa05217	Basal cell carcinoma	63	27	0.0204172907908063	0.248401527559049
+missMethyl_gometh	KEGG	hypermethylated	hsa05218	Melanoma	72	28	0.027193837344164	0.273408310595379
+missMethyl_gometh	KEGG	hypermethylated	hsa05219	Bladder cancer	41	11	0.675009131551549	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05220	Chronic myeloid leukemia	76	25	0.194668783743344	0.79243326537639
+missMethyl_gometh	KEGG	hypermethylated	hsa05221	Acute myeloid leukemia	67	19	0.508012074980366	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05222	Small cell lung cancer	92	24	0.612918568501946	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05223	Non-small cell lung cancer	72	27	0.115295033683663	0.625623911527766
+missMethyl_gometh	KEGG	hypermethylated	hsa05224	Breast cancer	147	52	0.0675073032760632	0.481950172290417
+missMethyl_gometh	KEGG	hypermethylated	hsa05225	Hepatocellular carcinoma	169	57	0.0460781519713136	0.394487605092504
+missMethyl_gometh	KEGG	hypermethylated	hsa05226	Gastric cancer	149	55	0.0201069524227074	0.248401527559049
+missMethyl_gometh	KEGG	hypermethylated	hsa05230	Central carbon metabolism in cancer	70	19	0.636689316946271	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05231	Choline metabolism in cancer	97	29	0.358290936963891	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05235	PD-L1 expression and PD-1 checkpoint pathway in cancer	89	19	0.796120166365919	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05310	Asthma	29	4	0.959049095791953	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05320	Autoimmune thyroid disease	43	8	0.916987115381083	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05321	Inflammatory bowel disease	64	15	0.61781987345472	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05322	Systemic lupus erythematosus	121	21	0.522716868596761	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05323	Rheumatoid arthritis	91	22	0.346788575991194	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05330	Allograft rejection	36	6	0.97084106141991	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05332	Graft-versus-host disease	39	7	0.932407383042457	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05340	Primary immunodeficiency	36	5	0.886865224460966	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05410	Hypertrophic cardiomyopathy	99	43	0.000450896533323664	0.0152485009451276
+missMethyl_gometh	KEGG	hypermethylated	hsa05412	Arrhythmogenic right ventricular cardiomyopathy	86	48	6.01052360490965e-07	6.2960805057832e-05
+missMethyl_gometh	KEGG	hypermethylated	hsa05414	Dilated cardiomyopathy	104	48	9.07127015276982e-05	0.00421814062103797
+missMethyl_gometh	KEGG	hypermethylated	hsa05415	Diabetic cardiomyopathy	187	39	0.649557207183374	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05416	Viral myocarditis	67	22	0.42381581100166	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05417	Lipid and atherosclerosis	206	48	0.451921593755383	1
+missMethyl_gometh	KEGG	hypermethylated	hsa05418	Fluid shear stress and atherosclerosis	141	39	0.148599797242336	0.699961949225112
