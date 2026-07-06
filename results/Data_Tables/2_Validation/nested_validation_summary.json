@@ -1,0 +1,29 @@
+{
+  "original_phase4_internal_cv": {
+    "roc_auc_mean": 0.9963924050632912,
+    "roc_auc_std": 0.0032725294968623314,
+    "roc_auc_per_fold": [
+      0.9990506329113924,
+      0.9955696202531645,
+      1.0,
+      0.9966688874083944,
+      0.9906728847435045
+    ]
+  },
+  "nested_internal_cv": {
+    "model": "logistic_regression",
+    "cv_folds": 5,
+    "feature_selection": "Within each fold, retained probes are re-ranked by absolute delta-beta using training samples only.",
+    "candidate_feature_space": "Retained tumor_vs_normal probe universe from unsupervised QC; full-cohort differential rankings are not reused.",
+    "n_features_per_fold": 20,
+    "roc_auc_mean": 0.9959968406806364,
+    "roc_auc_std": 0.003348721618705856,
+    "roc_auc_per_fold": [
+      0.9981012658227848,
+      0.9962025316455696,
+      0.9993379675604105,
+      0.9966688874083944,
+      0.9896735509660227
+    ]
+  }
+}
