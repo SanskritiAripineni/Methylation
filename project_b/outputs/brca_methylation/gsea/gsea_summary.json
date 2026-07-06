@@ -41,7 +41,7 @@
     "methyl_hypo": []
   },
   "significant_sets_by_output": {
-    "methylGSA_go_all": {
+    "methylgsa_methylrra_gsea_go_all": {
       "p_adjust_column": "padj",
       "n_significant": 2229,
       "significant_terms": [
@@ -2276,7 +2276,7 @@
         "GO:2001257"
       ]
     },
-    "methylGSA_go_hypermethylated": {
+    "methylgsa_methylrra_gsea_go_hypermethylated": {
       "p_adjust_column": "padj",
       "n_significant": 1706,
       "significant_terms": [
@@ -3988,7 +3988,7 @@
         "GO:2001258"
       ]
     },
-    "methylGSA_go_hypomethylated": {
+    "methylgsa_methylrra_gsea_go_hypomethylated": {
       "p_adjust_column": "padj",
       "n_significant": 544,
       "significant_terms": [
@@ -4538,7 +4538,7 @@
         "GO:2000463"
       ]
     },
-    "methylGSA_kegg_all": {
+    "methylgsa_methylrra_gsea_kegg_all": {
       "p_adjust_column": "padj",
       "n_significant": 40,
       "significant_terms": [
@@ -4584,7 +4584,7 @@
         "563"
       ]
     },
-    "methylGSA_kegg_hypermethylated": {
+    "methylgsa_methylrra_gsea_kegg_hypermethylated": {
       "p_adjust_column": "padj",
       "n_significant": 23,
       "significant_terms": [
@@ -4613,7 +4613,7 @@
         "5414"
       ]
     },
-    "methylGSA_kegg_hypomethylated": {
+    "methylgsa_methylrra_gsea_kegg_hypomethylated": {
       "p_adjust_column": "padj",
       "n_significant": 21,
       "significant_terms": [
@@ -4640,7 +4640,7 @@
         "5416"
       ]
     },
-    "methylGSA_longevity_all": {
+    "methylgsa_methylrra_gsea_longevity_all": {
       "p_adjust_column": "padj",
       "n_significant": 2,
       "significant_terms": [
@@ -4648,17 +4648,17 @@
         "kegg_pluripotency_stem_cell_signaling"
       ]
     },
-    "methylGSA_longevity_hypermethylated": {
+    "methylgsa_methylrra_gsea_longevity_hypermethylated": {
       "p_adjust_column": "padj",
       "n_significant": 0,
       "significant_terms": []
     },
-    "methylGSA_longevity_hypomethylated": {
+    "methylgsa_methylrra_gsea_longevity_hypomethylated": {
       "p_adjust_column": "padj",
       "n_significant": 0,
       "significant_terms": []
     },
-    "methylGSA_reactome_all": {
+    "methylgsa_methylrra_gsea_reactome_all": {
       "p_adjust_column": "padj",
       "n_significant": 184,
       "significant_terms": [
@@ -4848,7 +4848,7 @@
         "reactome:Voltage gated Potassium channels [R-HSA-1296072]"
       ]
     },
-    "methylGSA_reactome_hypermethylated": {
+    "methylgsa_methylrra_gsea_reactome_hypermethylated": {
       "p_adjust_column": "padj",
       "n_significant": 70,
       "significant_terms": [
@@ -4924,7 +4924,7 @@
         "reactome:Voltage gated Potassium channels [R-HSA-1296072]"
       ]
     },
-    "methylGSA_reactome_hypomethylated": {
+    "methylgsa_methylrra_gsea_reactome_hypomethylated": {
       "p_adjust_column": "padj",
       "n_significant": 42,
       "significant_terms": [
@@ -4972,7 +4972,32 @@
         "reactome:Voltage gated Potassium channels [R-HSA-1296072]"
       ]
     },
-    "missMethyl_gometh_go_hypermethylated": {
+    "methylgsa_methylrra_gsea_supervisor_arrays_all": {
+      "p_adjust_column": "padj",
+      "n_significant": 7,
+      "significant_terms": [
+        "02. Sirtuins",
+        "09. IGF / Insulin Signaling",
+        "13. BMP / GDF Signaling",
+        "14. EGF / EGFR Signaling",
+        "14. FGF Family",
+        "15. ECM / Skin Aging",
+        "16. Wnt Signaling"
+      ]
+    },
+    "methylgsa_methylrra_gsea_supervisor_arrays_hypermethylated": {
+      "p_adjust_column": "padj",
+      "n_significant": 1,
+      "significant_terms": [
+        "15. ECM / Skin Aging"
+      ]
+    },
+    "methylgsa_methylrra_gsea_supervisor_arrays_hypomethylated": {
+      "p_adjust_column": "padj",
+      "n_significant": 0,
+      "significant_terms": []
+    },
+    "missmethyl_gometh_go_hypermethylated": {
       "p_adjust_column": "FDR",
       "n_significant": 746,
       "significant_terms": [
@@ -5724,7 +5749,7 @@
         "GO:2001054"
       ]
     },
-    "missMethyl_gometh_go_hypomethylated": {
+    "missmethyl_gometh_go_hypomethylated": {
       "p_adjust_column": "FDR",
       "n_significant": 109,
       "significant_terms": [
@@ -5839,7 +5864,7 @@
         "GO:1904862"
       ]
     },
-    "missMethyl_gometh_kegg_hypermethylated": {
+    "missmethyl_gometh_kegg_hypermethylated": {
       "p_adjust_column": "FDR",
       "n_significant": 17,
       "significant_terms": [
@@ -5862,7 +5887,7 @@
         "hsa05414"
       ]
     },
-    "missMethyl_gometh_kegg_hypomethylated": {
+    "missmethyl_gometh_kegg_hypomethylated": {
       "p_adjust_column": "FDR",
       "n_significant": 7,
       "significant_terms": [
@@ -5875,19 +5900,19 @@
         "hsa05033"
       ]
     },
-    "missMethyl_gsameth_longevity_hypermethylated": {
+    "missmethyl_gsameth_longevity_hypermethylated": {
       "p_adjust_column": "FDR",
       "n_significant": 1,
       "significant_terms": [
         "reactome_pluripotent_stem_cell_transcription"
       ]
     },
-    "missMethyl_gsameth_longevity_hypomethylated": {
+    "missmethyl_gsameth_longevity_hypomethylated": {
       "p_adjust_column": "FDR",
       "n_significant": 0,
       "significant_terms": []
     },
-    "missMethyl_gsameth_reactome_hypermethylated": {
+    "missmethyl_gsameth_reactome_hypermethylated": {
       "p_adjust_column": "FDR",
       "n_significant": 20,
       "significant_terms": [
@@ -5913,7 +5938,7 @@
         "reactome:Voltage gated Potassium channels [R-HSA-1296072]"
       ]
     },
-    "missMethyl_gsameth_reactome_hypomethylated": {
+    "missmethyl_gsameth_reactome_hypomethylated": {
       "p_adjust_column": "FDR",
       "n_significant": 4,
       "significant_terms": [
@@ -5922,6 +5947,16 @@
         "reactome:Olfactory Signaling Pathway [R-HSA-381753]",
         "reactome:Sensory Perception [R-HSA-9709957]"
       ]
+    },
+    "missmethyl_gsameth_supervisor_arrays_hypermethylated": {
+      "p_adjust_column": "FDR",
+      "n_significant": 0,
+      "significant_terms": []
+    },
+    "missmethyl_gsameth_supervisor_arrays_hypomethylated": {
+      "p_adjust_column": "FDR",
+      "n_significant": 0,
+      "significant_terms": []
     }
   },
   "verdict_inputs": {
@@ -6160,5 +6195,132 @@
       }
     ],
     "terc_core_rows": []
-  }
+  },
+  "updated_at": "2026-07-06T12:04:52-05:00",
+  "supervisor_arrays_significant_sets": {
+    "ora_hyper": [
+      "09. IGF / Insulin Signaling",
+      "13. TGF-beta Signaling",
+      "14. EGF / EGFR Signaling",
+      "14. FGF Family",
+      "14. Neurotrophins",
+      "14. PDGF Signaling",
+      "15. ECM / Skin Aging",
+      "16. Wnt Signaling",
+      "18. Oncogenes / Tumor Suppressors"
+    ],
+    "ora_hypo": [
+      "14. EGF / EGFR Signaling",
+      "15. ECM / Skin Aging"
+    ],
+    "miss_hyper": [],
+    "miss_hypo": [],
+    "methyl_all": [
+      "02. Sirtuins",
+      "09. IGF / Insulin Signaling",
+      "13. BMP / GDF Signaling",
+      "14. EGF / EGFR Signaling",
+      "14. FGF Family",
+      "15. ECM / Skin Aging",
+      "16. Wnt Signaling"
+    ],
+    "methyl_hyper": [
+      "15. ECM / Skin Aging"
+    ],
+    "methyl_hypo": []
+  },
+  "supervisor_arrays_focus_verdict": [
+    {
+      "term": "14. FGF Family",
+      "p": 0.0059589141995815,
+      "adj_p": 0.0264840631092512,
+      "missmethyl_fdr": 0.49921765819791,
+      "methylgsa_direction_padj": 0.243506493506494,
+      "methylgsa_all_padj": 0.0104575197526533,
+      "survives_missmethyl_bias_correction": false,
+      "rank_based_support_hyper_direction": false,
+      "rank_based_support_all_pvalues": true,
+      "verdict": "collapses under missMethyl; retains methylRRA rank support",
+      "overlap_n": 13,
+      "overlap_genes": "FGF1,FGF11,FGF12,FGF18,FGF19,FGF2,FGF22,FGF3,FGF5,FGF8,FGF9,FGFR1,TNFRSF12A"
+    },
+    {
+      "term": "09. IGF / Insulin Signaling",
+      "p": 0.0004045102346609,
+      "adj_p": 0.0040451023466097,
+      "missmethyl_fdr": 0.276995774668122,
+      "methylgsa_direction_padj": 0.170519304906333,
+      "methylgsa_all_padj": 0.0280323941163676,
+      "survives_missmethyl_bias_correction": false,
+      "rank_based_support_hyper_direction": false,
+      "rank_based_support_all_pvalues": true,
+      "verdict": "collapses under missMethyl; retains methylRRA rank support",
+      "overlap_n": 11,
+      "overlap_genes": "CCN1,IGF1,IGF2,IGF2BP1,IGF2BP2,IGF2BP3,IGF2R,IGFBP3,IGFBP4,IGFBP6,PAPPA"
+    },
+    {
+      "term": "16. Wnt Signaling",
+      "p": 0.0011597091200591,
+      "adj_p": 0.0077313941337273,
+      "missmethyl_fdr": 0.420314469804497,
+      "methylgsa_direction_padj": 0.170519304906333,
+      "methylgsa_all_padj": 0.0104575197526533,
+      "survives_missmethyl_bias_correction": false,
+      "rank_based_support_hyper_direction": false,
+      "rank_based_support_all_pvalues": true,
+      "verdict": "collapses under missMethyl; retains methylRRA rank support",
+      "overlap_n": 11,
+      "overlap_genes": "CCN4,WIF1,WNT1,WNT10A,WNT11,WNT16,WNT2,WNT3A,WNT5B,WNT7B,WNT9B"
+    },
+    {
+      "term": "13. TGF-beta Signaling",
+      "p": 0.0002523153216136,
+      "adj_p": 0.0033642042881826,
+      "missmethyl_fdr": 0.403114185838018,
+      "methylgsa_direction_padj": 0.269185360094451,
+      "methylgsa_all_padj": 0.0701283321712935,
+      "survives_missmethyl_bias_correction": false,
+      "rank_based_support_hyper_direction": false,
+      "rank_based_support_all_pvalues": false,
+      "verdict": "collapses under methylation-aware testing",
+      "overlap_n": 13,
+      "overlap_genes": "EIF3I,GFRA2,KLF11,LEFTY2,LTBP1,LTBP2,LTBP4,TGFB1I1,TGFB2,TGFBI,TGFBR1,TGFBR2,TGFBR3"
+    },
+    {
+      "term": "15. ECM / Skin Aging",
+      "p": 1.19331143652464e-07,
+      "adj_p": 4.77324574609857e-06,
+      "missmethyl_fdr": 0.207521921315863,
+      "methylgsa_direction_padj": 8.11538763019142e-05,
+      "methylgsa_all_padj": 9.25621175100578e-06,
+      "survives_missmethyl_bias_correction": false,
+      "rank_based_support_hyper_direction": true,
+      "rank_based_support_all_pvalues": true,
+      "verdict": "collapses under missMethyl; retains methylRRA rank support",
+      "overlap_n": 38,
+      "overlap_genes": "ADAMTS2,ADAMTS3,COL11A1,COL11A2,COL12A1,COL14A1,COL1A1,COL1A2,COL23A1,COL25A1,COL26A1,COL3A1,COL4A1,COL4A2,COL5A2,COL6A2,COL8A2,COL9A3,COLGALT2,ELN,EMILIN1,EMILIN2,FLRT2,HAS1,ITGA5,ITGB1,LAMA1,LAMA2,LAMA4,LAMB1,LGALS3,LRFN1,LRFN5,MMRN2,P4HA2,TIMP2,TIMP3,TRIM46"
+    }
+  ],
+  "supervisor_arrays_focus_summary": {
+    "survive_missmethyl_bias_correction": [],
+    "collapse_under_missmethyl_bias_correction": [
+      "14. FGF Family",
+      "09. IGF / Insulin Signaling",
+      "16. Wnt Signaling",
+      "13. TGF-beta Signaling",
+      "15. ECM / Skin Aging"
+    ],
+    "rank_based_support_without_missmethyl_survival": [
+      "14. FGF Family",
+      "09. IGF / Insulin Signaling",
+      "16. Wnt Signaling",
+      "15. ECM / Skin Aging"
+    ]
+  },
+  "bias_correction_references": [
+    "Geeleher et al. 2013, Bioinformatics 29(15):1851",
+    "Phipson, Maksimovic & Oshlack 2016, Bioinformatics 32(2):286",
+    "Maksimovic et al. 2021, Genome Biology 22:173",
+    "Ohm/Widschwendter 2007 Polycomb/stem-cell target hypermethylation cancer literature counterpoint"
+  ]
 }

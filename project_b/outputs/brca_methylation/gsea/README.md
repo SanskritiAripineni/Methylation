@@ -57,3 +57,10 @@ The script discovers `project_b/brca_local_inputs.json`, reads `outputs/brca_met
 - IlluminaHumanMethylation450kmanifest: 0.4.0
 - org.Hs.eg.db: 3.20.0
 - reactome.db: 1.89.0
+## Bias-Correction References
+
+- Geeleher et al. 2013, Bioinformatics 29(15):1851: gene-set analysis is severely biased on genome-wide methylation arrays when probe-number bias is ignored.
+- Phipson, Maksimovic & Oshlack 2016, Bioinformatics 32(2):286: missMethyl/gometh probe-number-bias correction for Illumina methylation arrays.
+- Maksimovic et al. 2021, Genome Biology 22:173: GSEA methods for genome-wide methylation data.
+- Biological counterpoint: Polycomb/stem-cell target hypermethylation in cancer is real biology in the Ohm/Widschwendter 2007 literature, but it is confounded with HM450 CpG-island/promoter probe-density bias in pathway-level tests.
+

@@ -48,6 +48,12 @@ write_tsv <- function(x, path) {
   write.table(x, path, sep = "\t", quote = FALSE, row.names = FALSE, na = "")
 }
 
+read_tsv_if_exists <- function(path) {
+  if (!file.exists(path)) return(NULL)
+  message("Reusing existing output: ", path)
+  read.delim(path, check.names = FALSE, stringsAsFactors = FALSE)
+}
+
 read_gmt_symbols <- function(path) {
   lines <- readLines(path, warn = FALSE)
   sets <- list()
@@ -145,6 +151,9 @@ add_method_columns <- function(df, method, collection, direction) {
 }
 
 run_gometh_collection <- function(sig_cpg, all_cpg, collection, direction, anno, output_dir) {
+  output_path <- file.path(output_dir, paste0("missmethyl_gometh_", tolower(collection), "_", direction, ".tsv"))
+  existing <- read_tsv_if_exists(output_path)
+  if (!is.null(existing)) return(existing)
   message("Running missMethyl gometh: ", collection, " / ", direction)
   res <- missMethyl::gometh(
     sig.cpg = sig_cpg,
@@ -160,11 +169,14 @@ run_gometh_collection <- function(sig_cpg, all_cpg, collection, direction, anno,
     sig.genes = FALSE
   )
   df <- add_method_columns(as_result_table(res), "missMethyl_gometh", collection, direction)
-  write_tsv(df, file.path(output_dir, paste0("missmethyl_gometh_", tolower(collection), "_", direction, ".tsv")))
+  write_tsv(df, output_path)
   df
 }
 
 run_gsameth_collection <- function(sig_cpg, all_cpg, sets, collection_name, direction, anno, output_dir) {
+  output_path <- file.path(output_dir, paste0("missmethyl_gsameth_", collection_name, "_", direction, ".tsv"))
+  existing <- read_tsv_if_exists(output_path)
+  if (!is.null(existing)) return(existing)
   message("Running missMethyl gsameth: ", collection_name, " / ", direction)
   res <- missMethyl::gsameth(
     sig.cpg = sig_cpg,
@@ -180,12 +192,15 @@ run_gsameth_collection <- function(sig_cpg, all_cpg, sets, collection_name, dire
     sig.genes = FALSE
   )
   df <- add_method_columns(as_result_table(res), "missMethyl_gsameth", collection_name, direction)
-  write_tsv(df, file.path(output_dir, paste0("missmethyl_gsameth_", collection_name, "_", direction, ".tsv")))
+  write_tsv(df, output_path)
   df
 }
 
 run_methylrra_collection <- function(pvals, sets, collection_name, direction, output_dir,
                                      minsize = 5, maxsize = 1000, gs_idtype = "ENTREZID") {
+  output_path <- file.path(output_dir, paste0("methylgsa_methylrra_gsea_", collection_name, "_", direction, ".tsv"))
+  existing <- read_tsv_if_exists(output_path)
+  if (!is.null(existing)) return(existing)
   message("Running methylGSA methylRRA GSEA: ", collection_name, " / ", direction)
   set.seed(20260706)
   res <- methylGSA::methylRRA(
@@ -199,11 +214,14 @@ run_methylrra_collection <- function(pvals, sets, collection_name, direction, ou
     maxsize = maxsize
   )
   df <- add_method_columns(as_result_table(res, term_col = "term"), "methylGSA_methylRRA_GSEA", collection_name, direction)
-  write_tsv(df, file.path(output_dir, paste0("methylgsa_methylrra_gsea_", collection_name, "_", direction, ".tsv")))
+  write_tsv(df, output_path)
   df
 }
 
 run_methylrra_builtin <- function(pvals, gs_type, direction, output_dir, minsize = 10, maxsize = 1000) {
+  output_path <- file.path(output_dir, paste0("methylgsa_methylrra_gsea_", tolower(gs_type), "_", direction, ".tsv"))
+  existing <- read_tsv_if_exists(output_path)
+  if (!is.null(existing)) return(existing)
   message("Running methylGSA methylRRA GSEA built-in: ", gs_type, " / ", direction)
   set.seed(20260706)
   res <- methylGSA::methylRRA(
@@ -218,7 +236,7 @@ run_methylrra_builtin <- function(pvals, gs_type, direction, output_dir, minsize
     maxsize = maxsize
   )
   df <- add_method_columns(as_result_table(res, term_col = "term"), "methylGSA_methylRRA_GSEA", gs_type, direction)
-  write_tsv(df, file.path(output_dir, paste0("methylgsa_methylrra_gsea_", tolower(gs_type), "_", direction, ".tsv")))
+  write_tsv(df, output_path)
   df
 }
 
@@ -458,6 +476,8 @@ write_methods_readme <- function(path, counts, package_versions, supervisor_arra
     "- methylGSA retrieves built-in KEGG annotations through KEGG REST during the run. The curated longevity comparison remains pinned to the Phase 3 GMT on disk.",
     "- missMethyl uses hg19 gene annotation for enrichment. This is acceptable here because the enrichment test is gene-membership based and does not alter the Phase 0/Phase 2 hg38 site maps or coordinate-level biological claims.",
     "- Methylation enrichment does not imply expression repression except for promoter-context CpGs. Body/intergenic methylation remains mechanistically ambiguous.",
+    "- Bias-correction references: Geeleher et al. 2013, Bioinformatics 29(15):1851; Phipson, Maksimovic & Oshlack 2016, Bioinformatics 32(2):286; Maksimovic et al. 2021, Genome Biology 22:173.",
+    "- Biological counterpoint: Polycomb/stem-cell target hypermethylation in cancer is real biology in the Ohm/Widschwendter 2007 literature, but it is confounded with HM450 CpG-island/promoter probe-density bias in pathway-level tests.",
     "",
     "## Probe accounting",
     "",
@@ -643,7 +663,13 @@ write_comparison_md <- function(path, comparison, summary_lists, terc_rows, supe
     table_lines,
     "",
     "Full per-set comparison: `gsea_vs_ora.tsv`.",
-    supervisor_lines
+    supervisor_lines,
+    "",
+    "## Methods Caveat And References",
+    "",
+    "HM450 gene-set enrichment is vulnerable to probe-number and probe-placement bias: genes represented by more CpGs are more likely to be called hit genes. The bias problem is described by Geeleher et al. 2013, Bioinformatics 29(15):1851. The missMethyl/gometh correction used here follows Phipson, Maksimovic & Oshlack 2016, Bioinformatics 32(2):286. The rank-based methylation GSEA cross-check follows the methylGSA framing from Maksimovic et al. 2021, Genome Biology 22:173.",
+    "",
+    "Counterpoint: Polycomb/stem-cell target hypermethylation in cancer is real biology reported in the Ohm/Widschwendter 2007 literature, but in HM450 pathway analysis that signal is confounded with CpG-island/promoter probe-density bias. Treat surviving enrichments as hypotheses, not direct expression or causal-aging claims."
   )
   writeLines(lines, path)
 }
@@ -768,7 +794,9 @@ main <- function() {
   ))
   methyl_longevity_all <- methyl_results[["longevity_all"]]
   comparison <- make_comparison(ora_df, miss_longevity, methyl_longevity_dir, methyl_longevity_all)
-  write_tsv(comparison, file.path(gsea_dir, "gsea_vs_ora.tsv"))
+  comparison$comparison_collection <- "phase3_longevity"
+  comparison$collection_note <- ""
+  write_tsv(comparison, file.path(gsea_dir, "phase3_longevity_gsea_vs_ora.tsv"))
 
   miss_supervisor <- do.call(rbind, list(
     miss_results[["supervisor_arrays_hypermethylated"]],
@@ -780,9 +808,15 @@ main <- function() {
   ))
   methyl_supervisor_all <- methyl_results[["supervisor_arrays_all"]]
   supervisor_comparison <- make_supervisor_arrays_comparison(supervisor_ora, miss_supervisor, methyl_supervisor_dir, methyl_supervisor_all)
+  supervisor_comparison$comparison_collection <- "supervisor_arrays"
   write_tsv(supervisor_comparison, file.path(gsea_dir, "supervisor_arrays_gsea_vs_ora.tsv"))
   supervisor_focus <- make_supervisor_focus_verdict(supervisor_comparison)
   write_tsv(supervisor_focus, file.path(gsea_dir, "supervisor_arrays_focus_verdict.tsv"))
+  combined_comparison <- rbind(
+    comparison[, names(supervisor_comparison), drop = FALSE],
+    supervisor_comparison
+  )
+  write_tsv(combined_comparison, file.path(gsea_dir, "gsea_vs_ora.tsv"))
 
   summary_lists <- list(
     ora_hyper = sig_terms(ora_df[ora_df$direction == "hypermethylated", ], "adj_p"),
