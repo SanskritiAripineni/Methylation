@@ -1,0 +1,41 @@
+method	collection	direction	term	N	DE	P.DE	FDR
+missMethyl_gsameth	supervisor_arrays	hypermethylated	01. Telomere Maintenance	14	4	0.307493722133441	0.683319382518757
+missMethyl_gsameth	supervisor_arrays	hypermethylated	02. Sirtuins	6	0	1	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	03. AMPK Pathway	5	1	0.718717144771478	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	03. FOXO Pathway	1	0	0.999999999992324	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	03. mTOR Pathway	11	1	0.943404658708021	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	04. Autophagy	15	3	0.70420592755481	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	04. Heat Shock / Chaperones	49	7	0.889195532293778	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	04. Proteasome / Proteostasis	45	0	1	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	05. DNA Damage & Repair	145	30	0.818597215438171	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	05. Epigenetic Regulators	13	1	0.973577873452058	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	06. Cell Cycle Regulators	128	28	0.769138942122479	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	06. Cellular Senescence / SASP	6	1	0.549018650206303	0.954815043837049
+missMethyl_gsameth	supervisor_arrays	hypermethylated	07. Apoptosis	116	19	0.929408241156116	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	08. Antioxidant / Oxidative Stress	59	13	0.306018600724955	0.683319382518757
+missMethyl_gsameth	supervisor_arrays	hypermethylated	08. Mitochondrial Function	261	25	0.999984833850128	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	09. Growth Hormone Axis	8	2	0.34746495425634	0.69492990851268
+missMethyl_gsameth	supervisor_arrays	hypermethylated	09. IGF / Insulin Signaling	20	11	0.0138497887334061	0.276995774668122
+missMethyl_gsameth	supervisor_arrays	hypermethylated	10. FGF21-FGF23-Klotho Axis	6	3	0.0496276663607591	0.403114185838018
+missMethyl_gsameth	supervisor_arrays	hypermethylated	10. GDF Aging Biomarkers	3	0	1	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	11. Metabolic Hormones	5	2	0.336914371181092	0.69492990851268
+missMethyl_gsameth	supervisor_arrays	hypermethylated	11. NAD+ Metabolism	4	1	0.709068638996968	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	12. Stem Cell Regulation	11	4	0.0749915222768992	0.403114185838018
+missMethyl_gsameth	supervisor_arrays	hypermethylated	13. BMP / GDF Signaling	19	8	0.161335127299404	0.49921765819791
+missMethyl_gsameth	supervisor_arrays	hypermethylated	13. TGF-beta Signaling	28	13	0.0347758644577716	0.403114185838018
+missMethyl_gsameth	supervisor_arrays	hypermethylated	14. EGF / EGFR Signaling	30	12	0.138411547584994	0.49921765819791
+missMethyl_gsameth	supervisor_arrays	hypermethylated	14. FGF Family	35	12	0.162245738914321	0.49921765819791
+missMethyl_gsameth	supervisor_arrays	hypermethylated	14. HGF Signaling	7	0	1	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	14. Neurotrophins	11	6	0.0907006918135541	0.403114185838018
+missMethyl_gsameth	supervisor_arrays	hypermethylated	14. PDGF Signaling	8	5	0.0613952183229247	0.403114185838018
+missMethyl_gsameth	supervisor_arrays	hypermethylated	14. VEGF / Angiogenesis	11	3	0.43146048198674	0.784473603612255
+missMethyl_gsameth	supervisor_arrays	hypermethylated	15. ECM / Skin Aging	91	36	0.00518804803289658	0.207521921315863
+missMethyl_gsameth	supervisor_arrays	hypermethylated	16. Hedgehog Signaling	3	2	0.25270565757188	0.673881753525014
+missMethyl_gsameth	supervisor_arrays	hypermethylated	16. Notch Signaling	7	4	0.0820362382618892	0.403114185838018
+missMethyl_gsameth	supervisor_arrays	hypermethylated	16. Wnt Signaling	22	10	0.105078617451124	0.420314469804497
+missMethyl_gsameth	supervisor_arrays	hypermethylated	17. Inflammation / Immunosenescence	242	43	0.284302584944483	0.683319382518757
+missMethyl_gsameth	supervisor_arrays	hypermethylated	17. TNF Superfamily	44	13	0.185123460663803	0.528924173325151
+missMethyl_gsameth	supervisor_arrays	hypermethylated	18. Circadian Clock	2	1	0.431414431957476	0.784473603612255
+missMethyl_gsameth	supervisor_arrays	hypermethylated	18. Oncogenes / Tumor Suppressors	71	26	0.0779604857605933	0.403114185838018
+missMethyl_gsameth	supervisor_arrays	hypermethylated	18. Progeroid / Premature Aging	33	6	0.908113555566608	1
+missMethyl_gsameth	supervisor_arrays	hypermethylated	19. Other Longevity-Related	309	59	0.960702401026901	1

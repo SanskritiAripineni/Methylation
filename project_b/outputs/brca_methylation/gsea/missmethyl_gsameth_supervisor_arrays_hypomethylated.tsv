@@ -1,0 +1,41 @@
+method	collection	direction	term	N	DE	P.DE	FDR
+missMethyl_gsameth	supervisor_arrays	hypomethylated	01. Telomere Maintenance	14	0	1	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	02. Sirtuins	6	0	1	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	03. AMPK Pathway	5	1	0.658432853833362	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	03. FOXO Pathway	1	0	0.999999999995618	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	03. mTOR Pathway	11	2	0.670069269137676	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	04. Autophagy	15	1	0.971126158418651	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	04. Heat Shock / Chaperones	49	4	0.987995885342373	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	04. Proteasome / Proteostasis	45	2	0.99705183123349	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	05. DNA Damage & Repair	145	25	0.879291481625433	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	05. Epigenetic Regulators	13	2	0.748486414689361	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	06. Cell Cycle Regulators	128	16	0.995315814092736	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	06. Cellular Senescence / SASP	6	1	0.602788602345509	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	07. Apoptosis	116	18	0.875764974619412	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	08. Antioxidant / Oxidative Stress	59	7	0.904724506957912	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	08. Mitochondrial Function	261	25	0.999640262042898	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	09. Growth Hormone Axis	8	3	0.133981960542429	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	09. IGF / Insulin Signaling	20	8	0.0933529441714956	0.933529441714956
+missMethyl_gsameth	supervisor_arrays	hypomethylated	10. FGF21-FGF23-Klotho Axis	6	2	0.255068516331142	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	10. GDF Aging Biomarkers	3	0	1	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	11. Metabolic Hormones	5	2	0.23622646053822	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	11. NAD+ Metabolism	4	1	0.622987853745555	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	12. Stem Cell Regulation	11	3	0.227525765981352	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	13. BMP / GDF Signaling	19	7	0.17657568617217	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	13. TGF-beta Signaling	28	6	0.721893553461732	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	14. EGF / EGFR Signaling	30	12	0.0473234865380949	0.749808394847199
+missMethyl_gsameth	supervisor_arrays	hypomethylated	14. FGF Family	35	7	0.664011096612625	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	14. HGF Signaling	7	1	0.756848686722115	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	14. Neurotrophins	11	2	0.821752596315987	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	14. PDGF Signaling	8	2	0.660632621215789	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	14. VEGF / Angiogenesis	11	5	0.0562356296135399	0.749808394847199
+missMethyl_gsameth	supervisor_arrays	hypomethylated	15. ECM / Skin Aging	91	24	0.292437657559846	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	16. Hedgehog Signaling	3	1	0.601263467190712	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	16. Notch Signaling	7	1	0.861540370679799	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	16. Wnt Signaling	22	3	0.941266438330934	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	17. Inflammation / Immunosenescence	242	54	0.0348938552345582	0.749808394847199
+missMethyl_gsameth	supervisor_arrays	hypomethylated	17. TNF Superfamily	44	10	0.43219030281134	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	18. Circadian Clock	2	0	1	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	18. Oncogenes / Tumor Suppressors	71	19	0.295412914578792	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	18. Progeroid / Premature Aging	33	8	0.475153649665768	1
+missMethyl_gsameth	supervisor_arrays	hypomethylated	19. Other Longevity-Related	309	63	0.441070655817237	1

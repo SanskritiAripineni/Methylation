@@ -15,6 +15,13 @@ suppressPackageStartupMessages({
 FDR_THRESHOLD <- 0.05
 MIN_ABS_DELTA_BETA <- 0.20
 PROJECT_ROOT_SENTINEL <- file.path("project_b", "brca_local_inputs.json")
+SUPERVISOR_ARRAY_FOCUS_TERMS <- c(
+  "14. FGF Family",
+  "09. IGF / Insulin Signaling",
+  "16. Wnt Signaling",
+  "13. TGF-beta Signaling",
+  "15. ECM / Skin Aging"
+)
 
 find_project_root <- function(start = getwd()) {
   current <- normalizePath(start, mustWork = TRUE)
@@ -81,6 +88,17 @@ map_symbol_sets_to_entrez <- function(symbol_sets) {
     )
   }
   list(sets = mapped, mapping = do.call(rbind, rows))
+}
+
+read_entrez_sets_tsv <- function(path) {
+  df <- read.delim(path, check.names = FALSE, stringsAsFactors = FALSE)
+  sets <- list()
+  for (i in seq_len(nrow(df))) {
+    ids <- unlist(strsplit(df$entrez_ids[[i]], ",", fixed = TRUE), use.names = FALSE)
+    ids <- sort(unique(trimws(ids[nzchar(trimws(ids))])))
+    if (length(ids)) sets[[df$set_name[[i]]]] <- ids
+  }
+  sets
 }
 
 load_reactome_entrez_sets <- function() {
@@ -167,7 +185,7 @@ run_gsameth_collection <- function(sig_cpg, all_cpg, sets, collection_name, dire
 }
 
 run_methylrra_collection <- function(pvals, sets, collection_name, direction, output_dir,
-                                     minsize = 5, maxsize = 1000) {
+                                     minsize = 5, maxsize = 1000, gs_idtype = "ENTREZID") {
   message("Running methylGSA methylRRA GSEA: ", collection_name, " / ", direction)
   set.seed(20260706)
   res <- methylGSA::methylRRA(
@@ -176,7 +194,7 @@ run_methylrra_collection <- function(pvals, sets, collection_name, direction, ou
     group = "all",
     method = "GSEA",
     GS.list = sets,
-    GS.idtype = "ENTREZID",
+    GS.idtype = gs_idtype,
     minsize = minsize,
     maxsize = maxsize
   )
@@ -209,13 +227,24 @@ sig_terms <- function(df, pcol) {
   sort(unique(df$term[!is.na(df[[pcol]]) & df[[pcol]] < FDR_THRESHOLD]))
 }
 
+split_result_name <- function(nm) {
+  for (direction in c("hypermethylated", "hypomethylated", "all")) {
+    suffix <- paste0("_", direction)
+    if (endsWith(nm, suffix)) {
+      collection <- substr(nm, 1, nchar(nm) - nchar(suffix))
+      return(list(collection = collection, direction = direction))
+    }
+  }
+  stop("Cannot parse result name: ", nm)
+}
+
 summarize_result_tables <- function(miss_results, methyl_results) {
   out <- list()
   for (nm in names(miss_results)) {
     terms <- sig_terms(miss_results[[nm]], "FDR")
-    parts <- strsplit(nm, "_", fixed = TRUE)[[1]]
-    collection <- tolower(parts[[1]])
-    direction <- paste(parts[-1], collapse = "_")
+    parsed <- split_result_name(nm)
+    collection <- tolower(parsed$collection)
+    direction <- parsed$direction
     miss_method <- if (collection %in% c("go", "kegg")) "gometh" else "gsameth"
     key <- paste("missMethyl", miss_method, collection, direction, sep = "_")
     out[[key]] <- list(
@@ -226,9 +255,9 @@ summarize_result_tables <- function(miss_results, methyl_results) {
   }
   for (nm in names(methyl_results)) {
     terms <- sig_terms(methyl_results[[nm]], "padj")
-    parts <- strsplit(nm, "_", fixed = TRUE)[[1]]
-    collection <- tolower(parts[[1]])
-    direction <- paste(parts[-1], collapse = "_")
+    parsed <- split_result_name(nm)
+    collection <- tolower(parsed$collection)
+    direction <- parsed$direction
     key <- paste("methylGSA", collection, direction, sep = "_")
     out[[key]] <- list(
       p_adjust_column = "padj",
@@ -241,6 +270,99 @@ summarize_result_tables <- function(miss_results, methyl_results) {
 
 fmt_p <- function(x) {
   ifelse(is.na(x), "NA", formatC(x, format = "e", digits = 3))
+}
+
+split_genes <- function(value) {
+  if (length(value) == 0 || is.na(value)) return(character())
+  genes <- trimws(unlist(strsplit(as.character(value), "[;,]", perl = TRUE), use.names = FALSE))
+  genes[nzchar(genes)]
+}
+
+load_background_genes <- function(out_dir) {
+  background <- read.delim(file.path(out_dir, "tumor_vs_normal", "probe_missingness.tsv"), check.names = FALSE, stringsAsFactors = FALSE)
+  retained <- tolower(as.character(background$retained)) %in% c("true", "1", "yes")
+  retained_df <- background[retained, , drop = FALSE]
+  genes <- sort(unique(unlist(lapply(retained_df$gene, split_genes), use.names = FALSE)))
+  list(genes = genes, retained_probe_count = nrow(retained_df))
+}
+
+load_query_gene_sets_for_ora <- function(mech_df) {
+  sig <- mech_df[
+    !is.na(mech_df$fdr) & mech_df$fdr < FDR_THRESHOLD &
+      !is.na(mech_df$abs_delta_beta) & mech_df$abs_delta_beta >= MIN_ABS_DELTA_BETA,
+    ,
+    drop = FALSE
+  ]
+  gene_sets <- list(hypermethylated = character(), hypomethylated = character())
+  for (i in seq_len(nrow(sig))) {
+    row <- sig[i, , drop = FALSE]
+    genes <- split_genes(row$genes_all)
+    if (!length(genes)) genes <- split_genes(row$gene)
+    nearest <- trimws(as.character(row$gene_nearest))
+    if (!is.na(nearest) && nzchar(nearest) && !(nearest %in% genes)) {
+      genes <- c(genes, nearest)
+    }
+    direction <- as.character(row$direction)
+    if (direction %in% names(gene_sets)) {
+      gene_sets[[direction]] <- c(gene_sets[[direction]], genes)
+    }
+  }
+  list(
+    sig_cpgs = sig,
+    gene_sets = list(
+      hypermethylated = sort(unique(gene_sets$hypermethylated)),
+      hypomethylated = sort(unique(gene_sets$hypomethylated))
+    )
+  )
+}
+
+run_uncorrected_ora <- function(query_genes, background_genes, gene_sets, direction, library_label) {
+  query <- intersect(unique(query_genes), background_genes)
+  universe_size <- length(background_genes)
+  query_size <- length(query)
+  rows <- list()
+  if (!query_size) {
+    return(data.frame(
+      library = character(),
+      direction = character(),
+      term = character(),
+      n_genes = integer(),
+      query_size = integer(),
+      background_size = integer(),
+      overlap_n = integer(),
+      overlap_genes = character(),
+      p = numeric(),
+      adj_p = numeric(),
+      stringsAsFactors = FALSE
+    ))
+  }
+  for (term in names(gene_sets)) {
+    term_background <- intersect(unique(gene_sets[[term]]), background_genes)
+    if (!length(term_background)) next
+    overlap <- sort(intersect(query, term_background))
+    overlap_n <- length(overlap)
+    p_value <- if (overlap_n) {
+      phyper(overlap_n - 1, length(term_background), universe_size - length(term_background), query_size, lower.tail = FALSE)
+    } else {
+      1
+    }
+    rows[[term]] <- data.frame(
+      library = library_label,
+      direction = direction,
+      term = term,
+      n_genes = length(term_background),
+      query_size = query_size,
+      background_size = universe_size,
+      overlap_n = overlap_n,
+      overlap_genes = paste(overlap, collapse = ","),
+      p = p_value,
+      stringsAsFactors = FALSE
+    )
+  }
+  out <- do.call(rbind, rows)
+  rownames(out) <- NULL
+  out$adj_p <- p.adjust(out$p, method = "BH")
+  out[order(out$adj_p, out$p, -out$overlap_n), , drop = FALSE]
 }
 
 make_comparison <- function(ora, miss_long, methyl_long, methyl_all) {
@@ -265,7 +387,35 @@ make_comparison <- function(ora, miss_long, methyl_long, methyl_all) {
   out
 }
 
-write_methods_readme <- function(path, counts, package_versions) {
+make_supervisor_arrays_comparison <- function(ora, miss_long, methyl_long, methyl_all) {
+  comparison <- make_comparison(ora, miss_long, methyl_long, methyl_all)
+  comparison$collection_note <- "supervisor antibody-array categories"
+  comparison
+}
+
+make_supervisor_focus_verdict <- function(supervisor_comparison) {
+  focus <- supervisor_comparison[
+    supervisor_comparison$term %in% SUPERVISOR_ARRAY_FOCUS_TERMS &
+      supervisor_comparison$direction == "hypermethylated",
+    ,
+    drop = FALSE
+  ]
+  focus$survives_missmethyl_bias_correction <- !is.na(focus$missmethyl_fdr) & focus$missmethyl_fdr < FDR_THRESHOLD
+  focus$rank_based_support_all_pvalues <- !is.na(focus$methylgsa_all_padj) & focus$methylgsa_all_padj < FDR_THRESHOLD
+  focus$rank_based_support_hyper_direction <- !is.na(focus$methylgsa_direction_padj) & focus$methylgsa_direction_padj < FDR_THRESHOLD
+  focus$verdict <- ifelse(
+    focus$survives_missmethyl_bias_correction,
+    "survives missMethyl bias correction",
+    ifelse(
+      focus$rank_based_support_all_pvalues | focus$rank_based_support_hyper_direction,
+      "rank-based support only",
+      "collapses after methylation-aware testing"
+    )
+  )
+  focus[order(match(focus$term, SUPERVISOR_ARRAY_FOCUS_TERMS)), , drop = FALSE]
+}
+
+write_methods_readme <- function(path, counts, package_versions, supervisor_arrays_count = NULL, tiny_supervisor_sets = NULL) {
   lines <- c(
     "# Methylation-aware GSEA provenance",
     "",
@@ -296,14 +446,15 @@ write_methods_readme <- function(path, counts, package_versions) {
     "LC_ALL=C Rscript project_b/scripts/run_methylation_gsea.R",
     "```",
     "",
-    "The script discovers `project_b/brca_local_inputs.json`, reads `outputs/brca_methylation/differential_methylation.tsv`, `outputs/brca_methylation/differential_methylation_mechanics.tsv`, and the Phase 3 curated `pathway_enrichment_longevity/longevity_gene_sets.gmt`, then writes only to `outputs/brca_methylation/gsea/`.",
+    "The script discovers `project_b/brca_local_inputs.json`, reads `outputs/brca_methylation/differential_methylation.tsv`, `outputs/brca_methylation/differential_methylation_mechanics.tsv`, the Phase 3 curated `pathway_enrichment_longevity/longevity_gene_sets.gmt`, and the supervisor antibody-array catalog in `outputs/brca_methylation/gsea/longevity_arrays/`, then writes only to `outputs/brca_methylation/gsea/`.",
     "",
     "## Methods",
     "",
     paste0("- Significant CpGs for missMethyl used the same Phase 3/ORA gate: FDR < ", FDR_THRESHOLD, " and |delta_beta| >= ", MIN_ABS_DELTA_BETA, ", split into hypermethylated and hypomethylated directions."),
     "- The missMethyl universe (`all.cpg`) starts from every probe ID in `differential_methylation.tsv` and is restricted to CpGs present in the native Illumina 450K hg19 annotation because missMethyl models probe-number bias through that annotation.",
-    "- missMethyl `gometh()` was run for built-in GO and KEGG collections. `gsameth()` was run for custom Reactome and curated longevity collections, with custom sets represented as Entrez Gene IDs.",
-    "- methylGSA `methylRRA(method = \"GSEA\")` was run on per-CpG p-values for all valid tested CpGs. The `all` run is the strict threshold-free rank test; hyper/hypo companion runs keep the same CpG universe but set opposite-direction CpGs to p = 1 to provide direction-specific checks without a significance threshold.",
+    "- missMethyl `gometh()` was run for built-in GO and KEGG collections. `gsameth()` was run for custom Reactome, curated longevity, and supervisor-array collections, with custom missMethyl sets represented as Entrez Gene IDs.",
+    "- methylGSA `methylRRA(method = \"GSEA\")` was run on per-CpG p-values for all valid tested CpGs. The `all` run is the strict threshold-free rank test; hyper/hypo companion runs keep the same CpG universe but set opposite-direction CpGs to p = 1 to provide direction-specific checks without a significance threshold. The supervisor-array methylRRA run uses the original gene symbols from the GMT.",
+    "- `supervisor_arrays_ora_all.tsv` is an uncorrected hypergeometric ORA baseline using the same Phase 3 gene-level query gate and retained-probe gene background as the original ORA layer.",
     "- methylGSA retrieves built-in KEGG annotations through KEGG REST during the run. The curated longevity comparison remains pinned to the Phase 3 GMT on disk.",
     "- missMethyl uses hg19 gene annotation for enrichment. This is acceptable here because the enrichment test is gene-membership based and does not alter the Phase 0/Phase 2 hg38 site maps or coordinate-level biological claims.",
     "- Methylation enrichment does not imply expression repression except for promoter-context CpGs. Body/intergenic methylation remains mechanistically ambiguous.",
@@ -316,6 +467,8 @@ write_methods_readme <- function(path, counts, package_versions) {
     paste0("- CpGs with finite p-values used by methylGSA: ", counts$methylgsa_pvals),
     paste0("- Hypermethylated significant CpGs used by missMethyl: ", counts$sig_hyper),
     paste0("- Hypomethylated significant CpGs used by missMethyl: ", counts$sig_hypo),
+    if (!is.null(supervisor_arrays_count)) paste0("- Supervisor antibody-array categories tested: ", supervisor_arrays_count) else NULL,
+    if (!is.null(tiny_supervisor_sets) && length(tiny_supervisor_sets)) paste0("- Supervisor categories with fewer than 5 Entrez-mapped genes: ", paste(tiny_supervisor_sets, collapse = "; ")) else NULL,
     "",
     "## Package versions",
     "",
@@ -324,7 +477,7 @@ write_methods_readme <- function(path, counts, package_versions) {
   writeLines(lines, path)
 }
 
-write_comparison_md <- function(path, comparison, summary_lists, terc_rows) {
+write_comparison_md <- function(path, comparison, summary_lists, terc_rows, supervisor_focus = NULL, supervisor_summary_lists = NULL) {
   stem_rows <- comparison[grepl("pluripot|stem_cell", comparison$term), ]
   stem_ora_sig <- stem_rows[stem_rows$ora_significant, ]
   stem_survived <- stem_ora_sig[stem_ora_sig$missmethyl_significant | stem_ora_sig$methylgsa_direction_significant | stem_ora_sig$methylgsa_all_significant, ]
@@ -399,6 +552,67 @@ write_comparison_md <- function(path, comparison, summary_lists, terc_rows) {
     }
   }
 
+  supervisor_lines <- character()
+  if (!is.null(supervisor_focus) && nrow(supervisor_focus)) {
+    survived <- supervisor_focus$term[supervisor_focus$survives_missmethyl_bias_correction]
+    rank_only <- supervisor_focus$term[
+      !supervisor_focus$survives_missmethyl_bias_correction &
+        (supervisor_focus$rank_based_support_all_pvalues | supervisor_focus$rank_based_support_hyper_direction)
+    ]
+    collapsed <- supervisor_focus$term[
+      !supervisor_focus$survives_missmethyl_bias_correction &
+        !(supervisor_focus$rank_based_support_all_pvalues | supervisor_focus$rank_based_support_hyper_direction)
+    ]
+    focus_table_lines <- c(
+      "| set | ORA p | ORA adj-p | missMethyl FDR | methylRRA hyper padj | methylRRA all padj | verdict |",
+      "|---|---:|---:|---:|---:|---:|---|"
+    )
+    for (i in seq_len(nrow(supervisor_focus))) {
+      row_line <- paste(
+        supervisor_focus$term[[i]],
+        fmt_p(supervisor_focus$p[[i]]),
+        fmt_p(supervisor_focus$adj_p[[i]]),
+        fmt_p(supervisor_focus$missmethyl_fdr[[i]]),
+        fmt_p(supervisor_focus$methylgsa_direction_padj[[i]]),
+        fmt_p(supervisor_focus$methylgsa_all_padj[[i]]),
+        supervisor_focus$verdict[[i]],
+        sep = " | "
+      )
+      focus_table_lines <- c(focus_table_lines, paste0("| ", row_line, " |"))
+    }
+    supervisor_lines <- c(
+      "",
+      "## Supervisor Arrays",
+      "",
+      "The supervisor-array collection contains custom antibody/protein-array categories. These are not canonical pathway definitions, and some groupings are biologically loose; for example, the telomere category includes ICAM genes. Several categories are very small, including `03. FOXO Pathway` with 2 Entrez-mapped genes and `11. NAD+ Metabolism` with 4, so null results for these sets have low power.",
+      "",
+      paste0("- Focus sets surviving missMethyl probe-bias correction: ", ifelse(length(survived), paste(survived, collapse = ", "), "none")),
+      paste0("- Focus sets with rank-based methylRRA support only: ", ifelse(length(rank_only), paste(rank_only, collapse = ", "), "none")),
+      paste0("- Focus sets collapsing after methylation-aware testing: ", ifelse(length(collapsed), paste(collapsed, collapse = ", "), "none")),
+      "",
+      "### FGF / IGF / Wnt / TGF-beta / ECM Focus",
+      "",
+      focus_table_lines,
+      "",
+      "Full supervisor-array comparison: `supervisor_arrays_gsea_vs_ora.tsv`."
+    )
+    if (!is.null(supervisor_summary_lists)) {
+      supervisor_lines <- c(
+        supervisor_lines,
+        "",
+        "### Supervisor Array Significant Sets",
+        "",
+        paste0("- ORA hypermethylated: ", ifelse(length(supervisor_summary_lists$ora_hyper), paste(supervisor_summary_lists$ora_hyper, collapse = ", "), "none")),
+        paste0("- ORA hypomethylated: ", ifelse(length(supervisor_summary_lists$ora_hypo), paste(supervisor_summary_lists$ora_hypo, collapse = ", "), "none")),
+        paste0("- missMethyl hypermethylated: ", ifelse(length(supervisor_summary_lists$miss_hyper), paste(supervisor_summary_lists$miss_hyper, collapse = ", "), "none")),
+        paste0("- missMethyl hypomethylated: ", ifelse(length(supervisor_summary_lists$miss_hypo), paste(supervisor_summary_lists$miss_hypo, collapse = ", "), "none")),
+        paste0("- methylRRA all p-values: ", ifelse(length(supervisor_summary_lists$methyl_all), paste(supervisor_summary_lists$methyl_all, collapse = ", "), "none")),
+        paste0("- methylRRA hyper-direction p-values: ", ifelse(length(supervisor_summary_lists$methyl_hyper), paste(supervisor_summary_lists$methyl_hyper, collapse = ", "), "none")),
+        paste0("- methylRRA hypo-direction p-values: ", ifelse(length(supervisor_summary_lists$methyl_hypo), paste(supervisor_summary_lists$methyl_hypo, collapse = ", "), "none"))
+      )
+    }
+  }
+
   lines <- c(
     "# ORA versus methylation-aware GSEA",
     "",
@@ -428,7 +642,8 @@ write_comparison_md <- function(path, comparison, summary_lists, terc_rows) {
     "",
     table_lines,
     "",
-    "Full per-set comparison: `gsea_vs_ora.tsv`."
+    "Full per-set comparison: `gsea_vs_ora.tsv`.",
+    supervisor_lines
   )
   writeLines(lines, path)
 }
@@ -447,6 +662,9 @@ main <- function() {
   phase3_dir <- file.path(out_dir, "pathway_enrichment_longevity")
   gmt_path <- file.path(phase3_dir, "longevity_gene_sets.gmt")
   ora_path <- file.path(phase3_dir, "longevity_ora_all.tsv")
+  supervisor_arrays_dir <- file.path(gsea_dir, "longevity_arrays")
+  supervisor_arrays_gmt_path <- file.path(supervisor_arrays_dir, "longevity_arrays_gene_sets.gmt")
+  supervisor_arrays_entrez_path <- file.path(supervisor_arrays_dir, "longevity_arrays_entrez.tsv")
 
   message("Reading differential methylation inputs")
   diff_df <- read.delim(diff_path, check.names = FALSE, stringsAsFactors = FALSE)
@@ -493,11 +711,32 @@ main <- function() {
   symbol_sets <- read_gmt_symbols(gmt_path)
   mapped_longevity <- map_symbol_sets_to_entrez(symbol_sets)
   longevity_sets <- mapped_longevity$sets[lengths(mapped_longevity$sets) > 0]
+  supervisor_symbol_sets <- read_gmt_symbols(supervisor_arrays_gmt_path)
+  supervisor_entrez_sets <- read_entrez_sets_tsv(supervisor_arrays_entrez_path)
+  tiny_supervisor_sets <- names(supervisor_entrez_sets)[lengths(supervisor_entrez_sets) < 5]
   reactome <- load_reactome_entrez_sets()
   reactome_sets <- reactome$sets
 
   write_tsv(mapped_longevity$mapping, file.path(gsea_dir, "longevity_symbol_to_entrez_mapping.tsv"))
   write_tsv(reactome$metadata, file.path(gsea_dir, "reactome_custom_collection_metadata.tsv"))
+
+  background <- load_background_genes(out_dir)
+  ora_query <- load_query_gene_sets_for_ora(mech_df)
+  supervisor_ora_frames <- list()
+  for (direction in c("hypermethylated", "hypomethylated")) {
+    supervisor_ora_frames[[direction]] <- run_uncorrected_ora(
+      ora_query$gene_sets[[direction]],
+      background$genes,
+      supervisor_symbol_sets,
+      direction,
+      "SupervisorArrays"
+    )
+    write_tsv(supervisor_ora_frames[[direction]], file.path(gsea_dir, paste0("supervisor_arrays_ora_", direction, ".tsv")))
+  }
+  supervisor_ora <- do.call(rbind, supervisor_ora_frames)
+  supervisor_ora <- supervisor_ora[order(supervisor_ora$direction, supervisor_ora$adj_p, supervisor_ora$p, -supervisor_ora$overlap_n), , drop = FALSE]
+  rownames(supervisor_ora) <- NULL
+  write_tsv(supervisor_ora, file.path(gsea_dir, "supervisor_arrays_ora_all.tsv"))
 
   miss_results <- list()
   for (direction in c("hypermethylated", "hypomethylated")) {
@@ -505,6 +744,7 @@ main <- function() {
     miss_results[[paste("GO", direction, sep = "_")]] <- run_gometh_collection(sig, all_cpg, "GO", direction, anno, gsea_dir)
     miss_results[[paste("KEGG", direction, sep = "_")]] <- run_gometh_collection(sig, all_cpg, "KEGG", direction, anno, gsea_dir)
     miss_results[[paste("longevity", direction, sep = "_")]] <- run_gsameth_collection(sig, all_cpg, longevity_sets, "longevity", direction, anno, gsea_dir)
+    miss_results[[paste("supervisor_arrays", direction, sep = "_")]] <- run_gsameth_collection(sig, all_cpg, supervisor_entrez_sets, "supervisor_arrays", direction, anno, gsea_dir)
     miss_results[[paste("reactome", direction, sep = "_")]] <- run_gsameth_collection(sig, all_cpg, reactome_sets, "reactome", direction, anno, gsea_dir)
   }
 
@@ -512,6 +752,7 @@ main <- function() {
   for (direction in c("all", "hypermethylated", "hypomethylated")) {
     pv <- switch(direction, all = pvals, hypermethylated = hyper_pvals, hypomethylated = hypo_pvals)
     methyl_results[[paste("longevity", direction, sep = "_")]] <- run_methylrra_collection(pv, longevity_sets, "longevity", direction, gsea_dir, minsize = 5, maxsize = 1000)
+    methyl_results[[paste("supervisor_arrays", direction, sep = "_")]] <- run_methylrra_collection(pv, supervisor_symbol_sets, "supervisor_arrays", direction, gsea_dir, minsize = 2, maxsize = 1000, gs_idtype = "SYMBOL")
     methyl_results[[paste("reactome", direction, sep = "_")]] <- run_methylrra_collection(pv, reactome_sets, "reactome", direction, gsea_dir, minsize = 10, maxsize = 1000)
     methyl_results[[paste("GO", direction, sep = "_")]] <- run_methylrra_builtin(pv, "GO", direction, gsea_dir, minsize = 10, maxsize = 1000)
     methyl_results[[paste("KEGG", direction, sep = "_")]] <- run_methylrra_builtin(pv, "KEGG", direction, gsea_dir, minsize = 10, maxsize = 1000)
@@ -529,6 +770,20 @@ main <- function() {
   comparison <- make_comparison(ora_df, miss_longevity, methyl_longevity_dir, methyl_longevity_all)
   write_tsv(comparison, file.path(gsea_dir, "gsea_vs_ora.tsv"))
 
+  miss_supervisor <- do.call(rbind, list(
+    miss_results[["supervisor_arrays_hypermethylated"]],
+    miss_results[["supervisor_arrays_hypomethylated"]]
+  ))
+  methyl_supervisor_dir <- do.call(rbind, list(
+    methyl_results[["supervisor_arrays_hypermethylated"]],
+    methyl_results[["supervisor_arrays_hypomethylated"]]
+  ))
+  methyl_supervisor_all <- methyl_results[["supervisor_arrays_all"]]
+  supervisor_comparison <- make_supervisor_arrays_comparison(supervisor_ora, miss_supervisor, methyl_supervisor_dir, methyl_supervisor_all)
+  write_tsv(supervisor_comparison, file.path(gsea_dir, "supervisor_arrays_gsea_vs_ora.tsv"))
+  supervisor_focus <- make_supervisor_focus_verdict(supervisor_comparison)
+  write_tsv(supervisor_focus, file.path(gsea_dir, "supervisor_arrays_focus_verdict.tsv"))
+
   summary_lists <- list(
     ora_hyper = sig_terms(ora_df[ora_df$direction == "hypermethylated", ], "adj_p"),
     ora_hypo = sig_terms(ora_df[ora_df$direction == "hypomethylated", ], "adj_p"),
@@ -539,6 +794,17 @@ main <- function() {
     methyl_hypo = sig_terms(methyl_longevity_dir[methyl_longevity_dir$direction == "hypomethylated", ], "padj")
   )
   summary_lists_json <- lapply(summary_lists, function(x) I(as.character(unname(x))))
+
+  supervisor_summary_lists <- list(
+    ora_hyper = sig_terms(supervisor_ora[supervisor_ora$direction == "hypermethylated", ], "adj_p"),
+    ora_hypo = sig_terms(supervisor_ora[supervisor_ora$direction == "hypomethylated", ], "adj_p"),
+    miss_hyper = sig_terms(miss_supervisor[miss_supervisor$direction == "hypermethylated", ], "FDR"),
+    miss_hypo = sig_terms(miss_supervisor[miss_supervisor$direction == "hypomethylated", ], "FDR"),
+    methyl_all = sig_terms(methyl_supervisor_all, "padj"),
+    methyl_hyper = sig_terms(methyl_supervisor_dir[methyl_supervisor_dir$direction == "hypermethylated", ], "padj"),
+    methyl_hypo = sig_terms(methyl_supervisor_dir[methyl_supervisor_dir$direction == "hypomethylated", ], "padj")
+  )
+  supervisor_summary_lists_json <- lapply(supervisor_summary_lists, function(x) I(as.character(unname(x))))
 
   terc_rows <- comparison[
     grepl("TERC", paste(comparison$methylgsa_all_core, comparison$methylgsa_direction_core), fixed = TRUE),
@@ -554,8 +820,21 @@ main <- function() {
     reactome.db = as.character(packageVersion("reactome.db"))
   )
 
-  write_methods_readme(file.path(gsea_dir, "README.md"), counts, package_versions)
-  write_comparison_md(file.path(gsea_dir, "gsea_vs_ora.md"), comparison, summary_lists, terc_rows)
+  write_methods_readme(
+    file.path(gsea_dir, "README.md"),
+    counts,
+    package_versions,
+    supervisor_arrays_count = length(supervisor_symbol_sets),
+    tiny_supervisor_sets = tiny_supervisor_sets
+  )
+  write_comparison_md(
+    file.path(gsea_dir, "gsea_vs_ora.md"),
+    comparison,
+    summary_lists,
+    terc_rows,
+    supervisor_focus = supervisor_focus,
+    supervisor_summary_lists = supervisor_summary_lists
+  )
 
   summary <- list(
     generated_at = format(Sys.time(), "%Y-%m-%dT%H:%M:%S%z"),
@@ -563,6 +842,17 @@ main <- function() {
     counts = counts,
     package_versions = as.list(package_versions),
     curated_longevity_significant_sets = summary_lists_json,
+    supervisor_arrays_significant_sets = supervisor_summary_lists_json,
+    supervisor_arrays_focus_verdict = supervisor_focus,
+    supervisor_arrays_counts = list(
+      categories = length(supervisor_symbol_sets),
+      categories_with_entrez = length(supervisor_entrez_sets),
+      tiny_categories_lt_5_entrez = I(as.character(tiny_supervisor_sets)),
+      ora_background_genes = length(background$genes),
+      ora_retained_background_probes = background$retained_probe_count,
+      ora_hyper_query_genes = length(ora_query$gene_sets$hypermethylated),
+      ora_hypo_query_genes = length(ora_query$gene_sets$hypomethylated)
+    ),
     significant_sets_by_output = summarize_result_tables(miss_results, methyl_results),
     verdict_inputs = list(
       stem_pluripotency_rows = comparison[grepl("pluripot|stem_cell", comparison$term), ],
