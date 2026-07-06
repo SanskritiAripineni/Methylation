@@ -1,0 +1,156 @@
+[
+  {
+    "set_name": "reactome_telomere_maintenance",
+    "term": "Telomere Maintenance R-HSA-157579",
+    "source_db": "Reactome",
+    "source_identifier": "R-HSA-157579",
+    "source_url": "https://reactome.org/content/detail/R-HSA-157579",
+    "enrichr_library": "Reactome_2022",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 92,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "reactome_telomere_extension_by_telomerase",
+    "term": "Telomere Extension By Telomerase R-HSA-171319",
+    "source_db": "Reactome",
+    "source_identifier": "R-HSA-171319",
+    "source_url": "https://reactome.org/content/detail/R-HSA-171319",
+    "enrichr_library": "Reactome_2022",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 23,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "reactome_mitochondrial_biogenesis",
+    "term": "Mitochondrial Biogenesis R-HSA-1592230",
+    "source_db": "Reactome",
+    "source_identifier": "R-HSA-1592230",
+    "source_url": "https://reactome.org/content/detail/R-HSA-1592230",
+    "enrichr_library": "Reactome_2022",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 89,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "reactome_transcriptional_activation_mitochondrial_biogenesis",
+    "term": "Transcriptional Activation Of Mitochondrial Biogenesis R-HSA-2151201",
+    "source_db": "Reactome",
+    "source_identifier": "R-HSA-2151201",
+    "source_url": "https://reactome.org/content/detail/R-HSA-2151201",
+    "enrichr_library": "Reactome_2022",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 52,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "kegg_pluripotency_stem_cell_signaling",
+    "term": "Signaling pathways regulating pluripotency of stem cells",
+    "source_db": "KEGG via Enrichr",
+    "source_identifier": "KEGG_2021_Human:Signaling pathways regulating pluripotency of stem cells",
+    "source_url": "https://maayanlab.cloud/Enrichr/#libraries/KEGG_2021_Human",
+    "enrichr_library": "KEGG_2021_Human",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 143,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "reactome_pluripotent_stem_cell_transcription",
+    "term": "Transcriptional Regulation Of Pluripotent Stem Cells R-HSA-452723",
+    "source_db": "Reactome",
+    "source_identifier": "R-HSA-452723",
+    "source_url": "https://reactome.org/content/detail/R-HSA-452723",
+    "enrichr_library": "Reactome_2022",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 30,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "go_positive_regulation_stem_cell_differentiation",
+    "term": "Positive Regulation Of Stem Cell Differentiation (GO:2000738)",
+    "source_db": "Gene Ontology Biological Process via Enrichr",
+    "source_identifier": "GO:2000738",
+    "source_url": "https://amigo.geneontology.org/amigo/term/GO:2000738",
+    "enrichr_library": "GO_Biological_Process_2023",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 17,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "go_negative_regulation_stem_cell_differentiation",
+    "term": "Negative Regulation Of Stem Cell Differentiation (GO:2000737)",
+    "source_db": "Gene Ontology Biological Process via Enrichr",
+    "source_identifier": "GO:2000737",
+    "source_url": "https://amigo.geneontology.org/amigo/term/GO:2000737",
+    "enrichr_library": "GO_Biological_Process_2023",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 12,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "kegg_ampk_signaling",
+    "term": "AMPK signaling pathway",
+    "source_db": "KEGG via Enrichr",
+    "source_identifier": "KEGG_2021_Human:AMPK signaling pathway",
+    "source_url": "https://maayanlab.cloud/Enrichr/#libraries/KEGG_2021_Human",
+    "enrichr_library": "KEGG_2021_Human",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 120,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "kegg_foxo_signaling",
+    "term": "FoxO signaling pathway",
+    "source_db": "KEGG via Enrichr",
+    "source_identifier": "KEGG_2021_Human:FoxO signaling pathway",
+    "source_url": "https://maayanlab.cloud/Enrichr/#libraries/KEGG_2021_Human",
+    "enrichr_library": "KEGG_2021_Human",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 131,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "kegg_mtor_signaling",
+    "term": "mTOR signaling pathway",
+    "source_db": "KEGG via Enrichr",
+    "source_identifier": "KEGG_2021_Human:mTOR signaling pathway",
+    "source_url": "https://maayanlab.cloud/Enrichr/#libraries/KEGG_2021_Human",
+    "enrichr_library": "KEGG_2021_Human",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 154,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "reactome_mtor_signaling",
+    "term": "MTOR Signaling R-HSA-165159",
+    "source_db": "Reactome",
+    "source_identifier": "R-HSA-165159",
+    "source_url": "https://reactome.org/content/detail/R-HSA-165159",
+    "enrichr_library": "Reactome_2022",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 41,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "reactome_lkb1_ampk_mtor_energy_regulation",
+    "term": "Energy Dependent Regulation Of mTOR By LKB1-AMPK R-HSA-380972",
+    "source_db": "Reactome",
+    "source_identifier": "R-HSA-380972",
+    "source_url": "https://reactome.org/content/detail/R-HSA-380972",
+    "enrichr_library": "Reactome_2022",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 29,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  },
+  {
+    "set_name": "reactome_foxo_mediated_transcription",
+    "term": "FOXO-mediated Transcription R-HSA-9614085",
+    "source_db": "Reactome",
+    "source_identifier": "R-HSA-9614085",
+    "source_url": "https://reactome.org/content/detail/R-HSA-9614085",
+    "enrichr_library": "Reactome_2022",
+    "retrieval_date": "2026-07-06",
+    "n_genes": 65,
+    "curation_mode": "public_gene_set_from_enrichr_gmt"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "report_name": "research_methylation_signal_report",
+  "fields": [
+    "sample_id",
+    "report_version",
+    "panel_score",
+    "interpretation_band",
+    "interpretation_note",
+    "comparison_context",
+    "subtype_context_if_available",
+    "validation_anchor",
+    "limitations",
+    "recommended_clinical_use_statement"
+  ]
+}

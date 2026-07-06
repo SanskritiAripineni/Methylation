@@ -1,0 +1,12 @@
+{
+  "run_name": "tumor_vs_normal",
+  "n_samples": 888,
+  "n_tumor": 791,
+  "n_normal": 97,
+  "n_probes_tested": 486427,
+  "n_probes_with_finite_fdr": 421114,
+  "n_fdr_lt_0_05": 321823,
+  "n_abs_delta_ge_0_20": 31094,
+  "n_fdr_lt_0_05_and_abs_delta_ge_0_20": 30827,
+  "n_fdr_lt_0_05_and_abs_delta_ge_0_30": 6717
+}

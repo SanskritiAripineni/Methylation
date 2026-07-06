@@ -1,0 +1,6 @@
+{
+  "source": "Enrichr geneSetLibrary GMT endpoint",
+  "library": "KEGG_2021_Human",
+  "url": "https://maayanlab.cloud/Enrichr/geneSetLibrary?mode=text&libraryName=KEGG_2021_Human",
+  "download_date": "2026-06-29"
+}

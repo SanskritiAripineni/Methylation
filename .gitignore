@@ -1,0 +1,30 @@
+# ---- Large / downloaded / symlinked data (never commit) ----
+project_b/data/
+
+# ---- OS cruft & large binary deliverables ----
+.DS_Store
+*.key
+*.pptx
+*.pdf
+
+# ---- Large regenerable output tables (exceed VCS limits; reproducible from scripts) ----
+**/differential_methylation*.tsv
+**/probe_missingness.tsv
+**/probe_annotation_enriched.tsv
+**/significant_cpgs.tsv
+**/*_baseline_cpgs.tsv
+**/gse66695_longevity_probe_means.tsv
+**/tcga_longevity_probe_means.tsv
+**/longevity_cpg_gene_set_map.tsv
+**/*_site_maps.tsv
+
+# ---- Python ----
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# ---- R ----
+.Rhistory
+.RData
+.Rproj.user/

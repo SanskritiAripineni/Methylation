@@ -1,0 +1,17 @@
+{
+  "n_samples": 518,
+  "n_tumor": 421,
+  "n_normal": 97,
+  "sample_types": {
+    "Primary Tumor": 421,
+    "Solid Tissue Normal": 97
+  },
+  "subtypes": {
+    "LumA": 421,
+    "NA": 97
+  },
+  "ages": {
+    "tumor_median": 60.0,
+    "normal_median": 57.0
+  }
+}

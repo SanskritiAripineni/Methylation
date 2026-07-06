@@ -1,0 +1,6 @@
+{
+  "source": "Enrichr geneSetLibrary GMT endpoint",
+  "library": "GO_Cellular_Component_2023",
+  "url": "https://maayanlab.cloud/Enrichr/geneSetLibrary?mode=text&libraryName=GO_Cellular_Component_2023",
+  "download_date": "2026-06-29"
+}

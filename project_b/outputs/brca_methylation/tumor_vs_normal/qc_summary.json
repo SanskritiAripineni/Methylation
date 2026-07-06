@@ -1,0 +1,18 @@
+{
+  "input_sample_count": 888,
+  "filtered_sample_count": 888,
+  "input_probe_count_after_annotation_filter": 473884,
+  "filtered_probe_count": 382924,
+  "sample_duplicates_in_header": 0,
+  "duplicate_probe_rows_detected": 0,
+  "max_sample_missingness_threshold": 0.25,
+  "max_probe_missingness_threshold": 0.1,
+  "drop_sex_chromosomes": true,
+  "n_samples_removed_for_missingness": 0,
+  "n_probes_removed_for_missingness_or_filtering": 90960,
+  "median_sample_missing_fraction": 0.14806471625967535,
+  "max_sample_missing_fraction": 0.2296068236108414,
+  "median_probe_missing_fraction": 0.0,
+  "n_tumor_after_filtering": 791,
+  "n_normal_after_filtering": 97
+}

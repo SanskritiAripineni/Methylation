@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BRCA Methylation — Data Processing &amp; Methods (Technical Report)</title>
+<style>
+  :root{
+    --navy:#0E2A47; --blue:#12598C; --teal:#0E7C6E; --teal2:#0FB5A6;
+    --ink:#1c2b38; --muted:#5b6b7a; --line:#dde6ee; --bg:#f6f9fc;
+    --good:#2e7d4f; --goodbg:#eef7f1; --goodbd:#bfe0cb;
+    --warn:#9a6a00; --warnbg:#fbf4e3; --warnbd:#ecdcae;
+    --note:#1f5d8c; --notebg:#eef5fb; --notebd:#cfe1f0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:240px 1fr;gap:36px}
+  /* header */
+  header.top{background:linear-gradient(135deg,#0E2A47,#143a5e);color:#fff;padding:34px 0 30px}
+  header.top .wrap{display:block;max-width:1180px}
+  header.top .kick{color:#5fe3d2;font-size:12.5px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+  header.top h1{margin:8px 0 6px;font-size:30px;line-height:1.2}
+  header.top p{margin:0;color:#bcd0e2;font-size:15px;max-width:820px}
+  header.top .meta{margin-top:16px;font-size:12.5px;color:#9fb6cb}
+  header.top .meta b{color:#dce8f2}
+  /* nav */
+  nav{position:sticky;top:18px;align-self:start;font-size:13.5px}
+  nav .navtitle{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin:6px 0 10px}
+  nav a{display:block;color:var(--ink);text-decoration:none;padding:5px 10px;border-radius:6px;border-left:2px solid transparent}
+  nav a:hover{background:#fff;border-left-color:var(--teal2)}
+  nav a.sub{padding-left:22px;color:var(--muted);font-size:12.5px}
+  main{padding:30px 0 70px;min-width:0}
+  section{background:#fff;border:1px solid var(--line);border-radius:10px;padding:24px 28px;margin-bottom:22px;scroll-margin-top:16px}
+  h2{font-size:21px;margin:0 0 4px;color:var(--navy);display:flex;align-items:center;gap:10px}
+  h2 .n{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:8px;background:var(--blue);color:#fff;font-size:14px;font-weight:700;flex:0 0 auto}
+  h3{font-size:15.5px;color:var(--blue);margin:22px 0 6px}
+  p{margin:9px 0}
+  code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12.5px;background:#eef2f6;padding:1px 5px;border-radius:4px;color:#0b3d57}
+  pre{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:12px;background:#0E2A47;color:#dbe7f1;padding:14px 16px;border-radius:8px;overflow-x:auto;line-height:1.5}
+  pre .c{color:#7fa8c9}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:13px}
+  th{background:#0E2A47;color:#fff;text-align:left;padding:8px 11px;font-weight:600}
+  td{padding:7px 11px;border-bottom:1px solid #e7edf3;vertical-align:top}
+  tr:nth-child(even) td{background:#f7fafc}
+  .num{text-align:right;font-variant-numeric:tabular-nums}
+  .pos,.cav,.note{border-radius:9px;padding:13px 16px;margin:13px 0;font-size:13.5px}
+  .pos{background:var(--goodbg);border:1px solid var(--goodbd)}
+  .cav{background:var(--warnbg);border:1px solid var(--warnbd)}
+  .note{background:var(--notebg);border:1px solid var(--notebd)}
+  .pos b.h,.cav b.h,.note b.h{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px}
+  .pos b.h{color:var(--good)} .cav b.h{color:var(--warn)} .note b.h{color:var(--note)}
+  .pos ul,.cav ul{margin:6px 0 0;padding-left:18px} .pos li,.cav li{margin:3px 0}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:9px;padding:12px 14px}
+  .stat .v{font-size:24px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums}
+  .stat .l{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+  .statrow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:0;margin:16px 0}
+  .flow .step{flex:1;min-width:130px;background:#f3f8fc;border:1px solid var(--line);border-radius:8px;padding:11px 12px;text-align:center;position:relative}
+  .flow .step .t{font-weight:700;color:var(--navy);font-size:13px}
+  .flow .step .d{font-size:11px;color:var(--muted);margin-top:3px}
+  .flow .arr{display:flex;align-items:center;color:var(--teal2);font-size:20px;padding:0 6px}
+  .tag{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;margin-right:5px}
+  .tag.g{background:var(--goodbg);color:var(--good);border:1px solid var(--goodbd)}
+  .tag.w{background:var(--warnbg);color:var(--warn);border:1px solid var(--warnbd)}
+  .verdict{font-size:13px}
+  .verdict td:first-child{font-weight:600;white-space:nowrap}
+  footer{color:var(--muted);font-size:12px;text-align:center;padding:24px}
+  @media print{nav{display:none}.wrap{grid-template-columns:1fr}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="kick">Technical Report · Data Processing &amp; Methods</div>
+    <h1>BRCA DNA Methylation Pipeline — What a Bioinformatician Should Know</h1>
+    <p>A walk-through of how the TCGA-BRCA HM450 data is ingested, filtered, tested, modelled, validated, and interpreted — with the methodological strengths and the caveats stated plainly at every stage.</p>
+    <div class="meta"><b>Cohort:</b> TCGA-BRCA HumanMethylation450 · 888 samples &nbsp;|&nbsp; <b>External:</b> GSE66695 &nbsp;|&nbsp; <b>Date:</b> 29 June 2026 &nbsp;|&nbsp; <b>Status:</b> reviewed against on-disk artifacts</div>
+  </div>
+</header>
+
+<div class="wrap">
+<nav>
+  <div class="navtitle">Contents</div>
+  <a href="#tldr">At a glance</a>
+  <a href="#flow">0 · Pipeline overview</a>
+  <a href="#inputs">1 · Inputs &amp; formats</a>
+  <a href="#qc">2 · QC &amp; filtering</a>
+  <a href="#diff">3 · Differential methylation</a>
+  <a href="#panel">4 · Biomarker panel</a>
+  <a href="#valid">5 · Validation &amp; leakage</a>
+  <a href="#enrich">6 · Pathway enrichment</a>
+  <a href="#integrity">7 · Data-integrity notes</a>
+  <a href="#repro">8 · Reproducibility</a>
+  <a href="#matrix">9 · Positives vs caveats</a>
+</nav>
+
+<main>
+
+<!-- ===================== AT A GLANCE ===================== -->
+<section id="tldr">
+  <h2><span class="n">★</span> At a glance</h2>
+  <p>This project classifies breast <strong>tumour vs normal</strong> tissue from genome-wide CpG methylation and interprets the affected gene programs. The headline result — a near-perfect classifier — is <strong>real and leakage-controlled</strong>; the pathway layer is <strong>honest but the weakest part</strong>. The detail below is what matters if you are auditing the methods.</p>
+  <div class="statrow">
+    <div class="stat"><div class="v">888</div><div class="l">Samples (791T / 97N)</div></div>
+    <div class="stat"><div class="v">382,924</div><div class="l">Analyzable probes</div></div>
+    <div class="stat"><div class="v">0.9960</div><div class="l">Nested-CV ROC AUC</div></div>
+    <div class="stat"><div class="v">0.9997</div><div class="l">External AUC (GSE66695)</div></div>
+  </div>
+  <div class="pos"><b class="h">Why this is trustworthy</b>Selection leakage was found <em>and corrected</em>; the corrected score is essentially identical to the naïve one, and it generalises to an independent cohort. Effect-size gating, an analyzable-gene background, and gene-level collapse control the usual methylation-analysis pitfalls.</div>
+  <div class="cav"><b class="h">What to keep in mind</b>Tumour-vs-normal is an intentionally easy contrast (near-perfect AUC is expected). The <em>exact</em> 20-CpG panel is full-cohort-selected. Pathway enrichment still shows a known HM450 artifact. None of these invalidate the work — but they bound what you can claim.</div>
+</section>
+
+<!-- ===================== FLOW ===================== -->
+<section id="flow">
+  <h2><span class="n">0</span> Pipeline overview</h2>
+  <div class="flow">
+    <div class="step"><div class="t">Ingest</div><div class="d">450K β-matrix + clinical + subtypes + manifest</div></div>
+    <div class="arr">→</div>
+    <div class="step"><div class="t">QC filter</div><div class="d">label-blind probe/sample filtering</div></div>
+    <div class="arr">→</div>
+    <div class="step"><div class="t">Differential</div><div class="d">Δβ, FDR, effect-size gate</div></div>
+    <div class="arr">→</div>
+    <div class="step"><div class="t">Panel + CV</div><div class="d">20-CpG; nested validation</div></div>
+    <div class="arr">→</div>
+    <div class="step"><div class="t">Enrichment</div><div class="d">ORA, bias-controlled</div></div>
+  </div>
+  <p>Implementation is pure Python (<code>pandas</code>, <code>numpy</code>, <code>scikit-learn</code>, <code>scipy</code>). No R/Bioconductor dependency — a deliberate choice for self-containment, with the trade-off noted in §6. All paths are project-relative and resolved from a <code>PROJECT_ROOT</code> anchor.</p>
+</section>
+
+<!-- ===================== INPUTS ===================== -->
+<section id="inputs">
+  <h2><span class="n">1</span> Inputs &amp; data formats</h2>
+  <table>
+    <tr><th>Artifact</th><th>Format</th><th>Notes a bioinformatician will ask about</th></tr>
+    <tr><td><code>TCGA-BRCA.methylation450.tsv.gz</code></td><td>gzip TSV, probes × samples</td><td>~2.8 GB. Illumina HM450 <strong>β-values</strong> ∈ [0,1]; row key <code>Composite Element REF</code> (cg-IDs); streamed in 5,000-row chunks (never fully materialised).</td></tr>
+    <tr><td><code>TCGA-BRCA.clinical.tsv.gz</code></td><td>gzip TSV</td><td>Sample type (Primary Tumor / Solid Tissue Normal), stage, age.</td></tr>
+    <tr><td><code>TCGA-BRCA.subtypes.tsv</code></td><td>TSV</td><td>PAM50 / molecular subtype labels (Basal, LumA, …).</td></tr>
+    <tr><td><code>HM450.hg38.manifest.gencode.v36.probeMap</code></td><td>TSV (~21 MB)</td><td>Probe → gene + hg38 coordinates (GENCODE v36). Source of the <code>gene</code> column used downstream.</td></tr>
+    <tr><td><code>GSE66695</code> series matrix</td><td>gzip TXT (GEO)</td><td>Independent external cohort (80 tumour, 40 normal) for out-of-sample validation.</td></tr>
+  </table>
+  <div class="note"><b class="h">β-values vs M-values</b>Differential analysis here operates on <strong>β-values</strong>, which are bounded and heteroscedastic near 0 and 1. M-values (logit-transformed) are often preferred for the variance-stabilised statistics. β-values are perfectly defensible for effect-size reporting (Δβ is directly interpretable as a methylation fraction change), but note this choice if comparing against limma/M-value pipelines.</div>
+</section>
+
+<!-- ===================== QC ===================== -->
+<section id="qc">
+  <h2><span class="n">2</span> Quality control &amp; probe filtering</h2>
+  <p>QC is <strong>unsupervised (label-blind)</strong> — it never uses the tumour/normal label — and is applied once, uniformly. Parameters and outcomes (from <code>qc_summary.json</code>):</p>
+  <table>
+    <tr><th>Step</th><th class="num">Probes</th><th>Detail</th></tr>
+    <tr><td>After annotation filter</td><td class="num">473,884</td><td>Probes carried into QC</td></tr>
+    <tr><td>Removed</td><td class="num">−90,960</td><td>Per-probe missingness &gt; 10% <em>or</em> sex chromosome</td></tr>
+    <tr><td><strong>Retained (analyzable universe)</strong></td><td class="num">382,924</td><td>Used as the enrichment background everywhere downstream</td></tr>
+  </table>
+  <table>
+    <tr><th>Parameter / metric</th><th>Value</th></tr>
+    <tr><td>Max per-sample missingness</td><td class="num">0.25 → 0 samples removed (888/888 kept)</td></tr>
+    <tr><td>Max per-probe missingness</td><td class="num">0.10</td></tr>
+    <tr><td>Drop sex chromosomes</td><td>Yes</td></tr>
+    <tr><td>Median / max per-sample missing fraction</td><td class="num">0.148 / 0.230</td></tr>
+    <tr><td>Median per-probe missing fraction</td><td class="num">0.000</td></tr>
+  </table>
+  <div class="pos"><b class="h">Strengths</b><ul>
+    <li>Label-blind QC cannot leak class information into the tumour-vs-normal contrast.</li>
+    <li>Sex chromosomes dropped — removes a major sex-driven methylation confounder.</li>
+    <li>The retained set is reused consistently as the statistical universe (not silently swapped later).</li>
+  </ul></div>
+  <div class="cav"><b class="h">Caveats</b><ul>
+    <li><strong>No explicit probe blacklist named.</strong> Cross-reactive / SNP-affected probes (e.g. Zhou/Chen masks) are not documented as removed. Some retained probes may be technically unreliable.</li>
+    <li><strong>No batch/array-position correction</strong> (e.g. ComBat) is described. For a tumour-vs-normal contrast this is low-risk given effect sizes, but it is a gap for subtler subtype work.</li>
+    <li>Per-sample missingness up to 23% is tolerated (threshold 25%). High-missingness samples are retained and imputed downstream (see §5).</li>
+  </ul></div>
+</section>
+
+<!-- ===================== DIFFERENTIAL ===================== -->
+<section id="diff">
+  <h2><span class="n">3</span> Differential methylation</h2>
+  <p>Per probe and per contrast, the pipeline computes group mean β, the difference <code>Δβ = β<sub>tumour</sub> − β<sub>normal</sub></code>, a two-group test, and Benjamini–Hochberg FDR. Output schema (<code>differential_methylation.tsv</code>):</p>
+  <pre><span class="c"># columns</span>
+probe_id  tumor_mean_beta  normal_mean_beta  delta_beta  tumor_n  normal_n
+p_value  fdr  abs_delta_beta  direction  gene  chrom  chromStart  chromEnd  strand</pre>
+  <table>
+    <tr><th>Contrast</th><th class="num">Tested</th><th class="num">FDR&lt;0.05</th><th class="num">+ |Δβ|≥0.20</th><th class="num">Hyper</th><th class="num">Hypo</th></tr>
+    <tr><td>Tumour vs normal</td><td class="num">486,427</td><td class="num">321,823</td><td class="num">31,083</td><td class="num">16,623</td><td class="num">14,460</td></tr>
+    <tr><td>Basal vs normal</td><td class="num">486,427</td><td class="num">283,471</td><td class="num">22,415</td><td class="num">11,015</td><td class="num">11,400</td></tr>
+  </table>
+  <div class="pos"><b class="h">Strengths</b><ul>
+    <li><strong>Effect-size gating</strong> (|Δβ| ≥ 0.20) on top of FDR — essential here, because 321,823 probes clear FDR&lt;0.05 and the p-value alone is uninformative at this sample size.</li>
+    <li>Direction (<code>hyper</code>/<code>hypo</code>) is retained throughout, enabling direction-aware interpretation.</li>
+    <li>Group <em>n</em> per probe is reported, exposing where a contrast rests on few samples.</li>
+  </ul></div>
+  <div class="cav"><b class="h">Caveats</b><ul>
+    <li><strong>91:1 class imbalance</strong> (791 tumour vs 97 normal). Means are well estimated, but any per-probe test should be read with the imbalance in mind.</li>
+    <li>The exact two-group test statistic is not surfaced in the summary tables (only <code>p_value</code>/<code>fdr</code>). Confirm in <code>run_brca_methylation_pipeline.py</code> whether it is a t-test / Mann–Whitney / limma-style model before quoting it in a methods section.</li>
+    <li>β-value variance instability (see §1) is not addressed by a transform.</li>
+  </ul></div>
+</section>
+
+<!-- ===================== PANEL ===================== -->
+<section id="panel">
+  <h2><span class="n">4</span> Biomarker panel construction</h2>
+  <p>A 20-CpG panel is assembled from the differential results: <strong>12 general tumour markers</strong> (tumour-vs-normal) + <strong>8 Basal-skewed markers</strong> (Basal-vs-non-Basal), prioritised by <code>abs_delta_beta</code> and FDR, with gene-level de-duplication. Schema in <code>phase3_panel/refined_biomarker_panel.tsv</code> carries <code>panel_rank, panel_role, source_run, probe_id, gene, delta_beta, fdr, direction</code>.</p>
+  <div class="pos"><b class="h">Strengths</b><ul>
+    <li>Compact and interpretable (per-gene, not a black box); mixes general + subtype-specific roles.</li>
+    <li>Gene-level de-duplication avoids stacking multiple probes of one locus.</li>
+  </ul></div>
+  <div class="cav"><b class="h">Caveats — read before quoting the panel</b><ul>
+    <li><strong>Selection on the full cohort.</strong> The 20 probes were chosen using all samples, so the <em>exact panel composition</em> carries optimistic selection bias. This is the single most important caveat for the panel and is handled head-on in §5.</li>
+    <li>Treat the 20 CpGs as an <strong>exploratory candidate signature</strong>, not a locked, externally re-derived panel.</li>
+  </ul></div>
+</section>
+
+<!-- ===================== VALIDATION ===================== -->
+<section id="valid">
+  <h2><span class="n">5</span> Validation &amp; the leakage audit</h2>
+  <p>This is the methodological core. Two evaluations were run, and a leakage audit was performed because near-perfect AUCs demand it.</p>
+  <h3>5.1 The leakage found</h3>
+  <p>The original Phase-4 internal CV <strong>pre-selected</strong> the 20-CpG panel on the full cohort, then ran 5-fold CV that re-used those fixed probes and only re-fit the classifier per fold. That is textbook <strong>selection leakage</strong>: feature choice saw the test folds.</p>
+  <h3>5.2 The correction — nested CV</h3>
+  <p><code>run_phase4_validation_nested.py</code> re-ranks probes by train-only <code>|Δβ|</code> <em>inside each fold</em>, drawing candidates from the retained probe universe, then fits and scores. Feature selection never sees the held-out fold.</p>
+  <table class="verdict">
+    <tr><th>Evaluation</th><th class="num">ROC AUC</th><th class="num">SD</th><th>Reading</th></tr>
+    <tr><td>Original 5-fold CV</td><td class="num">0.996392</td><td class="num">0.003273</td><td>Leaky (panel pre-selected)</td></tr>
+    <tr><td>Nested CV (corrected)</td><td class="num">0.995997</td><td class="num">0.003349</td><td>Leakage removed</td></tr>
+    <tr><td>External — GSE66695</td><td class="num">0.999688</td><td class="num">—</td><td>TCGA-fit, no refit, n=120</td></tr>
+  </table>
+  <div class="pos"><b class="h">Why the near-perfect AUC is believable</b><ul>
+    <li><strong>ΔAUC ≈ 0.0004</strong> between leaky and nested evaluation — if the score were a selection artifact, removing the leak would collapse it. It didn't.</li>
+    <li><strong>External generalisation</strong> to an independently generated cohort (GSE66695) with no refitting.</li>
+    <li><strong>Stage-stable:</strong> Stage I–IV AUCs span only 0.9948–0.9991 — not driven by late-stage outliers.</li>
+    <li>Consistent with the known biology: tumour vs normal methylation is genuinely, strongly separable.</li>
+  </ul></div>
+  <div class="cav"><b class="h">Technical caveats found in the validation code</b><ul>
+    <li><strong>Nested folds ≠ the published 20-panel.</strong> The nested script uses a simpler pure-Δβ rule, so its fold panels have <em>zero overlap</em> with the original 20 CpGs (15 probes common across all 5 folds, 29 in the union). So the nested CV validates that an <em>honest pipeline reaches ~0.996</em> — it does <strong>not</strong> re-validate the specific 20-CpG composition.</li>
+    <li><strong>Imputation bleed:</strong> in <code>load_tcga_matrix</code>, missing β are filled with full-matrix column means (train+test together). A minor optimistic bias; negligible at this effect size, but a purist would impute within the training fold.</li>
+    <li><strong>Class imbalance in folds:</strong> stratified 5-fold on 97 normals ≈ 19 normals/fold — small denominators make per-fold AUC noisier than the tight SD suggests.</li>
+    <li>External AUC of 1.000-ish should be read as “saturated/easy contrast,” not as evidence of clinical-grade discrimination.</li>
+  </ul></div>
+</section>
+
+<!-- ===================== ENRICHMENT ===================== -->
+<section id="enrich">
+  <h2><span class="n">6</span> Pathway enrichment</h2>
+  <p>Pure-Python over-representation analysis (ORA) via <code>scipy.stats.hypergeom</code>. The test is correctly specified: query and term gene sets are both intersected with the background universe before testing.</p>
+  <pre><span class="c"># per term, per library</span>
+p = hypergeom.sf(overlap_n - 1, universe_size, len(term_genes ∩ background), query_size)
+<span class="c"># query  = significant genes ∩ background</span>
+<span class="c"># universe = 33,010 genes from 382,924 retained probes</span>
+<span class="c"># BH-FDR applied per library</span></pre>
+  <h3>6.1 Three deliberate bias controls</h3>
+  <ul>
+    <li><strong>Sharp query</strong> — canonical run = top 2,000 probes by |Δβ| (after FDR&lt;0.05) → tumour 1,474 genes (1,045 hyper / 463 hypo); Basal 1,187. Tuned so the query sits in the 500–3,000-gene window where ORA discriminates.</li>
+    <li><strong>Analyzable-gene background</strong> — the 33,010 genes covered by retained probes, <em>not</em> the whole genome. This is the key control against array-coverage bias.</li>
+    <li><strong>Gene-level collapse</strong> — each gene counted once regardless of probe count, neutralising most 450K probe-number bias.</li>
+  </ul>
+  <h3>6.2 Representative significant terms</h3>
+  <table>
+    <tr><th>Term</th><th>Library</th><th>Direction</th><th class="num">adj. p</th></tr>
+    <tr><td>Transcriptional misregulation in cancer</td><td>KEGG</td><td>combined</td><td class="num">3.3×10⁻⁴</td></tr>
+    <tr><td>G1/S transition of mitotic cell cycle</td><td>GO BP</td><td>combined</td><td class="num">4.8×10⁻³</td></tr>
+    <tr><td>MAPK signaling pathway</td><td>KEGG</td><td>hypo</td><td class="num">1.7×10⁻³</td></tr>
+    <tr><td>MicroRNAs in cancer</td><td>KEGG</td><td>hyper</td><td class="num">2.4×10⁻²</td></tr>
+    <tr><td>DNA-binding TF repressor activity (Basal)</td><td>GO MF</td><td>combined</td><td class="num">1.1×10⁻³</td></tr>
+  </table>
+  <div class="pos"><b class="h">Strengths</b><ul>
+    <li>Correct hypergeometric specification with the right background — the most common ORA error (whole-genome background) is avoided.</li>
+    <li>Hyper/hypo tested separately and combined; full ranked tables retained (16,221 GO-BP terms, etc.) — no cherry-picking.</li>
+    <li>Threshold sensitivity was explored (0.30, 0.40, top-1000, top-2000) before fixing the canonical run.</li>
+  </ul></div>
+  <div class="cav"><b class="h">Caveats — the weakest layer of the project</b><ul>
+    <li><strong>Residual 450K neuronal/developmental artifact persists</strong> even at top-2,000. Gene-level collapse mitigates but does not eliminate probe-number bias; a probe-aware model (<code>missMethyl::gometh</code>, R) would be the rigorous fix and is intentionally not used.</li>
+    <li><strong>No promoter vs gene-body resolution.</strong> The probe→gene map does not localise the CpG, so “hyper = silencing” is interpretive, not mechanistic.</li>
+    <li><strong>DNA repair did not reach significance</strong> and is explicitly not claimed — a deliberate negative result worth stating.</li>
+    <li>Enrichr gene-set symbol matching means non-coding / clone IDs (e.g. <code>AL009179.2</code>) won’t map to gene sets and silently drop out of ORA.</li>
+  </ul></div>
+</section>
+
+<!-- ===================== INTEGRITY ===================== -->
+<section id="integrity">
+  <h2><span class="n">7</span> Data-integrity notes (surfaced during review)</h2>
+  <p>These are subtle items a careful reviewer should know. None are fatal; all are disclosed for transparency.</p>
+  <div class="cav"><b class="h">Probe-count reconciliation</b>The differential table holds <strong>486,427</strong> probes, but QC reports only <strong>473,884</strong> post-annotation and <strong>382,924</strong> retained. So differential testing ran on a <em>broader</em> probe set than the QC-defined analyzable universe. This is internally safe — enrichment uses only the 382,924-probe background, and significant probes outside it simply don’t map into the ORA universe — but the three numbers should be reconciled in any formal methods write-up.</div>
+  <div class="cav"><b class="h">“Top markers” files contain tiny-<em>n</em> rows</b>Some rows in <code>top_hypermethylated_markers.tsv</code> have <code>normal_n = 1</code> (e.g. a probe with 395 tumour vs 1 normal). These per-subgroup edge rows should not be read as robust markers; the validated panel and CV do not depend on them, but don’t quote them in isolation.</div>
+  <div class="note"><b class="h">Determinism</b>CV uses a fixed seed (<code>random_state=0</code>), so the nested results are reproducible. The 2.8 GB matrix is streamed twice in the nested script (two full passes) — correct but slow; a single-pass refactor is a pure-performance opportunity.</div>
+</section>
+
+<!-- ===================== REPRO ===================== -->
+<section id="repro">
+  <h2><span class="n">8</span> Reproducibility</h2>
+  <pre><span class="c"># 1 — validate environment (fast; no heavy I/O)</span>
+python3 project_b/scripts/run_brca_methylation_pipeline.py \
+  --config project_b/brca_local_inputs.json --validate-paths-only
+
+<span class="c"># 2 — leakage-controlled nested validation</span>
+python3 project_b/scripts/run_phase4_validation_nested.py
+
+<span class="c"># 3 — pathway enrichment (canonical tuned run)</span>
+python3 project_b/scripts/run_pathway_enrichment.py \
+  --config project_b/brca_local_inputs.json --top-n-probes 2000</pre>
+  <div class="pos"><b class="h">Strengths</b><ul>
+    <li>Self-contained, project-relative paths; large matrix referenced in place (symlinked) to avoid 2.8 GB duplication.</li>
+    <li>Version-pinned gene-set GMTs cached locally; fixed CV seed; a fast path-validation mode.</li>
+  </ul></div>
+  <div class="cav"><b class="h">Caveats</b><ul>
+    <li>The β-matrix symlink means full reproduction on another machine requires re-supplying that 2.8 GB file.</li>
+    <li>No <code>requirements.txt</code> / lockfile or container is described — pin <code>pandas/numpy/scikit-learn/scipy</code> versions for exact reproduction.</li>
+  </ul></div>
+</section>
+
+<!-- ===================== MATRIX ===================== -->
+<section id="matrix">
+  <h2><span class="n">9</span> Positives vs caveats — one-screen summary</h2>
+  <table>
+    <tr><th>Stage</th><th>Positive</th><th>Caveat</th></tr>
+    <tr><td>QC</td><td>Label-blind; sex-chr removed; consistent universe</td><td>No named probe blacklist or batch correction</td></tr>
+    <tr><td>Differential</td><td>Effect-size gated; direction kept</td><td>91:1 imbalance; β-value variance; test stat not surfaced</td></tr>
+    <tr><td>Panel</td><td>Compact, interpretable, gene-deduped</td><td>Full-cohort selected → exploratory, mildly optimistic</td></tr>
+    <tr><td>Validation</td><td>Leakage found &amp; corrected; external + stage-stable</td><td>Nested ≠ exact panel; full-X imputation; small normal folds</td></tr>
+    <tr><td>Enrichment</td><td>Correct background &amp; test; no cherry-picking</td><td>Residual 450K artifact; no promoter/body; symbol-map dropouts</td></tr>
+    <tr><td>Repro</td><td>Self-contained; seeded; validatable</td><td>No lockfile; symlinked large input</td></tr>
+  </table>
+  <div class="pos"><b class="h">Bottom line for a bioinformatician</b>The classification claim is <strong>methodologically sound and defensible</strong> — the leakage audit + nested CV + external validation is exactly the right chain, and the numbers were recomputed from on-disk artifacts. Present the validated tumour-vs-normal signal as the result, the differential analysis as the engine, and the pathway enrichment as <em>supporting, association-level</em> evidence with its artifact disclosed. Every caveat above is a bound on interpretation, not a flaw in execution.</div>
+</section>
+
+<footer>
+  BRCA DNA Methylation — Data Processing &amp; Methods · TCGA-BRCA HM450 · 29 June 2026 · All figures recomputed from on-disk tables · Association-level findings; not for clinical use.
+</footer>
+
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "n_samples": 780,
+  "n_case": 137,
+  "n_reference": 643,
+  "sample_types": {
+    "Primary Tumor": 780
+  },
+  "subtypes": {
+    "LumA": 421,
+    "LumB": 142,
+    "Basal": 137,
+    "Her2": 46,
+    "Normal": 34
+  },
+  "analysis_groups": {
+    "non_basal": 643,
+    "Basal": 137
+  },
+  "ages": {
+    "tumor_median": 54.0,
+    "normal_median": 59.0
+  }
+}

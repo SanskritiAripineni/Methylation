@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRCA Methylation Project Overview</title>
+  <style>
+    :root {
+      --bg: #f6f3ed;
+      --paper: #fffdf9;
+      --ink: #1f2933;
+      --muted: #5b6875;
+      --line: #d7d0c6;
+      --accent: #9f2f4f;
+      --accent-soft: #f7d9e3;
+      --accent-2: #1d6f8c;
+      --accent-2-soft: #d8edf5;
+      --good: #1f7a4d;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: linear-gradient(180deg, #efe8dc 0%, #f6f3ed 18%, #f6f3ed 100%);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    .hero {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(31, 41, 51, 0.06);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2;
+      margin: 0 0 12px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-top: 14px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 26px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .lede {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 780px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .stats {
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      margin-top: 22px;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .stat-value {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .section {
+      margin-top: 26px;
+    }
+
+    .phase-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      margin-top: 14px;
+    }
+
+    .phase-number {
+      display: inline-block;
+      min-width: 42px;
+      padding: 6px 10px;
+      border-radius: 12px;
+      background: var(--accent-2-soft);
+      color: var(--accent-2);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .result-box {
+      background: #f4fbf7;
+      border: 1px solid #c7e7d3;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 12px;
+    }
+
+    .result-box strong {
+      color: var(--good);
+    }
+
+    .glossary {
+      display: grid;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .term {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px;
+    }
+
+    .term-name {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      padding: 14px 16px;
+      border-left: 4px solid var(--accent);
+      background: #fff6f8;
+      border-radius: 12px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 18px 14px 40px;
+      }
+
+      .hero,
+      .card,
+      .term {
+        border-radius: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <div class="eyebrow">Project B Overview</div>
+      <h1>Breast Cancer Methylation Project</h1>
+      <p class="lede">
+        This project used public breast cancer methylation data to find DNA sites that look different in tumor tissue compared with normal tissue, build a smaller biomarker panel, test that panel on another dataset, and turn the results into a simple research-style reporting system.
+      </p>
+
+      <div class="grid stats">
+        <div class="card">
+          <div class="stat-value">888</div>
+          <div class="stat-label">TCGA samples used in the main baseline analysis</div>
+        </div>
+        <div class="card">
+          <div class="stat-value">20</div>
+          <div class="stat-label">CpGs kept in the final refined panel</div>
+        </div>
+        <div class="card">
+          <div class="stat-value">0.996</div>
+          <div class="stat-label">Internal ROC AUC for tumor vs normal</div>
+        </div>
+        <div class="card">
+          <div class="stat-value">0.9997</div>
+          <div class="stat-label">External ROC AUC on GEO dataset GSE66695</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What We Did</h2>
+      <div class="grid phase-grid">
+        <article class="card">
+          <div class="phase-number">Phase 1</div>
+          <h3>Build the baseline pipeline</h3>
+          <p>We loaded TCGA breast cancer methylation data, matched the sample IDs to the clinical information, checked data quality, filtered the probes, and compared tumor tissue with normal tissue.</p>
+          <ul>
+            <li>791 tumor samples and 97 normal samples were kept.</li>
+            <li>382,924 probes were kept after filtering.</li>
+            <li>The result was a large list of CpG sites that changed strongly between tumor and normal tissue.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="phase-number">Phase 2</div>
+          <h3>Add subtype comparisons</h3>
+          <p>We expanded the pipeline so it could also compare specific tumor groups instead of only tumor vs normal.</p>
+          <ul>
+            <li>We used Basal as a practical TNBC-like subtype proxy.</li>
+            <li>We ran Basal vs non-Basal and subtype-vs-normal comparisons.</li>
+            <li>This helped separate general tumor markers from subtype-skewed markers.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="phase-number">Phase 3</div>
+          <h3>Build a smaller biomarker panel</h3>
+          <p>We reduced the long CpG lists into a cleaner panel that is easier to use and explain.</p>
+          <ul>
+            <li>12 CpGs were chosen as general tumor markers.</li>
+            <li>8 CpGs were chosen as Basal-skewed markers.</li>
+            <li>The final refined panel contains 20 CpGs total.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="phase-number">Phase 4</div>
+          <h3>Validate the panel</h3>
+          <p>We tested whether the smaller panel still worked well, both inside TCGA and on a separate public dataset.</p>
+          <ul>
+            <li>Internal tumor-vs-normal ROC AUC was 0.996.</li>
+            <li>External validation on GSE66695 gave ROC AUC 0.9997.</li>
+            <li>The signal stayed strong across Stage I, II, III, and IV tumors.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="phase-number">Phase 5</div>
+          <h3>Build a simple report layer</h3>
+          <p>We turned the panel into a clean reporting system with score bands and simple example reports.</p>
+          <ul>
+            <li>Low score means the sample looks more like normal tissue.</li>
+            <li>High score means the sample looks more like tumor tissue.</li>
+            <li>We kept the language research-safe and avoided overclaiming.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Main Results</h2>
+      <div class="result-box">
+        <p><strong>Simple summary:</strong> The methylation panel separated normal breast tissue from breast tumor tissue extremely well, and it also captured a useful Basal-skewed subtype signal.</p>
+        <ul>
+          <li>The best internal tumor-vs-normal performance was <strong>ROC AUC 0.996</strong>.</li>
+          <li>The external validation dataset also worked very well, with <strong>ROC AUC 0.9997</strong>.</li>
+          <li>The final panel is small enough to explain clearly and strong enough to keep testing in later work.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How to Read the Final Score</h2>
+      <div class="grid phase-grid">
+        <article class="card">
+          <h3>Low</h3>
+          <p>A score at or below <strong>0.447</strong> usually falls in the range seen in normal-like samples.</p>
+        </article>
+        <article class="card">
+          <h3>Indeterminate</h3>
+          <p>A score between <strong>0.447</strong> and <strong>0.835</strong> sits in the overlap zone and should be treated carefully.</p>
+        </article>
+        <article class="card">
+          <h3>High</h3>
+          <p>A score at or above <strong>0.835</strong> usually falls in the range seen in tumor-like samples.</p>
+        </article>
+      </div>
+
+      <div class="footer-note">
+        This is still a research-use result, not a clinical diagnosis. The score should be interpreted alongside pathology, imaging, and other medical information.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Glossary</h2>
+      <div class="glossary">
+        <div class="term">
+          <div class="term-name">DNA methylation</div>
+          <div>A chemical tag on DNA that can help turn genes on or off.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">CpG site</div>
+          <div>A specific place in DNA where methylation is measured.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">Probe</div>
+          <div>A measurement spot on the methylation array that reads one CpG site.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">Beta value</div>
+          <div>A number between 0 and 1 that shows how methylated a CpG site is.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">Delta beta</div>
+          <div>The difference in methylation between two groups, such as tumor and normal.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">FDR</div>
+          <div>False discovery rate. It helps control for false positives when testing many CpG sites at once.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">Biomarker panel</div>
+          <div>A smaller set of markers chosen because they are especially useful and informative.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">Subtype</div>
+          <div>A smaller biological subgroup inside a cancer type. In this project, Basal is one important breast cancer subtype.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">ROC AUC</div>
+          <div>A score that tells how well a model separates two groups. Closer to 1 means better separation.</div>
+        </div>
+        <div class="term">
+          <div class="term-name">Validation</div>
+          <div>Testing whether the model still works on new data instead of only the data used to build it.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>

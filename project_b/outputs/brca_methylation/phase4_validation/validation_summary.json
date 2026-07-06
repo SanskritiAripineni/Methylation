@@ -1,0 +1,55 @@
+{
+  "panel_size": 20,
+  "internal_tcga_cross_validation": {
+    "roc_auc_mean": 0.9963924050632912,
+    "roc_auc_std": 0.0032725294968623314,
+    "roc_auc_per_fold": [
+      0.9990506329113924,
+      0.9955696202531645,
+      1.0,
+      0.9966688874083944,
+      0.9906728847435045
+    ]
+  },
+  "external_validation": {
+    "dataset": "GSE66695",
+    "n_samples": 120,
+    "n_tumor": 80,
+    "n_normal": 40,
+    "roc_auc": 0.9996875
+  },
+  "age_association": {
+    "tumor": {
+      "n": 790,
+      "spearman_rho": 0.1748820203682061,
+      "p_value": 7.584070994858857e-07
+    },
+    "normal": {
+      "n": 97,
+      "spearman_rho": 0.060933743572614524,
+      "p_value": 0.5532485711907464
+    }
+  },
+  "stage_specific_auc": {
+    "Stage I": {
+      "n_tumor": 128,
+      "n_normal": 97,
+      "roc_auc": 0.9974226804123711
+    },
+    "Stage II": {
+      "n_tumor": 441,
+      "n_normal": 97,
+      "roc_auc": 0.9978025574490964
+    },
+    "Stage III": {
+      "n_tumor": 199,
+      "n_normal": 97,
+      "roc_auc": 0.9948194581153188
+    },
+    "Stage IV": {
+      "n_tumor": 11,
+      "n_normal": 97,
+      "roc_auc": 0.9990627928772259
+    }
+  }
+}

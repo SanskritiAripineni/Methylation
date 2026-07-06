@@ -1,0 +1,9 @@
+{
+  "gated_cpgs": 31083,
+  "hypermethylated_gated_cpgs": 16623,
+  "hypomethylated_gated_cpgs": 14460,
+  "background_genes": 33010,
+  "retained_background_probes": 382924,
+  "curated_gene_sets": 14,
+  "significant_results_adj_p_lt_0_05": 4
+}

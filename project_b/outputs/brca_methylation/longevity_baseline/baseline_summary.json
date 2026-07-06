@@ -1,0 +1,26 @@
+{
+  "gse_label_counts": {
+    "tumor": 80,
+    "normal": 40
+  },
+  "tcga_label_counts": {
+    "normal": 97,
+    "tumor": 791
+  },
+  "dropped_samples": {
+    "gse": 0,
+    "tcga": 0
+  },
+  "gse_probe_count": 485577,
+  "project_hm450_probe_count": 485577,
+  "gse_project_probe_overlap": 485577,
+  "longevity_target_probe_count": 17582,
+  "gse_longevity_target_overlap": 17582,
+  "tcga_longevity_target_overlap": 17582,
+  "tcga_longevity_target_with_normal_beta": 16160,
+  "tcga_longevity_target_with_tumor_beta": 16168,
+  "longevity_cpg_set_rows": 28230,
+  "longevity_sets": 14,
+  "label_sanity_median_gse_delta_hyper": 0.283539167323718,
+  "label_sanity_median_gse_delta_hypo": -0.2148543666249999
+}

@@ -1,0 +1,889 @@
+sample_barcode	case_id	submitter_id	sample_type.samples	tissue_type.samples	gender.demographic	age_at_index.demographic	ajcc_pathologic_stage.diagnoses	primary_diagnosis.diagnoses	tumor_descriptor.samples	sample_type	sample_class	age_years
+TCGA-A7-A0CE-11A	9d95a65b-e41d-4f93-92d4-99dce29ff40d	TCGA-A7-A0CE	Solid Tissue Normal	Normal	female	57.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	57.0
+TCGA-A7-A0CH-11A	9de678e5-67ed-4453-a98b-7ac351d5d0f1	TCGA-A7-A0CH	Solid Tissue Normal	Normal	female	79.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	79.0
+TCGA-A7-A0D9-11A	17baef7c-d97d-4b98-ab53-503ef856523d	TCGA-A7-A0D9	Solid Tissue Normal	Normal	female	37.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	37.0
+TCGA-A7-A0DB-11A	f130f376-5801-40f9-975d-a7e2f7b5670d	TCGA-A7-A0DB	Solid Tissue Normal	Normal	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	56.0
+TCGA-A7-A0DC-11A	cb9f5e50-f49d-4899-8895-9367afcc1015	TCGA-A7-A0DC	Solid Tissue Normal	Normal	female	63.0	Stage IA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	63.0
+TCGA-A7-A13E-11A	8c7e74e0-71ef-49b8-9217-94b8ef740ef9	TCGA-A7-A13E	Solid Tissue Normal	Normal	female	62.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	62.0
+TCGA-A7-A13F-11A	2cf68894-168b-458b-af4f-53cad72989a8	TCGA-A7-A13F	Solid Tissue Normal	Normal	female	44.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	44.0
+TCGA-A7-A13G-11A	6cd9baf5-bbe0-4c1e-a87f-c53b3af22890	TCGA-A7-A13G	Solid Tissue Normal	Normal	female	79.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	79.0
+TCGA-AC-A23H-11A	7dcf550c-90ce-4f63-aecd-0e46897e2a3e	TCGA-AC-A23H	Solid Tissue Normal	Normal	female	90.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	90.0
+TCGA-AC-A2FB-11A	02bbb632-0f7f-439d-b8f0-c86a06237424	TCGA-AC-A2FB	Solid Tissue Normal	Normal	female	65.0	Stage IIA	Lobular carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	65.0
+TCGA-AC-A2FF-11A	3ca67cd0-81da-4f68-a9fa-f1a8c013c28d	TCGA-AC-A2FF	Solid Tissue Normal	Normal	female	40.0	Stage IIB	Lobular carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	40.0
+TCGA-AC-A2FG-11A	39cda4c9-e1c8-44c2-bab7-f5849c12f879	TCGA-AC-A2FG	Solid Tissue Normal	Normal	female	79.0	Stage IIB	Lobular carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	79.0
+TCGA-AC-A2FM-11B	b6b1dc9a-91f4-4b0a-afd5-62c9a90c0d5e	TCGA-AC-A2FM	Solid Tissue Normal	Normal	female	87.0	Stage IIB	Lobular carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	87.0
+TCGA-BH-A0AU-11A	360d1d6d-cf3e-4c78-b36f-ef5e3160aa6b	TCGA-BH-A0AU	Solid Tissue Normal	Normal	female	45.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	45.0
+TCGA-BH-A0AY-11A	93ed6066-b567-4e1c-ab81-23370f9d3452	TCGA-BH-A0AY	Solid Tissue Normal	Normal	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	62.0
+TCGA-BH-A0AZ-11A	518f231c-f5f9-4a39-a97b-7fd5666d3e50	TCGA-BH-A0AZ	Solid Tissue Normal	Normal	female	47.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	47.0
+TCGA-BH-A0B3-11B	18eb4dfc-556f-4bf3-a411-4780209ed1e0	TCGA-BH-A0B3	Solid Tissue Normal	Normal	female	53.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	53.0
+TCGA-BH-A0B8-11A	d3a75976-67d3-40fa-9f6f-cf2a3d7b773c	TCGA-BH-A0B8	Solid Tissue Normal	Normal	female	64.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	64.0
+TCGA-BH-A0BA-11A	49dc3e68-6206-4f16-969f-a758cc7be8ed	TCGA-BH-A0BA	Solid Tissue Normal	Normal	female	51.0	Stage IIIC	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	51.0
+TCGA-BH-A0BC-11A	327a2395-85c8-42e1-9638-8e037a1723ed	TCGA-BH-A0BC	Solid Tissue Normal	Normal	female	60.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	60.0
+TCGA-BH-A0BF-11A	e6b79d7a-ed6b-459a-b040-d142616e7ab4	TCGA-BH-A0BF	Solid Tissue Normal	Normal	female	56.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	56.0
+TCGA-BH-A0BJ-11A	d6f911b5-e895-43f8-8f86-0ac2f1bc6fae	TCGA-BH-A0BJ	Solid Tissue Normal	Normal	female	41.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	41.0
+TCGA-BH-A0BM-11A	c2aeee6c-ba10-4cf9-b560-c739580f7bf3	TCGA-BH-A0BM	Solid Tissue Normal	Normal	female	54.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	54.0
+TCGA-BH-A0BS-11A	2b22db1d-54a1-4b9e-a86e-a174cf51d95c	TCGA-BH-A0BS	Solid Tissue Normal	Normal	female	55.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	55.0
+TCGA-BH-A0BT-11A	a32cb96a-78bf-456e-a6ab-2d47b2c67ad4	TCGA-BH-A0BT	Solid Tissue Normal	Normal	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	56.0
+TCGA-BH-A0BV-11A	87f03d04-e651-4a6e-aea6-1c946aa46202	TCGA-BH-A0BV	Solid Tissue Normal	Normal	female	78.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	78.0
+TCGA-BH-A0BZ-11A	4a032bad-e726-48f2-8f39-e3acc109cc91	TCGA-BH-A0BZ	Solid Tissue Normal	Normal	female	59.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	59.0
+TCGA-BH-A0C0-11A	7875018b-91dc-4ab1-83b0-ee3883e2816e	TCGA-BH-A0C0	Solid Tissue Normal	Normal	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	62.0
+TCGA-BH-A0C3-11A	7bcf6d42-eb8f-4aa2-825b-38671d4f9e3a	TCGA-BH-A0C3	Solid Tissue Normal	Normal	female	47.0	Stage I	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	47.0
+TCGA-BH-A0DG-11A	0bc5744c-5fa3-45bb-87d0-70a02068b392	TCGA-BH-A0DG	Solid Tissue Normal	Normal	female	30.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	30.0
+TCGA-BH-A0DH-11A	491b6364-1223-474f-816f-e248c8c841e2	TCGA-BH-A0DH	Solid Tissue Normal	Normal	female	63.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	63.0
+TCGA-BH-A0DI-11A	27ba717a-5cd8-440a-9345-4ae086f6efca	TCGA-BH-A0DI	Solid Tissue Normal	Normal	female	63.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	63.0
+TCGA-BH-A0DK-11A	f2bbfa9d-9a9d-4f46-9fde-378e4c44e2ad	TCGA-BH-A0DK	Solid Tissue Normal	Normal	female	49.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	49.0
+TCGA-BH-A0DP-11A	14267783-5624-4fe5-ba81-9d67f1017474	TCGA-BH-A0DP	Solid Tissue Normal	Normal	female	60.0	Stage IIB	Lobular carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	60.0
+TCGA-BH-A0DQ-11A	a851ca14-7bbf-455b-a054-ec03979a4247	TCGA-BH-A0DQ	Solid Tissue Normal	Normal	female	42.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	42.0
+TCGA-BH-A0DV-11A	96b9c7db-1be1-4b60-b47c-26b654c3d64c	TCGA-BH-A0DV	Solid Tissue Normal	Normal	female	54.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	54.0
+TCGA-BH-A0DZ-11A	478eb8aa-50b8-4ce5-98e4-d518ede4b174	TCGA-BH-A0DZ	Solid Tissue Normal	Normal	female	43.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	43.0
+TCGA-BH-A0E0-11A	20e8106b-1290-4735-abe4-7621e08e3dc8	TCGA-BH-A0E0	Solid Tissue Normal	Normal	female	38.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	38.0
+TCGA-BH-A0E1-11A	606fbc6a-b41b-441d-9401-51e54912bf5e	TCGA-BH-A0E1	Solid Tissue Normal	Normal	female	52.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	52.0
+TCGA-BH-A0H7-11A	2021ed1f-dc75-4701-b8b8-1386466e4802	TCGA-BH-A0H7	Solid Tissue Normal	Normal	female	65.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	65.0
+TCGA-BH-A0H9-11A	0f64edec-0f1f-4025-8a53-75f9534f7828	TCGA-BH-A0H9	Solid Tissue Normal	Normal	female	69.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	69.0
+TCGA-BH-A0HA-11A	e666081b-caaf-4e8b-9446-807be71201a5	TCGA-BH-A0HA	Solid Tissue Normal	Normal	female	31.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	31.0
+TCGA-BH-A0HK-11A	24334ac1-28a3-4b61-b590-3f51e375b247	TCGA-BH-A0HK	Solid Tissue Normal	Normal	female	81.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	81.0
+TCGA-BH-A1EN-11A	858652b8-c4c2-41d8-be32-fdc88e1a7bb0	TCGA-BH-A1EN	Solid Tissue Normal	Normal	female	78.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	78.0
+TCGA-BH-A1EO-11A	4510295e-8aa7-4ef1-b2b7-91cc902f8200	TCGA-BH-A1EO	Solid Tissue Normal	Normal	female	68.0	Stage IIA	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	68.0
+TCGA-BH-A1ES-11A	51ccbf1b-7cae-44ba-991a-11eda8b8c404	TCGA-BH-A1ES	Solid Tissue Normal	Normal	female	35.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	35.0
+TCGA-BH-A1ET-11B	8986a141-eae7-4157-b695-02cc6fc3b071	TCGA-BH-A1ET	Solid Tissue Normal	Normal	female	55.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	55.0
+TCGA-BH-A1EU-11A	a1093598-d3a8-4ffe-83fc-bc7d1faff7e5	TCGA-BH-A1EU	Solid Tissue Normal	Normal	female	83.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	83.0
+TCGA-BH-A1EV-11A	417dea5f-f68e-4dab-940e-43ae8c67e5e6	TCGA-BH-A1EV	Solid Tissue Normal	Normal	female	45.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	45.0
+TCGA-BH-A1EW-11B	9d166970-07c8-4ca3-9cfa-ed0049df9ecc	TCGA-BH-A1EW	Solid Tissue Normal	Normal	female	38.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	38.0
+TCGA-BH-A1EY-11B	0741b5db-4405-42ba-b63a-c6ee4f341480	TCGA-BH-A1EY	Solid Tissue Normal	Normal	female	79.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	79.0
+TCGA-BH-A1F0-11B	21ef1730-e5a7-47ce-b419-d000bb59ae15	TCGA-BH-A1F0	Solid Tissue Normal	Normal	female	80.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	80.0
+TCGA-BH-A1F2-11A	6a2972e3-cca9-47e5-aac0-b770f2399eeb	TCGA-BH-A1F2	Solid Tissue Normal	Normal	female	53.0	Stage IIIB	Paget disease and infiltrating duct carcinoma of breast	Not Applicable	Solid Tissue Normal	normal	53.0
+TCGA-BH-A1F5-11A	e663954c-05a8-479a-a623-400c1eb5efc6	TCGA-BH-A1F5	Solid Tissue Normal	Normal	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	62.0
+TCGA-BH-A1F6-11B	ad18820b-a804-49c0-ba8a-86c09fa6bce2	TCGA-BH-A1F6	Solid Tissue Normal	Normal	female	51.0		Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	51.0
+TCGA-BH-A1F8-11B	ee554215-bea2-4268-aaf9-784e68cdb969	TCGA-BH-A1F8	Solid Tissue Normal	Normal	female	90.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	90.0
+TCGA-BH-A1FB-11A	ecab16bc-28d5-4c3a-8735-3c785bd047c4	TCGA-BH-A1FB	Solid Tissue Normal	Normal	female	60.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	60.0
+TCGA-BH-A1FC-11A	b97bf89a-7a85-4eef-ae7e-f787aead1f0a	TCGA-BH-A1FC	Solid Tissue Normal	Normal	female	78.0	Stage IIA	Medullary carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	78.0
+TCGA-BH-A1FD-11B	3c8b5af9-c34d-43c2-b8c9-39ea11e44fa6	TCGA-BH-A1FD	Solid Tissue Normal	Normal	female	68.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	68.0
+TCGA-BH-A1FE-11B	4aa68586-6331-4795-b40c-859386640df6	TCGA-BH-A1FE	Solid Tissue Normal	Normal	female	31.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	31.0
+TCGA-BH-A1FG-11B	d4e7426c-9739-4585-9114-e564b13c7c02	TCGA-BH-A1FG	Solid Tissue Normal	Normal	female	88.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	88.0
+TCGA-BH-A1FH-11B	1783cac1-253a-40af-a9ac-48dfb20e1ab8	TCGA-BH-A1FH	Solid Tissue Normal	Normal	female	47.0	Stage IV	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	47.0
+TCGA-BH-A1FJ-11B	f6581eee-61b9-43d4-ab0d-ce5ce3ba1c74	TCGA-BH-A1FJ	Solid Tissue Normal	Normal	female	66.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	66.0
+TCGA-BH-A1FM-11B	7eb18190-5a41-4637-9783-f81bbde499e4	TCGA-BH-A1FM	Solid Tissue Normal	Normal	female	44.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	44.0
+TCGA-BH-A1FN-11A	6dd0dd7b-62ff-4fd1-a99a-b265f1a91dca	TCGA-BH-A1FN	Solid Tissue Normal	Normal	female	34.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	34.0
+TCGA-BH-A1FR-11B	bf3b1481-ae31-4406-b084-b6cc1d7163e3	TCGA-BH-A1FR	Solid Tissue Normal	Normal	female	73.0	Stage IIIB	Infiltrating duct mixed with other types of carcinoma	Not Applicable	Solid Tissue Normal	normal	73.0
+TCGA-BH-A203-11A	b3264748-947a-43aa-b227-b294fbcc8447	TCGA-BH-A203	Solid Tissue Normal	Normal	female	78.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	78.0
+TCGA-BH-A204-11A	05135396-df5c-49db-b34e-f4add5b65a2b	TCGA-BH-A204	Solid Tissue Normal	Normal	female	80.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	80.0
+TCGA-BH-A208-11A	ddcbdac6-9e43-4146-a611-d033125eba14	TCGA-BH-A208	Solid Tissue Normal	Normal	female	48.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	48.0
+TCGA-BH-A209-11A	5258294f-ef5b-4091-9183-6bcc545d54b2	TCGA-BH-A209	Solid Tissue Normal	Normal	female	77.0	Stage I	Medullary carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	77.0
+TCGA-E2-A15I-11A	64089c20-939f-48b4-ae8b-904ad0597145	TCGA-E2-A15I	Solid Tissue Normal	Normal	female	44.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	44.0
+TCGA-E2-A15K-11A	17c1d42c-cb84-4655-a4cd-b54bae17ecaf	TCGA-E2-A15K	Solid Tissue Normal	Normal	female	58.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	58.0
+TCGA-E2-A1B5-11A	7241b3d4-31ee-4fd2-a4a5-35a9d5f37d6a	TCGA-E2-A1B5	Solid Tissue Normal	Normal	female	46.0	Stage IIA	Lobular carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	46.0
+TCGA-E2-A1BC-11A	d8492ebd-3d94-4a4b-8de7-386526691cc2	TCGA-E2-A1BC	Solid Tissue Normal	Normal	female	63.0	Stage IA	Infiltrating lobular mixed with other types of carcinoma	Not Applicable	Solid Tissue Normal	normal	63.0
+TCGA-E2-A1IF-11A	718db047-9f32-48c4-98c9-515218441bca	TCGA-E2-A1IF	Solid Tissue Normal	Normal	female	74.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	74.0
+TCGA-E2-A1II-11A	0fe1419e-a005-407c-8ae7-15c4c1579539	TCGA-E2-A1II	Solid Tissue Normal	Normal	female	51.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	51.0
+TCGA-E2-A1IO-11A	71fc8941-4cfb-47ea-a533-873d38f8c95c	TCGA-E2-A1IO	Solid Tissue Normal	Normal	female	37.0	Stage I	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	37.0
+TCGA-E2-A1L7-11A	791c5768-f0f5-4ab6-86eb-998e5c4b49e3	TCGA-E2-A1L7	Solid Tissue Normal	Normal	female	40.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	40.0
+TCGA-E2-A1LB-11A	fa176764-a76f-44c7-b97a-cd6d21e052be	TCGA-E2-A1LB	Solid Tissue Normal	Normal	female	41.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	41.0
+TCGA-E2-A1LI-11A	3558dec7-eae3-4a41-a217-266c6a4535fb	TCGA-E2-A1LI	Solid Tissue Normal	Normal	female	57.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	57.0
+TCGA-E2-A1LS-11A	91a2f2af-e4b1-4a0b-ab20-6a36ce63c533	TCGA-E2-A1LS	Solid Tissue Normal	Normal	female	46.0	Stage IA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	46.0
+TCGA-E9-A1N4-11A	69a68fbc-e43d-4652-85ee-693211bded47	TCGA-E9-A1N4	Solid Tissue Normal	Normal	female	41.0	Stage IIIA	Lobular carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	41.0
+TCGA-E9-A1N5-11A	f954de05-1b44-4087-8933-6cc72d81028d	TCGA-E9-A1N5	Solid Tissue Normal	Normal	female	45.0	Stage IIB	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	45.0
+TCGA-E9-A1N6-11A	955d4263-61f7-42e8-8a6e-772a0d6c209d	TCGA-E9-A1N6	Solid Tissue Normal	Normal	female	52.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	52.0
+TCGA-E9-A1N8-11A	ac075bc0-1b59-4557-beea-541694faee03	TCGA-E9-A1N8	Solid Tissue Normal	Normal	female	48.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	48.0
+TCGA-E9-A1NA-11A	af577366-0258-49e7-b6af-e70056c081a4	TCGA-E9-A1NA	Solid Tissue Normal	Normal	female	58.0	Stage IIA	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	58.0
+TCGA-E9-A1ND-11A	f06f09f3-8133-4a92-ac86-fbe64295e0d8	TCGA-E9-A1ND	Solid Tissue Normal	Normal	female	75.0	Stage IIB	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	75.0
+TCGA-E9-A1NE-11A	3d676bba-154b-4d22-ab59-d4d4da051b94	TCGA-E9-A1NE	Solid Tissue Normal	Normal	female	28.0	Stage IIB	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	28.0
+TCGA-E9-A1NF-11A	a8b1f6e7-2bcf-460d-b1c6-1792a9801119	TCGA-E9-A1NF	Solid Tissue Normal	Normal	female	60.0	Stage IIA	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	60.0
+TCGA-E9-A1NG-11A	659b0170-e914-45ff-aa55-fcb8d3dc7b8a	TCGA-E9-A1NG	Solid Tissue Normal	Normal	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	62.0
+TCGA-E9-A1R7-11A	2680da86-c977-4611-b75f-df015283c023	TCGA-E9-A1R7	Solid Tissue Normal	Normal	female	64.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	64.0
+TCGA-E9-A1RB-11A	94b95984-b2fb-4e42-8887-45e7086c3179	TCGA-E9-A1RB	Solid Tissue Normal	Normal	female	40.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	40.0
+TCGA-E9-A1RC-11A	5cdae21d-eee5-478f-932a-0f51fcf5f031	TCGA-E9-A1RC	Solid Tissue Normal	Normal	female	56.0	Stage IIIC	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	56.0
+TCGA-E9-A1RD-11A	5fe3c51f-65e2-4da6-8924-a6fae17c022d	TCGA-E9-A1RD	Solid Tissue Normal	Normal	female	67.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	67.0
+TCGA-E9-A1RF-11A	c694615c-b1c6-499c-8058-995633ebf948	TCGA-E9-A1RF	Solid Tissue Normal	Normal	female	68.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	68.0
+TCGA-E9-A1RH-11A	408cb583-6dc3-4698-8bd2-e284042bd5ef	TCGA-E9-A1RH	Solid Tissue Normal	Normal	female	63.0	Stage IIA	Infiltrating duct carcinoma, NOS	Not Applicable	Solid Tissue Normal	normal	63.0
+TCGA-E9-A1RI-11A	dd3bfb26-b534-4917-9c4d-9fe7b6477762	TCGA-E9-A1RI	Solid Tissue Normal	Normal	female	43.0	Stage IIIA	Infiltrating duct and lobular carcinoma	Not Applicable	Solid Tissue Normal	normal	43.0
+TCGA-3C-AAAU-01A	6e7d5ec6-a469-467c-b748-237353c23416	TCGA-3C-AAAU	Primary Tumor	Tumor	female	55.0	Stage X	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-3C-AALI-01A	55262fcb-1b01-4480-b322-36570430c917	TCGA-3C-AALI	Primary Tumor	Tumor	female	50.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-3C-AALJ-01A	427d0648-3f77-4ffc-b52c-89855426d647	TCGA-3C-AALJ	Primary Tumor	Tumor	female	62.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-3C-AALK-01A	c31900a4-5dcd-4022-97ac-638e86e889e4	TCGA-3C-AALK	Primary Tumor	Tumor	female	52.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-4H-AAAK-01A	6623fc5e-00be-4476-967a-cbd55f676ea6	TCGA-4H-AAAK	Primary Tumor	Tumor	female	50.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-5L-AAT0-01A	86c6f993-327f-4525-9983-29c55625593a	TCGA-5L-AAT0	Primary Tumor	Tumor	female	42.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	42.0
+TCGA-5L-AAT1-01A	16fc3677-0393-4ed1-ad3f-c8355f056369	TCGA-5L-AAT1	Primary Tumor	Tumor	female	63.0	Stage IV	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-5T-A9QA-01A	2fd36838-5a83-433e-ac80-b1f77448e5aa	TCGA-5T-A9QA	Primary Tumor	Tumor	female	52.0	Stage IIA	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	52.0
+TCGA-A1-A0SB-01A	0045349c-69d9-4306-a403-c9c1fa836644	TCGA-A1-A0SB	Primary Tumor	Tumor	female	70.0	Stage I	Adenoid cystic carcinoma	Primary	Primary Tumor	tumor	70.0
+TCGA-A1-A0SE-01A	c397e6c2-ba3a-4f5e-a258-c140611192fe	TCGA-A1-A0SE	Primary Tumor	Tumor	female	56.0	Stage I	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	56.0
+TCGA-A1-A0SF-01A	4b620966-b4c7-4615-bf58-ca9d3226b9bd	TCGA-A1-A0SF	Primary Tumor	Tumor	female	54.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-A1-A0SG-01A	0ed9ad26-7fdc-4d75-93f9-d029eee94993	TCGA-A1-A0SG	Primary Tumor	Tumor	female	61.0	Stage IIB	Intraductal micropapillary carcinoma	Primary	Primary Tumor	tumor	61.0
+TCGA-A1-A0SH-01A	a6a863d9-b39d-4965-b47f-79a1bcf3c976	TCGA-A1-A0SH	Primary Tumor	Tumor	female	39.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-A1-A0SI-01A	16368c32-2118-4fcf-8693-6c89995e49d8	TCGA-A1-A0SI	Primary Tumor	Tumor	female	52.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-A1-A0SJ-01A	a2db9dd1-44d5-48b5-817c-a21a85fadb21	TCGA-A1-A0SJ	Primary Tumor	Tumor	female	39.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-A1-A0SK-01A	a5b44d66-c162-46b5-9df2-86305f0385c5	TCGA-A1-A0SK	Primary Tumor	Tumor	female	54.0	Stage IIA	Large cell neuroendocrine carcinoma	Primary	Primary Tumor	tumor	54.0
+TCGA-A1-A0SM-01A	784de7ac-8424-42eb-83d4-a1bebaa42b97	TCGA-A1-A0SM	Primary Tumor	Tumor	male	77.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-A1-A0SN-01A	0dc337fa-da8b-42c4-b9a7-fb76d81c161f	TCGA-A1-A0SN	Primary Tumor	Tumor	female	50.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-A1-A0SO-01A	6644fd4e-d2fe-4785-a73c-0f36fcc740e2	TCGA-A1-A0SO	Primary Tumor	Tumor	female	67.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-A1-A0SP-01A	a9bb8159-32f0-454c-a946-b3286a52b9d5	TCGA-A1-A0SP	Primary Tumor	Tumor	female	40.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-A1-A0SQ-01A	08de63a2-7b76-43c3-80dc-df748b1d81bc	TCGA-A1-A0SQ	Primary Tumor	Tumor	female	45.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-A2-A04R-01A	f3a058b9-fb7f-4098-8f0e-83c2acfa1ed5	TCGA-A2-A04R	Primary Tumor	Tumor	female	36.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	36.0
+TCGA-A2-A0CK-01A	5aca16ca-4516-4e27-8249-6914029a7ebf	TCGA-A2-A0CK	Primary Tumor	Tumor	female	60.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-A2-A0CO-01A	8e54232d-d8bb-4612-8b0e-4feb076a60f9	TCGA-A2-A0CO	Primary Tumor	Tumor	female	85.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	85.0
+TCGA-A2-A0CR-01A	4cf0f639-7940-48b6-8ea1-2a3494097cdb	TCGA-A2-A0CR	Primary Tumor	Tumor	female	54.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-A2-A0CT-01A	378778d2-b331-4867-a93b-c64028c8b4c7	TCGA-A2-A0CT	Primary Tumor	Tumor	female	71.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-A2-A0EN-01A	5e670fec-8992-44bf-8657-f7f9a272306b	TCGA-A2-A0EN	Primary Tumor	Tumor	female	70.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-A2-A0EP-01A	670f5022-5066-48f1-8472-5670129a1e0f	TCGA-A2-A0EP	Primary Tumor	Tumor	female	56.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-A2-A0EU-01A	c0427237-b476-4af4-b664-7bd479922ea5	TCGA-A2-A0EU	Primary Tumor	Tumor	female	79.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-A2-A0ST-01A	12d31787-e54d-4729-ace8-9141043c92b8	TCGA-A2-A0ST	Primary Tumor	Tumor	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A2-A0SU-01A	c632675e-e8af-43cd-8744-5be3754c1c14	TCGA-A2-A0SU	Primary Tumor	Tumor	female	66.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-A2-A0SV-01A	ad01259b-d858-40bc-a6ba-0bb06e996afb	TCGA-A2-A0SV	Primary Tumor	Tumor	female	63.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-A2-A0SW-01A	991e1427-3c01-423d-abfd-4584302ca72c	TCGA-A2-A0SW	Primary Tumor	Tumor	female	82.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	82.0
+TCGA-A2-A0SX-01A	18d35983-ea6a-4b70-a209-9bef37595956	TCGA-A2-A0SX	Primary Tumor	Tumor	female	48.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-A2-A0SY-01A	dc696e3c-f448-468f-a576-f4429be0338a	TCGA-A2-A0SY	Primary Tumor	Tumor	female	62.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A2-A0T0-01A	95c53f69-0f05-4348-822a-571f3d757001	TCGA-A2-A0T0	Primary Tumor	Tumor	female	59.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-A2-A0T1-01A	02bed00f-bef7-4fb7-b243-540354990e45	TCGA-A2-A0T1	Primary Tumor	Tumor	female	55.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-A2-A0T2-01A	128d198e-9b22-427c-90db-3714455f3a17	TCGA-A2-A0T2	Primary Tumor	Tumor	female	66.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-A2-A0T4-01A	b0f8d698-a30e-4d8d-b0a2-a5a01fac8406	TCGA-A2-A0T4	Primary Tumor	Tumor	female	62.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A2-A0T5-01A	36d77496-99f8-4911-ba7c-89fae32662aa	TCGA-A2-A0T5	Primary Tumor	Tumor	female	39.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-A2-A0T6-01A	08306ede-e74b-4be9-b768-7fd98647b6ac	TCGA-A2-A0T6	Primary Tumor	Tumor	female	50.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-A2-A0T7-01A	43d5632e-7272-4aad-9496-7f5a99671223	TCGA-A2-A0T7	Primary Tumor	Tumor	female	51.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-A2-A0YC-01A	a1872011-b928-4189-ac02-e87506c20bca	TCGA-A2-A0YC	Primary Tumor	Tumor	female	59.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-A2-A0YD-01A	2c6adb12-380d-4710-a7e6-93d5a0e53289	TCGA-A2-A0YD	Primary Tumor	Tumor	female	63.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-A2-A0YE-01A	84a88e8d-1e65-4b88-aae6-bf4c7a7e4c33	TCGA-A2-A0YE	Primary Tumor	Tumor	female	48.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-A2-A0YF-01A	ae8c77fe-e6c8-44d5-8265-4a38c637bbef	TCGA-A2-A0YF	Primary Tumor	Tumor	female	67.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-A2-A0YG-01A	c0892598-1f7b-4f23-9cd8-731f797753d5	TCGA-A2-A0YG	Primary Tumor	Tumor	female	63.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-A2-A0YH-01A	298d33da-15af-48cb-b30f-eaf54e7baa43	TCGA-A2-A0YH	Primary Tumor	Tumor	female	53.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-A2-A0YI-01A	72cd1b17-d349-4551-83f7-3062ce9db865	TCGA-A2-A0YI	Primary Tumor	Tumor	female	62.0	Stage I	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	62.0
+TCGA-A2-A0YJ-01A	796b593f-5886-4a27-bf94-7ea8df325e1a	TCGA-A2-A0YJ	Primary Tumor	Tumor	female	39.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-A2-A0YK-01A	8f34cb4c-5798-47a0-89a1-f0ee26a8ae93	TCGA-A2-A0YK	Primary Tumor	Tumor	female	61.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-A2-A0YL-01A	b205c89f-af62-4186-acad-ed23d243fa98	TCGA-A2-A0YL	Primary Tumor	Tumor	female	48.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-A2-A0YM-01A	5cbf0aea-ebb4-4005-bdd5-14ef2dc6826c	TCGA-A2-A0YM	Primary Tumor	Tumor	female	67.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-A2-A0YT-01A	14b95463-2108-4921-afc2-e29eef52b18f	TCGA-A2-A0YT	Primary Tumor	Tumor	female	56.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-A2-A1FV-01A	cd0c96a4-6414-4efb-879b-7408b62ed5b6	TCGA-A2-A1FV	Primary Tumor	Tumor	female	74.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-A2-A1FW-01A	54883111-d475-4515-ba3f-fece8a71e79e	TCGA-A2-A1FW	Primary Tumor	Tumor	female	62.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A2-A1FX-01A	ac6d3ba9-f84f-4657-aa85-4d66fb7c09da	TCGA-A2-A1FX	Primary Tumor	Tumor	female	61.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-A2-A1FZ-01A	805bfe39-3695-43c2-93e4-d66d0559b89f	TCGA-A2-A1FZ	Primary Tumor	Tumor	female	63.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-A2-A1G0-01A	2e538802-2a31-4774-89a8-c6e4381a887d	TCGA-A2-A1G0	Primary Tumor	Tumor	female	49.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-A2-A1G1-01A	75b5529b-565a-4eba-918a-910b2f441d32	TCGA-A2-A1G1	Primary Tumor	Tumor	female	85.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	85.0
+TCGA-A2-A1G4-01A	e3b555aa-7f0a-49c6-9b13-182c61a144c1	TCGA-A2-A1G4	Primary Tumor	Tumor	female	71.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-A2-A1G6-01A	295cf595-4a29-46a3-a0c5-e5f08f947031	TCGA-A2-A1G6	Primary Tumor	Tumor	female	50.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-A2-A259-01A	3fc3755d-a3f8-4e2c-813f-ff124f2a75c1	TCGA-A2-A259	Primary Tumor	Tumor	female	70.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-A2-A25A-01A	aaea5f9c-b35b-47f8-93cb-bdc7b81844ff	TCGA-A2-A25A	Primary Tumor	Tumor	female	44.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-A2-A25B-01A	eadf8482-e60e-4307-adb7-d5c3b9fa6cae	TCGA-A2-A25B	Primary Tumor	Tumor	female	39.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-A2-A25C-01A	7aedb46a-48ec-4e0e-8baa-c9ea4c4a7cf1	TCGA-A2-A25C	Primary Tumor	Tumor	female	50.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-A2-A25D-01A	3b963d72-ba5c-467b-83c9-fbdb462510a3	TCGA-A2-A25D	Primary Tumor	Tumor	female	90.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	90.0
+TCGA-A2-A25E-01A	ba89cb4f-cd63-47b1-9550-76fdaff89f2e	TCGA-A2-A25E	Primary Tumor	Tumor	female	34.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	34.0
+TCGA-A2-A25F-01A	c836951b-3ffb-4e20-8504-0eccb7d50dd4	TCGA-A2-A25F	Primary Tumor	Tumor	female	66.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-A2-A3KC-01A	2d29a4ac-98e7-4663-9dd6-5681bc32ac2e	TCGA-A2-A3KC	Primary Tumor	Tumor	female	55.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-A2-A3KD-01A	bb026999-0aab-4232-96d7-2c93b6c9691d	TCGA-A2-A3KD	Primary Tumor	Tumor	female	47.0	Stage IIIA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	47.0
+TCGA-A2-A3XS-01A	a78b04b4-2380-4803-963e-e4e633cd69ab	TCGA-A2-A3XS	Primary Tumor	Tumor	female	62.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A2-A3XT-01A	c72cb184-462d-4009-9cdb-848782ff8a76	TCGA-A2-A3XT	Primary Tumor	Tumor	female	45.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-A2-A3XU-01A	a8e7d8a4-bbf0-496b-b387-8e014cfdcea6	TCGA-A2-A3XU	Primary Tumor	Tumor	female	35.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	35.0
+TCGA-A2-A3XV-01A	189e1f27-7738-413a-a4d4-97d41d592a13	TCGA-A2-A3XV	Primary Tumor	Tumor	female	46.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-A2-A3XW-01A	c02699b5-580a-4d55-971e-f4692b2cce57	TCGA-A2-A3XW	Primary Tumor	Tumor	female	42.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	42.0
+TCGA-A2-A3XX-01A	53886143-c1c6-40e9-88e6-e4e5e0271fc8	TCGA-A2-A3XX	Primary Tumor	Tumor	female	49.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-A2-A3XY-01A	deba32e4-0e68-4711-941b-3b63bd965afb	TCGA-A2-A3XY	Primary Tumor	Tumor	female	49.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-A2-A3XZ-01A	fe7f74b8-20f4-4471-91dc-4cca8c68e5c0	TCGA-A2-A3XZ	Primary Tumor	Tumor	female	46.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-A2-A3Y0-01A	174850b4-5ec2-462b-a890-89bd1716b3c2	TCGA-A2-A3Y0	Primary Tumor	Tumor	female	57.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-A2-A4RW-01A	0d146997-cfdc-4587-888c-e876fc455c80	TCGA-A2-A4RW	Primary Tumor	Tumor	female	49.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-A2-A4RX-01A	d111c4ab-b39a-4a7c-8d8e-cb342bc10627	TCGA-A2-A4RX	Primary Tumor	Tumor	female	67.0	Stage IIA	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-A2-A4RY-01A	5a53ec47-e63f-44a2-8078-87659544fb04	TCGA-A2-A4RY	Primary Tumor	Tumor	female	46.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-A2-A4S0-01A	a53dd490-e0ba-419a-90c6-b905e241a8e5	TCGA-A2-A4S0	Primary Tumor	Tumor	female	77.0	Stage IIA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	77.0
+TCGA-A2-A4S1-01A	843c8f16-5e59-40d4-9ecc-8a75375156f6	TCGA-A2-A4S1	Primary Tumor	Tumor	female	66.0	Stage IIA	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-A2-A4S2-01A	9ddc014d-9a8b-407b-845f-452a73f08e5e	TCGA-A2-A4S2	Primary Tumor	Tumor	female	62.0	Stage IIIA	Infiltrating lobular mixed with other types of carcinoma	Primary	Primary Tumor	tumor	62.0
+TCGA-A2-A4S3-01A	418c11e8-2670-48d5-bbf5-95b46bff1201	TCGA-A2-A4S3	Primary Tumor	Tumor	female	59.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-A7-A0D9-01A	17baef7c-d97d-4b98-ab53-503ef856523d	TCGA-A7-A0D9	Primary Tumor	Tumor	female	37.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	37.0
+TCGA-A7-A0DC-01B	cb9f5e50-f49d-4899-8895-9367afcc1015	TCGA-A7-A0DC	Primary Tumor	Tumor	female	63.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-A7-A13D-01A	8785012f-f73e-4d68-87cf-1d804af32782	TCGA-A7-A13D	Primary Tumor	Tumor	female	46.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-A7-A13E-01A	8c7e74e0-71ef-49b8-9217-94b8ef740ef9	TCGA-A7-A13E	Primary Tumor	Tumor	female	62.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A7-A13F-01A	2cf68894-168b-458b-af4f-53cad72989a8	TCGA-A7-A13F	Primary Tumor	Tumor	female	44.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-A7-A13G-01A	6cd9baf5-bbe0-4c1e-a87f-c53b3af22890	TCGA-A7-A13G	Primary Tumor	Tumor	female	79.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-A7-A13G-01B	6cd9baf5-bbe0-4c1e-a87f-c53b3af22890	TCGA-A7-A13G	Primary Tumor	Tumor	female	79.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-A7-A13H-01A	2e243f0e-9d7d-4cb0-9678-70607f90430a	TCGA-A7-A13H	Primary Tumor	Tumor	female	61.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-A7-A26E-01A	011b9b2d-ebe5-42bf-9662-d922faccc7a1	TCGA-A7-A26E	Primary Tumor	Tumor	female	71.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-A7-A26E-01B	011b9b2d-ebe5-42bf-9662-d922faccc7a1	TCGA-A7-A26E	Primary Tumor	Tumor	female	71.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-A7-A26F-01A	3b7b9c1e-a84c-47ed-983c-9e4b00cbf01a	TCGA-A7-A26F	Primary Tumor	Tumor	female	55.0	Stage IA	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-A7-A26F-01B	3b7b9c1e-a84c-47ed-983c-9e4b00cbf01a	TCGA-A7-A26F	Primary Tumor	Tumor	female	55.0	Stage IA	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-A7-A26G-01A	5ed024e8-d05e-4c65-9441-eda9930ccc82	TCGA-A7-A26G	Primary Tumor	Tumor	female	50.0	Stage IIA	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-A7-A26H-01A	dddd8e2f-e540-418a-b02e-698d18a12c14	TCGA-A7-A26H	Primary Tumor	Tumor	female	72.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-A7-A26I-01A	b2ecbc0f-2c30-4200-8d5e-7b95424bcadb	TCGA-A7-A26I	Primary Tumor	Tumor	female	65.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-A7-A26J-01A	6cb6f179-defd-4661-af0a-c353b74c0c49	TCGA-A7-A26J	Primary Tumor	Tumor	female	49.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-A7-A26J-01B	6cb6f179-defd-4661-af0a-c353b74c0c49	TCGA-A7-A26J	Primary Tumor	Tumor	female	49.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-A7-A2KD-01A	92654f8d-5137-4ffd-aaa3-5ae38eb88226	TCGA-A7-A2KD	Primary Tumor	Tumor	female	53.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-A7-A3IY-01A	6b4e0262-f589-4532-b578-9f2d76c19d90	TCGA-A7-A3IY	Primary Tumor	Tumor	female	71.0	Stage I	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	71.0
+TCGA-A7-A3IZ-01A	15ff4b02-bb69-4d24-8a07-b82f428e428d	TCGA-A7-A3IZ	Primary Tumor	Tumor	female	62.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A7-A3J0-01A	da70cf7e-0e61-4c72-b4c5-c408569d11b8	TCGA-A7-A3J0	Primary Tumor	Tumor	female	62.0	Stage IIA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	62.0
+TCGA-A7-A3J1-01A	8f9ad301-6699-4078-a80d-886e40894af7	TCGA-A7-A3J1	Primary Tumor	Tumor	female	63.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-A7-A3RF-01A	7451af3c-acc0-4d79-8429-6b8be96911d8	TCGA-A7-A3RF	Primary Tumor	Tumor	female	79.0	Stage IIA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	79.0
+TCGA-A7-A425-01A	a8f5c479-8685-4e2d-bb60-63f1cc651083	TCGA-A7-A425	Primary Tumor	Tumor	female	70.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-A7-A426-01A	d48e9f25-f083-4f88-a92d-c12d9f765ba6	TCGA-A7-A426	Primary Tumor	Tumor	female	50.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-A7-A4SA-01A	a2efe7e1-aca3-440f-825f-ed621edca69f	TCGA-A7-A4SA	Primary Tumor	Tumor	female	40.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-A7-A4SB-01A	a947a945-4721-45cc-bc45-13b8ea41c10e	TCGA-A7-A4SB	Primary Tumor	Tumor	female	56.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-A7-A4SC-01A	ec0ab947-9341-4fff-bda4-fdfb9434d508	TCGA-A7-A4SC	Primary Tumor	Tumor	female	62.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A7-A4SD-01A	8c09f413-e938-4f2e-a414-84f0e7fcfe41	TCGA-A7-A4SD	Primary Tumor	Tumor	female	52.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-A7-A4SE-01A	dbf6f981-15cc-40ad-91ac-a66360405fbd	TCGA-A7-A4SE	Primary Tumor	Tumor	female	54.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-A7-A4SF-01A	d81594d9-dd6a-45c3-8bad-61960611d78d	TCGA-A7-A4SF	Primary Tumor	Tumor	female	54.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-A7-A56D-01A	f062cbd0-2426-40ac-a4be-e74ac61fa2a7	TCGA-A7-A56D	Primary Tumor	Tumor	female	84.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	84.0
+TCGA-A7-A5ZV-01A	0ec70e40-07df-461d-8ff9-351240a0d454	TCGA-A7-A5ZV	Primary Tumor	Tumor	female	62.0	Stage IIA	Carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-A7-A5ZW-01A	523e24a2-51b9-4658-be2f-42e5fccebb17	TCGA-A7-A5ZW	Primary Tumor	Tumor	female	47.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-A7-A5ZX-01A	ba80db4e-d899-4da4-ae49-5263d98e1530	TCGA-A7-A5ZX	Primary Tumor	Tumor	female	48.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-A7-A6VV-01A	57af5c72-0d60-4a6b-b1b4-ec6dab90f80f	TCGA-A7-A6VV	Primary Tumor	Tumor	female	51.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-A7-A6VW-01A	98e709e7-e195-4b37-9537-f6081affb609	TCGA-A7-A6VW	Primary Tumor	Tumor	female	48.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-A7-A6VX-01A	7eea2b6e-771f-44c0-9350-38f45c8dbe87	TCGA-A7-A6VX	Primary Tumor	Tumor	female	68.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-A7-A6VY-01A	e8ea576b-eb16-44f7-b241-daefc1375388	TCGA-A7-A6VY	Primary Tumor	Tumor	female	48.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-A8-A075-01A	7861a5f2-8910-4bcb-9c34-f79c5acd6e21	TCGA-A8-A075	Primary Tumor	Tumor	female	42.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	42.0
+TCGA-A8-A08O-01A	5f5964a8-8e07-4620-98f0-93d162dbc31e	TCGA-A8-A08O	Primary Tumor	Tumor	female	45.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-A8-A0A6-01A	4b0d295c-e185-4b52-9752-178e5bc1d47d	TCGA-A8-A0A6	Primary Tumor	Tumor	female	64.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-A8-A0AD-01A	af5453a9-cf1f-40de-aec4-0e0710908fb7	TCGA-A8-A0AD	Primary Tumor	Tumor	female	83.0	Stage I	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	83.0
+TCGA-AC-A23C-01A	dfd0b7ba-c7d3-498e-b455-346301865452	TCGA-AC-A23C	Primary Tumor	Tumor	female	62.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-AC-A23E-01A	e7bae6e7-f779-449d-92b9-66996041e00d	TCGA-AC-A23E	Primary Tumor	Tumor	female	50.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-AC-A23G-01A	a721dac6-0126-476c-b2d4-2dbf7406454b	TCGA-AC-A23G	Primary Tumor	Tumor	female	76.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	76.0
+TCGA-AC-A23H-01A	7dcf550c-90ce-4f63-aecd-0e46897e2a3e	TCGA-AC-A23H	Primary Tumor	Tumor	female	90.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	90.0
+TCGA-AC-A2B8-01A	6e126b73-d3e8-4641-a128-306f3b313e40	TCGA-AC-A2B8	Primary Tumor	Tumor	female	84.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	84.0
+TCGA-AC-A2BK-01A	6fa2a667-9c36-4526-8a58-1975e863a806	TCGA-AC-A2BK	Primary Tumor	Tumor	female	78.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-AC-A2BM-01A	8159ff7b-89f4-411a-9b9c-491f1cb3eb34	TCGA-AC-A2BM	Primary Tumor	Tumor	female	41.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-AC-A2FB-01A	02bbb632-0f7f-439d-b8f0-c86a06237424	TCGA-AC-A2FB	Primary Tumor	Tumor	female	65.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-AC-A2FE-01A	f6eebd4b-b63a-4a9c-92d3-0d954a8a6655	TCGA-AC-A2FE	Primary Tumor	Tumor	female	62.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-AC-A2FF-01A	3ca67cd0-81da-4f68-a9fa-f1a8c013c28d	TCGA-AC-A2FF	Primary Tumor	Tumor	female	40.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-AC-A2FG-01A	39cda4c9-e1c8-44c2-bab7-f5849c12f879	TCGA-AC-A2FG	Primary Tumor	Tumor	female	79.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-AC-A2FK-01A	79126e88-9cf8-45ff-bf91-a98da3b304d7	TCGA-AC-A2FK	Primary Tumor	Tumor	female	45.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-AC-A2FM-01A	b6b1dc9a-91f4-4b0a-afd5-62c9a90c0d5e	TCGA-AC-A2FM	Primary Tumor	Tumor	female	87.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	87.0
+TCGA-AC-A2FO-01A	f5d4c2d3-cc69-4b38-8551-0917e3622a68	TCGA-AC-A2FO	Primary Tumor	Tumor	female	65.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-AC-A2QH-01A	67c5f371-3fa9-47c5-8b15-c2dd9acc8519	TCGA-AC-A2QH	Primary Tumor	Tumor	female	58.0	Stage IIB	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-AC-A2QH-01B	67c5f371-3fa9-47c5-8b15-c2dd9acc8519	TCGA-AC-A2QH	Primary Tumor	Tumor	female	58.0	Stage IIB	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-AC-A2QI-01A	c57835be-77ab-4cf5-9b23-62c11a7b2eaf	TCGA-AC-A2QI	Primary Tumor	Tumor	female	76.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	76.0
+TCGA-AC-A2QJ-01A	d9fd2724-7db0-4af3-ac14-217bdfa5203f	TCGA-AC-A2QJ	Primary Tumor	Tumor	female	48.0	Stage IIIB	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-AC-A3BB-01A	048549cf-d0a5-4743-a0a1-2004f7cc2b08	TCGA-AC-A3BB	Primary Tumor	Tumor	female	46.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-AC-A3EH-01A	fac173a8-1613-4bd4-87ba-83a2cfe8a37d	TCGA-AC-A3EH	Primary Tumor	Tumor	female	79.0	Stage IIIC	Pleomorphic carcinoma	Primary	Primary Tumor	tumor	79.0
+TCGA-AC-A3HN-01A	e37ae674-a107-4eb3-94d8-b86b0035a9f7	TCGA-AC-A3HN	Primary Tumor	Tumor	female	87.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	87.0
+TCGA-AC-A3OD-01A	f2622cdb-ac92-42b3-a1ca-67e133c3dd4a	TCGA-AC-A3OD	Primary Tumor	Tumor	female	68.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-AC-A3OD-01B	f2622cdb-ac92-42b3-a1ca-67e133c3dd4a	TCGA-AC-A3OD	Primary Tumor	Tumor	female	68.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-AC-A3QP-01A	6f4c8d30-47fb-47df-9eb7-4e5881e3711e	TCGA-AC-A3QP	Primary Tumor	Tumor	female	79.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-AC-A3QQ-01A	95cef916-5545-455b-920c-773a54fc7676	TCGA-AC-A3QQ	Primary Tumor	Tumor	female	54.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-AC-A3TM-01A	67c73260-a242-4bba-87c5-d2302556dff7	TCGA-AC-A3TM	Primary Tumor	Tumor	female	50.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-AC-A3TN-01A	81b70c58-4a12-448c-a594-2ade44f6a0ae	TCGA-AC-A3TN	Primary Tumor	Tumor	female	75.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	75.0
+TCGA-AC-A3W5-01A	4c313e5b-4dc3-408e-8e92-22427f74743e	TCGA-AC-A3W5	Primary Tumor	Tumor	female	65.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-AC-A3W6-01A	1b4cfad1-e353-4411-97b6-2b7b9309e95e	TCGA-AC-A3W6	Primary Tumor	Tumor	female	90.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	90.0
+TCGA-AC-A3W7-01A	2481a671-760b-428c-968d-42e25fd42ac5	TCGA-AC-A3W7	Primary Tumor	Tumor	female	66.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-AC-A3YI-01A	a45d296e-efc0-479e-b2f6-bad834668cdf	TCGA-AC-A3YI	Primary Tumor	Tumor	female	74.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-AC-A3YJ-01A	86cf879e-3b40-44dd-aaa7-6f49f54a15d9	TCGA-AC-A3YJ	Primary Tumor	Tumor	female	66.0	Stage IIA	Papillary carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-AC-A4ZE-01A	0cf0d67c-2f7f-42a6-94f3-407d0ec46c88	TCGA-AC-A4ZE	Primary Tumor	Tumor	female	63.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-AC-A5EH-01A	d13fb44b-291b-4ea4-920c-142daa8d1989	TCGA-AC-A5EH	Primary Tumor	Tumor	female	76.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	76.0
+TCGA-AC-A5EI-01A	01b9f68b-4de4-4374-b4f2-8a0685e18153	TCGA-AC-A5EI	Primary Tumor	Tumor	female	88.0	Stage IB	Phyllodes tumor, malignant	Primary	Primary Tumor	tumor	88.0
+TCGA-AC-A5XS-01A	d9627184-b972-4e00-8c11-b0b946ac357a	TCGA-AC-A5XS	Primary Tumor	Tumor	female	74.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-AC-A5XU-01A	97677fd7-8523-48c5-a8ce-614fd4010551	TCGA-AC-A5XU	Primary Tumor	Tumor	female	74.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-AC-A62V-01A	d5f2b85a-94a9-4168-bbe8-149ec71342b0	TCGA-AC-A62V	Primary Tumor	Tumor	male	58.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-AC-A62X-01A	5b2a4f11-ca46-4974-9420-59b4820920bf	TCGA-AC-A62X	Primary Tumor	Tumor	female	72.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-AC-A62Y-01A	05af737d-89aa-49b6-97b2-28b8ac8bd2cf	TCGA-AC-A62Y	Primary Tumor	Tumor	female	79.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-AC-A6IV-01A	8e11c5ec-c15a-48d4-85ac-b7b08a9ed827	TCGA-AC-A6IV	Primary Tumor	Tumor	female	47.0	Stage IIB	Infiltrating lobular mixed with other types of carcinoma	Primary	Primary Tumor	tumor	47.0
+TCGA-AC-A6IW-01A	8183f0fb-2303-4d7b-bccd-55e5031fc7df	TCGA-AC-A6IW	Primary Tumor	Tumor	female	73.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	73.0
+TCGA-AC-A6IX-01A	7486a2b3-b09f-4e9c-9864-8b51b58d9fb3	TCGA-AC-A6IX	Primary Tumor	Tumor	female	49.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-AC-A6NO-01A	8d9b50d1-139b-4447-ae9c-e54764d9e2a7	TCGA-AC-A6NO	Primary Tumor	Tumor	female	43.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	43.0
+TCGA-AC-A7VB-01A	56230e4a-29ca-4f37-a0f9-730dbdfb6fa2	TCGA-AC-A7VB	Primary Tumor	Tumor	female	51.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-AC-A7VC-01A	2b36853f-34d3-47c5-ba6a-e5a93233d2b1	TCGA-AC-A7VC	Primary Tumor	Tumor	female	56.0	Stage IIB	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-AC-A8OP-01A	b9c6c069-2a2b-4cc7-a398-dc45c132d979	TCGA-AC-A8OP	Primary Tumor	Tumor	female	72.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-AC-A8OQ-01A	dfaabd03-2d40-4422-b210-caf112ff4229	TCGA-AC-A8OQ	Primary Tumor	Tumor	female	72.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-AC-A8OR-01A	8cd1ba0b-ead9-4661-a796-6c9dbf1c42cd	TCGA-AC-A8OR	Primary Tumor	Tumor	female	75.0	Stage IA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	75.0
+TCGA-AC-A8OS-01A	d5e655fe-3fbc-47b0-ba23-1d1dd01d591c	TCGA-AC-A8OS	Primary Tumor	Tumor	female	71.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-AN-A0XL-01A	4649dee3-b668-44cd-ab97-3834de3ef8f8	TCGA-AN-A0XL	Primary Tumor	Tumor	female	61.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-AN-A0XN-01A	4e3699da-4367-4a43-9d66-a117d3ad460d	TCGA-AN-A0XN	Primary Tumor	Tumor	female	68.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-AN-A0XO-01A	195b6731-6ae6-416e-a345-0eb8874a0ca2	TCGA-AN-A0XO	Primary Tumor	Tumor	female	59.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-AN-A0XP-01A	cf0e7e4e-b857-4db5-9ae2-551a899f77be	TCGA-AN-A0XP	Primary Tumor	Tumor	female	69.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-AN-A0XR-01A	f51af6db-2655-47fb-9ffc-83a503a728ea	TCGA-AN-A0XR	Primary Tumor	Tumor	female	55.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-AN-A0XS-01A	95e949d3-b1f3-46c6-9451-8fe92c99e4cf	TCGA-AN-A0XS	Primary Tumor	Tumor	female	63.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-AN-A0XT-01A	3e25056d-d137-49f5-abaa-f68509426600	TCGA-AN-A0XT	Primary Tumor	Tumor	female	54.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-AN-A0XU-01A	a1da9db1-db11-4f4d-a249-c738db81b87e	TCGA-AN-A0XU	Primary Tumor	Tumor	female	54.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-AN-A0XV-01A	ac18b3a3-8d52-4e35-8625-673171a7fd92	TCGA-AN-A0XV	Primary Tumor	Tumor	female	67.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-AN-A0XW-01A	39de7761-e762-4811-b95c-8216b79ae06b	TCGA-AN-A0XW	Primary Tumor	Tumor	female	36.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	36.0
+TCGA-AO-A03L-01A	1174f6e4-ffbe-4e59-a000-8d861c968369	TCGA-AO-A03L	Primary Tumor	Tumor	female	34.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	34.0
+TCGA-AO-A03M-01B	095c7985-3842-494f-b591-706ad1cd2133	TCGA-AO-A03M	Primary Tumor	Tumor	female	29.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	29.0
+TCGA-AO-A03N-01B	9435447e-d65f-408b-863b-6576b1d652dd	TCGA-AO-A03N	Primary Tumor	Tumor	female	59.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-AO-A03U-01B	0685edd2-ce1c-4e0e-8dda-393139af4223	TCGA-AO-A03U	Primary Tumor	Tumor	female	31.0	Stage I	Secretory carcinoma of breast	Primary	Primary Tumor	tumor	31.0
+TCGA-AO-A0JA-01A	86b7b206-8e69-432d-acc9-bccce710955e	TCGA-AO-A0JA	Primary Tumor	Tumor	female	36.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	36.0
+TCGA-AO-A0JB-01A	3ea9412b-429e-4dcf-90cd-c53be06885a1	TCGA-AO-A0JB	Primary Tumor	Tumor	female	50.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-AO-A0JC-01A	03565036-b6d3-432f-8d9a-7099818e0788	TCGA-AO-A0JC	Primary Tumor	Tumor	female	64.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-AO-A0JD-01A	0a229f95-0ea1-4d63-953e-74f5ec2f3028	TCGA-AO-A0JD	Primary Tumor	Tumor	female	59.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-AO-A0JE-01A	36fe6152-f61e-4948-9ccc-23ac01a9d77d	TCGA-AO-A0JE	Primary Tumor	Tumor	female	53.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-AO-A0JF-01A	f357fe19-5359-4662-8ce9-aa996132283b	TCGA-AO-A0JF	Primary Tumor	Tumor	female	68.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-AO-A0JG-01A	58959e88-54e2-4558-9664-2effda7403dc	TCGA-AO-A0JG	Primary Tumor	Tumor	female	49.0	Stage IIIA	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	49.0
+TCGA-AO-A0JI-01A	e17c565c-9857-4df3-a352-903b53093c85	TCGA-AO-A0JI	Primary Tumor	Tumor	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-AO-A0JJ-01A	bef7b135-a727-45e8-850a-cc4cd56c49aa	TCGA-AO-A0JJ	Primary Tumor	Tumor	female	54.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-AO-A0JL-01A	d5d8e76e-2f2a-49bc-ba0a-d51283611b16	TCGA-AO-A0JL	Primary Tumor	Tumor	female	59.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-AO-A0JM-01A	44bec761-b603-49c0-8634-f6bfe0319bb1	TCGA-AO-A0JM	Primary Tumor	Tumor	female	40.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-AO-A124-01A	b094e8b2-8ece-4b36-8025-18073a8b873c	TCGA-AO-A124	Primary Tumor	Tumor	female	38.0	Stage IIA	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	38.0
+TCGA-AO-A125-01A	8577ffcb-242e-40e2-98d4-2831d952be34	TCGA-AO-A125	Primary Tumor	Tumor	female	72.0	Stage IIA	Papillary carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-AO-A126-01A	cc0902fd-a2fc-4327-929e-d4219e32e1d7	TCGA-AO-A126	Primary Tumor	Tumor	female	39.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-AO-A128-01A	016caf42-4e19-4444-ab5d-6cf1e76c4afa	TCGA-AO-A128	Primary Tumor	Tumor	female	61.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-AO-A129-01A	c70ee5e1-4703-4996-bb5c-f4cca0fb53ba	TCGA-AO-A129	Primary Tumor	Tumor	female	29.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	29.0
+TCGA-AO-A12B-01A	f6ed684f-ee7a-496c-80d5-6eacd494d16a	TCGA-AO-A12B	Primary Tumor	Tumor	female	63.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-AO-A12C-01A	71626753-cc34-4731-abc0-ae188b0964e7	TCGA-AO-A12C	Primary Tumor	Tumor	female	42.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	42.0
+TCGA-AO-A12E-01A	2cbeadff-a8a3-4787-9d4e-f6b74c3ab5d9	TCGA-AO-A12E	Primary Tumor	Tumor	female	51.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-AO-A12G-01A	58c56d4b-3f85-4aad-a779-5f9e1791677d	TCGA-AO-A12G	Primary Tumor	Tumor	female	75.0	Stage IIA	Pleomorphic carcinoma	Primary	Primary Tumor	tumor	75.0
+TCGA-AO-A1KO-01A	c25898b4-eb33-42f4-bf3f-bf532a929e7d	TCGA-AO-A1KO	Primary Tumor	Tumor	female	46.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-AO-A1KP-01A	3aaabc62-f5a4-4025-9b29-5adf82c86c84	TCGA-AO-A1KP	Primary Tumor	Tumor	female	77.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-AO-A1KQ-01A	d2219a3f-4c55-4dee-9b08-c6f330dd1acf	TCGA-AO-A1KQ	Primary Tumor	Tumor	male	84.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	84.0
+TCGA-AO-A1KR-01A	b7f74ae1-6f58-447c-be50-a7666eb19d9a	TCGA-AO-A1KR	Primary Tumor	Tumor	female	51.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-AO-A1KS-01A	bb8d42d3-ad65-4d88-ae1d-f9aadfc7962d	TCGA-AO-A1KS	Primary Tumor	Tumor	female	69.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-AO-A1KT-01A	1f8f87cb-8a0b-474c-97fb-c71b4fd88d97	TCGA-AO-A1KT	Primary Tumor	Tumor	female	78.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-AQ-A04H-01B	83f943c7-3975-4b4f-985d-9c057741793b	TCGA-AQ-A04H	Primary Tumor	Tumor	female	61.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-AQ-A04L-01B	78582fbc-dcc7-48ae-9f95-5271c9bc5b72	TCGA-AQ-A04L	Primary Tumor	Tumor	female	48.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-AQ-A0Y5-01A	d0b78f3f-a198-437a-ab8c-204345d3b75d	TCGA-AQ-A0Y5	Primary Tumor	Tumor	female	70.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-AQ-A1H2-01A	4d120899-9a80-4736-b097-285e9e261bcb	TCGA-AQ-A1H2	Primary Tumor	Tumor	female	84.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	84.0
+TCGA-AQ-A1H3-01A	82ec33dd-e783-4c74-9a87-797a699e11df	TCGA-AQ-A1H3	Primary Tumor	Tumor	female	49.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-AQ-A54N-01A	58090433-d8d1-4499-a235-810c3e9d5b74	TCGA-AQ-A54N	Primary Tumor	Tumor	female	51.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-AQ-A54O-01A	35ca5e2a-861a-4dd2-a4ce-d294cf080da3	TCGA-AQ-A54O	Primary Tumor	Tumor	male	51.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-AQ-A7U7-01A	19015644-9c17-4ae7-a656-0fe8623c04ae	TCGA-AQ-A7U7	Primary Tumor	Tumor	female	55.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-AR-A0TP-01A	ab89bb2e-da84-4116-a8cd-49aad7bbfd4d	TCGA-AR-A0TP	Primary Tumor	Tumor	female	43.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	43.0
+TCGA-AR-A0TQ-01A	5dc1bee9-c44d-4fdc-9ae5-83426c4d6880	TCGA-AR-A0TQ	Primary Tumor	Tumor	female	27.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	27.0
+TCGA-AR-A0TR-01A	d1703dbd-5c93-4cf2-a4d1-0d90640882bd	TCGA-AR-A0TR	Primary Tumor	Tumor	female	68.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-AR-A0TT-01A	13ca97a1-75bb-4a49-b8c3-181e5b2c9e86	TCGA-AR-A0TT	Primary Tumor	Tumor	female	53.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-AR-A0TU-01A	dfe6db17-cf45-488e-bd3c-b8433d7343ca	TCGA-AR-A0TU	Primary Tumor	Tumor	female	35.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	35.0
+TCGA-AR-A0TV-01A	6439621e-da61-4723-91cc-c5d87d0a4abc	TCGA-AR-A0TV	Primary Tumor	Tumor	female	66.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-AR-A0TW-01A	8da3d6cf-381b-4d1b-93fa-41fd9d2b2e66	TCGA-AR-A0TW	Primary Tumor	Tumor	female	50.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-AR-A0TX-01A	c364e81c-eb1e-4870-ab37-9c661f5f2e3d	TCGA-AR-A0TX	Primary Tumor	Tumor	female	64.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-AR-A0TZ-01A	c7c34fd9-3021-45b7-b6ff-30b4196585a8	TCGA-AR-A0TZ	Primary Tumor	Tumor	female	43.0		Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	43.0
+TCGA-AR-A0U0-01A	e3c336f5-c32f-4c5d-81fb-e2408ae145b2	TCGA-AR-A0U0	Primary Tumor	Tumor	female	73.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	73.0
+TCGA-AR-A0U2-01A	9ad603dc-3fd0-44f5-ae4e-64eeb1ae8d6d	TCGA-AR-A0U2	Primary Tumor	Tumor	female	47.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-AR-A0U3-01A	c5f00132-1c6b-4337-af6f-596c652665cc	TCGA-AR-A0U3	Primary Tumor	Tumor	female	59.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-AR-A0U4-01A	71f97b63-c970-44ee-98c2-e02e663d5a40	TCGA-AR-A0U4	Primary Tumor	Tumor	female	54.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-AR-A1AI-01A	9848307d-1bd5-40c1-b655-a33297aaf74f	TCGA-AR-A1AI	Primary Tumor	Tumor	female	47.0	Stage IIA	Medullary carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-AR-A1AJ-01A	23e7a78a-1d56-4ad1-9bb4-72ec0178aff2	TCGA-AR-A1AJ	Primary Tumor	Tumor	female	83.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	83.0
+TCGA-AR-A1AK-01A	94b03e1d-50ec-4680-bffd-7086d1536ff2	TCGA-AR-A1AK	Primary Tumor	Tumor	female	70.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-AR-A1AL-01A	1f99e4d4-4e8b-4cc1-a129-227a2a82780e	TCGA-AR-A1AL	Primary Tumor	Tumor	female	60.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-AR-A1AM-01A	ebd1512a-4865-4193-97b3-f599d555759a	TCGA-AR-A1AM	Primary Tumor	Tumor	female	52.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-AR-A1AN-01A	43029932-feb0-4658-97fa-645c1e775009	TCGA-AR-A1AN	Primary Tumor	Tumor	female	46.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-AR-A1AO-01A	623befd6-0ca4-4a6c-9cf5-d9385c3b718f	TCGA-AR-A1AO	Primary Tumor	Tumor	female	47.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-AR-A1AP-01A	9495f029-9882-4c9b-a557-b3aec9e91698	TCGA-AR-A1AP	Primary Tumor	Tumor	female	80.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-AR-A1AQ-01A	98e0b4de-52fc-4945-9bf5-11e29368f939	TCGA-AR-A1AQ	Primary Tumor	Tumor	female	49.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-AR-A1AR-01A	eda6d2d5-4199-4f76-a45b-1d0401b4e54c	TCGA-AR-A1AR	Primary Tumor	Tumor	female	50.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-AR-A1AS-01A	7d681cc6-689d-41c8-9e84-e13733089ec9	TCGA-AR-A1AS	Primary Tumor	Tumor	female	54.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-AR-A1AT-01A	4d26dada-5eb7-4d4e-8eb8-f5465c5c3428	TCGA-AR-A1AT	Primary Tumor	Tumor	female	62.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-AR-A1AU-01A	36220587-1c1c-4f92-b177-3b2155e7e273	TCGA-AR-A1AU	Primary Tumor	Tumor	female	39.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-AR-A1AV-01A	daf62b56-6dd2-4ab7-adaa-f296bb86a0a5	TCGA-AR-A1AV	Primary Tumor	Tumor	male	68.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-AR-A1AW-01A	a12fd22a-7f84-4b6e-b6d8-012e38eb73d7	TCGA-AR-A1AW	Primary Tumor	Tumor	female	65.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-AR-A1AX-01A	f72c1d69-da35-459f-8542-59bfd6c09c23	TCGA-AR-A1AX	Primary Tumor	Tumor	female	64.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-AR-A1AY-01A	5fd9552a-c742-4388-940d-295d1107ae00	TCGA-AR-A1AY	Primary Tumor	Tumor	female	65.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-AR-A24H-01A	6f89509c-f802-482e-b4da-94553aa76fe9	TCGA-AR-A24H	Primary Tumor	Tumor	female	65.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-AR-A24K-01A	599c3701-df7a-4a75-a347-fa9b510dd242	TCGA-AR-A24K	Primary Tumor	Tumor	female	46.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-AR-A24L-01A	de646f6a-6d50-4be2-b3cd-f17554b234df	TCGA-AR-A24L	Primary Tumor	Tumor	female	26.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	26.0
+TCGA-AR-A24M-01A	aa30ac3d-4216-45dd-a314-1ae192fafcb2	TCGA-AR-A24M	Primary Tumor	Tumor	female	38.0	Stage IIIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	38.0
+TCGA-AR-A24N-01A	30047d32-0833-4aca-98d1-3b9ab7122863	TCGA-AR-A24N	Primary Tumor	Tumor	female	54.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-AR-A24O-01A	125b0a9a-6cbe-4207-9178-e7ff03487e87	TCGA-AR-A24O	Primary Tumor	Tumor	female	43.0	Stage IIIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	43.0
+TCGA-AR-A24P-01A	d1fd8ed2-be13-4272-b31e-df86911db3b1	TCGA-AR-A24P	Primary Tumor	Tumor	female	47.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-AR-A24Q-01A	28e9048a-e540-42de-a1f4-4ef894fccc4c	TCGA-AR-A24Q	Primary Tumor	Tumor	female	49.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-AR-A24R-01A	db62d9c7-8343-4771-84fc-146d2e307bb8	TCGA-AR-A24R	Primary Tumor	Tumor	female	45.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-AR-A24S-01A	074e8b06-3929-4896-9263-3b80ad6a355b	TCGA-AR-A24S	Primary Tumor	Tumor	female	61.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-AR-A24T-01A	9e3de467-fb0d-4021-89f8-b34968a7c7bc	TCGA-AR-A24T	Primary Tumor	Tumor	female	46.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-AR-A24U-01A	241fffc8-4250-4cfa-b2e7-e68c33ae07dc	TCGA-AR-A24U	Primary Tumor	Tumor	female	47.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-AR-A24V-01A	3cb06c7a-f2a8-448b-91a8-dd201bbf2ddd	TCGA-AR-A24V	Primary Tumor	Tumor	female	52.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-AR-A24W-01A	67526f5a-3a30-45b2-aeab-2b21a855063e	TCGA-AR-A24W	Primary Tumor	Tumor	female	55.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-AR-A24X-01A	491d5ebb-e9ab-4b17-acb8-630ff9fef0f2	TCGA-AR-A24X	Primary Tumor	Tumor	female	52.0	Stage IIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	52.0
+TCGA-AR-A24Z-01A	9fefbe7c-f66a-4940-843e-285cb7b392c1	TCGA-AR-A24Z	Primary Tumor	Tumor	female	57.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-AR-A250-01A	a0963e93-b63e-4de2-86c1-81302e271d3e	TCGA-AR-A250	Primary Tumor	Tumor	female	58.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-AR-A251-01A	8c51bbcb-7c8d-47ad-9193-70ca157c6900	TCGA-AR-A251	Primary Tumor	Tumor	female	51.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-AR-A252-01A	4d0fec97-e024-4608-a0cc-426a3decc7b1	TCGA-AR-A252	Primary Tumor	Tumor	female	50.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-AR-A254-01A	6014a582-d22e-46e1-9000-c8e2fbad7acf	TCGA-AR-A254	Primary Tumor	Tumor	female	50.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-AR-A255-01A	e8f3cc64-5e15-4f4d-b73e-5c9b250a664c	TCGA-AR-A255	Primary Tumor	Tumor	female	62.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-AR-A256-01A	d3d545b3-457f-4389-821f-704cb24aff7f	TCGA-AR-A256	Primary Tumor	Tumor	female	45.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-AR-A2LE-01A	e3fcbf94-d3ef-4a37-aa45-5297f96af9eb	TCGA-AR-A2LE	Primary Tumor	Tumor	female	69.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-AR-A2LH-01A	376ffe63-efd7-42af-90e1-261255b28bb7	TCGA-AR-A2LH	Primary Tumor	Tumor	female	55.0	Stage III	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-AR-A2LJ-01A	738e1acc-1f0c-4a96-9c8a-222727ef5af8	TCGA-AR-A2LJ	Primary Tumor	Tumor	female	40.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-AR-A2LK-01A	1b703058-e596-45bc-80fe-8b98d545c2e2	TCGA-AR-A2LK	Primary Tumor	Tumor	female	62.0	Stage III	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-AR-A2LL-01A	70fc011c-0f22-4026-9d72-87351126203a	TCGA-AR-A2LL	Primary Tumor	Tumor	female	70.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-AR-A2LM-01A	0bf6e772-1aa1-4f54-9a50-c1414e2f22f3	TCGA-AR-A2LM	Primary Tumor	Tumor	female	49.0	Stage II	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-AR-A2LN-01A	a076f135-be82-40fa-8516-285ed355c965	TCGA-AR-A2LN	Primary Tumor	Tumor	female	65.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-AR-A2LO-01A	ad0fa961-c085-4f38-b3db-5fc0cbf6b64f	TCGA-AR-A2LO	Primary Tumor	Tumor	female	46.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-AR-A2LQ-01A	4229e432-6ac5-49d2-b58a-e8713ddb79bd	TCGA-AR-A2LQ	Primary Tumor	Tumor	female	59.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-AR-A2LR-01A	d093173f-08ab-4138-bf3c-399c45a6e163	TCGA-AR-A2LR	Primary Tumor	Tumor	female	49.0	Stage I	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-AR-A5QM-01A	9c895825-d6f6-4d14-a662-23212200f6e5	TCGA-AR-A5QM	Primary Tumor	Tumor	female	62.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-AR-A5QN-01A	077506ea-8f11-405d-bb8e-3c9924fe54d0	TCGA-AR-A5QN	Primary Tumor	Tumor	female	68.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-AR-A5QP-01A	3c275152-d04b-440c-9621-2fc05ea977b6	TCGA-AR-A5QP	Primary Tumor	Tumor	female	54.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-AR-A5QQ-01A	3af31fcf-ad0c-4fd9-a8e3-10f9176b5e9d	TCGA-AR-A5QQ	Primary Tumor	Tumor	female	68.0	Stage IIIA	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-B6-A0I1-01A	5dd423e8-feaa-4568-a750-500948c41d6c	TCGA-B6-A0I1	Primary Tumor	Tumor	female	73.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	73.0
+TCGA-B6-A0IK-01A	0491063c-14a7-4104-8002-1459126332f3	TCGA-B6-A0IK	Primary Tumor	Tumor	female	63.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-B6-A0RE-01A	08da7c4c-3067-4bcf-9d7a-78566df72e69	TCGA-B6-A0RE	Primary Tumor	Tumor	female	61.0	Stage X	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-B6-A0RG-01A	9b13927c-7357-44fd-8385-92ae6a656b7d	TCGA-B6-A0RG	Primary Tumor	Tumor	female	26.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	26.0
+TCGA-B6-A0RI-01A	bfd55808-dddd-44c3-97d7-41600497b992	TCGA-B6-A0RI	Primary Tumor	Tumor	female	44.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-B6-A0RL-01A	5562455d-bbb8-46eb-a510-e8c6e1e26789	TCGA-B6-A0RL	Primary Tumor	Tumor	female	60.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-B6-A0RM-01A	151f3677-6854-4265-9126-d92c646c67ae	TCGA-B6-A0RM	Primary Tumor	Tumor	female	57.0	Stage X	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-B6-A0RN-01A	2199b7a1-bd47-4bb5-b36a-a3e291e3e259	TCGA-B6-A0RN	Primary Tumor	Tumor	female	60.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-B6-A0RO-01A	0b172e29-6166-4863-803d-a0a010887c11	TCGA-B6-A0RO	Primary Tumor	Tumor	female	71.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-B6-A0RP-01A	451e1a67-47e6-4738-99d7-fb7771ef61a3	TCGA-B6-A0RP	Primary Tumor	Tumor	female	73.0		Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	73.0
+TCGA-B6-A0RS-01A	9416ff9b-6f29-4554-b04d-b537a3ae3969	TCGA-B6-A0RS	Primary Tumor	Tumor	female	38.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	38.0
+TCGA-B6-A0RT-01A	4bf50455-9ab7-4521-a791-089f66d3b877	TCGA-B6-A0RT	Primary Tumor	Tumor	female	39.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-B6-A0RU-01A	6956473b-92e5-4069-a26b-b48e280e76f2	TCGA-B6-A0RU	Primary Tumor	Tumor	female	40.0	Stage IA	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	40.0
+TCGA-B6-A0RV-01A	cd3faa15-743c-476f-ab0d-f205b14126b6	TCGA-B6-A0RV	Primary Tumor	Tumor	female	42.0	Stage IIIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	42.0
+TCGA-B6-A0WT-01A	d7195183-9fe4-4b17-bcfd-9367d2e539ce	TCGA-B6-A0WT	Primary Tumor	Tumor	female	61.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-B6-A0WV-01A	7588a286-6935-424a-bc5f-92e24c83eb37	TCGA-B6-A0WV	Primary Tumor	Tumor	female	67.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-B6-A0WW-01A	f02931f8-d72a-481d-b532-8b141dab115f	TCGA-B6-A0WW	Primary Tumor	Tumor	female	58.0	Stage X	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-B6-A0WX-01A	a482fc4c-ff1d-46a0-a968-7df06422cc4b	TCGA-B6-A0WX	Primary Tumor	Tumor	female	40.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-B6-A0WY-01A	f475d460-75cd-4fe9-aa54-c90be12b4ef8	TCGA-B6-A0WY	Primary Tumor	Tumor	female	40.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-B6-A0WZ-01A	08740d7f-5a5e-4dfa-bd48-7fbf228a7a28	TCGA-B6-A0WZ	Primary Tumor	Tumor	female	50.0	Stage II	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-B6-A0X1-01A	178b2c48-c07d-422e-ae17-8bcfd996ad51	TCGA-B6-A0X1	Primary Tumor	Tumor	female	48.0		Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-B6-A0X4-01A	4e42fdc5-2a8b-49e9-87ef-6db7a6692d08	TCGA-B6-A0X4	Primary Tumor	Tumor	female	62.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-B6-A0X5-01A	4e6edfe6-adcb-4c12-8ff4-38a79f5887e8	TCGA-B6-A0X5	Primary Tumor	Tumor	female	61.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-B6-A0X7-01A	5b9a5cd2-5ec8-48a0-b9f2-da9bede0b089	TCGA-B6-A0X7	Primary Tumor	Tumor	female	62.0	Stage X	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-B6-A1KC-01A	1502c7d7-1535-4e56-9f34-30623acd50d5	TCGA-B6-A1KC	Primary Tumor	Tumor	female	67.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-B6-A1KC-01B	1502c7d7-1535-4e56-9f34-30623acd50d5	TCGA-B6-A1KC	Primary Tumor	Tumor	female	67.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-B6-A1KF-01A	f30eb65f-fb44-4062-ac39-a38d072f655f	TCGA-B6-A1KF	Primary Tumor	Tumor	female	68.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-B6-A1KI-01A	1dafdd64-527d-4d46-bbdf-7a97774f881b	TCGA-B6-A1KI	Primary Tumor	Tumor	female	63.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-B6-A1KN-01A	271404de-24e8-43f6-806b-fb510c1124c4	TCGA-B6-A1KN	Primary Tumor	Tumor	female	57.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-B6-A2IU-01A	9857be0c-aeca-4a43-90b1-0535bd08e086	TCGA-B6-A2IU	Primary Tumor	Tumor	female	62.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-B6-A3ZX-01A	9434687a-197c-4959-b6b8-9c05f1dd7f53	TCGA-B6-A3ZX	Primary Tumor	Tumor	female	50.0	Stage IV	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	50.0
+TCGA-B6-A400-01A	d9a1c06f-7b50-46b0-878e-89e8c31863ae	TCGA-B6-A400	Primary Tumor	Tumor	female	43.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	43.0
+TCGA-B6-A401-01A	48ff0420-0f19-4e9d-a75d-6c54949a461a	TCGA-B6-A401	Primary Tumor	Tumor	female	47.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-B6-A402-01A	75b3fe55-1a63-426e-867e-2ef52f54778d	TCGA-B6-A402	Primary Tumor	Tumor	female	47.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-B6-A408-01A	9964f447-92ad-4d1e-af20-11cf84fab7b0	TCGA-B6-A408	Primary Tumor	Tumor	female	55.0	Stage IIIC	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	55.0
+TCGA-B6-A409-01A	5362cbc4-cd28-4afd-a8ac-1a4c2c33cad2	TCGA-B6-A409	Primary Tumor	Tumor	female	44.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-B6-A40B-01A	8539e15f-ba40-4219-aaeb-08d0ab101311	TCGA-B6-A40B	Primary Tumor	Tumor	female	76.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	76.0
+TCGA-B6-A40C-01A	fd0b1b8b-1a76-480a-b61c-d176e4e02c6b	TCGA-B6-A40C	Primary Tumor	Tumor	female	51.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-BH-A0AU-01A	360d1d6d-cf3e-4c78-b36f-ef5e3160aa6b	TCGA-BH-A0AU	Primary Tumor	Tumor	female	45.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-BH-A0AW-01A	c5891c7a-fd24-4891-8f51-373967e4a6dd	TCGA-BH-A0AW	Primary Tumor	Tumor	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-BH-A0AZ-01A	518f231c-f5f9-4a39-a97b-7fd5666d3e50	TCGA-BH-A0AZ	Primary Tumor	Tumor	female	47.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-BH-A0B2-01A	57a1604c-60b7-4b30-a75e-f70939532c5c	TCGA-BH-A0B2	Primary Tumor	Tumor					Primary	Primary Tumor	tumor	
+TCGA-BH-A0B3-01A	18eb4dfc-556f-4bf3-a411-4780209ed1e0	TCGA-BH-A0B3	Primary Tumor	Tumor	female	53.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-BH-A0B5-01A	9da462b0-93c2-4305-89f6-7199a30399a7	TCGA-BH-A0B5	Primary Tumor	Tumor	female	40.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-BH-A0B6-01A	fa4e082a-d213-412e-8d91-842a6f4bef12	TCGA-BH-A0B6	Primary Tumor	Tumor	female	47.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-BH-A0B8-01A	d3a75976-67d3-40fa-9f6f-cf2a3d7b773c	TCGA-BH-A0B8	Primary Tumor	Tumor	female	64.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-BH-A0B9-01A	5a57dc25-d252-4b22-b192-4de630d7002f	TCGA-BH-A0B9	Primary Tumor	Tumor	female	44.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-BH-A0BA-01A	49dc3e68-6206-4f16-969f-a758cc7be8ed	TCGA-BH-A0BA	Primary Tumor	Tumor	female	51.0	Stage IIIC	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	51.0
+TCGA-BH-A0BC-01A	327a2395-85c8-42e1-9638-8e037a1723ed	TCGA-BH-A0BC	Primary Tumor	Tumor	female	60.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-BH-A0BF-01A	e6b79d7a-ed6b-459a-b040-d142616e7ab4	TCGA-BH-A0BF	Primary Tumor	Tumor	female	56.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-BH-A0BJ-01A	d6f911b5-e895-43f8-8f86-0ac2f1bc6fae	TCGA-BH-A0BJ	Primary Tumor	Tumor	female	41.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-BH-A0BM-01A	c2aeee6c-ba10-4cf9-b560-c739580f7bf3	TCGA-BH-A0BM	Primary Tumor	Tumor	female	54.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-BH-A0BS-01A	2b22db1d-54a1-4b9e-a86e-a174cf51d95c	TCGA-BH-A0BS	Primary Tumor	Tumor	female	55.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-BH-A0BT-01A	a32cb96a-78bf-456e-a6ab-2d47b2c67ad4	TCGA-BH-A0BT	Primary Tumor	Tumor	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-BH-A0BZ-01A	4a032bad-e726-48f2-8f39-e3acc109cc91	TCGA-BH-A0BZ	Primary Tumor	Tumor	female	59.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-BH-A0C0-01A	7875018b-91dc-4ab1-83b0-ee3883e2816e	TCGA-BH-A0C0	Primary Tumor	Tumor	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-BH-A0C3-01A	7bcf6d42-eb8f-4aa2-825b-38671d4f9e3a	TCGA-BH-A0C3	Primary Tumor	Tumor	female	47.0	Stage I	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	47.0
+TCGA-BH-A0DD-01A	dba9beec-5e51-48c0-9229-0ee286a02a1a	TCGA-BH-A0DD	Primary Tumor	Tumor	male	58.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-BH-A0DG-01A	0bc5744c-5fa3-45bb-87d0-70a02068b392	TCGA-BH-A0DG	Primary Tumor	Tumor	female	30.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	30.0
+TCGA-BH-A0DH-01A	491b6364-1223-474f-816f-e248c8c841e2	TCGA-BH-A0DH	Primary Tumor	Tumor	female	63.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-BH-A0DI-01A	27ba717a-5cd8-440a-9345-4ae086f6efca	TCGA-BH-A0DI	Primary Tumor	Tumor	female	63.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-BH-A0DK-01A	f2bbfa9d-9a9d-4f46-9fde-378e4c44e2ad	TCGA-BH-A0DK	Primary Tumor	Tumor	female	49.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-BH-A0DP-01A	14267783-5624-4fe5-ba81-9d67f1017474	TCGA-BH-A0DP	Primary Tumor	Tumor	female	60.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-BH-A0DQ-01A	a851ca14-7bbf-455b-a054-ec03979a4247	TCGA-BH-A0DQ	Primary Tumor	Tumor	female	42.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	42.0
+TCGA-BH-A0DS-01A	fb57c598-b45b-478a-9d34-ca1f050d5b7c	TCGA-BH-A0DS	Primary Tumor	Tumor	female	71.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-BH-A0DV-01A	96b9c7db-1be1-4b60-b47c-26b654c3d64c	TCGA-BH-A0DV	Primary Tumor	Tumor	female	54.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-BH-A0E0-01A	20e8106b-1290-4735-abe4-7621e08e3dc8	TCGA-BH-A0E0	Primary Tumor	Tumor	female	38.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	38.0
+TCGA-BH-A0E1-01A	606fbc6a-b41b-441d-9401-51e54912bf5e	TCGA-BH-A0E1	Primary Tumor	Tumor	female	52.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-BH-A0E2-01A	8ace3b8c-f23e-48a9-a137-9e046bd9549b	TCGA-BH-A0E2	Primary Tumor	Tumor	female	49.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-BH-A0GY-01A	7d9d3522-ec3b-4efe-8c8e-c0e675276ef5	TCGA-BH-A0GY	Primary Tumor	Tumor	female	67.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-BH-A0GZ-01A	27dfb9d4-3a2c-44bc-9acf-8f638d3f3004	TCGA-BH-A0GZ	Primary Tumor	Tumor	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-BH-A0H0-01A	96457ebf-ae88-41f4-97e5-cdc3163418aa	TCGA-BH-A0H0	Primary Tumor	Tumor	female	69.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-BH-A0H3-01A	6cdc0d53-f813-4101-81e5-9bee68270536	TCGA-BH-A0H3	Primary Tumor	Tumor	female	46.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-BH-A0H6-01A	aeb6a3a6-b57a-4c53-90e6-e833777dd2a1	TCGA-BH-A0H6	Primary Tumor	Tumor	female	82.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	82.0
+TCGA-BH-A0H7-01A	2021ed1f-dc75-4701-b8b8-1386466e4802	TCGA-BH-A0H7	Primary Tumor	Tumor	female	65.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-BH-A0H9-01A	0f64edec-0f1f-4025-8a53-75f9534f7828	TCGA-BH-A0H9	Primary Tumor	Tumor	female	69.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-BH-A0HA-01A	e666081b-caaf-4e8b-9446-807be71201a5	TCGA-BH-A0HA	Primary Tumor	Tumor	female	31.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	31.0
+TCGA-BH-A0HB-01A	0c1023c0-d2ce-4940-8047-7642f1dc3965	TCGA-BH-A0HB	Primary Tumor	Tumor	female	55.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-BH-A0HF-01A	17ca61a2-607a-45ff-88fa-ef72e80bf891	TCGA-BH-A0HF	Primary Tumor	Tumor	female	77.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-BH-A0HI-01A	e0375a8b-a135-4103-a59d-39063fcf4a6f	TCGA-BH-A0HI	Primary Tumor	Tumor	female	78.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-BH-A0HK-01A	24334ac1-28a3-4b61-b590-3f51e375b247	TCGA-BH-A0HK	Primary Tumor	Tumor	female	81.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	81.0
+TCGA-BH-A0HN-01A	a68a3361-48b4-4bd0-999d-b4cc3d43eb4a	TCGA-BH-A0HN	Primary Tumor	Tumor	female	67.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-BH-A0HP-01A	fcef8cb5-fb2c-4bfb-82cd-6b9f3145182c	TCGA-BH-A0HP	Primary Tumor	Tumor	female	65.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-BH-A0HX-01A	3b01d064-8c00-4972-9f07-407eac8e7534	TCGA-BH-A0HX	Primary Tumor	Tumor	female	54.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-BH-A0HY-01A	844ad251-3ee4-42f6-ad00-59a7a1670eea	TCGA-BH-A0HY	Primary Tumor	Tumor	female	60.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-BH-A0RX-01A	e828455d-4680-41b2-8a1c-1582e3790d62	TCGA-BH-A0RX	Primary Tumor	Tumor	female	59.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-BH-A0W3-01A	3c612e12-6de8-44fa-a095-805c45474821	TCGA-BH-A0W3	Primary Tumor	Tumor	female	58.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-BH-A0W4-01A	0772cdbe-8b0d-452b-8df1-bd70d1306363	TCGA-BH-A0W4	Primary Tumor	Tumor	female	46.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-BH-A0W5-01A	da9c10ea-c13f-4d88-8b94-a0cbc106d036	TCGA-BH-A0W5	Primary Tumor	Tumor	female	77.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-BH-A0WA-01A	786e8dbe-442e-4551-87b3-b4c333b04dd4	TCGA-BH-A0WA	Primary Tumor	Tumor	female	82.0	Stage I	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	82.0
+TCGA-BH-A1EN-01A	858652b8-c4c2-41d8-be32-fdc88e1a7bb0	TCGA-BH-A1EN	Primary Tumor	Tumor	female	78.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-BH-A1EO-01A	4510295e-8aa7-4ef1-b2b7-91cc902f8200	TCGA-BH-A1EO	Primary Tumor	Tumor	female	68.0	Stage IIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	68.0
+TCGA-BH-A1ES-01A	51ccbf1b-7cae-44ba-991a-11eda8b8c404	TCGA-BH-A1ES	Primary Tumor	Tumor	female	35.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	35.0
+TCGA-BH-A1ET-01A	8986a141-eae7-4157-b695-02cc6fc3b071	TCGA-BH-A1ET	Primary Tumor	Tumor	female	55.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-BH-A1EU-01A	a1093598-d3a8-4ffe-83fc-bc7d1faff7e5	TCGA-BH-A1EU	Primary Tumor	Tumor	female	83.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	83.0
+TCGA-BH-A1EV-01A	417dea5f-f68e-4dab-940e-43ae8c67e5e6	TCGA-BH-A1EV	Primary Tumor	Tumor	female	45.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-BH-A1EW-01A	9d166970-07c8-4ca3-9cfa-ed0049df9ecc	TCGA-BH-A1EW	Primary Tumor	Tumor	female	38.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	38.0
+TCGA-BH-A1EX-01A	7b892055-c59d-4550-8688-ad039790af3d	TCGA-BH-A1EX	Primary Tumor	Tumor	female	67.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-BH-A1EY-01A	0741b5db-4405-42ba-b63a-c6ee4f341480	TCGA-BH-A1EY	Primary Tumor	Tumor	female	79.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-BH-A1F0-01A	21ef1730-e5a7-47ce-b419-d000bb59ae15	TCGA-BH-A1F0	Primary Tumor	Tumor	female	80.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-BH-A1F2-01A	6a2972e3-cca9-47e5-aac0-b770f2399eeb	TCGA-BH-A1F2	Primary Tumor	Tumor	female	53.0	Stage IIIB	Paget disease and infiltrating duct carcinoma of breast	Primary	Primary Tumor	tumor	53.0
+TCGA-BH-A1F5-01A	e663954c-05a8-479a-a623-400c1eb5efc6	TCGA-BH-A1F5	Primary Tumor	Tumor	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-BH-A1F6-01A	ad18820b-a804-49c0-ba8a-86c09fa6bce2	TCGA-BH-A1F6	Primary Tumor	Tumor	female	51.0		Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-BH-A1F8-01A	ee554215-bea2-4268-aaf9-784e68cdb969	TCGA-BH-A1F8	Primary Tumor	Tumor	female	90.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	90.0
+TCGA-BH-A1FB-01A	ecab16bc-28d5-4c3a-8735-3c785bd047c4	TCGA-BH-A1FB	Primary Tumor	Tumor	female	60.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-BH-A1FC-01A	b97bf89a-7a85-4eef-ae7e-f787aead1f0a	TCGA-BH-A1FC	Primary Tumor	Tumor	female	78.0	Stage IIA	Medullary carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-BH-A1FD-01A	3c8b5af9-c34d-43c2-b8c9-39ea11e44fa6	TCGA-BH-A1FD	Primary Tumor	Tumor	female	68.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-BH-A1FE-01A	4aa68586-6331-4795-b40c-859386640df6	TCGA-BH-A1FE	Primary Tumor	Tumor	female	31.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	31.0
+TCGA-BH-A1FG-01A	d4e7426c-9739-4585-9114-e564b13c7c02	TCGA-BH-A1FG	Primary Tumor	Tumor	female	88.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	88.0
+TCGA-BH-A1FH-01A	1783cac1-253a-40af-a9ac-48dfb20e1ab8	TCGA-BH-A1FH	Primary Tumor	Tumor	female	47.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-BH-A1FJ-01A	f6581eee-61b9-43d4-ab0d-ce5ce3ba1c74	TCGA-BH-A1FJ	Primary Tumor	Tumor	female	66.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-BH-A1FL-01A	14d1d84e-99e1-41ad-8892-3b4da3d4f948	TCGA-BH-A1FL	Primary Tumor	Tumor	female	69.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-BH-A1FM-01A	7eb18190-5a41-4637-9783-f81bbde499e4	TCGA-BH-A1FM	Primary Tumor	Tumor	female	44.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-BH-A1FN-01A	6dd0dd7b-62ff-4fd1-a99a-b265f1a91dca	TCGA-BH-A1FN	Primary Tumor	Tumor	female	34.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	34.0
+TCGA-BH-A1FR-01A	bf3b1481-ae31-4406-b084-b6cc1d7163e3	TCGA-BH-A1FR	Primary Tumor	Tumor	female	73.0	Stage IIIB	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	73.0
+TCGA-BH-A1FU-01A	c348a9b3-c901-4384-a222-144387bac0c5	TCGA-BH-A1FU	Primary Tumor	Tumor	female	44.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-BH-A201-01A	3bf81a9f-abb4-4495-a514-fd3865e13a03	TCGA-BH-A201	Primary Tumor	Tumor	female	64.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-BH-A202-01A	e7a00d67-2c26-4d1f-bd17-35f659e88bc1	TCGA-BH-A202	Primary Tumor	Tumor	female	60.0	Stage II	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-BH-A203-01A	b3264748-947a-43aa-b227-b294fbcc8447	TCGA-BH-A203	Primary Tumor	Tumor	female	78.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-BH-A204-01A	05135396-df5c-49db-b34e-f4add5b65a2b	TCGA-BH-A204	Primary Tumor	Tumor	female	80.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-BH-A208-01A	ddcbdac6-9e43-4146-a611-d033125eba14	TCGA-BH-A208	Primary Tumor	Tumor	female	48.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-BH-A209-01A	5258294f-ef5b-4091-9183-6bcc545d54b2	TCGA-BH-A209	Primary Tumor	Tumor	female	77.0	Stage I	Medullary carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-BH-A28O-01A	84b7ccf2-8ab3-4b21-96de-800d231bc072	TCGA-BH-A28O	Primary Tumor	Tumor	female	50.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-BH-A28Q-01A	32861b48-83f5-43a3-bb54-45215ad2c5d6	TCGA-BH-A28Q	Primary Tumor	Tumor	female	46.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-BH-A2L8-01A	bac4b268-c781-4408-96d8-43a48fec7418	TCGA-BH-A2L8	Primary Tumor	Tumor	female	45.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-BH-A42T-01A	10c829ec-fd66-49c4-8afe-ad3ae567372c	TCGA-BH-A42T	Primary Tumor	Tumor	female	75.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	75.0
+TCGA-BH-A42U-01A	2dc1cec9-925a-417f-9e21-3c2143e711b4	TCGA-BH-A42U	Primary Tumor	Tumor	female	80.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-BH-A42V-01A	57cf380d-ab52-467f-b9ae-740b2f84c820	TCGA-BH-A42V	Primary Tumor	Tumor	female	41.0	Stage IB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-BH-A5IZ-01A	a8a33ba9-0976-4e19-b0e9-fa5ba4d4eaa8	TCGA-BH-A5IZ	Primary Tumor	Tumor	female	51.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-BH-A5J0-01A	db55d9d9-dd56-4ca9-b1f1-0d929697b280	TCGA-BH-A5J0	Primary Tumor	Tumor	female	63.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-BH-A6R8-01A	91b09291-5944-4691-a0d8-7d1ccc649b9b	TCGA-BH-A6R8	Primary Tumor	Tumor	female	46.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-BH-A6R9-01A	43cc074d-b85a-4b0b-8feb-833094ffc565	TCGA-BH-A6R9	Primary Tumor	Tumor	female	61.0	Stage IIA	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-BH-A8FY-01A	5f4d16aa-9cc4-4edb-b714-394e2661439a	TCGA-BH-A8FY	Primary Tumor	Tumor	female	87.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	87.0
+TCGA-BH-A8FZ-01A	1cc30842-4a5b-4f07-b36f-5b84ceaa5662	TCGA-BH-A8FZ	Primary Tumor	Tumor	female	58.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-BH-A8G0-01A	59d60247-e549-4326-a672-50b05c13a291	TCGA-BH-A8G0	Primary Tumor	Tumor	female	54.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-BH-AB28-01A	09d6e904-7184-4788-8a19-04f8c46cb13f	TCGA-BH-AB28	Primary Tumor	Tumor	female	53.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-C8-A1HE-01A	b26d41cd-393b-4cd4-8925-a9488f7de576	TCGA-C8-A1HE	Primary Tumor	Tumor	female	59.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-C8-A1HF-01A	a2453bcb-90f2-4505-949d-a89cf4bfc9b8	TCGA-C8-A1HF	Primary Tumor	Tumor	female	48.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-C8-A1HG-01A	0c23c380-363c-474d-b64c-b47f612a8225	TCGA-C8-A1HG	Primary Tumor	Tumor	female	50.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-C8-A1HI-01A	444374f8-9282-439c-af00-0f828edcbff3	TCGA-C8-A1HI	Primary Tumor	Tumor	female	40.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-C8-A1HJ-01A	a855c228-a263-44df-87a0-cbc32187e3f5	TCGA-C8-A1HJ	Primary Tumor	Tumor	female	53.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-C8-A1HK-01A	52c35691-efca-42f5-a03e-02c9f872275c	TCGA-C8-A1HK	Primary Tumor	Tumor	female	53.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-C8-A1HL-01A	a8a199c9-d781-4e6c-af8c-c85d60c7cd40	TCGA-C8-A1HL	Primary Tumor	Tumor	female	38.0	Stage IIIA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	38.0
+TCGA-C8-A1HM-01A	8b525ec6-d24b-49d4-bfcb-b354de4dae7c	TCGA-C8-A1HM	Primary Tumor	Tumor	female	74.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-C8-A1HN-01A	86a18ae0-dfb1-49c3-b5c4-67ec331d6e40	TCGA-C8-A1HN	Primary Tumor	Tumor	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-C8-A1HO-01A	b3354b72-2637-4edc-9a95-e55801d3ac13	TCGA-C8-A1HO	Primary Tumor	Tumor	female	34.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	34.0
+TCGA-C8-A26V-01A	89414e79-7f89-42d9-8228-101b5bf2f31f	TCGA-C8-A26V	Primary Tumor	Tumor	female	47.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-C8-A26W-01A	ff0f875f-113a-4c0f-8c0a-4259cd496e6d	TCGA-C8-A26W	Primary Tumor	Tumor	female	58.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-C8-A26X-01A	70ab4f23-23c4-409f-a5cc-18a010c3a24e	TCGA-C8-A26X	Primary Tumor	Tumor	female	58.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-C8-A26Y-01A	4d51159f-ab2f-40e3-a363-847c3654431e	TCGA-C8-A26Y	Primary Tumor	Tumor	female	90.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	90.0
+TCGA-C8-A26Z-01A	dc11b1c7-1f00-4813-b4b5-ecf776b2eb37	TCGA-C8-A26Z	Primary Tumor	Tumor	female	59.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-C8-A273-01A	5a5f0f48-2b13-4e78-b130-901b85d9a7f3	TCGA-C8-A273	Primary Tumor	Tumor	female	29.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	29.0
+TCGA-C8-A274-01A	dbcad60f-86c7-41e3-b0ae-baa39c9f83dd	TCGA-C8-A274	Primary Tumor	Tumor	female	63.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-C8-A275-01A	ce887e90-0660-4f44-a3a4-b3b894cb7eda	TCGA-C8-A275	Primary Tumor	Tumor	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-C8-A278-01A	65077db7-dd59-4362-9d28-d5a9154e9be0	TCGA-C8-A278	Primary Tumor	Tumor	female	61.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-C8-A27A-01A	3b1f7e48-216d-47de-ba79-db350f52bff0	TCGA-C8-A27A	Primary Tumor	Tumor	female	48.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-C8-A27B-01A	f0d8a1fe-e313-44f1-99cc-b965cbeeff0e	TCGA-C8-A27B	Primary Tumor	Tumor	female	48.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-C8-A3M7-01A	959ff069-8a49-4c9b-85c2-5291cac0acff	TCGA-C8-A3M7	Primary Tumor	Tumor	female	60.0	Stage IIIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-C8-A3M8-01A	c1e704d6-a33b-4891-90bd-992b0040c075	TCGA-C8-A3M8	Primary Tumor	Tumor	female	68.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-C8-A8HP-01A	8db69f1d-72e2-40ba-ad8a-cf228499840d	TCGA-C8-A8HP	Primary Tumor	Tumor	female	59.0	Stage IIIA	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-C8-A8HQ-01A	6951fe6a-d7d1-4f41-85af-76655b5d1f62	TCGA-C8-A8HQ	Primary Tumor	Tumor	female	53.0	Stage IIB	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	53.0
+TCGA-C8-A8HR-01A	dcb68327-1537-4ca6-81de-3910d0663cb8	TCGA-C8-A8HR	Primary Tumor	Tumor	female	49.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-C8-A9FZ-01A	726c6892-0dce-4869-a7a7-cc44c26fe843	TCGA-C8-A9FZ	Primary Tumor	Tumor	female	49.0	Stage IIB	Infiltrating lobular mixed with other types of carcinoma	Primary	Primary Tumor	tumor	49.0
+TCGA-D8-A1J8-01A	62d70067-ff77-4f95-8b69-f537abaf74ce	TCGA-D8-A1J8	Primary Tumor	Tumor	female	77.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-D8-A1J9-01A	d5e9a403-88ce-40fc-bb85-80cf3f8ff6bc	TCGA-D8-A1J9	Primary Tumor	Tumor	female	48.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-D8-A1JA-01A	9ced0c70-c46c-4f98-8f48-840defe4b8b1	TCGA-D8-A1JA	Primary Tumor	Tumor	female	60.0		Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-D8-A1JB-01A	dd96a9c7-899c-47cd-a0f9-b149ed07a5d6	TCGA-D8-A1JB	Primary Tumor	Tumor	female	54.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-D8-A1JC-01A	02e6f999-24f2-4ad2-9b92-df3ee2b082e5	TCGA-D8-A1JC	Primary Tumor	Tumor	female	59.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-D8-A1JD-01A	530ad151-703d-4638-851f-0b5111ff318b	TCGA-D8-A1JD	Primary Tumor	Tumor	female	41.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-D8-A1JE-01A	115bc72c-116f-40c1-be9b-e3dd7650efae	TCGA-D8-A1JE	Primary Tumor	Tumor	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-D8-A1JF-01A	dcd5e079-813a-4c1a-b320-0931468d2bbc	TCGA-D8-A1JF	Primary Tumor	Tumor	female	79.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-D8-A1JG-01B	7f2a63e6-64d5-4be1-9814-e8416fc9e688	TCGA-D8-A1JG	Primary Tumor	Tumor	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-D8-A1JH-01A	4d1bf9e6-5837-4aed-b568-92f014ed5a4b	TCGA-D8-A1JH	Primary Tumor	Tumor	female	56.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-D8-A1JI-01A	baf2afc8-f16c-488f-947c-efc9083c6bef	TCGA-D8-A1JI	Primary Tumor	Tumor	female	54.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-D8-A1JJ-01A	f7ab565c-83b5-4988-b9be-8a46f65dca8c	TCGA-D8-A1JJ	Primary Tumor	Tumor	female	54.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-D8-A1JK-01A	56203436-8634-4fd0-96b5-ba6be9d87857	TCGA-D8-A1JK	Primary Tumor	Tumor	female	90.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	90.0
+TCGA-D8-A1JL-01A	aa4244a8-0454-4247-a1c3-357fd51746fa	TCGA-D8-A1JL	Primary Tumor	Tumor	female	72.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-D8-A1JM-01A	3e775c99-ceda-4246-8d6f-0f58ca5097c8	TCGA-D8-A1JM	Primary Tumor	Tumor	female	59.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-D8-A1JN-01A	28911b97-42bf-4189-9961-522fc0aeebc6	TCGA-D8-A1JN	Primary Tumor	Tumor	female	80.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-D8-A1JP-01A	752f4773-5a12-4485-a1f6-896e148ddf4d	TCGA-D8-A1JP	Primary Tumor	Tumor	female	73.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	73.0
+TCGA-D8-A1JS-01A	0d03055c-186b-418a-b614-e2035757bc3b	TCGA-D8-A1JS	Primary Tumor	Tumor	female	77.0	Stage IA	Intraductal papillary adenocarcinoma with invasion	Primary	Primary Tumor	tumor	77.0
+TCGA-D8-A1JT-01A	cd781589-3820-45a2-906b-8d60cd02f3ef	TCGA-D8-A1JT	Primary Tumor	Tumor	female	70.0	Stage IIA	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	70.0
+TCGA-D8-A1JU-01A	af2a8e2f-2ae1-48bc-bba5-0e2c077c4e48	TCGA-D8-A1JU	Primary Tumor	Tumor	female	51.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-D8-A1X5-01A	eb93df3d-9e25-4e4c-9a5d-350f296e5acf	TCGA-D8-A1X5	Primary Tumor	Tumor	female	81.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	81.0
+TCGA-D8-A1X6-01A	42e47f3a-dff7-41e4-8f84-146d97e8ab72	TCGA-D8-A1X6	Primary Tumor	Tumor	female	80.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-D8-A1X7-01A	cdab777e-62de-4d51-92af-b6eb089c111f	TCGA-D8-A1X7	Primary Tumor	Tumor	female	40.0	Stage IIA	Intraductal papillary adenocarcinoma with invasion	Primary	Primary Tumor	tumor	40.0
+TCGA-D8-A1X8-01A	8624354c-af25-423c-9c71-48a5dd821097	TCGA-D8-A1X8	Primary Tumor	Tumor	female	62.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-D8-A1X9-01A	34a74805-300c-4773-ab59-2085fcc2e6cc	TCGA-D8-A1X9	Primary Tumor	Tumor	female	66.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-D8-A1XA-01A	739cb132-51e9-41be-8064-311a13da0d74	TCGA-D8-A1XA	Primary Tumor	Tumor	female	64.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-D8-A1XB-01A	d2694b09-7844-4496-865c-5d3d8cd03330	TCGA-D8-A1XB	Primary Tumor	Tumor	female	62.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-D8-A1XC-01A	ee14e049-b891-4dda-a730-8ce99bd93baf	TCGA-D8-A1XC	Primary Tumor	Tumor	female	85.0	Stage IIIB	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	85.0
+TCGA-D8-A1XD-01A	c4699748-f01d-4b30-9c74-1ca77fb84ac1	TCGA-D8-A1XD	Primary Tumor	Tumor	female	36.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	36.0
+TCGA-D8-A1XF-01A	6f6afd31-b5dd-48ab-b18f-6390ba18a5f0	TCGA-D8-A1XF	Primary Tumor	Tumor	female	45.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-D8-A1XG-01A	de531604-bd1a-49df-96c2-6de3ae703f1d	TCGA-D8-A1XG	Primary Tumor	Tumor	female	86.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	86.0
+TCGA-D8-A1XJ-01A	cc510968-fe52-4109-a79f-74f216b48c78	TCGA-D8-A1XJ	Primary Tumor	Tumor	female	76.0	Stage IIIA	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	76.0
+TCGA-D8-A1XK-01A	97943d87-fed7-4f14-a0a7-c5bfee64c392	TCGA-D8-A1XK	Primary Tumor	Tumor	female	55.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-D8-A1XL-01A	2b19a6b4-7a17-4452-b4aa-6fc18adc0c3c	TCGA-D8-A1XL	Primary Tumor	Tumor	female	34.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	34.0
+TCGA-D8-A1XM-01A	92529232-8504-4541-b7e2-4df8f497c413	TCGA-D8-A1XM	Primary Tumor	Tumor	female	57.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-D8-A1XO-01A	6a186809-3422-41d0-83d2-867145830936	TCGA-D8-A1XO	Primary Tumor	Tumor	female	56.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-D8-A1XQ-01A	3886b4fb-ba22-4a50-b11a-a6893951f170	TCGA-D8-A1XQ	Primary Tumor	Tumor	female	69.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-D8-A1XR-01A	70f34c5c-3671-44c8-9469-99f9786efec1	TCGA-D8-A1XR	Primary Tumor	Tumor	female	56.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-D8-A1XS-01A	1026e0bf-5640-4fa5-b65f-4f11e8e76b18	TCGA-D8-A1XS	Primary Tumor	Tumor	male	48.0	Stage IIIC	Intraductal micropapillary carcinoma	Primary	Primary Tumor	tumor	48.0
+TCGA-D8-A1XT-01A	64975923-d032-4182-8565-59fc37127d8d	TCGA-D8-A1XT	Primary Tumor	Tumor	female	61.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-D8-A1XU-01A	332148f5-f070-4c20-8eb1-4d8c0673aa52	TCGA-D8-A1XU	Primary Tumor	Tumor	female	56.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-D8-A1XV-01A	87b85935-a058-44ad-8fb6-8511130eaffe	TCGA-D8-A1XV	Primary Tumor	Tumor	female	84.0	Stage IIA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	84.0
+TCGA-D8-A1XW-01A	887b9e5b-99db-44ac-9c30-c0dc6877b41c	TCGA-D8-A1XW	Primary Tumor	Tumor	female	53.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-D8-A1XY-01A	0130d616-885e-4a6c-9d03-2f17dd692a05	TCGA-D8-A1XY	Primary Tumor	Tumor	female	74.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-D8-A1XZ-01A	2c90d5e3-ac8c-4c86-a06f-42ccc064eb49	TCGA-D8-A1XZ	Primary Tumor	Tumor	female	81.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	81.0
+TCGA-D8-A1Y0-01A	ced2c048-b047-43ff-b0e7-cd7ad480850c	TCGA-D8-A1Y0	Primary Tumor	Tumor	female	65.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-D8-A1Y1-01A	38a631a1-6875-4216-a335-ee93c90a86d6	TCGA-D8-A1Y1	Primary Tumor	Tumor	female	80.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-D8-A1Y2-01A	c7d7a770-23c0-4310-ab48-1f6152dc2849	TCGA-D8-A1Y2	Primary Tumor	Tumor	female	71.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-D8-A1Y3-01A	632984bd-dc81-42b6-b024-476cfd0bb2ae	TCGA-D8-A1Y3	Primary Tumor	Tumor	female	61.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-D8-A27E-01A	680f23a9-fcce-493e-b908-27c1ad202e4c	TCGA-D8-A27E	Primary Tumor	Tumor	female	66.0	Stage IA	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	66.0
+TCGA-D8-A27F-01A	1549dc64-3dab-43fc-96e9-b07d520957e1	TCGA-D8-A27F	Primary Tumor	Tumor	female	40.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-D8-A27G-01A	6f6e7356-3521-4674-8eec-ad01340d4b8e	TCGA-D8-A27G	Primary Tumor	Tumor	female	75.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	75.0
+TCGA-D8-A27H-01A	0dca98b0-f43e-45b6-9a02-00092c78678c	TCGA-D8-A27H	Primary Tumor	Tumor	female	72.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-D8-A27I-01A	9c55032f-4db7-4026-ae83-8d060dd8e3fe	TCGA-D8-A27I	Primary Tumor	Tumor	female	58.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-D8-A27K-01A	7f97971b-2818-4e4b-9c9e-7c0246f9484c	TCGA-D8-A27K	Primary Tumor	Tumor	female	47.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-D8-A27L-01A	6020d1b4-ee20-4cc9-82a3-340b5e3122f1	TCGA-D8-A27L	Primary Tumor	Tumor	female	49.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-D8-A27M-01A	ae65baeb-6b78-492a-8c63-bb7e93e83dc2	TCGA-D8-A27M	Primary Tumor	Tumor	female	59.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-D8-A27N-01A	d5be2ab3-f748-480d-954b-385cf01b4c81	TCGA-D8-A27N	Primary Tumor	Tumor	female	36.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	36.0
+TCGA-D8-A27P-01A	c54d5507-bba5-4a1e-8885-3c3b1eed13c1	TCGA-D8-A27P	Primary Tumor	Tumor	female	64.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-D8-A27R-01A	0b23b5fe-6c7e-4297-bc55-f93fcb830ac4	TCGA-D8-A27R	Primary Tumor	Tumor	female	41.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-D8-A27T-01A	27c1c094-690b-4973-8900-a797ad88f98c	TCGA-D8-A27T	Primary Tumor	Tumor	female	53.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-D8-A27V-01A	ad6d26ab-6568-40db-bfb0-394d40e801cf	TCGA-D8-A27V	Primary Tumor	Tumor	female	62.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-D8-A27W-01A	bfa3dbc0-361c-400e-8c10-0aca7049fce9	TCGA-D8-A27W	Primary Tumor	Tumor	female	55.0	Stage IIIB	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	55.0
+TCGA-D8-A3Z5-01A	77e25ae8-82ec-4dea-8e62-1176f27e47ba	TCGA-D8-A3Z5	Primary Tumor	Tumor	female	54.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-D8-A3Z6-01A	a6e5f869-1182-4f81-b4bb-cf55261c8f3f	TCGA-D8-A3Z6	Primary Tumor	Tumor	female	56.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-D8-A4Z1-01A	80419545-4e5d-4baf-8948-f84589b5ef3e	TCGA-D8-A4Z1	Primary Tumor	Tumor	female	68.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-D8-A73U-01A	96f02be7-f2df-483c-8968-a5bd2d887206	TCGA-D8-A73U	Primary Tumor	Tumor	female	88.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	88.0
+TCGA-D8-A73W-01A	ea8dbc7a-54c6-469c-865e-f49d00b0223d	TCGA-D8-A73W	Primary Tumor	Tumor	female	79.0	Stage IIIA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	79.0
+TCGA-D8-A73X-01A	1be375fe-5ae5-4e75-a729-69f86a661d9a	TCGA-D8-A73X	Primary Tumor	Tumor	female	53.0	Stage IIA	Tubular adenocarcinoma	Primary	Primary Tumor	tumor	53.0
+TCGA-E2-A105-01A	b0bcb829-cee0-4247-bb75-093a5bea89ee	TCGA-E2-A105	Primary Tumor	Tumor	female	79.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	79.0
+TCGA-E2-A106-01A	87e09544-eddb-473b-8617-212407ce644e	TCGA-E2-A106	Primary Tumor	Tumor	female	34.0	Stage IB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	34.0
+TCGA-E2-A107-01A	eff2360e-399a-4167-ab2b-798e27bef739	TCGA-E2-A107	Primary Tumor	Tumor	female	54.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-E2-A108-01A	4f04bd10-9902-4a23-b15d-4f4409d79499	TCGA-E2-A108	Primary Tumor	Tumor	female	64.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-E2-A109-01A	f0787165-6f58-4d67-b510-928eea2c4882	TCGA-E2-A109	Primary Tumor	Tumor	female	64.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-E2-A10B-01A	f801aeed-dc43-49d7-a319-84c8851979d9	TCGA-E2-A10B	Primary Tumor	Tumor	female	67.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-E2-A10C-01A	9ac44381-5d43-4f63-aa3f-7703bfc923c9	TCGA-E2-A10C	Primary Tumor	Tumor	female	54.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-E2-A10E-01A	dc15a8ae-991e-421c-bc70-70e94f79dd17	TCGA-E2-A10E	Primary Tumor	Tumor	female	64.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-E2-A10F-01A	8e159b50-8136-42d4-b9c7-d579a74e4931	TCGA-E2-A10F	Primary Tumor	Tumor	female	47.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-E2-A14N-01A	752ad011-79e0-494f-9868-98bf6feb28f8	TCGA-E2-A14N	Primary Tumor	Tumor	female	37.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	37.0
+TCGA-E2-A14U-01A	23b7aaea-1119-4b10-aa1a-0ae255d2f2a6	TCGA-E2-A14U	Primary Tumor	Tumor	female	74.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-E2-A15I-01A	64089c20-939f-48b4-ae8b-904ad0597145	TCGA-E2-A15I	Primary Tumor	Tumor	female	44.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-E2-A15J-01A	1fef9454-b3e8-4d9d-a9aa-aa1f1a32b80c	TCGA-E2-A15J	Primary Tumor	Tumor	female	51.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-E2-A15K-01A	17c1d42c-cb84-4655-a4cd-b54bae17ecaf	TCGA-E2-A15K	Primary Tumor	Tumor	female	58.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-E2-A1AZ-01A	89128dba-403f-4a96-bb3b-23ed0d5e2147	TCGA-E2-A1AZ	Primary Tumor	Tumor	female	63.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-E2-A1B0-01A	996bd3f0-d767-4eff-9c82-99fcb5a3006a	TCGA-E2-A1B0	Primary Tumor	Tumor	female	50.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-E2-A1B1-01A	8a0ef221-8070-43fc-9d98-def90abe4871	TCGA-E2-A1B1	Primary Tumor	Tumor	female	45.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-E2-A1B4-01A	dbb2da92-99dd-400c-bc05-e87d7273656c	TCGA-E2-A1B4	Primary Tumor	Tumor	female	74.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-E2-A1B5-01A	7241b3d4-31ee-4fd2-a4a5-35a9d5f37d6a	TCGA-E2-A1B5	Primary Tumor	Tumor	female	46.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-E2-A1B6-01A	e0b1bcd2-1139-44b9-98b3-67bcf92bcc39	TCGA-E2-A1B6	Primary Tumor	Tumor	female	44.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-E2-A1BC-01A	d8492ebd-3d94-4a4b-8de7-386526691cc2	TCGA-E2-A1BC	Primary Tumor	Tumor	female	63.0	Stage IA	Infiltrating lobular mixed with other types of carcinoma	Primary	Primary Tumor	tumor	63.0
+TCGA-E2-A1BD-01A	0e1d0d46-7a7b-4538-95dd-b9fc20a15aec	TCGA-E2-A1BD	Primary Tumor	Tumor	female	53.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-E2-A1IE-01A	2d0d7ff4-7866-4ae1-9cf1-a3c7f4cbe48d	TCGA-E2-A1IE	Primary Tumor	Tumor	female	61.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-E2-A1IF-01A	718db047-9f32-48c4-98c9-515218441bca	TCGA-E2-A1IF	Primary Tumor	Tumor	female	74.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-E2-A1IG-01A	bc0bc70f-c6cf-4dbc-9dc3-8b7bc5f381a4	TCGA-E2-A1IG	Primary Tumor	Tumor	female	45.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-E2-A1IH-01A	ec0155ab-1b14-498d-8fa9-9f63e3ccb990	TCGA-E2-A1IH	Primary Tumor	Tumor	female	80.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-E2-A1II-01A	0fe1419e-a005-407c-8ae7-15c4c1579539	TCGA-E2-A1II	Primary Tumor	Tumor	female	51.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-E2-A1IJ-01A	b09643c2-ded5-4346-b3c5-90a48f88a02e	TCGA-E2-A1IJ	Primary Tumor	Tumor	female	57.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-E2-A1IK-01A	becedbfd-b2aa-4dde-b7f4-29e6f59ec32c	TCGA-E2-A1IK	Primary Tumor	Tumor	female	71.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-E2-A1IL-01A	b63391a0-73f8-4544-9e94-f6529245ca2a	TCGA-E2-A1IL	Primary Tumor	Tumor	female	78.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-E2-A1IN-01A	f43d622f-eed5-4933-adc6-ae9ad1e33028	TCGA-E2-A1IN	Primary Tumor	Tumor	female	60.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-E2-A1IO-01A	71fc8941-4cfb-47ea-a533-873d38f8c95c	TCGA-E2-A1IO	Primary Tumor	Tumor	female	37.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	37.0
+TCGA-E2-A1IU-01A	001cef41-ff86-4d3f-a140-a647ac4b10a1	TCGA-E2-A1IU	Primary Tumor	Tumor	female	60.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-E2-A1L6-01A	2e32f31f-9817-4935-b259-96c59936ee33	TCGA-E2-A1L6	Primary Tumor	Tumor	female	44.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-E2-A1L7-01A	791c5768-f0f5-4ab6-86eb-998e5c4b49e3	TCGA-E2-A1L7	Primary Tumor	Tumor	female	40.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-E2-A1L8-01A	eebad74f-5961-4e91-b0eb-157a2f6f952b	TCGA-E2-A1L8	Primary Tumor	Tumor	female	52.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-E2-A1L9-01A	5ea18514-51ad-4844-abea-15e82f0b10c9	TCGA-E2-A1L9	Primary Tumor	Tumor	female	40.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-E2-A1LA-01A	ce9e0309-9756-42d2-ae94-d91264a79498	TCGA-E2-A1LA	Primary Tumor	Tumor	female	59.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-E2-A1LB-01A	fa176764-a76f-44c7-b97a-cd6d21e052be	TCGA-E2-A1LB	Primary Tumor	Tumor	female	41.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-E2-A1LE-01A	7317e605-93ba-49a9-8743-20613b02767a	TCGA-E2-A1LE	Primary Tumor	Tumor	female	71.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-E2-A1LG-01A	ef4cbd38-bc79-4d60-a715-647edd2ebe9e	TCGA-E2-A1LG	Primary Tumor	Tumor	female	50.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-E2-A1LH-01A	d8ecba6a-9fff-4993-a799-9a8d2aea524e	TCGA-E2-A1LH	Primary Tumor	Tumor	female	59.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-E2-A1LI-01A	3558dec7-eae3-4a41-a217-266c6a4535fb	TCGA-E2-A1LI	Primary Tumor	Tumor	female	57.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-E2-A1LK-01A	1d27253f-b036-44e7-a04d-8da5bbf57419	TCGA-E2-A1LK	Primary Tumor	Tumor	female	84.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	84.0
+TCGA-E2-A1LL-01A	2a84997d-ccee-4f46-bea2-752534f26416	TCGA-E2-A1LL	Primary Tumor	Tumor	female	73.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	73.0
+TCGA-E2-A1LS-01A	91a2f2af-e4b1-4a0b-ab20-6a36ce63c533	TCGA-E2-A1LS	Primary Tumor	Tumor	female	46.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-E2-A2P5-01A	f0de67ff-8967-4fce-9c12-0e07193285cd	TCGA-E2-A2P5	Primary Tumor	Tumor	female	78.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-E2-A2P6-01A	f83b866b-0b2e-4bba-9367-be6dccf56232	TCGA-E2-A2P6	Primary Tumor	Tumor	female	77.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-E2-A3DX-01A	31427699-e27a-4035-8925-6d8d6900d097	TCGA-E2-A3DX	Primary Tumor	Tumor	female	43.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	43.0
+TCGA-E2-A56Z-01A	45c3975c-d333-4237-93f7-e12dc2451c38	TCGA-E2-A56Z	Primary Tumor	Tumor	female	69.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-E2-A570-01A	cdd8c046-fd97-482a-a11f-2217b321c4d1	TCGA-E2-A570	Primary Tumor	Tumor	female	47.0	Stage IB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-E2-A572-01A	06ef6e83-5583-45b9-a0bd-edea68943083	TCGA-E2-A572	Primary Tumor	Tumor	female	72.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-E2-A573-01A	6429c443-8ac3-407f-bb9c-66420b904bbf	TCGA-E2-A573	Primary Tumor	Tumor	female	48.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-E2-A574-01A	029ce650-5e5a-4100-8596-cd94300e7ef5	TCGA-E2-A574	Primary Tumor	Tumor	female	44.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-E2-A576-01A	f04dca9e-409b-4300-b11d-12243e5d361d	TCGA-E2-A576	Primary Tumor	Tumor	female	69.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-E2-A9RU-01A	6f18f96e-c0c9-4cc4-9fb2-cba8949d5402	TCGA-E2-A9RU	Primary Tumor	Tumor	female	90.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	90.0
+TCGA-E9-A1N3-01A	03c143e0-d8a1-4d60-a4a3-df0501fc6b6e	TCGA-E9-A1N3	Primary Tumor	Tumor	female	70.0	Stage IIIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	70.0
+TCGA-E9-A1N4-01A	69a68fbc-e43d-4652-85ee-693211bded47	TCGA-E9-A1N4	Primary Tumor	Tumor	female	41.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-E9-A1N5-01A	f954de05-1b44-4087-8933-6cc72d81028d	TCGA-E9-A1N5	Primary Tumor	Tumor	female	45.0	Stage IIB	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	45.0
+TCGA-E9-A1N6-01A	955d4263-61f7-42e8-8a6e-772a0d6c209d	TCGA-E9-A1N6	Primary Tumor	Tumor	female	52.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-E9-A1N8-01A	ac075bc0-1b59-4557-beea-541694faee03	TCGA-E9-A1N8	Primary Tumor	Tumor	female	48.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-E9-A1N9-01A	994ca1f5-ad10-44ec-aa21-71fc2940653b	TCGA-E9-A1N9	Primary Tumor	Tumor	female	58.0	Stage IIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	58.0
+TCGA-E9-A1NA-01A	af577366-0258-49e7-b6af-e70056c081a4	TCGA-E9-A1NA	Primary Tumor	Tumor	female	58.0	Stage IIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	58.0
+TCGA-E9-A1NC-01A	e74aea7c-ca14-49df-b5cf-dacb839ac27a	TCGA-E9-A1NC	Primary Tumor	Tumor	female	61.0	Stage IIB	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	61.0
+TCGA-E9-A1ND-01A	f06f09f3-8133-4a92-ac86-fbe64295e0d8	TCGA-E9-A1ND	Primary Tumor	Tumor	female	75.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	75.0
+TCGA-E9-A1NE-01A	3d676bba-154b-4d22-ab59-d4d4da051b94	TCGA-E9-A1NE	Primary Tumor	Tumor	female	28.0	Stage IIB	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	28.0
+TCGA-E9-A1NF-01A	a8b1f6e7-2bcf-460d-b1c6-1792a9801119	TCGA-E9-A1NF	Primary Tumor	Tumor	female	60.0	Stage IIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	60.0
+TCGA-E9-A1NG-01A	659b0170-e914-45ff-aa55-fcb8d3dc7b8a	TCGA-E9-A1NG	Primary Tumor	Tumor	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-E9-A1NH-01A	b2aac45b-2073-4c7a-adb9-769a4fdcc111	TCGA-E9-A1NH	Primary Tumor	Tumor	female	71.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-E9-A1NI-01A	c65b835a-2d38-4250-a173-0780d2c2cf58	TCGA-E9-A1NI	Primary Tumor	Tumor	female	51.0	Stage IIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	51.0
+TCGA-E9-A1QZ-01A	b6b932ce-6856-4d94-9e6c-16dfbe51906f	TCGA-E9-A1QZ	Primary Tumor	Tumor	female	61.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-E9-A1R0-01A	f2da1d3f-f226-4c99-a97e-9b26f67d7a5d	TCGA-E9-A1R0	Primary Tumor	Tumor	female	58.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-E9-A1R2-01A	8631969d-4ac6-4fe1-9db3-d47db604494a	TCGA-E9-A1R2	Primary Tumor	Tumor	female	51.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-E9-A1R3-01A	4922cddc-575c-4b8a-8245-ce5f6876760c	TCGA-E9-A1R3	Primary Tumor	Tumor	female	70.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-E9-A1R4-01A	b7a4df9a-4e25-4550-9c10-338ca1921c2f	TCGA-E9-A1R4	Primary Tumor	Tumor	female	66.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-E9-A1R5-01A	23c21dea-3713-408f-ba56-f7c586e9f206	TCGA-E9-A1R5	Primary Tumor	Tumor	female	63.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-E9-A1R6-01A	4842bac3-abaa-4900-871f-f2c3ba6457f5	TCGA-E9-A1R6	Primary Tumor	Tumor	female	63.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-E9-A1R7-01A	2680da86-c977-4611-b75f-df015283c023	TCGA-E9-A1R7	Primary Tumor	Tumor	female	64.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-E9-A1RA-01A	4b4e4ea8-6eb9-49ad-b880-c5065fe6517f	TCGA-E9-A1RA	Primary Tumor	Tumor	female	48.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-E9-A1RB-01A	94b95984-b2fb-4e42-8887-45e7086c3179	TCGA-E9-A1RB	Primary Tumor	Tumor	female	40.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-E9-A1RC-01A	5cdae21d-eee5-478f-932a-0f51fcf5f031	TCGA-E9-A1RC	Primary Tumor	Tumor	female	56.0	Stage IIIC	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	56.0
+TCGA-E9-A1RD-01A	5fe3c51f-65e2-4da6-8924-a6fae17c022d	TCGA-E9-A1RD	Primary Tumor	Tumor	female	67.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-E9-A1RE-01A	24046547-d038-4616-b190-52ac93f4965f	TCGA-E9-A1RE	Primary Tumor	Tumor	female	74.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-E9-A1RF-01A	c694615c-b1c6-499c-8058-995633ebf948	TCGA-E9-A1RF	Primary Tumor	Tumor	female	68.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-E9-A1RG-01A	8744733a-7b46-43aa-bdef-64876816adbb	TCGA-E9-A1RG	Primary Tumor	Tumor	female	62.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-E9-A1RH-01A	408cb583-6dc3-4698-8bd2-e284042bd5ef	TCGA-E9-A1RH	Primary Tumor	Tumor	female	63.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-E9-A1RI-01A	dd3bfb26-b534-4917-9c4d-9fe7b6477762	TCGA-E9-A1RI	Primary Tumor	Tumor	female	43.0	Stage IIIA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	43.0
+TCGA-E9-A226-01A	dd67408e-46ba-4573-9415-d4814e9f84de	TCGA-E9-A226	Primary Tumor	Tumor	female	45.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-E9-A227-01A	89a8da07-4487-47c6-8d3c-442a87e4f632	TCGA-E9-A227	Primary Tumor	Tumor	female	42.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	42.0
+TCGA-E9-A228-01A	b95eef8a-205f-4cf8-9d3c-ae51d406e1e0	TCGA-E9-A228	Primary Tumor	Tumor	female	58.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-E9-A229-01A	cea9d8f9-e18c-4947-a461-5f712e3c1e6d	TCGA-E9-A229	Primary Tumor	Tumor	female	37.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	37.0
+TCGA-E9-A22A-01A	4aacbc42-5ac5-4339-b9fa-c6e812084837	TCGA-E9-A22A	Primary Tumor	Tumor	female	74.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	74.0
+TCGA-E9-A22B-01A	b956df1b-bc77-4bdb-a5bd-5dda7b4c8da7	TCGA-E9-A22B	Primary Tumor	Tumor	female	71.0	Stage IA	Infiltrating duct and lobular carcinoma	Primary	Primary Tumor	tumor	71.0
+TCGA-E9-A22D-01A	cf0a3f38-5850-44e1-8574-808bd37d84a3	TCGA-E9-A22D	Primary Tumor	Tumor	female	38.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	38.0
+TCGA-E9-A22E-01A	64d4dfae-8d91-464b-adc3-80ba7caf54ae	TCGA-E9-A22E	Primary Tumor	Tumor	female	56.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-E9-A22G-01A	56033839-35d5-4d72-8b8c-400cb345263d	TCGA-E9-A22G	Primary Tumor	Tumor	female	47.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-E9-A22H-01A	161917b8-88ad-407b-ade6-d6b98478b359	TCGA-E9-A22H	Primary Tumor	Tumor	female	42.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	42.0
+TCGA-E9-A243-01A	d4a1ecdc-399c-4f82-aa7a-68a0c82ded3f	TCGA-E9-A243	Primary Tumor	Tumor	female	52.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-E9-A244-01A	a4c59287-1ad5-46a5-8040-e591e6ce064f	TCGA-E9-A244	Primary Tumor	Tumor	female	54.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-E9-A245-01A	8218119a-f68b-4ea7-9ee4-5e2edc2ae342	TCGA-E9-A245	Primary Tumor	Tumor	female	47.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-E9-A247-01A	636b0a90-c8c2-4ad6-a77d-6cd428a826d1	TCGA-E9-A247	Primary Tumor	Tumor	female	59.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-E9-A248-01A	539bbbed-43fb-4fef-9c67-6406f58b186a	TCGA-E9-A248	Primary Tumor	Tumor	female	51.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-E9-A249-01A	fb3607eb-858e-4ecd-8477-95140658c6d2	TCGA-E9-A249	Primary Tumor	Tumor	female	45.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-E9-A24A-01A	9f3cc92b-fa22-478e-a2e4-6b4c8afb93d6	TCGA-E9-A24A	Primary Tumor	Tumor	female	69.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-E9-A295-01A	fec0da58-1047-44d2-b6d1-c18cceed43dc	TCGA-E9-A295	Primary Tumor	Tumor	female	71.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-E9-A2JS-01A	4a831893-f4ca-4357-a756-b5e954e35dd7	TCGA-E9-A2JS	Primary Tumor	Tumor	female	72.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-E9-A2JT-01A	b35fbe19-0e6d-427e-b9be-ee3527b5fca6	TCGA-E9-A2JT	Primary Tumor	Tumor	female	63.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-E9-A3HO-01A	807b62ed-d3f7-4211-83be-754386ff2c96	TCGA-E9-A3HO	Primary Tumor	Tumor	female	49.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-E9-A3Q9-01A	e36e985d-2c44-4e14-854a-7dbca4bb0304	TCGA-E9-A3Q9	Primary Tumor	Tumor	female	78.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	78.0
+TCGA-E9-A3QA-01A	f3cb557d-23e4-4fd1-81ca-db1a3f56d56e	TCGA-E9-A3QA	Primary Tumor	Tumor	female	33.0	Stage IIA	Medullary carcinoma, NOS	Primary	Primary Tumor	tumor	33.0
+TCGA-E9-A3X8-01A	95873e61-afdb-496c-9f77-3f9beb008cda	TCGA-E9-A3X8	Primary Tumor	Tumor	female	48.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-E9-A54X-01A	3dbc8d60-3a97-47b2-91d0-c18fb46b4365	TCGA-E9-A54X	Primary Tumor	Tumor	female	85.0	Stage IA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	85.0
+TCGA-E9-A54Y-01A	182c4bdf-2c58-4303-b034-459da86b9d90	TCGA-E9-A54Y	Primary Tumor	Tumor	female	63.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-E9-A5FK-01A	b304302a-f2b9-4cd7-ab14-c21edf7778ea	TCGA-E9-A5FK	Primary Tumor	Tumor	female	60.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-E9-A5FL-01A	e3935ce4-64d3-4a66-ba11-d308b844b410	TCGA-E9-A5FL	Primary Tumor	Tumor	female	65.0	Stage IIB	Metaplastic carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-E9-A5UO-01A	ed2617c3-5d3b-4688-9283-0f8a10e0b10d	TCGA-E9-A5UO	Primary Tumor	Tumor	female	41.0	Stage IIA	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	41.0
+TCGA-E9-A5UP-01A	a412b374-4d25-491f-b76f-ddaa989acf59	TCGA-E9-A5UP	Primary Tumor	Tumor	female	63.0	Stage IIA	Intraductal papillary adenocarcinoma with invasion	Primary	Primary Tumor	tumor	63.0
+TCGA-E9-A6HE-01A	7e9c8d3c-790c-46ad-8f31-b557b7c26f69	TCGA-E9-A6HE	Primary Tumor	Tumor	female	45.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-EW-A1IW-01A	5e2cbc56-97f9-4b94-ade2-a3f739bcc7be	TCGA-EW-A1IW	Primary Tumor	Tumor	female	80.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-EW-A1IX-01A	e8614b7d-132e-4b4e-b1ae-df8bb4f2d4d4	TCGA-EW-A1IX	Primary Tumor	Tumor	female	48.0	Stage IIA	Infiltrating lobular mixed with other types of carcinoma	Primary	Primary Tumor	tumor	48.0
+TCGA-EW-A1IY-01A	5ff12cbe-a3e0-4ce6-8452-12b984a1baaf	TCGA-EW-A1IY	Primary Tumor	Tumor	female	38.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	38.0
+TCGA-EW-A1IZ-01A	c0f88fc5-56b0-4255-bbd1-9a21ced8b37b	TCGA-EW-A1IZ	Primary Tumor	Tumor	female	53.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-EW-A1J1-01A	ed6cef77-1bd9-4e3b-b576-550a91e4253a	TCGA-EW-A1J1	Primary Tumor	Tumor	female	38.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	38.0
+TCGA-EW-A1J2-01A	a381275f-8858-4793-a8a2-0ca9db7274c8	TCGA-EW-A1J2	Primary Tumor	Tumor	female	50.0		Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-EW-A1J3-01A	bb1de798-0c02-437e-b539-33cb556d3993	TCGA-EW-A1J3	Primary Tumor	Tumor	female	61.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-EW-A1J5-01A	5d8ed961-a012-4b6b-bffb-9468d3953646	TCGA-EW-A1J5	Primary Tumor	Tumor	female	59.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-EW-A1J6-01A	87281a89-91d2-44f7-9f80-668567ad5c72	TCGA-EW-A1J6	Primary Tumor	Tumor	female	70.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-EW-A1OV-01A	ac68d219-5670-4ddd-8df6-8aa7ad59e5c7	TCGA-EW-A1OV	Primary Tumor	Tumor	female	56.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-EW-A1OW-01A	f55dd73d-8c36-440b-84e5-9aae53107775	TCGA-EW-A1OW	Primary Tumor	Tumor	female	58.0	Stage IIA	Basal cell carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-EW-A1OX-01A	5fc7ff35-d3f7-4687-8759-3542bd58e988	TCGA-EW-A1OX	Primary Tumor	Tumor	female	43.0	Stage IIA	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	43.0
+TCGA-EW-A1OY-01A	53ff5893-7d5e-4bcb-be9c-665fa34b7824	TCGA-EW-A1OY	Primary Tumor	Tumor	female	63.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-EW-A1OZ-01A	8f912a40-3251-4e1f-ae65-1f93d71f9881	TCGA-EW-A1OZ	Primary Tumor	Tumor	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-EW-A1P0-01A	81e32f39-3aa0-468b-87ed-dd2eb6165ddf	TCGA-EW-A1P0	Primary Tumor	Tumor	female	55.0	Stage IIB	Infiltrating duct mixed with other types of carcinoma	Primary	Primary Tumor	tumor	55.0
+TCGA-EW-A1P1-01A	f2e28af9-c40e-41c4-9e82-205cca38f26a	TCGA-EW-A1P1	Primary Tumor	Tumor	female	68.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-EW-A1P3-01A	1ff85ada-3cdd-4afb-b311-2c7befb52702	TCGA-EW-A1P3	Primary Tumor	Tumor	female	48.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-EW-A1P4-01A	521e2140-ae5b-456f-8699-97398d009687	TCGA-EW-A1P4	Primary Tumor	Tumor	female	43.0	Stage IIA	Medullary carcinoma, NOS	Primary	Primary Tumor	tumor	43.0
+TCGA-EW-A1P5-01A	53d0af48-d7ea-42c9-8695-c614b89b415b	TCGA-EW-A1P5	Primary Tumor	Tumor	female	77.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-EW-A1P6-01A	ee5744c0-a8dc-43f2-abdd-0b5529a3e9fb	TCGA-EW-A1P6	Primary Tumor	Tumor	female	64.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-EW-A1P7-01A	01674b2c-5cf2-478f-84a1-f69c39f47bd4	TCGA-EW-A1P7	Primary Tumor	Tumor	female	59.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-EW-A1P8-01A	359f12f9-5c41-48a4-85bc-fd7e307bf7d8	TCGA-EW-A1P8	Primary Tumor	Tumor	female	58.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-EW-A1PA-01A	4cfef7f9-f1ee-401c-a2a3-c225d4adc3b6	TCGA-EW-A1PA	Primary Tumor	Tumor	female	59.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-EW-A1PB-01A	88db1340-e4bf-451a-87c0-6e9168296f5e	TCGA-EW-A1PB	Primary Tumor	Tumor	female	70.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-EW-A1PC-01B	f45210d3-9e66-4f5e-bef1-5ee5547cc893	TCGA-EW-A1PC	Primary Tumor	Tumor	female	66.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-EW-A1PD-01A	4dfc233b-ed03-4825-8089-e04cdee99996	TCGA-EW-A1PD	Primary Tumor	Tumor	male	61.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-EW-A1PE-01A	f3b86c02-09a5-4e97-aa7a-86f13f7cda4b	TCGA-EW-A1PE	Primary Tumor	Tumor	female	56.0	Stage IIA	Intraductal micropapillary carcinoma	Primary	Primary Tumor	tumor	56.0
+TCGA-EW-A1PF-01A	848773a3-2f4a-4186-ab3f-de667129accf	TCGA-EW-A1PF	Primary Tumor	Tumor	female	50.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-EW-A1PG-01A	da286247-e8bb-4941-a2af-2453fe61cd02	TCGA-EW-A1PG	Primary Tumor	Tumor	female	53.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-EW-A1PH-01A	4da999a0-ef41-4a0b-b1d1-446b39cc855a	TCGA-EW-A1PH	Primary Tumor	Tumor	female	52.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-EW-A2FR-01A	af97e043-88cb-4f99-8f8b-9bcbcccdf842	TCGA-EW-A2FR	Primary Tumor	Tumor	female	59.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-EW-A2FS-01A	d34471a1-b367-4f8a-b35a-c5901c4f5503	TCGA-EW-A2FS	Primary Tumor	Tumor	female	41.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-EW-A2FV-01A	f45aa0b2-f3de-4db5-9730-e5c6c4e2ed3a	TCGA-EW-A2FV	Primary Tumor	Tumor	female	39.0	Stage IIIC	Intraductal micropapillary carcinoma	Primary	Primary Tumor	tumor	39.0
+TCGA-EW-A2FW-01A	e6f527a2-38eb-457e-bb39-3c5b9c0bcbec	TCGA-EW-A2FW	Primary Tumor	Tumor	female	52.0	Stage IIA	Intraductal papillary adenocarcinoma with invasion	Primary	Primary Tumor	tumor	52.0
+TCGA-EW-A3E8-01B	c0b7b798-3383-4a45-a455-9eca5810739e	TCGA-EW-A3E8	Primary Tumor	Tumor	female	60.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-EW-A3U0-01A	d9dc3b59-613d-469e-8b4f-6c5a557eb26a	TCGA-EW-A3U0	Primary Tumor	Tumor	female	61.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-EW-A423-01A	bdd08ec8-8892-4273-8f21-6fde0f23c52d	TCGA-EW-A423	Primary Tumor	Tumor	female	75.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	75.0
+TCGA-EW-A424-01A	a6502f17-6bee-4d5a-8520-06364593d39c	TCGA-EW-A424	Primary Tumor	Tumor	female	51.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-EW-A6S9-01A	9676e46b-8f29-43cd-ab65-eb6a535cced4	TCGA-EW-A6S9	Primary Tumor	Tumor	female	34.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	34.0
+TCGA-EW-A6SA-01A	aba5f46a-e67a-4cd2-9c52-c0686968ff04	TCGA-EW-A6SA	Primary Tumor	Tumor	male	59.0	Stage II	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-EW-A6SB-01A	5c59028f-b8fa-4811-8314-be3eaed5f364	TCGA-EW-A6SB	Primary Tumor	Tumor	female	62.0	Stage II	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-EW-A6SC-01A	97862b8e-9f76-4b19-a865-156a9c00fb1e	TCGA-EW-A6SC	Primary Tumor	Tumor	female	60.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	60.0
+TCGA-EW-A6SD-01A	42378dbc-a123-4cf9-8502-165e89fda271	TCGA-EW-A6SD	Primary Tumor	Tumor	female	32.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	32.0
+TCGA-GI-A2C8-01A	33fe5833-d7a0-43d7-a03d-56985ea448a6	TCGA-GI-A2C8	Primary Tumor	Tumor	female	63.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-GI-A2C9-01A	9f6be944-83de-42ab-8738-f0022f475e61	TCGA-GI-A2C9	Primary Tumor	Tumor	female	58.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-GM-A2D9-01A	1133b8a9-6b11-4511-b70a-f200e3b8b5db	TCGA-GM-A2D9	Primary Tumor	Tumor	female	69.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-GM-A2DA-01A	c07b122e-ac50-4db2-add2-5617a5d0e976	TCGA-GM-A2DA	Primary Tumor	Tumor	female	46.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-GM-A2DB-01A	6e6b7742-a562-490b-bb72-04a5653852e4	TCGA-GM-A2DB	Primary Tumor	Tumor	female	62.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-GM-A2DC-01A	dd43ffd9-da18-4ad3-abe7-6f443c76a717	TCGA-GM-A2DC	Primary Tumor	Tumor	female	57.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-GM-A2DD-01A	b343bfe0-7c23-4c6a-8c84-9ee39db2ecda	TCGA-GM-A2DD	Primary Tumor	Tumor	female	53.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-GM-A2DF-01A	d6f7afc0-1558-43ad-acb1-2b5311ed2264	TCGA-GM-A2DF	Primary Tumor	Tumor	female	53.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	53.0
+TCGA-GM-A2DH-01A	5700c1b3-922a-4401-8ab8-89028908d696	TCGA-GM-A2DH	Primary Tumor	Tumor	female	58.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-GM-A2DI-01A	66fa504c-4ae4-49ac-9355-1e063776dc0d	TCGA-GM-A2DI	Primary Tumor	Tumor	female	52.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-GM-A2DK-01A	3a0775a0-61ae-43f2-b5f6-629a44355c2f	TCGA-GM-A2DK	Primary Tumor	Tumor	female	58.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-GM-A2DL-01A	a76774fe-7298-4d68-a2b2-c1bad93f0c31	TCGA-GM-A2DL	Primary Tumor	Tumor	female	50.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-GM-A2DM-01A	753d5d49-3b40-4737-9d4c-b1ec29cc2692	TCGA-GM-A2DM	Primary Tumor	Tumor	female	57.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-GM-A2DN-01A	56bbd282-b88d-4730-9242-ab97d08dc83a	TCGA-GM-A2DN	Primary Tumor	Tumor	female	58.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	58.0
+TCGA-GM-A2DO-01A	5fd37868-4762-4109-9dcf-6fdbab5b645d	TCGA-GM-A2DO	Primary Tumor	Tumor	female	54.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-GM-A3NW-01A	6ddaee34-46eb-490c-bd13-f0ab963c4322	TCGA-GM-A3NW	Primary Tumor	Tumor	female	63.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-GM-A3NY-01A	bd5374c9-7f36-457f-b66b-7cc7ff64224e	TCGA-GM-A3NY	Primary Tumor	Tumor	female	72.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-GM-A3XG-01A	6f0fd68f-ed6a-4c9e-be02-c97ba4950f76	TCGA-GM-A3XG	Primary Tumor	Tumor	female	46.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-GM-A3XL-01A	65cac997-4d39-4501-85ec-4fcb328a8eb5	TCGA-GM-A3XL	Primary Tumor	Tumor	female	49.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-GM-A3XN-01A	0930e97a-72ea-4bd5-b2f0-50c76af695f3	TCGA-GM-A3XN	Primary Tumor	Tumor	female	44.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-GM-A4E0-01A	6397d7bc-9cb1-4a84-81ad-76954e0a8cee	TCGA-GM-A4E0	Primary Tumor	Tumor	female	67.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-GM-A5PV-01A	67c8dc41-edcb-4563-96b3-3f93f9edcbe9	TCGA-GM-A5PV	Primary Tumor	Tumor	female	63.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-GM-A5PX-01A	f7064d01-29d8-49a2-ad60-1e0c5f148f3e	TCGA-GM-A5PX	Primary Tumor	Tumor	female	65.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-HN-A2NL-01A	124b693c-77dc-4fa8-b703-54e8b5054a92	TCGA-HN-A2NL	Primary Tumor	Tumor	female	56.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-HN-A2OB-01A	61204cdf-3b1c-44a1-bda6-0fef1ac4a333	TCGA-HN-A2OB	Primary Tumor	Tumor	female	45.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	45.0
+TCGA-JL-A3YW-01A	a2434f47-2168-47d0-9bbb-981071597843	TCGA-JL-A3YW	Primary Tumor	Tumor	female	49.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-JL-A3YX-01A	75f6e476-233a-409c-a3ef-0240be569813	TCGA-JL-A3YX	Primary Tumor	Tumor	female	46.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-LD-A66U-01A	38dc3e09-0b0e-4a29-b318-cc0352013dae	TCGA-LD-A66U	Primary Tumor	Tumor	female	44.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-LD-A74U-01A	38a4e9bd-93e9-432d-a756-3b1055b823bd	TCGA-LD-A74U	Primary Tumor	Tumor	female	79.0	Stage IIIC	Infiltrating lobular mixed with other types of carcinoma	Primary	Primary Tumor	tumor	79.0
+TCGA-LD-A7W5-01A	a06ff6ae-b0dd-4516-a75c-0db71694b46b	TCGA-LD-A7W5	Primary Tumor	Tumor	female	52.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-LD-A7W6-01A	0b0f9938-ce1e-4814-8821-0132d137eb9e	TCGA-LD-A7W6	Primary Tumor	Tumor	female	54.0	Stage IIB	Infiltrating lobular mixed with other types of carcinoma	Primary	Primary Tumor	tumor	54.0
+TCGA-LD-A9QF-01A	95c53ecf-d8f1-4bcb-9b1a-c9a0542939f0	TCGA-LD-A9QF	Primary Tumor	Tumor	female	73.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	73.0
+TCGA-LL-A440-01A	00b11ca8-8540-4a3d-b602-ec754b00230b	TCGA-LL-A440	Primary Tumor	Tumor	female	61.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-LL-A441-01A	69fc24fc-cfe2-487a-935f-1a954b30b709	TCGA-LL-A441	Primary Tumor	Tumor	female	62.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	62.0
+TCGA-LL-A442-01A	3f56d67f-5a9c-4353-9408-e7f60eb6477b	TCGA-LL-A442	Primary Tumor	Tumor	female	56.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	56.0
+TCGA-LL-A50Y-01A	91da548b-5c64-49c3-a44a-1ef115f53311	TCGA-LL-A50Y	Primary Tumor	Tumor	female	84.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	84.0
+TCGA-LL-A5YL-01A	1d75e89d-4b01-443c-be54-749c7a667bf4	TCGA-LL-A5YL	Primary Tumor	Tumor	female	64.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-LL-A5YM-01A	e9a12df9-024e-4cbc-b6bf-e4e87485fa90	TCGA-LL-A5YM	Primary Tumor	Tumor	female	88.0	Stage IIIB	Paget disease and infiltrating duct carcinoma of breast	Primary	Primary Tumor	tumor	88.0
+TCGA-LL-A5YN-01A	ef1b3332-cd7f-41bb-a2d3-2538e7becc5c	TCGA-LL-A5YN	Primary Tumor	Tumor	female	46.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-LL-A5YO-01A	b8aefc48-4a6e-4254-a57f-5f688399b582	TCGA-LL-A5YO	Primary Tumor	Tumor	female	50.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-LL-A5YP-01A	6d24e675-2fa4-4102-861f-7516650b3049	TCGA-LL-A5YP	Primary Tumor	Tumor	female	49.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-LL-A6FP-01A	5c9d8163-a68e-43ce-9cba-effb7405761e	TCGA-LL-A6FP	Primary Tumor	Tumor	female	90.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	90.0
+TCGA-LL-A6FQ-01A	92b842c5-f71b-4ef7-ba86-358d28e0966f	TCGA-LL-A6FQ	Primary Tumor	Tumor	female	77.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-LL-A6FR-01A	1347c23d-8d6e-4c15-9461-640249838c96	TCGA-LL-A6FR	Primary Tumor	Tumor	female	50.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	50.0
+TCGA-LL-A73Y-01A	ea645243-df49-4466-a255-9f3d4321e357	TCGA-LL-A73Y	Primary Tumor	Tumor	female	67.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-LL-A73Z-01A	3e637872-f5e5-49d3-bb0d-9c16b8713382	TCGA-LL-A73Z	Primary Tumor	Tumor	female	55.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-LL-A740-01A	aa60fa8d-c374-40e0-af2d-b007701e67e3	TCGA-LL-A740	Primary Tumor	Tumor	female	61.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-LL-A7SZ-01A	09a5e9fd-d816-4f8c-baa9-0e40ba607b16	TCGA-LL-A7SZ	Primary Tumor	Tumor	female	49.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-LL-A7T0-01A	d8f8064f-02ef-4fed-942b-714cbe5e8455	TCGA-LL-A7T0	Primary Tumor	Tumor	female	70.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-LL-A8F5-01A	e1786e78-ac46-46fd-8ce0-8f7456e46082	TCGA-LL-A8F5	Primary Tumor	Tumor	female	61.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-LL-A9Q3-01A	6af6d256-a753-46d2-b611-e4094ff265aa	TCGA-LL-A9Q3	Primary Tumor	Tumor	female	69.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	69.0
+TCGA-LQ-A4E4-01A	4f321d41-3255-46a4-ae0d-1cf39699e624	TCGA-LQ-A4E4	Primary Tumor	Tumor	female	73.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	73.0
+TCGA-MS-A51U-01A	910655da-2c12-4572-96b7-ded616e69b4b	TCGA-MS-A51U	Primary Tumor	Tumor	female	44.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	44.0
+TCGA-OK-A5Q2-01A	cd7fb75e-1c2e-4201-86d3-b3ba21f476bf	TCGA-OK-A5Q2	Primary Tumor	Tumor	female	59.0	Stage II	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-OL-A5D6-01A	c3a981c7-f148-4252-bd50-af8a49ec0df8	TCGA-OL-A5D6	Primary Tumor	Tumor	female	71.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-OL-A5D7-01A	c8f39325-5382-447c-9291-a6915fc978b8	TCGA-OL-A5D7	Primary Tumor	Tumor	female	70.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	70.0
+TCGA-OL-A5D8-01A	6d4860b2-21c6-4b7b-9093-2f32700d0612	TCGA-OL-A5D8	Primary Tumor	Tumor	female	40.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-OL-A5DA-01A	4e509f73-99c7-48eb-a3a4-d34e3bface33	TCGA-OL-A5DA	Primary Tumor	Tumor	female	61.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-OL-A5RU-01A	b8a44fdf-9cb9-4123-9ab0-4bc198921fee	TCGA-OL-A5RU	Primary Tumor	Tumor	female	63.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-OL-A5RV-01A	1d38d356-d126-4476-94d0-26616b9375b1	TCGA-OL-A5RV	Primary Tumor	Tumor	female	43.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	43.0
+TCGA-OL-A5RW-01A	a82d0a57-4383-473d-b334-d13b278404b1	TCGA-OL-A5RW	Primary Tumor	Tumor	female	40.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	40.0
+TCGA-OL-A5RX-01A	43c0bec6-6fac-47b1-83cb-200a15a932be	TCGA-OL-A5RX	Primary Tumor	Tumor	female	51.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-OL-A5RY-01A	8360cec6-daf6-41c9-9a4f-7fc03c958dcc	TCGA-OL-A5RY	Primary Tumor	Tumor	female	52.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	52.0
+TCGA-OL-A5RZ-01A	7e8713bd-0b17-4f09-9696-bc29707d862b	TCGA-OL-A5RZ	Primary Tumor	Tumor	female	57.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	57.0
+TCGA-OL-A5S0-01A	43b3bf47-7313-4dfb-952a-ec0b9d48e16c	TCGA-OL-A5S0	Primary Tumor	Tumor	female	66.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-OL-A66H-01A	76bd9bb9-9a8b-4a90-bb7c-eafe76472ee4	TCGA-OL-A66H	Primary Tumor	Tumor	female	74.0	Stage IB	Mucinous adenocarcinoma	Primary	Primary Tumor	tumor	74.0
+TCGA-OL-A66I-01A	35bd694d-1dd2-466f-ab27-03320614b40e	TCGA-OL-A66I	Primary Tumor	Tumor	female	36.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	36.0
+TCGA-OL-A66J-01A	96e1fc6d-693f-4f4f-b5f7-8d6e1c6c43f8	TCGA-OL-A66J	Primary Tumor	Tumor	female	80.0	Stage I	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	80.0
+TCGA-OL-A66K-01A	2ab1b35b-9e56-475c-ac9b-15ed0a422683	TCGA-OL-A66K	Primary Tumor	Tumor	female	72.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-OL-A66L-01A	af0acaa9-a61c-4e57-bc0d-453ad5bf193a	TCGA-OL-A66L	Primary Tumor	Tumor	female	71.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-OL-A66N-01A	e9002f4e-ba0b-4738-9368-dd9614a5da8a	TCGA-OL-A66N	Primary Tumor	Tumor	female	59.0	Stage IIIC	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	59.0
+TCGA-OL-A66O-01A	a45833e1-7cc9-4273-b408-620f74679a12	TCGA-OL-A66O	Primary Tumor	Tumor	female	39.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	39.0
+TCGA-OL-A66P-01A	f81ac8a2-4ce6-439e-b027-1c0bfc88ceaa	TCGA-OL-A66P	Primary Tumor	Tumor	female	75.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	75.0
+TCGA-OL-A6VO-01A	398fb71b-ca83-44e7-bf0d-b1ca464b0283	TCGA-OL-A6VO	Primary Tumor	Tumor	female	43.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	43.0
+TCGA-OL-A6VQ-01A	34126cd5-cc38-4198-8582-c14fb5db7acb	TCGA-OL-A6VQ	Primary Tumor	Tumor	female	49.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	49.0
+TCGA-OL-A6VR-01A	db3e1ce8-4a05-4bfc-b5ae-13cf789369e1	TCGA-OL-A6VR	Primary Tumor	Tumor	female	48.0	Stage IA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	48.0
+TCGA-OL-A97C-01A	6ffd1b8c-6f0b-456a-9160-e0c8021e5897	TCGA-OL-A97C	Primary Tumor	Tumor	female	67.0	Stage IIB	Phyllodes tumor, malignant	Primary	Primary Tumor	tumor	67.0
+TCGA-PE-A5DC-01A	76099beb-0abe-4b56-8b4e-e4485e0402e6	TCGA-PE-A5DC	Primary Tumor	Tumor	female	72.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	72.0
+TCGA-PE-A5DD-01A	b0700958-5f90-4546-b35f-635cd506889b	TCGA-PE-A5DD	Primary Tumor	Tumor	female	64.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-PE-A5DE-01A	89c128b9-1c6b-4c04-a4af-7066772e783c	TCGA-PE-A5DE	Primary Tumor	Tumor	female	41.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	41.0
+TCGA-PL-A8LV-01A	389e5b18-8f89-41a9-9fa5-efd4172836e2	TCGA-PL-A8LV	Primary Tumor	Tumor	female	54.0	Stage IIIB	Medullary carcinoma, NOS	Primary	Primary Tumor	tumor	54.0
+TCGA-PL-A8LX-01A	fe2cd610-aa52-4789-ac62-7683281bb22f	TCGA-PL-A8LX	Primary Tumor	Tumor	female	35.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	35.0
+TCGA-PL-A8LY-01A	9ba11ea8-97d3-464a-90a4-ec1151be9088	TCGA-PL-A8LY	Primary Tumor	Tumor	female	30.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	30.0
+TCGA-PL-A8LZ-01A	9087585f-e792-4f33-baaa-56ffe0f745be	TCGA-PL-A8LZ	Primary Tumor	Tumor	female	29.0	Stage IIIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	29.0
+TCGA-S3-A6ZF-01A	fbee40f1-d6d8-4156-8d42-36e09bb9f095	TCGA-S3-A6ZF	Primary Tumor	Tumor	female	64.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-S3-A6ZG-01A	1a679332-30a3-4495-a2e5-39d299e14333	TCGA-S3-A6ZG	Primary Tumor	Tumor	female	71.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	71.0
+TCGA-S3-A6ZH-01A	ec461eaf-f5cb-4225-a9a0-59d8e6c17ea6	TCGA-S3-A6ZH	Primary Tumor	Tumor	female	29.0	Stage IIIC	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	29.0
+TCGA-S3-AA0Z-01A	cffe832c-8a81-4cdb-8b25-df7f35afafdc	TCGA-S3-AA0Z	Primary Tumor	Tumor	female	63.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-S3-AA10-01A	23c31c2e-336c-4878-a476-cf8d811b4875	TCGA-S3-AA10	Primary Tumor	Tumor	female	65.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	65.0
+TCGA-S3-AA11-01A	0dd8dbc1-c48b-4e7c-b401-57101f724967	TCGA-S3-AA11	Primary Tumor	Tumor	female	67.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	67.0
+TCGA-S3-AA12-01A	2bcacfd1-6a45-4b96-9b80-2ad569b1ab45	TCGA-S3-AA12	Primary Tumor	Tumor	female	82.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	82.0
+TCGA-S3-AA14-01A	929acc67-b8bf-4f65-9110-380e44ab66b7	TCGA-S3-AA14	Primary Tumor	Tumor	female	47.0	Stage I	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	47.0
+TCGA-S3-AA15-01A	e783e518-c1e5-4eac-8eaf-e2d65ccd9692	TCGA-S3-AA15	Primary Tumor	Tumor	female	51.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	51.0
+TCGA-S3-AA17-01A	49a2fd48-744d-4d88-b9b4-8c778d4f48fd	TCGA-S3-AA17	Primary Tumor	Tumor	female	64.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	64.0
+TCGA-UL-AAZ6-01A	4b54e06e-a280-4981-a4e1-9aea154341b4	TCGA-UL-AAZ6	Primary Tumor	Tumor	female	73.0	Stage IIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	73.0
+TCGA-UU-A93S-01A	45013972-2dfd-4f82-a076-e3e4af1b43b8	TCGA-UU-A93S	Primary Tumor	Tumor	female	63.0	Stage IV	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	63.0
+TCGA-V7-A7HQ-01A	1285eb55-415c-494a-aa58-936f0427cdd0	TCGA-V7-A7HQ	Primary Tumor	Tumor	female	75.0	Stage IIIA	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	75.0
+TCGA-W8-A86G-01A	90ff48c3-b14b-4a8b-94a1-98c0bab0d27b	TCGA-W8-A86G	Primary Tumor	Tumor	female	66.0	Stage IIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	66.0
+TCGA-WT-AB41-01A	e7db08a7-b439-4230-8dc4-1b54af4736c4	TCGA-WT-AB41	Primary Tumor	Tumor	female	55.0	Stage IIB	Infiltrating duct carcinoma, NOS	Primary	Primary Tumor	tumor	55.0
+TCGA-WT-AB44-01A	5cd79093-1571-4f71-8136-0d84ccabdcac	TCGA-WT-AB44	Primary Tumor	Tumor	female	77.0	Stage IA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	77.0
+TCGA-XX-A899-01A	f89588e9-ca73-4465-a7fb-7246edb45e3a	TCGA-XX-A899	Primary Tumor	Tumor	female	46.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	46.0
+TCGA-XX-A89A-01A	ca20249f-b7ea-4fd9-9ecb-34f74755ae35	TCGA-XX-A89A	Primary Tumor	Tumor	female	68.0	Stage IIB	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	68.0
+TCGA-Z7-A8R5-01A	23f438bd-1dbb-4d46-972f-1e8e74ddbd37	TCGA-Z7-A8R5	Primary Tumor	Tumor	female	61.0	Stage IIIA	Lobular carcinoma, NOS	Primary	Primary Tumor	tumor	61.0
+TCGA-Z7-A8R6-01A	b1d44c81-747d-471f-9093-aeb262a17975	TCGA-Z7-A8R6	Primary Tumor	Tumor	female	46.0	Stage I	Pleomorphic carcinoma	Primary	Primary Tumor	tumor	46.0

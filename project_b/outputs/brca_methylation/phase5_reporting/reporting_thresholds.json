@@ -1,0 +1,11 @@
+{
+  "tcga_normal_p95": 0.43784654371274945,
+  "tcga_tumor_p05": 0.8499544331652453,
+  "conservative_negative_upper": 0.4467465503285531,
+  "conservative_positive_lower": 0.8350365015220815,
+  "interpretation_rules": {
+    "low": "score <= 0.447",
+    "indeterminate": "0.447 < score < 0.835",
+    "high": "score >= 0.835"
+  }
+}

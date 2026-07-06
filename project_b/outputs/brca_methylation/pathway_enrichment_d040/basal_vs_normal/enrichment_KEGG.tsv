@@ -1,0 +1,961 @@
+library	direction	term	n_genes	query_size	background_size	overlap_n	overlap_genes	p	adj_p
+KEGG	combined	Neuroactive ligand-receptor interaction	313	688	33010	18	CALCB,GABRA1,GALR1,GHSR,GRIA1,GRM1,HTR1A,HTR1B,LPAR6,NPBWR1,NPY,PENK,SCT,SST,SSTR4,TAC1,THRA,TRH	0.00011690793476792895	0.028370377931974788
+KEGG	combined	Maturity onset diabetes of the young	26	688	33010	5	FOXA2,NEUROD1,PAX6,PDX1,PKLR	0.00017731486207484242	0.028370377931974788
+KEGG	combined	Transcriptional misregulation in cancer	176	688	33010	9	AFF1,MLLT1,MMP9,NTRK1,PAX3,PAX5,TLX1,WT1,ZBTB16	0.011874340587281353	1.0
+KEGG	combined	cAMP signaling pathway	209	688	33010	10	CFTR,CNGA3,GHSR,GRIA1,HTR1A,HTR1B,NPY,PDE10A,PDE4C,SST	0.012753046630384816	1.0
+KEGG	combined	Phototransduction	27	688	33010	3	GRK7,GUCA1A,PDE6B	0.018179961310396626	1.0
+KEGG	combined	Cardiac muscle contraction	78	688	33010	5	CACNA2D2,CACNG7,CACNG8,COX4I2,COX7A1	0.023548651974952126	1.0
+KEGG	combined	Taste transduction	79	688	33010	5	ASIC2,GABRA1,GRM1,HTR1A,HTR1B	0.024723508627240442	1.0
+KEGG	combined	Bladder cancer	39	688	33010	3	CDKN2A,MMP9,RB1	0.047342084289988685	1.0
+KEGG	combined	Type I diabetes mellitus	40	688	33010	3	HLA-DPA1,HLA-DPB1,PTPRN2	0.05041545491137553	1.0
+KEGG	combined	Cell adhesion molecules	135	688	33010	6	CD58,CLDN4,HLA-DPA1,HLA-DPB1,NRXN2,NRXN3	0.06388805477367736	1.0
+KEGG	combined	Arrhythmogenic right ventricular cardiomyopathy	74	688	33010	4	CACNA2D2,CACNG7,CACNG8,CTNNA1	0.06883575093228941	1.0
+KEGG	combined	Synaptic vesicle cycle	78	688	33010	4	ATP6V1B1,SLC6A3,SLC6A5,SYT1	0.08011353395325682	1.0
+KEGG	combined	MicroRNAs in cancer	288	688	33010	10	CD44,CDKN2A,EZR,HOXD10,MIR124-2,MIR15B,MIR16-2,MMP9,SPRY2,TNR	0.08102208974399232	1.0
+KEGG	combined	Asthma	26	688	33010	2	HLA-DPA1,HLA-DPB1	0.10155618294432663	1.0
+KEGG	combined	Viral myocarditis	54	688	33010	3	CXADR,HLA-DPA1,HLA-DPB1	0.10270535165537999	1.0
+KEGG	combined	Pyrimidine metabolism	55	688	33010	3	CTPS1,DPYS,NT5E	0.1070368151732066	1.0
+KEGG	combined	Th1 and Th2 cell differentiation	87	688	33010	4	GATA3,HLA-DPA1,HLA-DPB1,MAML3	0.10855217147972875	1.0
+KEGG	combined	Morphine addiction	88	688	33010	4	GABRA1,GRK5,PDE10A,PDE4C	0.1119595275272097	1.0
+KEGG	combined	Hematopoietic cell lineage	90	688	33010	4	CD1D,CD44,HLA-DPA1,HLA-DPB1	0.11891440223058526	1.0
+KEGG	combined	Retinol metabolism	58	688	33010	3	ALDH1A3,CYP26A1,CYP27C1	0.12044378488824674	1.0
+KEGG	combined	Purine metabolism	125	688	33010	5	NT5E,PDE10A,PDE4C,PDE6B,PKLR	0.12084716570352656	1.0
+KEGG	combined	Inflammatory bowel disease	60	688	33010	3	GATA3,HLA-DPA1,HLA-DPB1	0.12970661078162057	1.0
+KEGG	combined	Base excision repair	32	688	33010	2	PARP1,PARP4	0.14311650660347122	1.0
+KEGG	combined	Allograft rejection	33	688	33010	2	HLA-DPA1,HLA-DPB1	0.15035314387154897	1.0
+KEGG	combined	Graft-versus-host disease	35	688	33010	2	HLA-DPA1,HLA-DPB1	0.16503303616164144	1.0
+KEGG	combined	Nicotine addiction	36	688	33010	2	GABRA1,GRIA1	0.17246434109233932	1.0
+KEGG	combined	Amyotrophic lateral sclerosis	339	688	33010	10	COX4I2,COX7A1,DNALI1,GRIA1,KLC1,NEFM,PFN3,POM121L2,SRSF7,TUBB2B	0.17304519082334616	1.0
+KEGG	combined	Melanoma	70	688	33010	3	CDKN2A,FGF5,RB1	0.17934433099107144	1.0
+KEGG	combined	Autoimmune thyroid disease	37	688	33010	2	HLA-DPA1,HLA-DPB1	0.17994894892161192	1.0
+KEGG	combined	Leukocyte transendothelial migration	107	688	33010	4	CLDN4,CTNNA1,EZR,MMP9	0.18471568594893728	1.0
+KEGG	combined	Gastric acid secretion	75	688	33010	3	CFTR,EZR,SST	0.20583735698206695	1.0
+KEGG	combined	Ubiquinone and other terpenoid-quinone biosynthesis	11	688	33010	1	COQ3	0.206833593844163	1.0
+KEGG	combined	ABC transporters	42	688	33010	2	ABCC9,CFTR	0.21798813979722	1.0
+KEGG	combined	Intestinal immune network for IgA production	42	688	33010	2	HLA-DPA1,HLA-DPB1	0.21798813979722	1.0
+KEGG	combined	Type II diabetes mellitus	45	688	33010	2	PDX1,PKLR	0.24113314674787972	1.0
+KEGG	combined	Rheumatoid arthritis	85	688	33010	3	ATP6V1B1,HLA-DPA1,HLA-DPB1	0.26103901082986825	1.0
+KEGG	combined	Sphingolipid metabolism	48	688	33010	2	DEGS1,SPHK2	0.2643796107943148	1.0
+KEGG	combined	Vibrio cholerae infection	49	688	33010	2	ATP6V1B1,CFTR	0.27213350882169945	1.0
+KEGG	combined	Hypertrophic cardiomyopathy	87	688	33010	3	CACNA2D2,CACNG7,CACNG8	0.27231915418224023	1.0
+KEGG	combined	Dilated cardiomyopathy	92	688	33010	3	CACNA2D2,CACNG7,CACNG8	0.3007146041833434	1.0
+KEGG	combined	Prostate cancer	94	688	33010	3	INSRR,MMP9,RB1	0.31212057945945343	1.0
+KEGG	combined	Diabetic cardiomyopathy	179	688	33010	5	COX4I2,COX7A1,CPT2,MMP9,PARP1	0.3180100954205147	1.0
+KEGG	combined	Apoptosis	138	688	33010	4	NTRK1,PARP1,PARP4,TNFRSF10A	0.32468991808510606	1.0
+KEGG	combined	Legionellosis	56	688	33010	2	HSF1,SAR1A	0.3261495434666827	1.0
+KEGG	combined	Phagosome	140	688	33010	4	ATP6V1B1,HLA-DPA1,HLA-DPB1,TUBB2B	0.33412922023127856	1.0
+KEGG	combined	Epstein-Barr virus infection	183	688	33010	5	CD44,CD58,HLA-DPA1,HLA-DPB1,RB1	0.33439729002392193	1.0
+KEGG	combined	Long-term depression	58	688	33010	2	GRIA1,GRM1	0.3414143686813118	1.0
+KEGG	combined	Th17 cell differentiation	101	688	33010	3	GATA3,HLA-DPA1,HLA-DPB1	0.35206030301356256	1.0
+KEGG	combined	Adrenergic signaling in cardiomyocytes	144	688	33010	4	CACNA2D2,CACNG7,CACNG8,CREM	0.3530378663019949	1.0
+KEGG	combined	Pantothenate and CoA biosynthesis	21	688	33010	1	DPYS	0.3575373283682966	1.0
+KEGG	combined	Herpes simplex virus 1 infection	458	688	33010	11	HLA-DPA1,HLA-DPB1,SRSF7,ZNF154,ZNF184,ZNF551,ZNF560,ZNF578,ZNF671,ZNF709,ZNF729	0.3593053537931641	1.0
+KEGG	combined	Gastric cancer	147	688	33010	4	CDX2,CTNNA1,FGF5,RB1	0.3672230021532228	1.0
+KEGG	combined	Parathyroid hormone synthesis, secretion and action	105	688	33010	3	AKAP13,GATA3,PDE4C	0.37478021144610596	1.0
+KEGG	combined	Toxoplasmosis	105	688	33010	3	ALOX5,HLA-DPA1,HLA-DPB1	0.37478021144610596	1.0
+KEGG	combined	Oxytocin signaling pathway	151	688	33010	4	CACNA2D2,CACNG7,CACNG8,PPP1R12C	0.38610612390242016	1.0
+KEGG	combined	Antigen processing and presentation	64	688	33010	2	HLA-DPA1,HLA-DPB1	0.38647819239508757	1.0
+KEGG	combined	Long-term potentiation	64	688	33010	2	GRIA1,GRM1	0.38647819239508757	1.0
+KEGG	combined	Serotonergic synapse	108	688	33010	3	ALOX5,HTR1A,HTR1B	0.39171666251484055	1.0
+KEGG	combined	Proteoglycans in cancer	199	688	33010	5	CD44,EZR,HOXD10,MMP9,PPP1R12C	0.400344418777187	1.0
+KEGG	combined	Amphetamine addiction	66	688	33010	2	GRIA1,SLC6A3	0.4012049859361015	1.0
+KEGG	combined	Leishmaniasis	67	688	33010	2	HLA-DPA1,HLA-DPB1	0.40850570455647767	1.0
+KEGG	combined	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	25	688	33010	1	PIGB	0.40948153221916095	1.0
+KEGG	combined	Glutamatergic synapse	113	688	33010	3	DLGAP1,GRIA1,GRM1	0.4196679557522347	1.0
+KEGG	combined	Tight junction	161	688	33010	4	CD1D,CFTR,CLDN4,EZR	0.4329105916097974	1.0
+KEGG	combined	Collecting duct acid secretion	27	688	33010	1	ATP6V1B1	0.43385901794073595	1.0
+KEGG	combined	Oxidative phosphorylation	116	688	33010	3	ATP6V1B1,COX4I2,COX7A1	0.43623373721167996	1.0
+KEGG	combined	Regulation of actin cytoskeleton	208	688	33010	5	EZR,FGF5,INSRR,PFN3,PPP1R12C	0.43722197802770735	1.0
+KEGG	combined	Non-small cell lung cancer	71	688	33010	2	CDKN2A,RB1	0.4372582978118799	1.0
+KEGG	combined	Human T-cell leukemia virus 1 infection	210	688	33010	5	ANAPC1,CDKN2A,HLA-DPA1,HLA-DPB1,RB1	0.44535423032632526	1.0
+KEGG	combined	Pancreatic cancer	73	688	33010	2	CDKN2A,RB1	0.4513473198465777	1.0
+KEGG	combined	p53 signaling pathway	73	688	33010	2	CDKN2A,TNFRSF10A	0.4513473198465777	1.0
+KEGG	combined	Chronic myeloid leukemia	74	688	33010	2	CDKN2A,RB1	0.4583162232097236	1.0
+KEGG	combined	Glioma	74	688	33010	2	CDKN2A,RB1	0.4583162232097236	1.0
+KEGG	combined	Cell cycle	121	688	33010	3	ANAPC1,CDKN2A,RB1	0.4634326538310597	1.0
+KEGG	combined	beta-Alanine metabolism	30	688	33010	1	DPYS	0.4685539852561052	1.0
+KEGG	combined	Staphylococcus aureus infection	79	688	33010	2	HLA-DPA1,HLA-DPB1	0.4923689953576165	1.0
+KEGG	combined	Dopaminergic synapse	128	688	33010	3	GRIA1,SCN1A,SLC6A3	0.5005054007237024	1.0
+KEGG	combined	Glycine, serine and threonine metabolism	34	688	33010	1	PSPH	0.5115336609506507	1.0
+KEGG	combined	Parkinson disease	228	688	33010	5	COX4I2,COX7A1,KLC1,SLC6A3,TUBB2B	0.5168956474108265	1.0
+KEGG	combined	Bile secretion	83	688	33010	2	CFTR,SCT	0.5186178432499553	1.0
+KEGG	combined	Mucin type O-glycan biosynthesis	35	688	33010	1	GALNTL6	0.5217248557973867	1.0
+KEGG	combined	Nicotinate and nicotinamide metabolism	35	688	33010	1	NT5E	0.5217248557973867	1.0
+KEGG	combined	GABAergic synapse	84	688	33010	2	GABRA1,SLC12A5	0.5250372619068745	1.0
+KEGG	combined	Retrograde endocannabinoid signaling	134	688	33010	3	GABRA1,GRIA1,GRM1	0.5312148905520102	1.0
+KEGG	combined	MAPK signaling pathway	282	688	33010	6	CACNA2D2,CACNG7,CACNG8,FGF5,NTRK1,TAOK3	0.5365707113363825	1.0
+KEGG	combined	ECM-receptor interaction	86	688	33010	2	CD44,TNR	0.5377016809925128	1.0
+KEGG	combined	Thyroid cancer	37	688	33010	1	NTRK1	0.5414746937217825	1.0
+KEGG	combined	Gap junction	87	688	33010	2	GRM1,TUBB2B	0.5439459757409895	1.0
+KEGG	combined	IL-17 signaling pathway	87	688	33010	2	IL17RA,MMP9	0.5439459757409895	1.0
+KEGG	combined	Huntington disease	285	688	33010	6	COX4I2,COX7A1,DNALI1,GRIA1,KLC1,TUBB2B	0.5468993673542163	1.0
+KEGG	combined	Pathogenic Escherichia coli infection	188	688	33010	4	CLDN4,EZR,TNFRSF10A,TUBB2B	0.5528583165304877	1.0
+KEGG	combined	Signaling pathways regulating pluripotency of stem cells	139	688	33010	3	JARID2,OTX1,PAX6	0.5559785042312592	1.0
+KEGG	combined	Spinocerebellar ataxia	139	688	33010	3	ATXN8OS,GRIA1,GRM1	0.5559785042312592	1.0
+KEGG	combined	Salmonella infection	239	688	33010	5	KLC1,PFN3,S100A10,TNFRSF10A,TUBB2B	0.5586588332592122	1.0
+KEGG	combined	Fc gamma R-mediated phagocytosis	92	688	33010	2	HCK,SPHK2	0.5742776600456532	1.0
+KEGG	combined	Influenza A	143	688	33010	3	HLA-DPA1,HLA-DPB1,TNFRSF10A	0.575215645943966	1.0
+KEGG	combined	Phospholipase D signaling pathway	143	688	33010	3	GRM1,LPAR6,SPHK2	0.575215645943966	1.0
+KEGG	combined	Pancreatic secretion	94	688	33010	2	CFTR,SCT	0.5859917859862234	1.0
+KEGG	combined	Fatty acid degradation	42	688	33010	1	CPT2	0.5873592222697096	1.0
+KEGG	combined	Pathways of neurodegeneration	448	688	33010	9	COX4I2,COX7A1,DNALI1,GRIA1,GRM1,KLC1,NEFM,SLC6A3,TUBB2B	0.5908144232739945	1.0
+KEGG	combined	Non-alcoholic fatty liver disease	147	688	33010	3	COX4I2,COX7A1,PKLR	0.593923529289105	1.0
+KEGG	combined	Inflammatory mediator regulation of TRP channels	97	688	33010	2	ASIC2,NTRK1	0.6031122915236294	1.0
+KEGG	combined	Other types of O-glycan biosynthesis	45	688	33010	1	GALNTL6	0.6126584602727481	1.0
+KEGG	combined	Pyruvate metabolism	46	688	33010	1	PKLR	0.6207425184960871	1.0
+KEGG	combined	Cocaine addiction	47	688	33010	1	SLC6A3	0.628658097530024	1.0
+KEGG	combined	Cytosolic DNA-sensing pathway	48	688	33010	1	AIM2	0.6364087036307835	1.0
+KEGG	combined	Tuberculosis	158	688	33010	3	HLA-DPA1,HLA-DPB1,SPHK2	0.6425417620784613	1.0
+KEGG	combined	Cholesterol metabolism	49	688	33010	1	OSBPL5	0.6439977701893062	1.0
+KEGG	combined	Ovarian steroidogenesis	49	688	33010	1	ALOX5	0.6439977701893062	1.0
+KEGG	combined	Thermogenesis	213	688	33010	4	COX4I2,COX7A1,CPT2,PRDM16	0.6507817104761906	1.0
+KEGG	combined	Glycosaminoglycan biosynthesis	51	688	33010	1	CSGALNACT1	0.6587046629581559	1.0
+KEGG	combined	Protein processing in endoplasmic reticulum	163	688	33010	3	SAR1A,SEL1L,SSR3	0.6632393653700748	1.0
+KEGG	combined	Regulation of lipolysis in adipocytes	54	688	33010	1	NPY	0.6796352658753193	1.0
+KEGG	combined	Growth hormone synthesis, secretion and action	113	688	33010	2	GHSR,SST	0.6853705437543987	1.0
+KEGG	combined	Neurotrophin signaling pathway	114	688	33010	2	NTRK1,ZNF274	0.6900162919892234	1.0
+KEGG	combined	Systemic lupus erythematosus	114	688	33010	2	HLA-DPA1,HLA-DPB1	0.6900162919892234	1.0
+KEGG	combined	Endometrial cancer	56	688	33010	1	CTNNA1	0.6928719163647075	1.0
+KEGG	combined	Calcium signaling pathway	228	688	33010	4	FGF5,GRM1,NTRK1,SPHK2	0.7022081360082746	1.0
+KEGG	combined	Sphingolipid signaling pathway	118	688	33010	2	DEGS1,SPHK2	0.7080364700783188	1.0
+KEGG	combined	Notch signaling pathway	59	688	33010	1	MAML3	0.711709943565948	1.0
+KEGG	combined	VEGF signaling pathway	59	688	33010	1	SPHK2	0.711709943565948	1.0
+KEGG	combined	Arachidonic acid metabolism	61	688	33010	1	ALOX5	0.7236231389044266	1.0
+KEGG	combined	Lysine degradation	61	688	33010	1	PRDM16	0.7236231389044266	1.0
+KEGG	combined	Chemokine signaling pathway	182	688	33010	3	GRK5,GRK7,HCK	0.7338709811314743	1.0
+KEGG	combined	Acute myeloid leukemia	63	688	33010	1	ZBTB16	0.7350447235563957	1.0
+KEGG	combined	Glycolysis / Gluconeogenesis	63	688	33010	1	PKLR	0.7350447235563957	1.0
+KEGG	combined	Adipocytokine signaling pathway	65	688	33010	1	NPY	0.7459949560505361	1.0
+KEGG	combined	Ribosome	128	688	33010	2	RPL23,RPS2	0.7492777880734459	1.0
+KEGG	combined	Fc epsilon RI signaling pathway	66	688	33010	1	ALOX5	0.7512994171292201	1.0
+KEGG	combined	Central carbon metabolism in cancer	67	688	33010	1	NTRK1	0.7564932612591095	1.0
+KEGG	combined	Epithelial cell signaling in Helicobacter pylori infection	67	688	33010	1	ATP6V1B1	0.7564932612591095	1.0
+KEGG	combined	Insulin signaling pathway	130	688	33010	2	PKLR,PRKAR1B	0.7568989873859733	1.0
+KEGG	combined	Spliceosome	131	688	33010	2	RBMXL2,SRSF7	0.7606339999591831	1.0
+KEGG	combined	Vascular smooth muscle contraction	131	688	33010	2	CALCB,PPP1R12C	0.7606339999591831	1.0
+KEGG	combined	Adherens junction	70	688	33010	1	CTNNA1	0.771433888161817	1.0
+KEGG	combined	Prion disease	252	688	33010	4	COX4I2,COX7A1,KLC1,TUBB2B	0.7726919868858566	1.0
+KEGG	combined	Estrogen signaling pathway	136	688	33010	2	GRM1,MMP9	0.7785711386688489	1.0
+KEGG	combined	PPAR signaling pathway	72	688	33010	1	CPT2	0.7808821934319494	1.0
+KEGG	combined	Necroptosis	138	688	33010	2	PARP1,TNFRSF10A	0.7854101320925981	1.0
+KEGG	combined	Hepatitis C	141	688	33010	2	CLDN4,RB1	0.7953202916837732	1.0
+KEGG	combined	Bacterial invasion of epithelial cells	76	688	33010	1	CTNNA1	0.7986248119129621	1.0
+KEGG	combined	Hepatitis B	143	688	33010	2	MMP9,RB1	0.8017002648724632	1.0
+KEGG	combined	Human cytomegalovirus infection	206	688	33010	3	AKAP13,CDKN2A,RB1	0.8057560887506092	1.0
+KEGG	combined	Breast cancer	145	688	33010	2	FGF5,RB1	0.807903146357999	1.0
+KEGG	combined	Rap1 signaling pathway	207	688	33010	3	APBB1IP,FGF5,PFN3	0.8083608537725884	1.0
+KEGG	combined	Peroxisome	80	688	33010	1	PEX7	0.8149326762256589	1.0
+KEGG	combined	Pathways in cancer	497	688	33010	8	CDKN2A,CTNNA1,FGF5,LPAR6,MMP9,NTRK1,RB1,ZBTB16	0.8152424717892954	1.0
+KEGG	combined	mTOR signaling pathway	150	688	33010	2	ATP6V1B1,TBC1D7	0.8226600259277831	1.0
+KEGG	combined	RNA transport	151	688	33010	2	EIF3I,POM121L2	0.8254864899547447	1.0
+KEGG	combined	Insulin secretion	83	688	33010	1	PDX1	0.8262920763160205	1.0
+KEGG	combined	Cellular senescence	152	688	33010	2	CDKN2A,RB1	0.828272395368392	1.0
+KEGG	combined	NOD-like receptor signaling pathway	152	688	33010	2	AIM2,ANTXR2	0.828272395368392	1.0
+KEGG	combined	Cushing syndrome	153	688	33010	2	CDKN2A,RB1	0.8310182019563863	1.0
+KEGG	combined	Progesterone-mediated oocyte maturation	86	688	33010	1	ANAPC1	0.8369551894333533	1.0
+KEGG	combined	Small cell lung cancer	88	688	33010	1	RB1	0.8436982620131998	1.0
+KEGG	combined	Hepatocellular carcinoma	159	688	33010	2	CDKN2A,RB1	0.8466765063530741	1.0
+KEGG	combined	Drug metabolism	90	688	33010	1	DPYS	0.8501628487249343	1.0
+KEGG	combined	Wnt signaling pathway	161	688	33010	2	CCN4,TBL1XR1	0.8515957104364039	1.0
+KEGG	combined	Viral protein interaction with cytokine and cytokine receptor	91	688	33010	1	TNFRSF10A	0.8532943177430765	1.0
+KEGG	combined	NF-kappa B signaling pathway	92	688	33010	1	PARP1	0.8563604348606307	1.0
+KEGG	combined	Protein digestion and absorption	94	688	33010	1	COL11A1	0.8623020326988371	1.0
+KEGG	combined	Amoebiasis	95	688	33010	1	CD1D	0.865180152807696	1.0
+KEGG	combined	Alcoholism	168	688	33010	2	NPY,SLC6A3	0.8677003956755689	1.0
+KEGG	combined	Circadian entrainment	96	688	33010	1	GRIA1	0.8679982009580318	1.0
+KEGG	combined	Longevity regulating pathway	101	688	33010	1	FOXA2	0.881230282702941	1.0
+KEGG	combined	Axon guidance	176	688	33010	2	SEMA4A,SRGAP3	0.8841316591658375	1.0
+KEGG	combined	Endocytosis	243	688	33010	3	CAPZB,GRK5,GRK7	0.8841934578774842	1.0
+KEGG	combined	Natural killer cell mediated cytotoxicity	104	688	33010	1	TNFRSF10A	0.8885249014225144	1.0
+KEGG	combined	Kaposi sarcoma-associated herpesvirus infection	179	688	33010	2	HCK,RB1	0.8897912171129088	1.0
+KEGG	combined	Human papillomavirus infection	311	688	33010	4	ATP6V1B1,MAML3,RB1,TNR	0.8905635152149863	1.0
+KEGG	combined	TNF signaling pathway	108	688	33010	1	MMP9	0.8975598727778776	1.0
+KEGG	combined	Cholinergic synapse	111	688	33010	1	KCNQ4	0.9038528683824754	1.0
+KEGG	combined	Viral carcinogenesis	189	688	33010	2	CDKN2A,RB1	0.9068546671294592	1.0
+KEGG	combined	PI3K-Akt signaling pathway	326	688	33010	4	FGF5,LPAR6,NTRK1,TNR	0.9102840416681353	1.0
+KEGG	combined	Lipid and atherosclerosis	192	688	33010	2	MMP9,TNFRSF10A	0.9114713287115681	1.0
+KEGG	combined	Oocyte meiosis	115	688	33010	1	ANAPC1	0.9116471257018074	1.0
+KEGG	combined	AMPK signaling pathway	116	688	33010	1	CFTR	0.9134950289551028	1.0
+KEGG	combined	Focal adhesion	194	688	33010	2	PPP1R12C,TNR	0.9144290563191552	1.0
+KEGG	combined	Thyroid hormone signaling pathway	117	688	33010	1	THRA	0.9153043382540293	1.0
+KEGG	combined	Platelet activation	123	688	33010	1	APBB1IP	0.9253936411373623	1.0
+KEGG	combined	Coronavirus disease	203	688	33010	2	RPL23,RPS2	0.9266263745981312	1.0
+KEGG	combined	Relaxin signaling pathway	124	688	33010	1	MMP9	0.9269544151482936	1.0
+KEGG	combined	FoxO signaling pathway	126	688	33010	1	GRM1	0.9299788279926074	1.0
+KEGG	combined	Alzheimer disease	345	688	33010	4	COX4I2,COX7A1,KLC1,TUBB2B	0.9306941462494254	1.0
+KEGG	combined	Fluid shear stress and atherosclerosis	129	688	33010	1	MMP9	0.934282600973734	1.0
+KEGG	combined	Chemical carcinogenesis	213	688	33010	2	FGF5,RB1	0.9382485090882038	1.0
+KEGG	combined	Ubiquitin mediated proteolysis	132	688	33010	1	ANAPC1	0.9383222081436335	1.0
+KEGG	combined	Apelin signaling pathway	136	688	33010	1	SPHK2	0.9433252692961254	1.0
+KEGG	combined	JAK-STAT signaling pathway	137	688	33010	1	IL22RA2	0.9445113803481502	1.0
+KEGG	combined	Ras signaling pathway	224	688	33010	2	FGF5,NTRK1	0.9490091216522333	1.0
+KEGG	combined	Shigellosis	233	688	33010	2	CD44,PFN3	0.9564592314420969	1.0
+KEGG	combined	Hippo signaling pathway	159	688	33010	1	CTNNA1	0.9651622195480254	1.0
+KEGG	combined	Cytokine-cytokine receptor interaction	259	688	33010	2	IL17RA,TNFRSF10A	0.9725732630510248	1.0
+KEGG	combined	Olfactory transduction	318	688	33010	1	CNGA3	0.998806144353873	1.0
+KEGG	combined	AGE-RAGE signaling pathway in diabetic complications	94	688	33010	0		1.0	1.0
+KEGG	combined	African trypanosomiasis	36	688	33010	0		1.0	1.0
+KEGG	combined	Alanine, aspartate and glutamate metabolism	36	688	33010	0		1.0	1.0
+KEGG	combined	Aldosterone synthesis and secretion	94	688	33010	0		1.0	1.0
+KEGG	combined	Aldosterone-regulated sodium reabsorption	36	688	33010	0		1.0	1.0
+KEGG	combined	Amino sugar and nucleotide sugar metabolism	47	688	33010	0		1.0	1.0
+KEGG	combined	Aminoacyl-tRNA biosynthesis	44	688	33010	0		1.0	1.0
+KEGG	combined	Arginine and proline metabolism	44	688	33010	0		1.0	1.0
+KEGG	combined	Arginine biosynthesis	20	688	33010	0		1.0	1.0
+KEGG	combined	Ascorbate and aldarate metabolism	24	688	33010	0		1.0	1.0
+KEGG	combined	Autophagy	130	688	33010	0		1.0	1.0
+KEGG	combined	B cell receptor signaling pathway	76	688	33010	0		1.0	1.0
+KEGG	combined	Basal cell carcinoma	63	688	33010	0		1.0	1.0
+KEGG	combined	Basal transcription factors	39	688	33010	0		1.0	1.0
+KEGG	combined	Biosynthesis of unsaturated fatty acids	26	688	33010	0		1.0	1.0
+KEGG	combined	Butanoate metabolism	25	688	33010	0		1.0	1.0
+KEGG	combined	C-type lectin receptor signaling pathway	102	688	33010	0		1.0	1.0
+KEGG	combined	Caffeine metabolism	4	688	33010	0		1.0	1.0
+KEGG	combined	Carbohydrate digestion and absorption	40	688	33010	0		1.0	1.0
+KEGG	combined	Chagas disease	96	688	33010	0		1.0	1.0
+KEGG	combined	Choline metabolism in cancer	95	688	33010	0		1.0	1.0
+KEGG	combined	Circadian rhythm	31	688	33010	0		1.0	1.0
+KEGG	combined	Citrate cycle (TCA cycle)	28	688	33010	0		1.0	1.0
+KEGG	combined	Colorectal cancer	84	688	33010	0		1.0	1.0
+KEGG	combined	Complement and coagulation cascades	77	688	33010	0		1.0	1.0
+KEGG	combined	Cortisol synthesis and secretion	62	688	33010	0		1.0	1.0
+KEGG	combined	Cysteine and methionine metabolism	47	688	33010	0		1.0	1.0
+KEGG	combined	D-Glutamine and D-glutamate metabolism	4	688	33010	0		1.0	1.0
+KEGG	combined	DNA replication	34	688	33010	0		1.0	1.0
+KEGG	combined	Endocrine and other factor-regulated calcium reabsorption	51	688	33010	0		1.0	1.0
+KEGG	combined	ErbB signaling pathway	81	688	33010	0		1.0	1.0
+KEGG	combined	Ether lipid metabolism	49	688	33010	0		1.0	1.0
+KEGG	combined	Fanconi anemia pathway	50	688	33010	0		1.0	1.0
+KEGG	combined	Fat digestion and absorption	43	688	33010	0		1.0	1.0
+KEGG	combined	Fatty acid biosynthesis	17	688	33010	0		1.0	1.0
+KEGG	combined	Fatty acid elongation	26	688	33010	0		1.0	1.0
+KEGG	combined	Ferroptosis	38	688	33010	0		1.0	1.0
+KEGG	combined	Folate biosynthesis	26	688	33010	0		1.0	1.0
+KEGG	combined	Fructose and mannose metabolism	32	688	33010	0		1.0	1.0
+KEGG	combined	Galactose metabolism	28	688	33010	0		1.0	1.0
+KEGG	combined	Glucagon signaling pathway	97	688	33010	0		1.0	1.0
+KEGG	combined	Glutathione metabolism	46	688	33010	0		1.0	1.0
+KEGG	combined	Glycerolipid metabolism	56	688	33010	0		1.0	1.0
+KEGG	combined	Glycerophospholipid metabolism	94	688	33010	0		1.0	1.0
+KEGG	combined	Glycosaminoglycan degradation	18	688	33010	0		1.0	1.0
+KEGG	combined	Glycosphingolipid biosynthesis	44	688	33010	0		1.0	1.0
+KEGG	combined	Glyoxylate and dicarboxylate metabolism	30	688	33010	0		1.0	1.0
+KEGG	combined	GnRH secretion	62	688	33010	0		1.0	1.0
+KEGG	combined	GnRH signaling pathway	90	688	33010	0		1.0	1.0
+KEGG	combined	HIF-1 signaling pathway	105	688	33010	0		1.0	1.0
+KEGG	combined	Hedgehog signaling pathway	56	688	33010	0		1.0	1.0
+KEGG	combined	Histidine metabolism	20	688	33010	0		1.0	1.0
+KEGG	combined	Homologous recombination	39	688	33010	0		1.0	1.0
+KEGG	combined	Human immunodeficiency virus 1 infection	193	688	33010	0		1.0	1.0
+KEGG	combined	Inositol phosphate metabolism	69	688	33010	0		1.0	1.0
+KEGG	combined	Insulin resistance	104	688	33010	0		1.0	1.0
+KEGG	combined	Linoleic acid metabolism	29	688	33010	0		1.0	1.0
+KEGG	combined	Lysosome	123	688	33010	0		1.0	1.0
+KEGG	combined	Malaria	47	688	33010	0		1.0	1.0
+KEGG	combined	Mannose type O-glycan biosynthesis	23	688	33010	0		1.0	1.0
+KEGG	combined	Measles	120	688	33010	0		1.0	1.0
+KEGG	combined	Melanogenesis	101	688	33010	0		1.0	1.0
+KEGG	combined	Metabolism of xenobiotics by cytochrome P450	61	688	33010	0		1.0	1.0
+KEGG	combined	Mineral absorption	55	688	33010	0		1.0	1.0
+KEGG	combined	Mismatch repair	22	688	33010	0		1.0	1.0
+KEGG	combined	Mitophagy	65	688	33010	0		1.0	1.0
+KEGG	combined	N-Glycan biosynthesis	49	688	33010	0		1.0	1.0
+KEGG	combined	Neomycin, kanamycin and gentamicin biosynthesis	5	688	33010	0		1.0	1.0
+KEGG	combined	Neutrophil extracellular trap formation	163	688	33010	0		1.0	1.0
+KEGG	combined	Nitrogen metabolism	15	688	33010	0		1.0	1.0
+KEGG	combined	Non-homologous end-joining	13	688	33010	0		1.0	1.0
+KEGG	combined	Nucleotide excision repair	41	688	33010	0		1.0	1.0
+KEGG	combined	One carbon pool by folate	20	688	33010	0		1.0	1.0
+KEGG	combined	Osteoclast differentiation	118	688	33010	0		1.0	1.0
+KEGG	combined	Other glycan degradation	18	688	33010	0		1.0	1.0
+KEGG	combined	PD-L1 expression and PD-1 checkpoint pathway in cancer	88	688	33010	0		1.0	1.0
+KEGG	combined	Pentose and glucuronate interconversions	29	688	33010	0		1.0	1.0
+KEGG	combined	Pentose phosphate pathway	25	688	33010	0		1.0	1.0
+KEGG	combined	Pertussis	73	688	33010	0		1.0	1.0
+KEGG	combined	Phenylalanine metabolism	15	688	33010	0		1.0	1.0
+KEGG	combined	Phenylalanine, tyrosine and tryptophan biosynthesis	6	688	33010	0		1.0	1.0
+KEGG	combined	Phosphatidylinositol signaling system	92	688	33010	0		1.0	1.0
+KEGG	combined	Phosphonate and phosphinate metabolism	5	688	33010	0		1.0	1.0
+KEGG	combined	Porphyrin and chlorophyll metabolism	35	688	33010	0		1.0	1.0
+KEGG	combined	Primary bile acid biosynthesis	17	688	33010	0		1.0	1.0
+KEGG	combined	Primary immunodeficiency	33	688	33010	0		1.0	1.0
+KEGG	combined	Prolactin signaling pathway	69	688	33010	0		1.0	1.0
+KEGG	combined	Propanoate metabolism	34	688	33010	0		1.0	1.0
+KEGG	combined	Proteasome	46	688	33010	0		1.0	1.0
+KEGG	combined	Protein export	23	688	33010	0		1.0	1.0
+KEGG	combined	Proximal tubule bicarbonate reclamation	21	688	33010	0		1.0	1.0
+KEGG	combined	RIG-I-like receptor signaling pathway	52	688	33010	0		1.0	1.0
+KEGG	combined	RNA degradation	76	688	33010	0		1.0	1.0
+KEGG	combined	RNA polymerase	29	688	33010	0		1.0	1.0
+KEGG	combined	Renal cell carcinoma	66	688	33010	0		1.0	1.0
+KEGG	combined	Renin secretion	68	688	33010	0		1.0	1.0
+KEGG	combined	Renin-angiotensin system	20	688	33010	0		1.0	1.0
+KEGG	combined	Riboflavin metabolism	8	688	33010	0		1.0	1.0
+KEGG	combined	Ribosome biogenesis in eukaryotes	71	688	33010	0		1.0	1.0
+KEGG	combined	SNARE interactions in vesicular transport	32	688	33010	0		1.0	1.0
+KEGG	combined	Salivary secretion	83	688	33010	0		1.0	1.0
+KEGG	combined	Selenocompound metabolism	17	688	33010	0		1.0	1.0
+KEGG	combined	Starch and sucrose metabolism	29	688	33010	0		1.0	1.0
+KEGG	combined	Steroid biosynthesis	18	688	33010	0		1.0	1.0
+KEGG	combined	Steroid hormone biosynthesis	52	688	33010	0		1.0	1.0
+KEGG	combined	Sulfur metabolism	10	688	33010	0		1.0	1.0
+KEGG	combined	Sulfur relay system	8	688	33010	0		1.0	1.0
+KEGG	combined	Synthesis and degradation of ketone bodies	9	688	33010	0		1.0	1.0
+KEGG	combined	T cell receptor signaling pathway	101	688	33010	0		1.0	1.0
+KEGG	combined	TGF-beta signaling pathway	94	688	33010	0		1.0	1.0
+KEGG	combined	Taurine and hypotaurine metabolism	11	688	33010	0		1.0	1.0
+KEGG	combined	Terpenoid backbone biosynthesis	22	688	33010	0		1.0	1.0
+KEGG	combined	Thiamine metabolism	15	688	33010	0		1.0	1.0
+KEGG	combined	Thyroid hormone synthesis	73	688	33010	0		1.0	1.0
+KEGG	combined	Toll-like receptor signaling pathway	83	688	33010	0		1.0	1.0
+KEGG	combined	Tryptophan metabolism	39	688	33010	0		1.0	1.0
+KEGG	combined	Tyrosine metabolism	34	688	33010	0		1.0	1.0
+KEGG	combined	Valine, leucine and isoleucine degradation	46	688	33010	0		1.0	1.0
+KEGG	combined	Various types of N-glycan biosynthesis	38	688	33010	0		1.0	1.0
+KEGG	combined	Vasopressin-regulated water reabsorption	43	688	33010	0		1.0	1.0
+KEGG	combined	Vitamin B6 metabolism	6	688	33010	0		1.0	1.0
+KEGG	combined	Vitamin digestion and absorption	23	688	33010	0		1.0	1.0
+KEGG	combined	Yersinia infection	129	688	33010	0		1.0	1.0
+KEGG	combined	alpha-Linolenic acid metabolism	25	688	33010	0		1.0	1.0
+KEGG	combined	cGMP-PKG signaling pathway	161	688	33010	0		1.0	1.0
+KEGG	combined	mRNA surveillance pathway	85	688	33010	0		1.0	1.0
+KEGG	hypermethylated	Neuroactive ligand-receptor interaction	313	492	33010	16	CALCB,GABRA1,GALR1,GHSR,GRM1,HTR1A,HTR1B,LPAR6,NPBWR1,NPY,PENK,SST,SSTR4,TAC1,THRA,TRH	2.239698204696544e-05	0.005856421413354707
+KEGG	hypermethylated	Maturity onset diabetes of the young	26	492	33010	5	FOXA2,NEUROD1,PAX6,PDX1,PKLR	3.660263383346692e-05	0.005856421413354707
+KEGG	hypermethylated	Transcriptional misregulation in cancer	176	492	33010	8	AFF1,MLLT1,MMP9,NTRK1,PAX3,PAX5,TLX1,WT1	0.005082613657447523	0.49915961426424893
+KEGG	hypermethylated	Cardiac muscle contraction	78	492	33010	5	CACNA2D2,CACNG7,CACNG8,COX4I2,COX7A1	0.006239495178303111	0.49915961426424893
+KEGG	hypermethylated	cAMP signaling pathway	209	492	33010	8	CFTR,CNGA3,GHSR,HTR1A,HTR1B,NPY,PDE4C,SST	0.01356668845750254	0.8682680612801625
+KEGG	hypermethylated	Bladder cancer	39	492	33010	3	CDKN2A,MMP9,RB1	0.020223107499515048	0.9886415327295859
+KEGG	hypermethylated	Type I diabetes mellitus	40	492	33010	3	HLA-DPA1,HLA-DPB1,PTPRN2	0.02162653352845969	0.9886415327295859
+KEGG	hypermethylated	Arrhythmogenic right ventricular cardiomyopathy	74	492	33010	4	CACNA2D2,CACNG7,CACNG8,CTNNA1	0.02475088604436952	0.9900354417747809
+KEGG	hypermethylated	Taste transduction	79	492	33010	4	GABRA1,GRM1,HTR1A,HTR1B	0.0305219141861521	1.0
+KEGG	hypermethylated	Th1 and Th2 cell differentiation	87	492	33010	4	GATA3,HLA-DPA1,HLA-DPB1,MAML3	0.04127459684180028	1.0
+KEGG	hypermethylated	Asthma	26	492	33010	2	HLA-DPA1,HLA-DPB1	0.0569478788677827	1.0
+KEGG	hypermethylated	Inflammatory bowel disease	60	492	33010	3	GATA3,HLA-DPA1,HLA-DPB1	0.06038822421561145	1.0
+KEGG	hypermethylated	Allograft rejection	33	492	33010	2	HLA-DPA1,HLA-DPB1	0.08650184585110313	1.0
+KEGG	hypermethylated	Melanoma	70	492	33010	3	CDKN2A,FGF5,RB1	0.08685674586494725	1.0
+KEGG	hypermethylated	Graft-versus-host disease	35	492	33010	2	HLA-DPA1,HLA-DPB1	0.09563468055751008	1.0
+KEGG	hypermethylated	Autoimmune thyroid disease	37	492	33010	2	HLA-DPA1,HLA-DPB1	0.10502732775266255	1.0
+KEGG	hypermethylated	Synaptic vesicle cycle	78	492	33010	3	ATP6V1B1,SLC6A3,SLC6A5	0.1109447264242692	1.0
+KEGG	hypermethylated	ABC transporters	42	492	33010	2	ABCC9,CFTR	0.12949557348107754	1.0
+KEGG	hypermethylated	Intestinal immune network for IgA production	42	492	33010	2	HLA-DPA1,HLA-DPB1	0.12949557348107754	1.0
+KEGG	hypermethylated	Rheumatoid arthritis	85	492	33010	3	ATP6V1B1,HLA-DPA1,HLA-DPB1	0.13385860061508134	1.0
+KEGG	hypermethylated	Amyotrophic lateral sclerosis	339	492	33010	8	COX4I2,COX7A1,DNALI1,KLC1,NEFM,PFN3,POM121L2,TUBB2B	0.1362834253395925	1.0
+KEGG	hypermethylated	Hypertrophic cardiomyopathy	87	492	33010	3	CACNA2D2,CACNG7,CACNG8	0.14068526812114013	1.0
+KEGG	hypermethylated	Type II diabetes mellitus	45	492	33010	2	PDX1,PKLR	0.1447470889712393	1.0
+KEGG	hypermethylated	Phagosome	140	492	33010	4	ATP6V1B1,HLA-DPA1,HLA-DPB1,TUBB2B	0.1571700756651918	1.0
+KEGG	hypermethylated	Dilated cardiomyopathy	92	492	33010	3	CACNA2D2,CACNG7,CACNG8	0.15823931502361432	1.0
+KEGG	hypermethylated	Sphingolipid metabolism	48	492	33010	2	DEGS1,SPHK2	0.16034610447571063	1.0
+KEGG	hypermethylated	Prostate cancer	94	492	33010	3	INSRR,MMP9,RB1	0.16544132556103094	1.0
+KEGG	hypermethylated	Vibrio cholerae infection	49	492	33010	2	ATP6V1B1,CFTR	0.1656124866669832	1.0
+KEGG	hypermethylated	Gastric cancer	147	492	33010	4	CDX2,CTNNA1,FGF5,RB1	0.17731407414486788	1.0
+KEGG	hypermethylated	Oxytocin signaling pathway	151	492	33010	4	CACNA2D2,CACNG7,CACNG8,PPP1R12C	0.18919778484414104	1.0
+KEGG	hypermethylated	Th17 cell differentiation	101	492	33010	3	GATA3,HLA-DPA1,HLA-DPB1	0.19135934077436373	1.0
+KEGG	hypermethylated	Viral myocarditis	54	492	33010	2	HLA-DPA1,HLA-DPB1	0.19235108600086517	1.0
+KEGG	hypermethylated	Pyrimidine metabolism	55	492	33010	2	DPYS,NT5E	0.1977665243959954	1.0
+KEGG	hypermethylated	Parathyroid hormone synthesis, secretion and action	105	492	33010	3	AKAP13,GATA3,PDE4C	0.2066021122933315	1.0
+KEGG	hypermethylated	Toxoplasmosis	105	492	33010	3	ALOX5,HLA-DPA1,HLA-DPB1	0.2066021122933315	1.0
+KEGG	hypermethylated	Serotonergic synapse	108	492	33010	3	ALOX5,HTR1A,HTR1B	0.2182084358349927	1.0
+KEGG	hypermethylated	Herpes simplex virus 1 infection	458	492	33010	9	HLA-DPA1,HLA-DPB1,ZNF154,ZNF551,ZNF560,ZNF578,ZNF671,ZNF709,ZNF729	0.24637046404002344	1.0
+KEGG	hypermethylated	Antigen processing and presentation	64	492	33010	2	HLA-DPA1,HLA-DPB1	0.24712837872954457	1.0
+KEGG	hypermethylated	Oxidative phosphorylation	116	492	33010	3	ATP6V1B1,COX4I2,COX7A1	0.24975019245571412	1.0
+KEGG	hypermethylated	Parkinson disease	228	492	33010	5	COX4I2,COX7A1,KLC1,SLC6A3,TUBB2B	0.2542448215041938	1.0
+KEGG	hypermethylated	Leishmaniasis	67	492	33010	2	HLA-DPA1,HLA-DPB1	0.26371142156030725	1.0
+KEGG	hypermethylated	Pantothenate and CoA biosynthesis	21	492	33010	1	DPYS	0.270538239277568	1.0
+KEGG	hypermethylated	Diabetic cardiomyopathy	179	492	33010	4	COX4I2,COX7A1,CPT2,MMP9	0.2780843410343447	1.0
+KEGG	hypermethylated	Non-small cell lung cancer	71	492	33010	2	CDKN2A,RB1	0.28582084059808127	1.0
+KEGG	hypermethylated	Purine metabolism	125	492	33010	3	NT5E,PDE4C,PKLR	0.28595910430351135	1.0
+KEGG	hypermethylated	Pancreatic cancer	73	492	33010	2	CDKN2A,RB1	0.2968535753650432	1.0
+KEGG	hypermethylated	Chronic myeloid leukemia	74	492	33010	2	CDKN2A,RB1	0.3023605925033807	1.0
+KEGG	hypermethylated	Glioma	74	492	33010	2	CDKN2A,RB1	0.3023605925033807	1.0
+KEGG	hypermethylated	Gastric acid secretion	75	492	33010	2	CFTR,SST	0.30785999615264015	1.0
+KEGG	hypermethylated	Cell adhesion molecules	135	492	33010	3	HLA-DPA1,HLA-DPB1,NRXN2	0.3266211409333463	1.0
+KEGG	hypermethylated	Staphylococcus aureus infection	79	492	33010	2	HLA-DPA1,HLA-DPB1	0.32976204246633617	1.0
+KEGG	hypermethylated	Collecting duct acid secretion	27	492	33010	1	ATP6V1B1	0.3334323117682577	1.0
+KEGG	hypermethylated	Phototransduction	27	492	33010	1	GUCA1A	0.3334323117682577	1.0
+KEGG	hypermethylated	Signaling pathways regulating pluripotency of stem cells	139	492	33010	3	JARID2,OTX1,PAX6	0.3429057507461232	1.0
+KEGG	hypermethylated	Pathways of neurodegeneration	448	492	33010	8	COX4I2,COX7A1,DNALI1,GRM1,KLC1,NEFM,SLC6A3,TUBB2B	0.35260760705786637	1.0
+KEGG	hypermethylated	GABAergic synapse	84	492	33010	2	GABRA1,SLC12A5	0.35685785161216194	1.0
+KEGG	hypermethylated	Phospholipase D signaling pathway	143	492	33010	3	GRM1,LPAR6,SPHK2	0.3591582710298114	1.0
+KEGG	hypermethylated	beta-Alanine metabolism	30	492	33010	1	DPYS	0.3628195688388593	1.0
+KEGG	hypermethylated	Adrenergic signaling in cardiomyocytes	144	492	33010	3	CACNA2D2,CACNG7,CACNG8	0.3632132398987943	1.0
+KEGG	hypermethylated	Gap junction	87	492	33010	2	GRM1,TUBB2B	0.37292673599202397	1.0
+KEGG	hypermethylated	Non-alcoholic fatty liver disease	147	492	33010	3	COX4I2,COX7A1,PKLR	0.3753521713413433	1.0
+KEGG	hypermethylated	Regulation of actin cytoskeleton	208	492	33010	4	FGF5,INSRR,PFN3,PPP1R12C	0.37541881167260005	1.0
+KEGG	hypermethylated	Morphine addiction	88	492	33010	2	GABRA1,PDE4C	0.3782473166615471	1.0
+KEGG	hypermethylated	Human T-cell leukemia virus 1 infection	210	492	33010	4	CDKN2A,HLA-DPA1,HLA-DPB1,RB1	0.38215489381475987	1.0
+KEGG	hypermethylated	Hematopoietic cell lineage	90	492	33010	2	HLA-DPA1,HLA-DPB1	0.38883102925799923	1.0
+KEGG	hypermethylated	Fc gamma R-mediated phagocytosis	92	492	33010	2	HCK,SPHK2	0.3993341412842934	1.0
+KEGG	hypermethylated	Mucin type O-glycan biosynthesis	35	492	33010	1	GALNTL6	0.40895294067338955	1.0
+KEGG	hypermethylated	Nicotinate and nicotinamide metabolism	35	492	33010	1	NT5E	0.40895294067338955	1.0
+KEGG	hypermethylated	MAPK signaling pathway	282	492	33010	5	CACNA2D2,CACNG7,CACNG8,FGF5,NTRK1	0.41122511621731983	1.0
+KEGG	hypermethylated	Nicotine addiction	36	492	33010	1	GABRA1	0.4177715958117881	1.0
+KEGG	hypermethylated	Tuberculosis	158	492	33010	3	HLA-DPA1,HLA-DPB1,SPHK2	0.41938673069601046	1.0
+KEGG	hypermethylated	Huntington disease	285	492	33010	5	COX4I2,COX7A1,DNALI1,KLC1,TUBB2B	0.42001115189204585	1.0
+KEGG	hypermethylated	Thyroid cancer	37	492	33010	1	NTRK1	0.4264589365912079	1.0
+KEGG	hypermethylated	MicroRNAs in cancer	288	492	33010	5	CDKN2A,HOXD10,MIR124-2,MMP9,SPRY2	0.42877458415289454	1.0
+KEGG	hypermethylated	Calcium signaling pathway	228	492	33010	4	FGF5,GRM1,NTRK1,SPHK2	0.4422037790839415	1.0
+KEGG	hypermethylated	Fatty acid degradation	42	492	33010	1	CPT2	0.46799322067603055	1.0
+KEGG	hypermethylated	Leukocyte transendothelial migration	107	492	33010	2	CTNNA1,MMP9	0.47513674515585486	1.0
+KEGG	hypermethylated	Other types of O-glycan biosynthesis	45	492	33010	1	GALNTL6	0.49145854482828605	1.0
+KEGG	hypermethylated	Pyruvate metabolism	46	492	33010	1	PKLR	0.49904848555161285	1.0
+KEGG	hypermethylated	Glutamatergic synapse	113	492	33010	2	DLGAP1,GRM1	0.5038045772075672	1.0
+KEGG	hypermethylated	Growth hormone synthesis, secretion and action	113	492	33010	2	GHSR,SST	0.5038045772075672	1.0
+KEGG	hypermethylated	Cocaine addiction	47	492	33010	1	SLC6A3	0.5065253738269617	1.0
+KEGG	hypermethylated	Neurotrophin signaling pathway	114	492	33010	2	NTRK1,ZNF274	0.5084833176713297	1.0
+KEGG	hypermethylated	Systemic lupus erythematosus	114	492	33010	2	HLA-DPA1,HLA-DPB1	0.5084833176713297	1.0
+KEGG	hypermethylated	Epstein-Barr virus infection	183	492	33010	3	HLA-DPA1,HLA-DPB1,RB1	0.5149112447662254	1.0
+KEGG	hypermethylated	Prion disease	252	492	33010	4	COX4I2,COX7A1,KLC1,TUBB2B	0.5192254155301085	1.0
+KEGG	hypermethylated	Cholesterol metabolism	49	492	33010	1	OSBPL5	0.5211466902696618	1.0
+KEGG	hypermethylated	Ovarian steroidogenesis	49	492	33010	1	ALOX5	0.5211466902696618	1.0
+KEGG	hypermethylated	Sphingolipid signaling pathway	118	492	33010	2	DEGS1,SPHK2	0.5269075083947712	1.0
+KEGG	hypermethylated	Glycosaminoglycan biosynthesis	51	492	33010	1	CSGALNACT1	0.5353356415246777	1.0
+KEGG	hypermethylated	Cell cycle	121	492	33010	2	CDKN2A,RB1	0.5404159661678297	1.0
+KEGG	hypermethylated	Regulation of lipolysis in adipocytes	54	492	33010	1	NPY	0.5558361934344864	1.0
+KEGG	hypermethylated	Endometrial cancer	56	492	33010	1	CTNNA1	0.5689992382592642	1.0
+KEGG	hypermethylated	Legionellosis	56	492	33010	1	HSF1	0.5689992382592642	1.0
+KEGG	hypermethylated	Proteoglycans in cancer	199	492	33010	3	HOXD10,MMP9,PPP1R12C	0.571452419341791	1.0
+KEGG	hypermethylated	Insulin signaling pathway	130	492	33010	2	PKLR,PRKAR1B	0.5793165095593289	1.0
+KEGG	hypermethylated	Long-term depression	58	492	33010	1	GRM1	0.5817729582094442	1.0
+KEGG	hypermethylated	Retinol metabolism	58	492	33010	1	CYP26A1	0.5817729582094442	1.0
+KEGG	hypermethylated	Vascular smooth muscle contraction	131	492	33010	2	CALCB,PPP1R12C	0.5834868008921987	1.0
+KEGG	hypermethylated	Notch signaling pathway	59	492	33010	1	MAML3	0.5880174260584655	1.0
+KEGG	hypermethylated	VEGF signaling pathway	59	492	33010	1	SPHK2	0.5880174260584655	1.0
+KEGG	hypermethylated	Human cytomegalovirus infection	206	492	33010	3	AKAP13,CDKN2A,RB1	0.5948699746423411	1.0
+KEGG	hypermethylated	Retrograde endocannabinoid signaling	134	492	33010	2	GABRA1,GRM1	0.5958143160732466	1.0
+KEGG	hypermethylated	Arachidonic acid metabolism	61	492	33010	1	ALOX5	0.6002286006535651	1.0
+KEGG	hypermethylated	Estrogen signaling pathway	136	492	33010	2	GRM1,MMP9	0.6038797747656643	1.0
+KEGG	hypermethylated	Pathways in cancer	497	492	33010	7	CDKN2A,CTNNA1,FGF5,LPAR6,MMP9,NTRK1,RB1	0.6120485273656141	1.0
+KEGG	hypermethylated	Glycolysis / Gluconeogenesis	63	492	33010	1	PKLR	0.6120785495519798	1.0
+KEGG	hypermethylated	Spinocerebellar ataxia	139	492	33010	2	ATXN8OS,GRM1	0.6157487736383611	1.0
+KEGG	hypermethylated	Thermogenesis	213	492	33010	3	COX4I2,COX7A1,CPT2	0.6174409926406776	1.0
+KEGG	hypermethylated	Long-term potentiation	64	492	33010	1	GRM1	0.617871409406305	1.0
+KEGG	hypermethylated	Adipocytokine signaling pathway	65	492	33010	1	NPY	0.6235779372570932	1.0
+KEGG	hypermethylated	Amphetamine addiction	66	492	33010	1	SLC6A3	0.6291994171438605	1.0
+KEGG	hypermethylated	Fc epsilon RI signaling pathway	66	492	33010	1	ALOX5	0.6291994171438605	1.0
+KEGG	hypermethylated	Hepatitis B	143	492	33010	2	MMP9,RB1	0.6311473767785085	1.0
+KEGG	hypermethylated	Influenza A	143	492	33010	2	HLA-DPA1,HLA-DPB1	0.6311473767785085	1.0
+KEGG	hypermethylated	Central carbon metabolism in cancer	67	492	33010	1	NTRK1	0.6347371140466416	1.0
+KEGG	hypermethylated	Epithelial cell signaling in Helicobacter pylori infection	67	492	33010	1	ATP6V1B1	0.6347371140466416	1.0
+KEGG	hypermethylated	Breast cancer	145	492	33010	2	FGF5,RB1	0.6386645509744664	1.0
+KEGG	hypermethylated	Adherens junction	70	492	33010	1	CTNNA1	0.6508598766592585	1.0
+KEGG	hypermethylated	RNA transport	151	492	33010	2	EIF3I,POM121L2	0.6604934843888326	1.0
+KEGG	hypermethylated	PPAR signaling pathway	72	492	33010	1	CPT2	0.6612118291649429	1.0
+KEGG	hypermethylated	Cellular senescence	152	492	33010	2	CDKN2A,RB1	0.6640270709444122	1.0
+KEGG	hypermethylated	p53 signaling pathway	73	492	33010	1	CDKN2A	0.6662723604677194	1.0
+KEGG	hypermethylated	Cushing syndrome	153	492	33010	2	CDKN2A,RB1	0.6675310146056395	1.0
+KEGG	hypermethylated	Bacterial invasion of epithelial cells	76	492	33010	1	CTNNA1	0.6810057954684097	1.0
+KEGG	hypermethylated	Hepatocellular carcinoma	159	492	33010	2	CDKN2A,RB1	0.6879378418760741	1.0
+KEGG	hypermethylated	Salmonella infection	239	492	33010	3	KLC1,PFN3,TUBB2B	0.6936317952814652	1.0
+KEGG	hypermethylated	Protein processing in endoplasmic reticulum	163	492	33010	2	SEL1L,SSR3	0.7009630933053002	1.0
+KEGG	hypermethylated	Bile secretion	83	492	33010	1	CFTR	0.7129083480882515	1.0
+KEGG	hypermethylated	Insulin secretion	83	492	33010	1	PDX1	0.7129083480882515	1.0
+KEGG	hypermethylated	Alcoholism	168	492	33010	2	NPY,SLC6A3	0.716606800398131	1.0
+KEGG	hypermethylated	IL-17 signaling pathway	87	492	33010	1	MMP9	0.7296873823926489	1.0
+KEGG	hypermethylated	Small cell lung cancer	88	492	33010	1	RB1	0.7337269233780641	1.0
+KEGG	hypermethylated	Axon guidance	176	492	33010	2	SEMA4A,SRGAP3	0.7402030133849927	1.0
+KEGG	hypermethylated	Drug metabolism	90	492	33010	1	DPYS	0.7416261644371285	1.0
+KEGG	hypermethylated	Kaposi sarcoma-associated herpesvirus infection	179	492	33010	2	HCK,RB1	0.7486095973832043	1.0
+KEGG	hypermethylated	Pancreatic secretion	94	492	33010	1	CFTR	0.7567299286241054	1.0
+KEGG	hypermethylated	Protein digestion and absorption	94	492	33010	1	COL11A1	0.7567299286241054	1.0
+KEGG	hypermethylated	Alzheimer disease	345	492	33010	4	COX4I2,COX7A1,KLC1,TUBB2B	0.7579682776159731	1.0
+KEGG	hypermethylated	Inflammatory mediator regulation of TRP channels	97	492	33010	1	NTRK1	0.7674765847442824	1.0
+KEGG	hypermethylated	Viral carcinogenesis	189	492	33010	2	CDKN2A,RB1	0.7749615068491237	1.0
+KEGG	hypermethylated	Longevity regulating pathway	101	492	33010	1	FOXA2	0.7810720364748175	1.0
+KEGG	hypermethylated	TNF signaling pathway	108	492	33010	1	MMP9	0.802982874676518	1.0
+KEGG	hypermethylated	Cholinergic synapse	111	492	33010	1	KCNQ4	0.8116899165446967	1.0
+KEGG	hypermethylated	Rap1 signaling pathway	207	492	33010	2	FGF5,PFN3	0.81634920290687	1.0
+KEGG	hypermethylated	AMPK signaling pathway	116	492	33010	1	CFTR	0.8253565787380709	1.0
+KEGG	hypermethylated	Thyroid hormone signaling pathway	117	492	33010	1	THRA	0.8279687439737027	1.0
+KEGG	hypermethylated	Chemical carcinogenesis	213	492	33010	2	FGF5,RB1	0.8285548727895778	1.0
+KEGG	hypermethylated	Human papillomavirus infection	311	492	33010	3	ATP6V1B1,MAML3,RB1	0.8444278968032387	1.0
+KEGG	hypermethylated	Relaxin signaling pathway	124	492	33010	1	MMP9	0.8451940484580333	1.0
+KEGG	hypermethylated	Ras signaling pathway	224	492	33010	2	FGF5,NTRK1	0.849049675941231	1.0
+KEGG	hypermethylated	FoxO signaling pathway	126	492	33010	1	GRM1	0.849791502009494	1.0
+KEGG	hypermethylated	Dopaminergic synapse	128	492	33010	1	SLC6A3	0.8542526888727429	1.0
+KEGG	hypermethylated	Fluid shear stress and atherosclerosis	129	492	33010	1	MMP9	0.8564334466452207	1.0
+KEGG	hypermethylated	PI3K-Akt signaling pathway	326	492	33010	3	FGF5,LPAR6,NTRK1	0.8661963612890189	1.0
+KEGG	hypermethylated	Apelin signaling pathway	136	492	33010	1	SPHK2	0.8708136235080971	1.0
+KEGG	hypermethylated	Apoptosis	138	492	33010	1	NTRK1	0.8746516124865056	1.0
+KEGG	hypermethylated	Hepatitis C	141	492	33010	1	RB1	0.8801962815661093	1.0
+KEGG	hypermethylated	mTOR signaling pathway	150	492	33010	1	ATP6V1B1	0.8954042367993348	1.0
+KEGG	hypermethylated	NOD-like receptor signaling pathway	152	492	33010	1	ANTXR2	0.8985129789293408	1.0
+KEGG	hypermethylated	Hippo signaling pathway	159	492	33010	1	CTNNA1	0.9086851065496236	1.0
+KEGG	hypermethylated	Tight junction	161	492	33010	1	CFTR	0.9113998593610763	1.0
+KEGG	hypermethylated	Chemokine signaling pathway	182	492	33010	1	HCK	0.9354702194394493	1.0
+KEGG	hypermethylated	Pathogenic Escherichia coli infection	188	492	33010	1	TUBB2B	0.9410602353835995	1.0
+KEGG	hypermethylated	Lipid and atherosclerosis	192	492	33010	1	MMP9	0.9445157343097462	1.0
+KEGG	hypermethylated	Focal adhesion	194	492	33010	1	PPP1R12C	0.9461669040187062	1.0
+KEGG	hypermethylated	Shigellosis	233	492	33010	1	PFN3	0.970143511870809	1.0
+KEGG	hypermethylated	Endocytosis	243	492	33010	1	CAPZB	0.9743347481383414	1.0
+KEGG	hypermethylated	Olfactory transduction	318	492	33010	1	CNGA3	0.9917585859316504	1.0
+KEGG	hypermethylated	AGE-RAGE signaling pathway in diabetic complications	94	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Acute myeloid leukemia	63	492	33010	0		1.0	1.0
+KEGG	hypermethylated	African trypanosomiasis	36	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Alanine, aspartate and glutamate metabolism	36	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Aldosterone synthesis and secretion	94	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Aldosterone-regulated sodium reabsorption	36	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Amino sugar and nucleotide sugar metabolism	47	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Aminoacyl-tRNA biosynthesis	44	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Amoebiasis	95	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Arginine and proline metabolism	44	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Arginine biosynthesis	20	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Ascorbate and aldarate metabolism	24	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Autophagy	130	492	33010	0		1.0	1.0
+KEGG	hypermethylated	B cell receptor signaling pathway	76	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Basal cell carcinoma	63	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Basal transcription factors	39	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Base excision repair	32	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Biosynthesis of unsaturated fatty acids	26	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Butanoate metabolism	25	492	33010	0		1.0	1.0
+KEGG	hypermethylated	C-type lectin receptor signaling pathway	102	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Caffeine metabolism	4	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Carbohydrate digestion and absorption	40	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Chagas disease	96	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Choline metabolism in cancer	95	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Circadian entrainment	96	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Circadian rhythm	31	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Citrate cycle (TCA cycle)	28	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Colorectal cancer	84	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Complement and coagulation cascades	77	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Coronavirus disease	203	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Cortisol synthesis and secretion	62	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Cysteine and methionine metabolism	47	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Cytokine-cytokine receptor interaction	259	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Cytosolic DNA-sensing pathway	48	492	33010	0		1.0	1.0
+KEGG	hypermethylated	D-Glutamine and D-glutamate metabolism	4	492	33010	0		1.0	1.0
+KEGG	hypermethylated	DNA replication	34	492	33010	0		1.0	1.0
+KEGG	hypermethylated	ECM-receptor interaction	86	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Endocrine and other factor-regulated calcium reabsorption	51	492	33010	0		1.0	1.0
+KEGG	hypermethylated	ErbB signaling pathway	81	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Ether lipid metabolism	49	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Fanconi anemia pathway	50	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Fat digestion and absorption	43	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Fatty acid biosynthesis	17	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Fatty acid elongation	26	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Ferroptosis	38	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Folate biosynthesis	26	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Fructose and mannose metabolism	32	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Galactose metabolism	28	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glucagon signaling pathway	97	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glutathione metabolism	46	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glycerolipid metabolism	56	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glycerophospholipid metabolism	94	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glycine, serine and threonine metabolism	34	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glycosaminoglycan degradation	18	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glycosphingolipid biosynthesis	44	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	25	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Glyoxylate and dicarboxylate metabolism	30	492	33010	0		1.0	1.0
+KEGG	hypermethylated	GnRH secretion	62	492	33010	0		1.0	1.0
+KEGG	hypermethylated	GnRH signaling pathway	90	492	33010	0		1.0	1.0
+KEGG	hypermethylated	HIF-1 signaling pathway	105	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Hedgehog signaling pathway	56	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Histidine metabolism	20	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Homologous recombination	39	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Human immunodeficiency virus 1 infection	193	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Inositol phosphate metabolism	69	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Insulin resistance	104	492	33010	0		1.0	1.0
+KEGG	hypermethylated	JAK-STAT signaling pathway	137	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Linoleic acid metabolism	29	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Lysine degradation	61	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Lysosome	123	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Malaria	47	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Mannose type O-glycan biosynthesis	23	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Measles	120	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Melanogenesis	101	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Metabolism of xenobiotics by cytochrome P450	61	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Mineral absorption	55	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Mismatch repair	22	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Mitophagy	65	492	33010	0		1.0	1.0
+KEGG	hypermethylated	N-Glycan biosynthesis	49	492	33010	0		1.0	1.0
+KEGG	hypermethylated	NF-kappa B signaling pathway	92	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Natural killer cell mediated cytotoxicity	104	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Necroptosis	138	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Neomycin, kanamycin and gentamicin biosynthesis	5	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Neutrophil extracellular trap formation	163	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Nitrogen metabolism	15	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Non-homologous end-joining	13	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Nucleotide excision repair	41	492	33010	0		1.0	1.0
+KEGG	hypermethylated	One carbon pool by folate	20	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Oocyte meiosis	115	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Osteoclast differentiation	118	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Other glycan degradation	18	492	33010	0		1.0	1.0
+KEGG	hypermethylated	PD-L1 expression and PD-1 checkpoint pathway in cancer	88	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Pentose and glucuronate interconversions	29	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Pentose phosphate pathway	25	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Peroxisome	80	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Pertussis	73	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Phenylalanine metabolism	15	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Phenylalanine, tyrosine and tryptophan biosynthesis	6	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Phosphatidylinositol signaling system	92	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Phosphonate and phosphinate metabolism	5	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Platelet activation	123	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Porphyrin and chlorophyll metabolism	35	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Primary bile acid biosynthesis	17	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Primary immunodeficiency	33	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Progesterone-mediated oocyte maturation	86	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Prolactin signaling pathway	69	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Propanoate metabolism	34	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Proteasome	46	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Protein export	23	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Proximal tubule bicarbonate reclamation	21	492	33010	0		1.0	1.0
+KEGG	hypermethylated	RIG-I-like receptor signaling pathway	52	492	33010	0		1.0	1.0
+KEGG	hypermethylated	RNA degradation	76	492	33010	0		1.0	1.0
+KEGG	hypermethylated	RNA polymerase	29	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Renal cell carcinoma	66	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Renin secretion	68	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Renin-angiotensin system	20	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Riboflavin metabolism	8	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Ribosome	128	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Ribosome biogenesis in eukaryotes	71	492	33010	0		1.0	1.0
+KEGG	hypermethylated	SNARE interactions in vesicular transport	32	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Salivary secretion	83	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Selenocompound metabolism	17	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Spliceosome	131	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Starch and sucrose metabolism	29	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Steroid biosynthesis	18	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Steroid hormone biosynthesis	52	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Sulfur metabolism	10	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Sulfur relay system	8	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Synthesis and degradation of ketone bodies	9	492	33010	0		1.0	1.0
+KEGG	hypermethylated	T cell receptor signaling pathway	101	492	33010	0		1.0	1.0
+KEGG	hypermethylated	TGF-beta signaling pathway	94	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Taurine and hypotaurine metabolism	11	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Terpenoid backbone biosynthesis	22	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Thiamine metabolism	15	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Thyroid hormone synthesis	73	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Toll-like receptor signaling pathway	83	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Tryptophan metabolism	39	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Tyrosine metabolism	34	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Ubiquinone and other terpenoid-quinone biosynthesis	11	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Ubiquitin mediated proteolysis	132	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Valine, leucine and isoleucine degradation	46	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Various types of N-glycan biosynthesis	38	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Vasopressin-regulated water reabsorption	43	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Viral protein interaction with cytokine and cytokine receptor	91	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Vitamin B6 metabolism	6	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Vitamin digestion and absorption	23	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Wnt signaling pathway	161	492	33010	0		1.0	1.0
+KEGG	hypermethylated	Yersinia infection	129	492	33010	0		1.0	1.0
+KEGG	hypermethylated	alpha-Linolenic acid metabolism	25	492	33010	0		1.0	1.0
+KEGG	hypermethylated	cGMP-PKG signaling pathway	161	492	33010	0		1.0	1.0
+KEGG	hypermethylated	mRNA surveillance pathway	85	492	33010	0		1.0	1.0
+KEGG	hypomethylated	MicroRNAs in cancer	288	204	33010	6	CD44,CDKN2A,EZR,MIR15B,MIR16-2,TNR	0.009268364709721668	1.0
+KEGG	hypomethylated	Phototransduction	27	204	33010	2	GRK7,PDE6B	0.012051243673875119	1.0
+KEGG	hypomethylated	Base excision repair	32	204	33010	2	PARP1,PARP4	0.01668968318069056	1.0
+KEGG	hypomethylated	Retinol metabolism	58	204	33010	2	ALDH1A3,CYP27C1	0.05012549451185269	1.0
+KEGG	hypomethylated	Cell adhesion molecules	135	204	33010	3	CD58,CLDN4,NRXN3	0.05157137154477161	1.0
+KEGG	hypomethylated	Apoptosis	138	204	33010	3	PARP1,PARP4,TNFRSF10A	0.054392010741826716	1.0
+KEGG	hypomethylated	Ubiquinone and other terpenoid-quinone biosynthesis	11	204	33010	1	COQ3	0.0659270016778121	1.0
+KEGG	hypomethylated	p53 signaling pathway	73	204	33010	2	CDKN2A,TNFRSF10A	0.07509757812273876	1.0
+KEGG	hypomethylated	Tight junction	161	204	33010	3	CD1D,CLDN4,EZR	0.07835532462990746	1.0
+KEGG	hypomethylated	ECM-receptor interaction	86	204	33010	2	CD44,TNR	0.0992451404691977	1.0
+KEGG	hypomethylated	Morphine addiction	88	204	33010	2	GRK5,PDE10A	0.10313253443777906	1.0
+KEGG	hypomethylated	Hematopoietic cell lineage	90	204	33010	2	CD1D,CD44	0.10706115479693587	1.0
+KEGG	hypomethylated	Pathogenic Escherichia coli infection	188	204	33010	3	CLDN4,EZR,TNFRSF10A	0.11128201054601523	1.0
+KEGG	hypomethylated	Leukocyte transendothelial migration	107	204	33010	2	CLDN4,EZR	0.14190222735277896	1.0
+KEGG	hypomethylated	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis	25	204	33010	1	PIGB	0.14361441199687647	1.0
+KEGG	hypomethylated	Cell cycle	121	204	33010	2	ANAPC1,CDKN2A	0.17212232764991628	1.0
+KEGG	hypomethylated	Purine metabolism	125	204	33010	2	PDE10A,PDE6B	0.1809434190729613	1.0
+KEGG	hypomethylated	Dopaminergic synapse	128	204	33010	2	GRIA1,SCN1A	0.18760321180774486	1.0
+KEGG	hypomethylated	Ribosome	128	204	33010	2	RPL23,RPS2	0.18760321180774486	1.0
+KEGG	hypomethylated	Glycine, serine and threonine metabolism	34	204	33010	1	PSPH	0.1901253892689633	1.0
+KEGG	hypomethylated	Spliceosome	131	204	33010	2	RBMXL2,SRSF7	0.19429668727700528	1.0
+KEGG	hypomethylated	Nicotine addiction	36	204	33010	1	GRIA1	0.2001148286080095	1.0
+KEGG	hypomethylated	Necroptosis	138	204	33010	2	PARP1,TNFRSF10A	0.21002645523986402	1.0
+KEGG	hypomethylated	Bladder cancer	39	204	33010	1	CDKN2A	0.2148695463900902	1.0
+KEGG	hypomethylated	Type I diabetes mellitus	40	204	33010	1	PTPRN2	0.21972734908143793	1.0
+KEGG	hypomethylated	Cytosolic DNA-sensing pathway	48	204	33010	1	AIM2	0.2575282629817191	1.0
+KEGG	hypomethylated	Wnt signaling pathway	161	204	33010	2	CCN4,TBL1XR1	0.26237336074653367	1.0
+KEGG	hypomethylated	Viral myocarditis	54	204	33010	1	CXADR	0.2846779101576187	1.0
+KEGG	hypomethylated	Pyrimidine metabolism	55	204	33010	1	CTPS1	0.2891058051184101	1.0
+KEGG	hypomethylated	Legionellosis	56	204	33010	1	SAR1A	0.29350642462245613	1.0
+KEGG	hypomethylated	Long-term depression	58	204	33010	1	GRIA1	0.302226505008157	1.0
+KEGG	hypomethylated	Chemokine signaling pathway	182	204	33010	2	GRK5,GRK7	0.310282083737329	1.0
+KEGG	hypomethylated	Epstein-Barr virus infection	183	204	33010	2	CD44,CD58	0.31255227153584275	1.0
+KEGG	hypomethylated	Lysine degradation	61	204	33010	1	PRDM16	0.3151062064450322	1.0
+KEGG	hypomethylated	Acute myeloid leukemia	63	204	33010	1	ZBTB16	0.3235609647640666	1.0
+KEGG	hypomethylated	Long-term potentiation	64	204	33010	1	GRIA1	0.32774931463471113	1.0
+KEGG	hypomethylated	Amphetamine addiction	66	204	33010	1	GRIA1	0.3360487518277796	1.0
+KEGG	hypomethylated	Proteoglycans in cancer	199	204	33010	2	CD44,EZR	0.3486178470308837	1.0
+KEGG	hypomethylated	Melanoma	70	204	33010	1	CDKN2A	0.35234297288918714	1.0
+KEGG	hypomethylated	Non-small cell lung cancer	71	204	33010	1	CDKN2A	0.3563539635853199	1.0
+KEGG	hypomethylated	Coronavirus disease	203	204	33010	2	RPL23,RPS2	0.35754170391508866	1.0
+KEGG	hypomethylated	Pancreatic cancer	73	204	33010	1	CDKN2A	0.36430193848464576	1.0
+KEGG	hypomethylated	Chronic myeloid leukemia	74	204	33010	1	CDKN2A	0.36823922495727923	1.0
+KEGG	hypomethylated	Glioma	74	204	33010	1	CDKN2A	0.36823922495727923	1.0
+KEGG	hypomethylated	cAMP signaling pathway	209	204	33010	2	GRIA1,PDE10A	0.3708438563279416	1.0
+KEGG	hypomethylated	Gastric acid secretion	75	204	33010	1	EZR	0.3721522440885859	1.0
+KEGG	hypomethylated	Human T-cell leukemia virus 1 infection	210	204	33010	2	ANAPC1,CDKN2A	0.3730504872324763	1.0
+KEGG	hypomethylated	Synaptic vesicle cycle	78	204	33010	1	SYT1	0.3837471812852714	1.0
+KEGG	hypomethylated	Taste transduction	79	204	33010	1	ASIC2	0.38756461038213164	1.0
+KEGG	hypomethylated	Peroxisome	80	204	33010	1	PEX7	0.3913585073024212	1.0
+KEGG	hypomethylated	Bile secretion	83	204	33010	1	SCT	0.4026004441200206	1.0
+KEGG	hypomethylated	Progesterone-mediated oocyte maturation	86	204	33010	1	ANAPC1	0.4136357354280828	1.0
+KEGG	hypomethylated	IL-17 signaling pathway	87	204	33010	1	IL17RA	0.4172688999880599	1.0
+KEGG	hypomethylated	Viral protein interaction with cytokine and cytokine receptor	91	204	33010	1	TNFRSF10A	0.4315789111681351	1.0
+KEGG	hypomethylated	NF-kappa B signaling pathway	92	204	33010	1	PARP1	0.43510143318039846	1.0
+KEGG	hypomethylated	Salmonella infection	239	204	33010	2	S100A10,TNFRSF10A	0.4355268757150485	1.0
+KEGG	hypomethylated	Pancreatic secretion	94	204	33010	1	SCT	0.44208144203385086	1.0
+KEGG	hypomethylated	Endocytosis	243	204	33010	2	GRK5,GRK7	0.4438868401751331	1.0
+KEGG	hypomethylated	Amoebiasis	95	204	33010	1	CD1D	0.4455391946716287	1.0
+KEGG	hypomethylated	Circadian entrainment	96	204	33010	1	GRIA1	0.4489756219627421	1.0
+KEGG	hypomethylated	Inflammatory mediator regulation of TRP channels	97	204	33010	1	ASIC2	0.45239085478523644	1.0
+KEGG	hypomethylated	Natural killer cell mediated cytotoxicity	104	204	33010	1	TNFRSF10A	0.47571486654771045	1.0
+KEGG	hypomethylated	Cytokine-cytokine receptor interaction	259	204	33010	2	IL17RA,TNFRSF10A	0.4766246786295834	1.0
+KEGG	hypomethylated	Glutamatergic synapse	113	204	33010	1	GRIA1	0.5042558864047869	1.0
+KEGG	hypomethylated	Oocyte meiosis	115	204	33010	1	ANAPC1	0.510385306040393	1.0
+KEGG	hypomethylated	Platelet activation	123	204	33010	1	APBB1IP	0.5341579857395967	1.0
+KEGG	hypomethylated	Ubiquitin mediated proteolysis	132	204	33010	1	ANAPC1	0.55953177144603	1.0
+KEGG	hypomethylated	Retrograde endocannabinoid signaling	134	204	33010	1	GRIA1	0.5649808930993219	1.0
+KEGG	hypomethylated	JAK-STAT signaling pathway	137	204	33010	1	IL22RA2	0.5730290469262259	1.0
+KEGG	hypomethylated	Neuroactive ligand-receptor interaction	313	204	33010	2	GRIA1,SCT	0.5779751377710737	1.0
+KEGG	hypomethylated	Spinocerebellar ataxia	139	204	33010	1	GRIA1	0.578311991979571	1.0
+KEGG	hypomethylated	Hepatitis C	141	204	33010	1	CLDN4	0.5835298872143938	1.0
+KEGG	hypomethylated	Influenza A	143	204	33010	1	TNFRSF10A	0.5886835297031122	1.0
+KEGG	hypomethylated	Adrenergic signaling in cardiomyocytes	144	204	33010	1	CREM	0.5912365025920455	1.0
+KEGG	hypomethylated	mTOR signaling pathway	150	204	33010	1	TBC1D7	0.6062265691339042	1.0
+KEGG	hypomethylated	Cellular senescence	152	204	33010	1	CDKN2A	0.6111006801962183	1.0
+KEGG	hypomethylated	NOD-like receptor signaling pathway	152	204	33010	1	AIM2	0.6111006801962183	1.0
+KEGG	hypomethylated	Cushing syndrome	153	204	33010	1	CDKN2A	0.6135151747254042	1.0
+KEGG	hypomethylated	Amyotrophic lateral sclerosis	339	204	33010	2	GRIA1,SRSF7	0.6214261250147042	1.0
+KEGG	hypomethylated	Hepatocellular carcinoma	159	204	33010	1	CDKN2A	0.6276920660097781	1.0
+KEGG	hypomethylated	Protein processing in endoplasmic reticulum	163	204	33010	1	SAR1A	0.6368546097726886	1.0
+KEGG	hypomethylated	Transcriptional misregulation in cancer	176	204	33010	1	ZBTB16	0.6651111424817504	1.0
+KEGG	hypomethylated	Diabetic cardiomyopathy	179	204	33010	1	PARP1	0.6713146937299332	1.0
+KEGG	hypomethylated	Viral carcinogenesis	189	204	33010	1	CDKN2A	0.6911789570934446	1.0
+KEGG	hypomethylated	Lipid and atherosclerosis	192	204	33010	1	TNFRSF10A	0.6969018745325278	1.0
+KEGG	hypomethylated	Focal adhesion	194	204	33010	1	TNR	0.7006583969764049	1.0
+KEGG	hypomethylated	Human cytomegalovirus infection	206	204	33010	1	CDKN2A	0.7222442217459302	1.0
+KEGG	hypomethylated	Rap1 signaling pathway	207	204	33010	1	APBB1IP	0.7239715165503395	1.0
+KEGG	hypomethylated	Regulation of actin cytoskeleton	208	204	33010	1	EZR	0.7256881220627531	1.0
+KEGG	hypomethylated	Thermogenesis	213	204	33010	1	PRDM16	0.7341131001017016	1.0
+KEGG	hypomethylated	Shigellosis	233	204	33010	1	CD44	0.7653148971366084	1.0
+KEGG	hypomethylated	Herpes simplex virus 1 infection	458	204	33010	2	SRSF7,ZNF184	0.7771233865616187	1.0
+KEGG	hypomethylated	Pathways in cancer	497	204	33010	2	CDKN2A,ZBTB16	0.8144092099944062	1.0
+KEGG	hypomethylated	MAPK signaling pathway	282	204	33010	1	TAOK3	0.8272065848482868	1.0
+KEGG	hypomethylated	Huntington disease	285	204	33010	1	GRIA1	0.8304177487790236	1.0
+KEGG	hypomethylated	Human papillomavirus infection	311	204	33010	1	TNR	0.855873623706518	1.0
+KEGG	hypomethylated	PI3K-Akt signaling pathway	326	204	33010	1	TNR	0.8687903550496101	1.0
+KEGG	hypomethylated	Pathways of neurodegeneration	448	204	33010	1	GRIA1	0.9389609009993782	1.0
+KEGG	hypomethylated	ABC transporters	42	204	33010	0		1.0	1.0
+KEGG	hypomethylated	AGE-RAGE signaling pathway in diabetic complications	94	204	33010	0		1.0	1.0
+KEGG	hypomethylated	AMPK signaling pathway	116	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Adherens junction	70	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Adipocytokine signaling pathway	65	204	33010	0		1.0	1.0
+KEGG	hypomethylated	African trypanosomiasis	36	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Alanine, aspartate and glutamate metabolism	36	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Alcoholism	168	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Aldosterone synthesis and secretion	94	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Aldosterone-regulated sodium reabsorption	36	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Allograft rejection	33	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Alzheimer disease	345	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Amino sugar and nucleotide sugar metabolism	47	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Aminoacyl-tRNA biosynthesis	44	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Antigen processing and presentation	64	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Apelin signaling pathway	136	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Arachidonic acid metabolism	61	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Arginine and proline metabolism	44	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Arginine biosynthesis	20	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Arrhythmogenic right ventricular cardiomyopathy	74	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Ascorbate and aldarate metabolism	24	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Asthma	26	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Autoimmune thyroid disease	37	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Autophagy	130	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Axon guidance	176	204	33010	0		1.0	1.0
+KEGG	hypomethylated	B cell receptor signaling pathway	76	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Bacterial invasion of epithelial cells	76	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Basal cell carcinoma	63	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Basal transcription factors	39	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Biosynthesis of unsaturated fatty acids	26	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Breast cancer	145	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Butanoate metabolism	25	204	33010	0		1.0	1.0
+KEGG	hypomethylated	C-type lectin receptor signaling pathway	102	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Caffeine metabolism	4	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Calcium signaling pathway	228	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Carbohydrate digestion and absorption	40	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Cardiac muscle contraction	78	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Central carbon metabolism in cancer	67	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Chagas disease	96	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Chemical carcinogenesis	213	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Cholesterol metabolism	49	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Choline metabolism in cancer	95	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Cholinergic synapse	111	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Circadian rhythm	31	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Citrate cycle (TCA cycle)	28	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Cocaine addiction	47	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Collecting duct acid secretion	27	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Colorectal cancer	84	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Complement and coagulation cascades	77	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Cortisol synthesis and secretion	62	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Cysteine and methionine metabolism	47	204	33010	0		1.0	1.0
+KEGG	hypomethylated	D-Glutamine and D-glutamate metabolism	4	204	33010	0		1.0	1.0
+KEGG	hypomethylated	DNA replication	34	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Dilated cardiomyopathy	92	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Drug metabolism	90	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Endocrine and other factor-regulated calcium reabsorption	51	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Endometrial cancer	56	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Epithelial cell signaling in Helicobacter pylori infection	67	204	33010	0		1.0	1.0
+KEGG	hypomethylated	ErbB signaling pathway	81	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Estrogen signaling pathway	136	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Ether lipid metabolism	49	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fanconi anemia pathway	50	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fat digestion and absorption	43	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fatty acid biosynthesis	17	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fatty acid degradation	42	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fatty acid elongation	26	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fc epsilon RI signaling pathway	66	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fc gamma R-mediated phagocytosis	92	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Ferroptosis	38	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fluid shear stress and atherosclerosis	129	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Folate biosynthesis	26	204	33010	0		1.0	1.0
+KEGG	hypomethylated	FoxO signaling pathway	126	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Fructose and mannose metabolism	32	204	33010	0		1.0	1.0
+KEGG	hypomethylated	GABAergic synapse	84	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Galactose metabolism	28	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Gap junction	87	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Gastric cancer	147	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glucagon signaling pathway	97	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glutathione metabolism	46	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glycerolipid metabolism	56	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glycerophospholipid metabolism	94	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glycolysis / Gluconeogenesis	63	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glycosaminoglycan biosynthesis	51	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glycosaminoglycan degradation	18	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glycosphingolipid biosynthesis	44	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Glyoxylate and dicarboxylate metabolism	30	204	33010	0		1.0	1.0
+KEGG	hypomethylated	GnRH secretion	62	204	33010	0		1.0	1.0
+KEGG	hypomethylated	GnRH signaling pathway	90	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Graft-versus-host disease	35	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Growth hormone synthesis, secretion and action	113	204	33010	0		1.0	1.0
+KEGG	hypomethylated	HIF-1 signaling pathway	105	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Hedgehog signaling pathway	56	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Hepatitis B	143	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Hippo signaling pathway	159	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Histidine metabolism	20	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Homologous recombination	39	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Human immunodeficiency virus 1 infection	193	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Hypertrophic cardiomyopathy	87	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Inflammatory bowel disease	60	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Inositol phosphate metabolism	69	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Insulin resistance	104	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Insulin secretion	83	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Insulin signaling pathway	130	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Intestinal immune network for IgA production	42	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Kaposi sarcoma-associated herpesvirus infection	179	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Leishmaniasis	67	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Linoleic acid metabolism	29	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Longevity regulating pathway	101	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Lysosome	123	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Malaria	47	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Mannose type O-glycan biosynthesis	23	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Maturity onset diabetes of the young	26	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Measles	120	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Melanogenesis	101	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Metabolism of xenobiotics by cytochrome P450	61	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Mineral absorption	55	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Mismatch repair	22	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Mitophagy	65	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Mucin type O-glycan biosynthesis	35	204	33010	0		1.0	1.0
+KEGG	hypomethylated	N-Glycan biosynthesis	49	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Neomycin, kanamycin and gentamicin biosynthesis	5	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Neurotrophin signaling pathway	114	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Neutrophil extracellular trap formation	163	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Nicotinate and nicotinamide metabolism	35	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Nitrogen metabolism	15	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Non-alcoholic fatty liver disease	147	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Non-homologous end-joining	13	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Notch signaling pathway	59	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Nucleotide excision repair	41	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Olfactory transduction	318	204	33010	0		1.0	1.0
+KEGG	hypomethylated	One carbon pool by folate	20	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Osteoclast differentiation	118	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Other glycan degradation	18	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Other types of O-glycan biosynthesis	45	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Ovarian steroidogenesis	49	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Oxidative phosphorylation	116	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Oxytocin signaling pathway	151	204	33010	0		1.0	1.0
+KEGG	hypomethylated	PD-L1 expression and PD-1 checkpoint pathway in cancer	88	204	33010	0		1.0	1.0
+KEGG	hypomethylated	PPAR signaling pathway	72	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Pantothenate and CoA biosynthesis	21	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Parathyroid hormone synthesis, secretion and action	105	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Parkinson disease	228	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Pentose and glucuronate interconversions	29	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Pentose phosphate pathway	25	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Pertussis	73	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Phagosome	140	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Phenylalanine metabolism	15	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Phenylalanine, tyrosine and tryptophan biosynthesis	6	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Phosphatidylinositol signaling system	92	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Phospholipase D signaling pathway	143	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Phosphonate and phosphinate metabolism	5	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Porphyrin and chlorophyll metabolism	35	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Primary bile acid biosynthesis	17	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Primary immunodeficiency	33	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Prion disease	252	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Prolactin signaling pathway	69	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Propanoate metabolism	34	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Prostate cancer	94	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Proteasome	46	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Protein digestion and absorption	94	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Protein export	23	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Proximal tubule bicarbonate reclamation	21	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Pyruvate metabolism	46	204	33010	0		1.0	1.0
+KEGG	hypomethylated	RIG-I-like receptor signaling pathway	52	204	33010	0		1.0	1.0
+KEGG	hypomethylated	RNA degradation	76	204	33010	0		1.0	1.0
+KEGG	hypomethylated	RNA polymerase	29	204	33010	0		1.0	1.0
+KEGG	hypomethylated	RNA transport	151	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Ras signaling pathway	224	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Regulation of lipolysis in adipocytes	54	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Relaxin signaling pathway	124	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Renal cell carcinoma	66	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Renin secretion	68	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Renin-angiotensin system	20	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Rheumatoid arthritis	85	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Riboflavin metabolism	8	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Ribosome biogenesis in eukaryotes	71	204	33010	0		1.0	1.0
+KEGG	hypomethylated	SNARE interactions in vesicular transport	32	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Salivary secretion	83	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Selenocompound metabolism	17	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Serotonergic synapse	108	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Signaling pathways regulating pluripotency of stem cells	139	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Small cell lung cancer	88	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Sphingolipid metabolism	48	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Sphingolipid signaling pathway	118	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Staphylococcus aureus infection	79	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Starch and sucrose metabolism	29	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Steroid biosynthesis	18	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Steroid hormone biosynthesis	52	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Sulfur metabolism	10	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Sulfur relay system	8	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Synthesis and degradation of ketone bodies	9	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Systemic lupus erythematosus	114	204	33010	0		1.0	1.0
+KEGG	hypomethylated	T cell receptor signaling pathway	101	204	33010	0		1.0	1.0
+KEGG	hypomethylated	TGF-beta signaling pathway	94	204	33010	0		1.0	1.0
+KEGG	hypomethylated	TNF signaling pathway	108	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Taurine and hypotaurine metabolism	11	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Terpenoid backbone biosynthesis	22	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Th1 and Th2 cell differentiation	87	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Th17 cell differentiation	101	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Thiamine metabolism	15	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Thyroid cancer	37	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Thyroid hormone signaling pathway	117	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Thyroid hormone synthesis	73	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Toll-like receptor signaling pathway	83	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Toxoplasmosis	105	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Tryptophan metabolism	39	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Tuberculosis	158	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Type II diabetes mellitus	45	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Tyrosine metabolism	34	204	33010	0		1.0	1.0
+KEGG	hypomethylated	VEGF signaling pathway	59	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Valine, leucine and isoleucine degradation	46	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Various types of N-glycan biosynthesis	38	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Vascular smooth muscle contraction	131	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Vasopressin-regulated water reabsorption	43	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Vibrio cholerae infection	49	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Vitamin B6 metabolism	6	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Vitamin digestion and absorption	23	204	33010	0		1.0	1.0
+KEGG	hypomethylated	Yersinia infection	129	204	33010	0		1.0	1.0
+KEGG	hypomethylated	alpha-Linolenic acid metabolism	25	204	33010	0		1.0	1.0
+KEGG	hypomethylated	beta-Alanine metabolism	30	204	33010	0		1.0	1.0
+KEGG	hypomethylated	cGMP-PKG signaling pathway	161	204	33010	0		1.0	1.0
+KEGG	hypomethylated	mRNA surveillance pathway	85	204	33010	0		1.0	1.0

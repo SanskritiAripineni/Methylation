@@ -1,0 +1,31 @@
+{
+  "panel_size": 20,
+  "general_tumor_markers": 12,
+  "basal_skewed_markers": 8,
+  "tumor_vs_normal_classifier": {
+    "n_samples": 888,
+    "n_features": 20,
+    "roc_auc_mean": 0.9963924050632912,
+    "roc_auc_std": 0.0032725294968623314,
+    "roc_auc_per_fold": [
+      0.9990506329113924,
+      0.9955696202531645,
+      1.0,
+      0.9966688874083944,
+      0.9906728847435045
+    ]
+  },
+  "basal_vs_non_basal_classifier": {
+    "n_samples": 780,
+    "n_features": 20,
+    "roc_auc_mean": 0.991592982881137,
+    "roc_auc_std": 0.010933516462555283,
+    "roc_auc_per_fold": [
+      0.9988839285714286,
+      0.9952566964285714,
+      0.9965546942291128,
+      0.9698535745047373,
+      0.9974160206718345
+    ]
+  }
+}

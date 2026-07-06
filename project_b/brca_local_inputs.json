@@ -1,0 +1,13 @@
+{
+  "methylation_matrix": "data/raw/TCGA-BRCA.methylation450.tsv.gz",
+  "clinical_metadata": "data/raw/TCGA-BRCA.clinical.tsv.gz",
+  "probe_annotation": "data/raw/HM450.hg38.manifest.gencode.v36.probeMap",
+  "probe_annotation_zhou": "data/raw/HM450.hg38.manifest.gencode.v36.zhou.tsv.gz",
+  "subtype_metadata": "data/raw/TCGA-BRCA.subtypes.tsv",
+  "output_dir": "outputs/brca_methylation",
+  "max_sample_missingness": 0.25,
+  "max_probe_missingness": 0.10,
+  "drop_sex_chromosomes": true,
+  "heatmap_top_n": 50,
+  "classifier_top_n": 25
+}

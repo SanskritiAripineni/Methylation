@@ -1,0 +1,121 @@
+sample_geo_accession	sample_title	sample_source_name_ch1	sample_type_characteristic	disease_state_characteristic	title_suffix_class	sample_class	label_agreement
+GSM1629194	01-208-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629195	01-254-N	Normal	Normal	Normal	normal	normal	True
+GSM1629196	01-212-N	Normal	Normal	Normal	normal	normal	True
+GSM1629197	01-254-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629198	01-212-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629199	01-265-N	Normal	Normal	Normal	normal	normal	True
+GSM1629200	01-237-N	Normal	Normal	Normal	normal	normal	True
+GSM1629201	01-265-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629202	01-242-N	Normal	Normal	Normal	normal	normal	True
+GSM1629203	01-302-N	Normal	Normal	Normal	normal	normal	True
+GSM1629204	01-242-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629205	01-302-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629206	00-105-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629207	00-395-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629208	00-135-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629209	00-409-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629210	00-151-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629211	00-401-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629212	00-172-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629213	00-480-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629214	00-185-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629215	00-522-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629216	00-225-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629217	00-529-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629218	00-530-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629219	00-462-N	Normal	Normal	Normal	normal	normal	True
+GSM1629220	00-525-N	Normal	Normal	Normal	normal	normal	True
+GSM1629221	00-525-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629222	99-029-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629223	99-301-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629224	99-066-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629225	00-200-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629226	99-165-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629227	00-292-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629228	99-188-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629229	00-301-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629230	99-225-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629231	01-201-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629232	99-260-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629233	01-218-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629234	01-219-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629235	01-367-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629236	01-262-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629237	99-066-N	Normal	Normal	Normal	normal	normal	True
+GSM1629238	01-273-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629239	01-255-N	Normal	Normal	Normal	normal	normal	True
+GSM1629240	01-276-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629241	01-367-N	Normal	Normal	Normal	normal	normal	True
+GSM1629242	01-280-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629243	01-298-N	Normal	Normal	Normal	normal	normal	True
+GSM1629244	01-340-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629245	01-298-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629246	00-218-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629247	BS66770-N	Normal	Normal	Normal	normal	normal	True
+GSM1629248	00-291-N	Normal	Normal	Normal	normal	normal	True
+GSM1629249	BS66755-N	Normal	Normal	Normal	normal	normal	True
+GSM1629250	00-291-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629251	BS66498-N	Normal	Normal	Normal	normal	normal	True
+GSM1629252	01-060-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629253	BS66689-N	Normal	Normal	Normal	normal	normal	True
+GSM1629254	00-012-N	Normal	Normal	Normal	normal	normal	True
+GSM1629255	BS66172-N	Normal	Normal	Normal	normal	normal	True
+GSM1629256	00-012-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629257	BS66352-N	Normal	Normal	Normal	normal	normal	True
+GSM1629258	67777-N	Normal	Normal	Normal	normal	normal	True
+GSM1629259	67763-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629260	BS66770-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629261	67777-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629262	BS66352-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629263	BS66755-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629264	BS66689-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629265	BS66459-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629266	00-144-N	Normal	Normal	Normal	normal	normal	True
+GSM1629267	00-391-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629268	00-164-N	Normal	Normal	Normal	normal	normal	True
+GSM1629269	01-015-N	Normal	Normal	Normal	normal	normal	True
+GSM1629270	00-218-N	Normal	Normal	Normal	normal	normal	True
+GSM1629271	01-015-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629272	01-123-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629273	01-045-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629274	00-359-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629275	01-061-N	Normal	Normal	Normal	normal	normal	True
+GSM1629276	00-360-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629277	01-061-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629278	01-066-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629279	01-168-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629280	01-116-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629281	01-169-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629282	01-144-N	Normal	Normal	Normal	normal	normal	True
+GSM1629283	01-177-N	Normal	Normal	Normal	normal	normal	True
+GSM1629284	01-144-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629285	01-177-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629286	01-148-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629287	01-186-N	Normal	Normal	Normal	normal	normal	True
+GSM1629288	01-168-N	Normal	Normal	Normal	normal	normal	True
+GSM1629289	01-186-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629290	01-199-N	Normal	Normal	Normal	normal	normal	True
+GSM1629291	99-273-N	Normal	Normal	Normal	normal	normal	True
+GSM1629292	01-199-T	Tumor	ER Negative	Tumor	tumor	tumor	True
+GSM1629293	99-312-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629294	99-013-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629295	99-312-T-2	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629296	99-073-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629297	99-344-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629298	99-217-N	Normal	Normal	Normal	normal	normal	True
+GSM1629299	99-359-N	Normal	Normal	Normal	normal	normal	True
+GSM1629300	99-217-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629301	99-369-N	Normal	Normal	Normal	normal	normal	True
+GSM1629302	99-387-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629303	99-506-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629304	99-388-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629305	99-523-N	Normal	Normal	Normal	normal	normal	True
+GSM1629306	99-403-N	Normal	Normal	Normal	normal	normal	True
+GSM1629307	99-523-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629308	99-403-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629309	99-536-N	Normal	Normal	Normal	normal	normal	True
+GSM1629310	99-468-N	Normal	Normal	Normal	normal	normal	True
+GSM1629311	01-083-N	Normal	Normal	Normal	normal	normal	True
+GSM1629312	99-468-T	Tumor	ER Positive	Tumor	tumor	tumor	True
+GSM1629313	01-083-T	Tumor	ER Positive	Tumor	tumor	tumor	True

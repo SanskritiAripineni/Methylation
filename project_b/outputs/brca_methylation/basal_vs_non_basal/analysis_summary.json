@@ -1,0 +1,12 @@
+{
+  "run_name": "basal_vs_non_basal",
+  "n_samples": 780,
+  "n_case": 137,
+  "n_reference": 643,
+  "n_probes_tested": 383471,
+  "n_probes_with_finite_fdr": 383471,
+  "n_fdr_lt_0_05": 228583,
+  "n_abs_delta_ge_0_20": 16713,
+  "n_fdr_lt_0_05_and_abs_delta_ge_0_20": 16713,
+  "n_fdr_lt_0_05_and_abs_delta_ge_0_30": 3760
+}

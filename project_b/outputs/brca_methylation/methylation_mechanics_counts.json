@@ -1,0 +1,17 @@
+{
+  "full_significant": {
+    "silencing": 98839,
+    "activation": 60755,
+    "ambiguous": 162229
+  },
+  "candidate_panel_all": {
+    "silencing": 55,
+    "activation": 1,
+    "ambiguous": 44
+  },
+  "candidate_panel_top20": {
+    "silencing": 14,
+    "activation": 0,
+    "ambiguous": 6
+  }
+}

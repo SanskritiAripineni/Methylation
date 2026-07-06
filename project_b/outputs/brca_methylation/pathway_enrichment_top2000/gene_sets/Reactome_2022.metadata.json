@@ -1,0 +1,6 @@
+{
+  "source": "Enrichr geneSetLibrary GMT endpoint",
+  "library": "Reactome_2022",
+  "url": "https://maayanlab.cloud/Enrichr/geneSetLibrary?mode=text&libraryName=Reactome_2022",
+  "download_date": "2026-06-29"
+}
