@@ -5,6 +5,13 @@ A guide to what's in this folder and what to open first. Everything here is deri
 
 ---
 
+## 🖥 Best for presenting — open the one-page overview (HTML)
+
+**`Results_Presentation.html`** — double-click to open in any web browser. A single, self-contained
+page with everything in plain English: what we did, the hyper/hypo numbers, the site locations, the
+figures (volcano / PCA / heatmap), the FGF2 example, and a map of where every result file lives.
+Nothing to install; works offline.
+
 ## 📄 If you have 5 minutes — open the Reports (Word)
 
 `Reports/` (read in this order):
