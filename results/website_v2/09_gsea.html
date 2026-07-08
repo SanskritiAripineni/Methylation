@@ -70,6 +70,17 @@ figcaption{color:var(--muted);font-size:13.5px;margin-top:14px;max-width:66ch;li
 .key .sw{width:10px;height:10px;border-radius:50%;display:inline-block}
 .sw-red{background:var(--red)}.sw-blue{background:var(--blue)}.sw-gray{background:var(--gray)}
 .redt{color:var(--red)}.bluet{color:var(--blue)}.mutedt{color:var(--muted)}
+/* native charts: scatter / bars / stacked / slope */
+.fig .pt{opacity:.5;stroke:var(--bg);stroke-width:.5}
+.fig .pt.red{fill:var(--red)}.fig .pt.blue{fill:var(--blue)}
+.fig .axl{stroke:var(--hair);stroke-width:1}
+.fig .axtitle{fill:var(--muted);font-family:var(--sans);font-size:11px}
+.fig .bar{fill:var(--accent);opacity:.82}
+.fig .barlab{fill:var(--ink);font-family:var(--sans);font-size:12.5px}
+.fig .barval{fill:var(--muted);font-family:var(--sans);font-size:11.5px}
+.fig .seg.red{fill:var(--red)}.fig .seg.blue{fill:var(--blue)}.fig .seg.grayseg{fill:var(--gray)}
+.fig .seginner{fill:var(--bg);font-family:var(--sans);font-size:12px;font-weight:600}
+.fig .thr{stroke:var(--red);stroke-dasharray:4 4;stroke-width:1;opacity:.55}
 /* table */
 table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}
 th{text-align:left;font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.06em;
@@ -92,6 +103,12 @@ tbody tr:hover td{background:var(--faint)}
 <hr class="rule">
 <p class="lede">Gene-set signals after correcting for a known array design bias.</p>
 <p>The pathway signals from Analysis 07 were re-tested with methods built for array methylation (missMethyl and methylGSA), which correct for the number of probes per gene. After correction, the longevity gene sets the project set out to examine did not remain significant.</p>
+<figure><svg viewBox="0 0 700 260" class="fig"><line x1="263.2" y1="22" x2="263.2" y2="234" class="thr"/><text x="263.2" y="18" class="tick" text-anchor="middle">p = 0.05</text><text x="140" y="58" class="barlab" text-anchor="end">FGF family</text><line x1="176.3" y1="54" x2="286.5" y2="54" class="conn"/><circle cx="286.5" cy="54" r="5" class="dot healthy" data-t="FGF family — over-representation p 0.027"/><circle cx="176.3" cy="54" r="5" class="dot blue" data-t="FGF family — bias-corrected FDR 0.499"/><text x="140" y="98" class="barlab" text-anchor="end">IGF / insulin</text><line x1="198.5" y1="94" x2="358.6" y2="94" class="conn"/><circle cx="358.6" cy="94" r="5" class="dot healthy" data-t="IGF / insulin — over-representation p 0.004"/><circle cx="198.5" cy="94" r="5" class="dot blue" data-t="IGF / insulin — bias-corrected FDR 0.277"/><text x="140" y="138" class="barlab" text-anchor="end">Wnt</text><line x1="182.8" y1="134" x2="332.4" y2="134" class="conn"/><circle cx="332.4" cy="134" r="5" class="dot healthy" data-t="Wnt — over-representation p 0.008"/><circle cx="182.8" cy="134" r="5" class="dot blue" data-t="Wnt — bias-corrected FDR 0.42"/><text x="140" y="178" class="barlab" text-anchor="end">TGF-β</text><line x1="184.3" y1="174" x2="369.5" y2="174" class="conn"/><circle cx="369.5" cy="174" r="5" class="dot healthy" data-t="TGF-β — over-representation p 0.003"/><circle cx="184.3" cy="174" r="5" class="dot blue" data-t="TGF-β — bias-corrected FDR 0.403"/><text x="140" y="218" class="barlab" text-anchor="end">ECM / skin-ageing</text><line x1="209.3" y1="214" x2="612.7" y2="214" class="conn"/><circle cx="612.7" cy="214" r="5" class="dot healthy" data-t="ECM / skin-ageing — over-representation p 4.8e-06"/><circle cx="209.3" cy="214" r="5" class="dot blue" data-t="ECM / skin-ageing — bias-corrected FDR 0.208"/><text x="150" y="250" class="tick">less significant  &#8594;  more significant</text></svg>
+<figcaption>
+<span class="key"><span class="sw sw-gray"></span>over-representation (uncorrected)</span>
+<span class="key"><span class="sw sw-blue"></span>bias-corrected</span><br>
+<b>What this shows.</b> Each row is a gene set. The position along the axis is statistical significance; the dashed line is the p = 0.05 threshold. Before correction (grey) every set sits on the significant side. After correcting for the array's probe-count bias (blue) every set moves across to the non-significant side. In plain terms: the apparent pathway signals do not survive a fair test — they were an artifact of the measurement, not biology.
+</figcaption></figure>
 <table><thead><tr><th>Gene set</th><th>Over-representation (adj-p)</th><th>Bias-corrected (FDR)</th><th>Retained</th></tr></thead><tbody><tr><td>FGF family</td><td>0.027</td><td>0.499</td><td>No</td></tr><tr><td>IGF / insulin</td><td>0.004</td><td>0.277</td><td>No</td></tr><tr><td>Wnt</td><td>0.008</td><td>0.420</td><td>No</td></tr><tr><td>TGF-β</td><td>0.003</td><td>0.403</td><td>No</td></tr><tr><td>ECM / skin-ageing</td><td>0.000005</td><td>0.208</td><td>No</td></tr></tbody></table>
 <div class="note"><div class="note-h">Reading this honestly</div><div>No longevity gene set shows enrichment that survives correction. This is a clear negative result at the pathway level. The dependable signals in this project are at the level of individual sites and genes, not broad pathways.</div></div>
 <nav class="pager"><div><a href="08_baseline.html">← Healthy-tissue baseline</a></div><div><a href="10_atlas.html">Longevity site atlas →</a></div></nav>

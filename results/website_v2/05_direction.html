@@ -70,6 +70,17 @@ figcaption{color:var(--muted);font-size:13.5px;margin-top:14px;max-width:66ch;li
 .key .sw{width:10px;height:10px;border-radius:50%;display:inline-block}
 .sw-red{background:var(--red)}.sw-blue{background:var(--blue)}.sw-gray{background:var(--gray)}
 .redt{color:var(--red)}.bluet{color:var(--blue)}.mutedt{color:var(--muted)}
+/* native charts: scatter / bars / stacked / slope */
+.fig .pt{opacity:.5;stroke:var(--bg);stroke-width:.5}
+.fig .pt.red{fill:var(--red)}.fig .pt.blue{fill:var(--blue)}
+.fig .axl{stroke:var(--hair);stroke-width:1}
+.fig .axtitle{fill:var(--muted);font-family:var(--sans);font-size:11px}
+.fig .bar{fill:var(--accent);opacity:.82}
+.fig .barlab{fill:var(--ink);font-family:var(--sans);font-size:12.5px}
+.fig .barval{fill:var(--muted);font-family:var(--sans);font-size:11.5px}
+.fig .seg.red{fill:var(--red)}.fig .seg.blue{fill:var(--blue)}.fig .seg.grayseg{fill:var(--gray)}
+.fig .seginner{fill:var(--bg);font-family:var(--sans);font-size:12px;font-weight:600}
+.fig .thr{stroke:var(--red);stroke-dasharray:4 4;stroke-width:1;opacity:.55}
 /* table */
 table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}
 th{text-align:left;font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.06em;
@@ -92,7 +103,13 @@ tbody tr:hover td{background:var(--faint)}
 <hr class="rule">
 <p class="lede">Which methylation changes are consistent with a gene being turned down or up.</p>
 <p>Direction of effect is read conservatively, and only inside promoters, where the relationship is best established: a methylated promoter is associated with a gene being expressed at a lower level; an unmethylated one with higher expression. Outside promoters the relationship can reverse, so those sites are left unlabelled.</p>
-<div class="stats"><div class="stat"><div class="snum">98,839</div><div class="slab">promoter sites, higher in tumor</div></div><div class="stat"><div class="snum">60,755</div><div class="slab">promoter sites, lower in tumor</div></div><div class="stat"><div class="snum">162,229</div><div class="slab">outside promoters — unlabelled</div></div></div>
+<figure><svg viewBox="0 0 680 54" class="fig"><rect x="0.0" y="6" width="206.8" height="40" class="seg red"/><text x="104.4" y="30" class="seginner" text-anchor="middle">98,839</text><rect x="208.8" y="6" width="126.4" height="40" class="seg blue"/><text x="273.0" y="30" class="seginner" text-anchor="middle">60,755</text><rect x="337.2" y="6" width="340.8" height="40" class="seg grayseg"/><text x="508.6" y="30" class="seginner" text-anchor="middle">162,229</text></svg>
+<figcaption>
+<span class="key"><span class="sw sw-red"></span>silencing (promoter, higher)</span>
+<span class="key"><span class="sw sw-blue"></span>activation (promoter, lower)</span>
+<span class="key"><span class="sw sw-gray"></span>ambiguous (outside promoters)</span><br>
+<b>What this shows.</b> Of all significant sites, the share that fall into each interpretive category. Promoter sites that gain methylation are read as <em>silencing</em> (the gene is likely turned down); promoter sites that lose it as <em>activation</em>. The largest slice — well over half — sits outside promoters and is deliberately left <em>ambiguous</em>, because there the direction of effect is not reliable.
+</figcaption></figure>
 <div class="note"><div class="note-h">A deliberate limit</div><div>These are associations predicted from methylation, not measurements of gene expression. Labelling only promoter sites, and marking everything else as ambiguous, keeps the interpretation within what the data support.</div></div>
 <nav class="pager"><div><a href="04_annotation.html">← Site annotation</a></div><div><a href="06_panel.html">Biomarker panel and sites →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');

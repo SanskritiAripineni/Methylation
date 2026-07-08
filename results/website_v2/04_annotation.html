@@ -70,6 +70,17 @@ figcaption{color:var(--muted);font-size:13.5px;margin-top:14px;max-width:66ch;li
 .key .sw{width:10px;height:10px;border-radius:50%;display:inline-block}
 .sw-red{background:var(--red)}.sw-blue{background:var(--blue)}.sw-gray{background:var(--gray)}
 .redt{color:var(--red)}.bluet{color:var(--blue)}.mutedt{color:var(--muted)}
+/* native charts: scatter / bars / stacked / slope */
+.fig .pt{opacity:.5;stroke:var(--bg);stroke-width:.5}
+.fig .pt.red{fill:var(--red)}.fig .pt.blue{fill:var(--blue)}
+.fig .axl{stroke:var(--hair);stroke-width:1}
+.fig .axtitle{fill:var(--muted);font-family:var(--sans);font-size:11px}
+.fig .bar{fill:var(--accent);opacity:.82}
+.fig .barlab{fill:var(--ink);font-family:var(--sans);font-size:12.5px}
+.fig .barval{fill:var(--muted);font-family:var(--sans);font-size:11.5px}
+.fig .seg.red{fill:var(--red)}.fig .seg.blue{fill:var(--blue)}.fig .seg.grayseg{fill:var(--gray)}
+.fig .seginner{fill:var(--bg);font-family:var(--sans);font-size:12px;font-weight:600}
+.fig .thr{stroke:var(--red);stroke-dasharray:4 4;stroke-width:1;opacity:.55}
 /* table */
 table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}
 th{text-align:left;font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.06em;
@@ -93,6 +104,9 @@ tbody tr:hover td{background:var(--faint)}
 <p class="lede">Placing each site in its exact genomic position and regulatory context.</p>
 <p>Every array site was placed in its genomic context: its exact hg38 coordinate, the gene it belongs to, whether it falls in a promoter, gene body or between genes, and its CpG-island relationship. This context is what allows a later, cautious reading of direction: promoter methylation and gene-body methylation are not equivalent.</p>
 <div class="stats"><div class="stat"><div class="snum">485,577</div><div class="slab">sites annotated</div></div><div class="stat"><div class="snum">~87%</div><div class="slab">in or near a gene</div></div><div class="stat"><div class="snum">~13%</div><div class="slab">intergenic</div></div></div>
+<hr class="rule">
+<figure><svg viewBox="0 0 680 168" class="fig"><text x="140" y="28" class="barlab" text-anchor="end">Gene body</text><rect x="150" y="13" width="454.0" height="19" rx="2" class="bar"/><text x="612.0" y="28" class="barval">180,200</text><text x="140" y="60" class="barlab" text-anchor="end">5&#x27;UTR / 1st exon</text><rect x="150" y="45" width="222.6" height="19" rx="2" class="bar"/><text x="380.6" y="60" class="barval">88,367</text><text x="140" y="92" class="barlab" text-anchor="end">TSS1500</text><rect x="150" y="77" width="195.7" height="19" rx="2" class="bar"/><text x="353.7" y="92" class="barval">77,688</text><text x="140" y="124" class="barlab" text-anchor="end">TSS200</text><rect x="150" y="109" width="195.1" height="19" rx="2" class="bar"/><text x="353.1" y="124" class="barval">77,431</text><text x="140" y="156" class="barlab" text-anchor="end">Intergenic</text><rect x="150" y="141" width="155.9" height="19" rx="2" class="bar"/><text x="313.9" y="156" class="barval">61,891</text></svg>
+<figcaption><b>What this shows.</b> Where the array's sites fall relative to genes. Most sit in gene bodies or in promoter windows (TSS200 and TSS1500 are the regions just upstream of a gene's start); about one in eight is intergenic. This matters for the next analysis: methylation in a promoter is read differently from methylation in a gene body, so knowing each site's region is what makes a cautious direction-of-effect reading possible.</figcaption></figure>
 <p class="muted small">The annotation was checked against well-characterised genes (for example BRCA1, GSTP1, MLH1), whose known promoter positions fell where expected.</p>
 <nav class="pager"><div><a href="03_validation.html">← Validation</a></div><div><a href="05_direction.html">Direction of effect →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
