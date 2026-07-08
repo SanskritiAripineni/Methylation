@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,12 +110,14 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">Placing each site in its exact genomic position and regulatory context.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>A changed spot only means something once you know <em>where</em> it sits. Here we label every spot with its exact position and, crucially, whether it falls in a gene's on-switch region (the promoter), inside the gene body, or between genes. The bar chart shows how the spots are distributed across those regions. This step is pure book-keeping, but it is what makes the next step's interpretation trustworthy — the same amount of methylation means different things in a promoter versus a gene body.</p></div>
 <p>Every array site was placed in its genomic context: its exact hg38 coordinate, the gene it belongs to, whether it falls in a promoter, gene body or between genes, and its CpG-island relationship. This context is what allows a later, cautious reading of direction: promoter methylation and gene-body methylation are not equivalent.</p>
 <div class="stats"><div class="stat"><div class="snum">485,577</div><div class="slab">sites annotated</div></div><div class="stat"><div class="snum">~87%</div><div class="slab">in or near a gene</div></div><div class="stat"><div class="snum">~13%</div><div class="slab">intergenic</div></div></div>
 <hr class="rule">
 <figure><svg viewBox="0 0 680 168" class="fig"><text x="140" y="28" class="barlab" text-anchor="end">Gene body</text><rect x="150" y="13" width="454.0" height="19" rx="2" class="bar"/><text x="612.0" y="28" class="barval">180,200</text><text x="140" y="60" class="barlab" text-anchor="end">5&#x27;UTR / 1st exon</text><rect x="150" y="45" width="222.6" height="19" rx="2" class="bar"/><text x="380.6" y="60" class="barval">88,367</text><text x="140" y="92" class="barlab" text-anchor="end">TSS1500</text><rect x="150" y="77" width="195.7" height="19" rx="2" class="bar"/><text x="353.7" y="92" class="barval">77,688</text><text x="140" y="124" class="barlab" text-anchor="end">TSS200</text><rect x="150" y="109" width="195.1" height="19" rx="2" class="bar"/><text x="353.1" y="124" class="barval">77,431</text><text x="140" y="156" class="barlab" text-anchor="end">Intergenic</text><rect x="150" y="141" width="155.9" height="19" rx="2" class="bar"/><text x="313.9" y="156" class="barval">61,891</text></svg>
 <figcaption><b>What this shows.</b> Where the array's sites fall relative to genes. Most sit in gene bodies or in promoter windows (TSS200 and TSS1500 are the regions just upstream of a gene's start); about one in eight is intergenic. This matters for the next analysis: methylation in a promoter is read differently from methylation in a gene body, so knowing each site's region is what makes a cautious direction-of-effect reading possible.</figcaption></figure>
 <p class="muted small">The annotation was checked against well-characterised genes (for example BRCA1, GSTP1, MLH1), whose known promoter positions fell where expected.</p>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>Every spot now has a location and a regulatory context — the piece of information that lets us later read a change as switching a gene off or on, but only where that reading is valid.</p></div>
 <nav class="pager"><div><a href="03_validation.html">← Validation</a></div><div><a href="05_direction.html">Direction of effect →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

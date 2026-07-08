@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,8 +110,10 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">An exploratory gene-set analysis — reported, then re-tested with a stricter method.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>Instead of asking about one gene at a time, we ask a bigger question: are the changed genes bunched up in known biological 'pathways' — groups of genes that work together, catalogued in databases like KEGG and Reactome? An early version of this test flagged several pathways. But this kind of test has a well-known trap on array data, so we treat the result as provisional and re-do it properly two steps later.</p></div>
 <p>An initial gene-set (over-representation) analysis tested whether the changed genes concentrate in known pathways, using KEGG, Reactome and GO. Several developmental and signalling terms appeared enriched. This step is reported for completeness, but it was <em>superseded</em>: over-representation testing on array methylation is susceptible to a probe-count bias, so the result was re-examined with a correction (see Analysis 09).</p>
 <div class="note"><div class="note-h">Why this is not the headline</div><div>Genes with more CpG probes are more likely to be flagged by chance, which can inflate whole-pathway signals. The corrected re-analysis is the one to rely on.</div></div>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>This early pathway result is only a hint — it is a bias-prone step, and the corrected version (step 09) is the one to believe.</p></div>
 <nav class="pager"><div><a href="06_panel.html">← Biomarker panel and sites</a></div><div><a href="08_baseline.html">Healthy-tissue baseline →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

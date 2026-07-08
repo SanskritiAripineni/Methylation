@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,6 +110,7 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">Gene-set signals after correcting for a known array design bias.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>Here we redo the pathway test the right way, using methods built specifically for methylation arrays that correct for the bias flagged earlier (genes with more spots are more likely to be 'hit' just by chance). The slope chart shows each longevity pathway's significance before correction (grey) and after (blue), with the p = 0.05 line marking the cutoff for 'significant.'</p></div>
 <p>The pathway signals from Analysis 07 were re-tested with methods built for array methylation (missMethyl and methylGSA), which correct for the number of probes per gene. After correction, the longevity gene sets the project set out to examine did not remain significant.</p>
 <figure><svg viewBox="0 0 700 260" class="fig"><line x1="263.2" y1="22" x2="263.2" y2="234" class="thr"/><text x="263.2" y="18" class="tick" text-anchor="middle">p = 0.05</text><text x="140" y="58" class="barlab" text-anchor="end">FGF family</text><line x1="176.3" y1="54" x2="286.5" y2="54" class="conn"/><circle cx="286.5" cy="54" r="5" class="dot healthy" data-t="FGF family — over-representation p 0.027"/><circle cx="176.3" cy="54" r="5" class="dot blue" data-t="FGF family — bias-corrected FDR 0.499"/><text x="140" y="98" class="barlab" text-anchor="end">IGF / insulin</text><line x1="198.5" y1="94" x2="358.6" y2="94" class="conn"/><circle cx="358.6" cy="94" r="5" class="dot healthy" data-t="IGF / insulin — over-representation p 0.004"/><circle cx="198.5" cy="94" r="5" class="dot blue" data-t="IGF / insulin — bias-corrected FDR 0.277"/><text x="140" y="138" class="barlab" text-anchor="end">Wnt</text><line x1="182.8" y1="134" x2="332.4" y2="134" class="conn"/><circle cx="332.4" cy="134" r="5" class="dot healthy" data-t="Wnt — over-representation p 0.008"/><circle cx="182.8" cy="134" r="5" class="dot blue" data-t="Wnt — bias-corrected FDR 0.42"/><text x="140" y="178" class="barlab" text-anchor="end">TGF-β</text><line x1="184.3" y1="174" x2="369.5" y2="174" class="conn"/><circle cx="369.5" cy="174" r="5" class="dot healthy" data-t="TGF-β — over-representation p 0.003"/><circle cx="184.3" cy="174" r="5" class="dot blue" data-t="TGF-β — bias-corrected FDR 0.403"/><text x="140" y="218" class="barlab" text-anchor="end">ECM / skin-ageing</text><line x1="209.3" y1="214" x2="612.7" y2="214" class="conn"/><circle cx="612.7" cy="214" r="5" class="dot healthy" data-t="ECM / skin-ageing — over-representation p 4.8e-06"/><circle cx="209.3" cy="214" r="5" class="dot blue" data-t="ECM / skin-ageing — bias-corrected FDR 0.208"/><text x="150" y="250" class="tick">less significant  &#8594;  more significant</text></svg>
 <figcaption>
@@ -111,6 +120,7 @@ tbody tr:hover td{background:var(--faint)}
 </figcaption></figure>
 <table><thead><tr><th>Gene set</th><th>Over-representation (adj-p)</th><th>Bias-corrected (FDR)</th><th>Retained</th></tr></thead><tbody><tr><td>FGF family</td><td>0.027</td><td>0.499</td><td>No</td></tr><tr><td>IGF / insulin</td><td>0.004</td><td>0.277</td><td>No</td></tr><tr><td>Wnt</td><td>0.008</td><td>0.420</td><td>No</td></tr><tr><td>TGF-β</td><td>0.003</td><td>0.403</td><td>No</td></tr><tr><td>ECM / skin-ageing</td><td>0.000005</td><td>0.208</td><td>No</td></tr></tbody></table>
 <div class="note"><div class="note-h">Reading this honestly</div><div>No longevity gene set shows enrichment that survives correction. This is a clear negative result at the pathway level. The dependable signals in this project are at the level of individual sites and genes, not broad pathways.</div></div>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>Tested fairly, none of the longevity pathways hold up — a clear, honest negative result. The dependable findings live at the level of individual genes and sites, not broad pathways.</p></div>
 <nav class="pager"><div><a href="08_baseline.html">← Healthy-tissue baseline</a></div><div><a href="10_atlas.html">Longevity site atlas →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

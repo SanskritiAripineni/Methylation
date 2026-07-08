@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,6 +110,7 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">Which methylation changes are consistent with a gene being turned down or up.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>Now we translate 'methylation went up or down' into 'the gene was probably turned down or up.' The rule we trust: in a promoter, more methylation tends to switch a gene off (silencing) and less tends to switch it on (activation). Outside promoters that rule is unreliable, so we deliberately refuse to guess and mark those spots 'ambiguous.' The bar shows how all the significant changes split across those three buckets.</p></div>
 <p>Direction of effect is read conservatively, and only inside promoters, where the relationship is best established: a methylated promoter is associated with a gene being expressed at a lower level; an unmethylated one with higher expression. Outside promoters the relationship can reverse, so those sites are left unlabelled.</p>
 <figure><svg viewBox="0 0 680 54" class="fig"><rect x="0.0" y="6" width="206.8" height="40" class="seg red"/><text x="104.4" y="30" class="seginner" text-anchor="middle">98,839</text><rect x="208.8" y="6" width="126.4" height="40" class="seg blue"/><text x="273.0" y="30" class="seginner" text-anchor="middle">60,755</text><rect x="337.2" y="6" width="340.8" height="40" class="seg grayseg"/><text x="508.6" y="30" class="seginner" text-anchor="middle">162,229</text></svg>
 <figcaption>
@@ -111,6 +120,7 @@ tbody tr:hover td{background:var(--faint)}
 <b>What this shows.</b> Of all significant sites, the share that fall into each interpretive category. Promoter sites that gain methylation are read as <em>silencing</em> (the gene is likely turned down); promoter sites that lose it as <em>activation</em>. The largest slice — well over half — sits outside promoters and is deliberately left <em>ambiguous</em>, because there the direction of effect is not reliable.
 </figcaption></figure>
 <div class="note"><div class="note-h">A deliberate limit</div><div>These are associations predicted from methylation, not measurements of gene expression. Labelling only promoter sites, and marking everything else as ambiguous, keeps the interpretation within what the data support.</div></div>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>We can point to roughly 99,000 likely gene-silencing and 61,000 likely gene-activating events, while honestly leaving the majority (outside promoters) unlabelled rather than overclaiming.</p></div>
 <nav class="pager"><div><a href="04_annotation.html">← Site annotation</a></div><div><a href="06_panel.html">Biomarker panel and sites →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

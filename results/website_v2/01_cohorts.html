@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,11 +110,13 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">The samples and the measurement platform that every downstream result rests on.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>Before analysing anything, you have to know what was measured and in whom. Here we are looking at 888 breast-tissue samples — tumours and normal tissue — measured with a DNA-methylation <em>array</em>. The array is like a fixed questionnaire that asks the same ~485,000 yes/no-ish questions of every sample: at this exact spot on the DNA, how methylated is it (a number from 0 to 1)? Because the questionnaire is fixed, any spot it does not ask about simply is not in the data.</p></div>
 <p>All methylation measurements come from the Illumina HumanMethylation450 (HM450) <em>array</em> — not sequencing. The array reads a fixed set of about 485,000 CpG positions, reported as a β value from 0 (unmethylated) to 1 (methylated). Because the probe set is fixed, every sample measures the same positions and any site not on the array is simply absent from the data. This fixed, promoter-weighted design is relevant later: it biases whole-pathway tests.</p>
 <div class="stats"><div class="stat"><div class="snum">888</div><div class="slab">breast samples (791 tumor, 97 normal)</div></div><div class="stat"><div class="snum">120</div><div class="slab">independent samples (GSE66695)</div></div><div class="stat"><div class="snum">~485k</div><div class="slab">CpG sites per sample</div></div></div>
 <hr class="rule"><h2 class="sub">Data sources</h2>
 <p class="muted small">GEO is a public data repository; GSEA is an analysis method — distinct things. KEGG, Reactome and GO are gene-set databases that supply the groupings a gene-set test reads.</p>
 <table><thead><tr><th>Dataset / resource</th><th>Type</th><th>Source</th><th>Format</th><th>Purpose</th><th>Credibility</th></tr></thead><tbody><tr><td>TCGA-BRCA methylation</td><td>Data (primary)</td><td>TCGA — US NCI/NHGRI, via UCSC Xena</td><td>gzip TSV, β matrix</td><td>Tumor vs. normal discovery</td><td>Established</td></tr><tr><td>TCGA-BRCA clinical / subtypes</td><td>Data (labels)</td><td>TCGA/GDC via UCSC Xena</td><td>TSV</td><td>Sample labels, PAM50 subtype</td><td>Established</td></tr><tr><td>GSE66695</td><td>Data (validation)</td><td>Worsham Lab, Henry Ford Health — via GEO</td><td>GEO series-matrix</td><td>Independent replication, baseline</td><td>Peer-reviewed</td></tr><tr><td>HM450 sesame manifest</td><td>Annotation</td><td>Zhou Lab (Zhou et al. 2017)</td><td>gzip TSV</td><td>Site position and context</td><td>Standard</td></tr><tr><td>KEGG / Reactome / GO</td><td>Gene-set database</td><td>via Enrichr (Ma'ayan Lab)</td><td>GMT libraries</td><td>Enrichment inputs</td><td>Established</td></tr><tr><td>missMethyl / methylGSA</td><td>Method / tool</td><td>Bioconductor</td><td>R packages</td><td>Bias-corrected enrichment</td><td>Peer-reviewed</td></tr><tr><td>Longevity gene catalogue</td><td>Gene list</td><td>Supervisor antibody-array (vendor to confirm)</td><td>Excel</td><td>Longevity gene definitions</td><td>Genes verified; groupings curatorial</td></tr></tbody></table>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>Every result rests on 888 breast samples read by the same fixed 485,000-spot methylation array — a solid, standard platform, but one that only sees the spots it was built to check.</p></div>
 <nav class="pager"><div><span></span></div><div><a href="02_differential.html">Differential methylation →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

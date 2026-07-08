@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,8 +110,10 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">The reference methylation state of longevity-associated genes in normal tissue.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>To say what a tumour changed, you first need a 'normal reading' to measure against. Here we record the typical methylation state of longevity-related genes in normal tissue, pooling the study's normals with an independent set. It is simply establishing the baseline before measuring the shift — like noting a room's temperature before turning on a heater.</p></div>
 <p>To read tumor changes against a reference, the methylation state of longevity-associated genes was summarised in normal tissue, combining TCGA normal samples with the independent GSE66695 normals. This baseline is descriptive — a benchmark, not a batch-corrected model — and normal here means tumor-adjacent tissue rather than disease-free donor tissue.</p>
 <div class="stats"><div class="stat"><div class="snum">97</div><div class="slab">TCGA normal samples</div></div><div class="stat"><div class="snum">40</div><div class="slab">GSE66695 normal samples</div></div><div class="stat"><div class="snum">43,609</div><div class="slab">longevity-gene sites profiled</div></div></div>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>We now have a normal-tissue benchmark to measure tumour changes against — bearing in mind 'normal' here means tissue next to the tumour, not a healthy donor.</p></div>
 <nav class="pager"><div><a href="07_pathways.html">← Pathway enrichment</a></div><div><a href="09_gsea.html">Bias-corrected enrichment →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,6 +110,7 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">Per-site methylation across longevity-associated genes, as a browsable atlas.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>Finally we zoom back to individual spots, but focus on longevity-associated genes, and build a large reference table — 43,609 spots — recording each one's methylation state in normal tissue, browsable as a spreadsheet. FGF2 is the worked example: a specific gene whose on-switch is unmethylated (active) in healthy tissue and gains methylation in tumour.</p></div>
 <p>For 1,953 longevity-associated genes across 40 categories, an atlas records 43,609 individual CpG sites — each with its coordinate and its methylation state in normal tissue. The full, filterable atlas is provided as a spreadsheet (one sheet per focus category); a sample follows.</p>
 <h2 class="sub">Atlas — sample rows</h2>
 <p class="muted small">Three of the strongest-moving genes from each of five focus categories. The complete atlas spans all 40 categories.</p>
@@ -109,6 +118,7 @@ tbody tr:hover td{background:var(--faint)}
 <hr class="rule"><h2 class="sub">A single gene in detail — FGF2</h2>
 <p>FGF2 (Fibroblast Growth Factor 2) is a growth-signalling gene. In normal tissue its promoter is unmethylated (associated with an active gene), consistently across both cohorts; in tumor it gains methylation at those positions — a site-level illustration of the direction-of-effect logic.</p>
 <table><thead><tr><th>Site (hg38)</th><th>Region</th><th>Healthy β</th><th>Healthy state</th><th>Tumor Δβ</th></tr></thead><tbody><tr><td>chr4:122826291-122826293</td><td>TSS1500</td><td>0.43</td><td class="mutedt">intermediate</td><td>+0.20</td></tr><tr><td>chr4:122826377-122826379</td><td>TSS1500</td><td>0.36</td><td class="mutedt">intermediate</td><td>+0.31</td></tr><tr><td>chr4:122826386-122826388</td><td>TSS1500</td><td>0.25</td><td class="bluet">HYPO unmethylated</td><td>+0.36</td></tr><tr><td>chr4:122826402-122826404</td><td>TSS1500</td><td>0.42</td><td class="mutedt">intermediate</td><td>+0.19</td></tr><tr><td>chr4:122826478-122826480</td><td>TSS1500</td><td>0.40</td><td class="mutedt">intermediate</td><td>+0.25</td></tr><tr><td>chr4:122826516-122826518</td><td>TSS200</td><td>0.33</td><td class="mutedt">intermediate</td><td>+0.29</td></tr><tr><td>chr4:122826594-122826596</td><td>TSS200</td><td>0.15</td><td class="bluet">HYPO unmethylated</td><td>+0.23</td></tr><tr><td>chr4:122827230-122827232</td><td>5UTR_1stExon</td><td>0.07</td><td class="bluet">HYPO unmethylated</td><td>+0.15</td></tr><tr><td>chr4:122840527-122840529</td><td>5UTR_1stExon</td><td>0.91</td><td class="redt">HYPER methylated</td><td>-0.00</td></tr><tr><td>chr4:122893629-122893631</td><td>TSS1500</td><td>0.91</td><td class="redt">HYPER methylated</td><td>-0.01</td></tr></tbody></table>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>Rather than shaky pathway claims, the project delivers a precise, site-level atlas of longevity genes — with FGF2 as a clean, cross-validated example of a gene switched off in tumour.</p></div>
 <nav class="pager"><div><a href="09_gsea.html">← Bias-corrected enrichment</a></div><div><span></span></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

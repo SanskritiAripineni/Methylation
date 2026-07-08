@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,6 +110,7 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">Where tumor and normal tissue differ in methylation, across roughly 485,000 sites.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>This is the core comparison. For each of the ~485,000 spots we take the average methylation in tumours and in normals and measure the difference (called Δβ), then test whether that difference is bigger than we would expect by chance — while accounting for the fact that we are running 485,000 tests at once. The volcano plot puts every spot on one picture: how big the change is (left–right) against how sure we are it is real (up). It forms two 'wings' because tumours both add methylation at some spots and remove it at others.</p></div>
 <div class="stats"><div class="stat"><div class="snum">486,427</div><div class="slab">sites examined</div></div><div class="stat"><div class="snum">321,823</div><div class="slab">differ at FDR &lt; 0.05</div></div><div class="stat"><div class="snum">16,623</div><div class="slab">higher in tumor</div></div><div class="stat"><div class="snum">14,460</div><div class="slab">lower in tumor</div></div></div>
 <hr class="rule">
 <figure><canvas id="volc"></canvas>
@@ -112,6 +121,7 @@ tbody tr:hover td{background:var(--faint)}
 Each point is one CpG site. Horizontal position is the tumor − normal difference (Δβ); vertical position is confidence (−log10 FDR). The two arms reflect that tumors both gain and lose methylation at many sites. Dashed lines mark the |Δβ| = 0.20 threshold. Hover any coloured point for its gene and position.
 </figcaption></figure>
 <p class="muted small">Effect size for methylation is Δβ, a difference in methylation fraction — not log-fold-change (which applies to expression data). Significance is a per-site Welch's t-test with Benjamini–Hochberg FDR across all sites. Read the shape and spread rather than absolute height, which scales with sample size.</p>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>Tens of thousands of spots change reliably between tumour and normal, in both directions — breast tumours carry a large, systematic methylation difference, not random noise.</p></div>
 <nav class="pager"><div><a href="01_cohorts.html">← Study cohorts and array platform</a></div><div><a href="03_validation.html">Validation →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

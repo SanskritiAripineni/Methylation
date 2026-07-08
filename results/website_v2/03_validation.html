@@ -47,6 +47,14 @@ a.row:hover .rarrow{opacity:1}
 .stats{display:flex;gap:44px;flex-wrap:wrap;margin:28px 0 6px}
 .stat .snum{font-family:var(--serif);font-size:33px;line-height:1}
 .stat .slab{color:var(--muted);font-size:13.5px;margin-top:7px;max-width:22ch}
+/* in-plain-terms block */
+.plain{background:var(--faint);border-radius:3px;padding:16px 22px;margin:20px 0}
+.plain .plabel{display:block;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:6px}
+.plain p{margin:0;max-width:66ch;font-size:15.5px}
+/* key takeaway block */
+.takeaway{border:1px solid var(--accent);border-radius:3px;padding:16px 22px;margin:34px 0 6px}
+.takeaway .tlabel{font-family:var(--serif);font-size:15px;color:var(--accent);margin-bottom:5px}
+.takeaway p{margin:0;max-width:66ch;font-size:16px}
 /* notes */
 .note{border:1px solid var(--hair);border-left:2px solid var(--accent);padding:16px 20px;margin:20px 0;border-radius:2px}
 .note-h{font-family:var(--serif);font-size:17px;margin-bottom:5px}
@@ -102,6 +110,7 @@ tbody tr:hover td{background:var(--faint)}
 <a class="back" href="index.html">← Index</a></header>
 <hr class="rule">
 <p class="lede">Two independent checks that the tumor–normal signal is a genuine association, not a processing artifact.</p>
+<div class="plain"><span class="plabel">In plain terms</span><p>A result that separates tumour from normal almost perfectly should make you suspicious — is it real, or a fluke of this one dataset? So we check it two independent ways. One is a 'no peeking' internal test that re-picks the markers fresh inside every round of cross-validation, so the model can't secretly memorise the answer. The other repeats the check in a completely separate group of patients from a different lab. The PCA plot is a visual gut-check: squash each sample's 485,000 numbers down to the two directions that vary most, and see whether tumours and normals land apart.</p></div>
 <p>A near-perfect separation invites a fair question: is it real, or an artifact of one dataset? Two independent checks address this.</p>
 <div class="note"><div class="note-h">Internal — leakage audit and nested cross-validation</div><div>Markers were re-selected inside every cross-validation fold so no information leaked between training and test data. The leakage-free separation held (area under the ROC curve ≈ 0.996), indicating the signal is genuine rather than memorised.</div></div>
 <div class="note"><div class="note-h">External — independent cohort (GSE66695)</div><div>The same marker sites were examined in a separate patient group from a different laboratory. They behaved consistently — sites higher in TCGA tumors were higher here (median +0.28), and lower sites were lower (median −0.21). The association replicates across cohorts.</div></div>
@@ -111,6 +120,7 @@ tbody tr:hover td{background:var(--faint)}
 <span class="key"><span class="sw sw-blue"></span>normal (n = 97)</span><br>
 <b>What this shows.</b> Principal component analysis (PCA) compresses each sample's ~485,000 methylation values into the two axes that capture the most variation between samples. Every point is one sample. Tumor and normal fall into clearly separate regions, which means the single largest source of variation across the whole dataset is simply whether a sample is tumor or normal — a strong, systematic difference, not scattered noise. This is the same separation the 0.996 figure describes, shown geometrically.
 </figcaption></figure>
+<div class="takeaway"><div class="tlabel">Key takeaway</div><p>The tumour-versus-normal signal is real and reproducible: it survives a leakage-proof internal test and repeats in an independent group of patients.</p></div>
 <nav class="pager"><div><a href="02_differential.html">← Differential methylation</a></div><div><a href="04_annotation.html">Site annotation →</a></div></nav>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
