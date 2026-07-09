@@ -90,6 +90,10 @@ figcaption{color:var(--muted);font-size:13.5px;margin-top:14px;max-width:66ch;li
 .fig .seginner{fill:var(--bg);font-family:var(--sans);font-size:12px;font-weight:600}
 .fig .thr{stroke:var(--red);stroke-dasharray:4 4;stroke-width:1;opacity:.55}
 /* table */
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+.tscroll table{margin:0}
+.fn{display:inline-block;max-width:230px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom;color:var(--muted);cursor:help;border-bottom:1px dotted var(--hair)}
+td code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;white-space:nowrap;background:var(--faint);padding:2px 6px;border-radius:3px;color:var(--ink);letter-spacing:.3px}
 table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}
 th{text-align:left;font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.06em;
  text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--ink)}
@@ -117,7 +121,7 @@ tbody tr:hover td{background:var(--faint)}
 <li>Methylation associations are predicted effects on gene activity, not direct measurements.</li>
 </ul>
 <hr class="rule"><h2 class="sub">Data availability</h2>
-<table><thead><tr><th>Result</th><th>Location</th></tr></thead><tbody><tr><td>This site</td><td>results/website_v2/</td></tr><tr><td>Original overview (version 1)</td><td>results/Results_Presentation.html</td></tr><tr><td>Reports (Word)</td><td>results/Reports/</td></tr><tr><td>Atlas dashboard (Excel)</td><td>results/Dashboard/Longevity_Methylation_Atlas.xlsx</td></tr><tr><td>Data tables</td><td>results/Data_Tables/</td></tr><tr><td>Full differential table</td><td>project_b/outputs/brca_methylation/differential_methylation.tsv</td></tr></tbody></table>
+<div class="tscroll"><table><thead><tr><th>Result</th><th>Location</th></tr></thead><tbody><tr><td>This site</td><td>results/website_v2/</td></tr><tr><td>Original overview (version 1)</td><td>results/Results_Presentation.html</td></tr><tr><td>Reports (Word)</td><td>results/Reports/</td></tr><tr><td>Atlas dashboard (Excel)</td><td>results/Dashboard/Longevity_Methylation_Atlas.xlsx</td></tr><tr><td>Data tables</td><td>results/Data_Tables/</td></tr><tr><td>Full differential table</td><td>project_b/outputs/brca_methylation/differential_methylation.tsv</td></tr></tbody></table></div>
 <footer class="foot">Generated from the committed analysis outputs. Self-contained; opens without a server.</footer>
 </div><script>const _t=document.querySelector('.toggle');
 function _cur(){return document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}

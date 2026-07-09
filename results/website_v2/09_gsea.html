@@ -90,6 +90,10 @@ figcaption{color:var(--muted);font-size:13.5px;margin-top:14px;max-width:66ch;li
 .fig .seginner{fill:var(--bg);font-family:var(--sans);font-size:12px;font-weight:600}
 .fig .thr{stroke:var(--red);stroke-dasharray:4 4;stroke-width:1;opacity:.55}
 /* table */
+.tscroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+.tscroll table{margin:0}
+.fn{display:inline-block;max-width:230px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:bottom;color:var(--muted);cursor:help;border-bottom:1px dotted var(--hair)}
+td code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;white-space:nowrap;background:var(--faint);padding:2px 6px;border-radius:3px;color:var(--ink);letter-spacing:.3px}
 table{border-collapse:collapse;width:100%;margin:18px 0;font-size:14px}
 th{text-align:left;font-family:var(--sans);font-weight:600;font-size:11.5px;letter-spacing:.06em;
  text-transform:uppercase;color:var(--muted);padding:10px 12px;border-bottom:1px solid var(--ink)}
@@ -118,7 +122,7 @@ tbody tr:hover td{background:var(--faint)}
 <span class="key"><span class="sw sw-blue"></span>bias-corrected</span><br>
 <b>What this shows.</b> Each row is a gene set. The position along the axis is statistical significance; the dashed line is the p = 0.05 threshold. Before correction (grey) every set sits on the significant side. After correcting for the array's probe-count bias (blue) every set moves across to the non-significant side. In plain terms: the apparent pathway signals do not survive a fair test — they were an artifact of the measurement, not biology.
 </figcaption></figure>
-<table><thead><tr><th>Gene set</th><th>Over-representation (adj-p)</th><th>Bias-corrected (FDR)</th><th>Retained</th></tr></thead><tbody><tr><td>FGF family</td><td>0.027</td><td>0.499</td><td>No</td></tr><tr><td>IGF / insulin</td><td>0.004</td><td>0.277</td><td>No</td></tr><tr><td>Wnt</td><td>0.008</td><td>0.420</td><td>No</td></tr><tr><td>TGF-β</td><td>0.003</td><td>0.403</td><td>No</td></tr><tr><td>ECM / skin-ageing</td><td>0.000005</td><td>0.208</td><td>No</td></tr></tbody></table>
+<div class="tscroll"><table><thead><tr><th>Gene set</th><th>Over-representation (adj-p)</th><th>Bias-corrected (FDR)</th><th>Retained</th></tr></thead><tbody><tr><td>FGF family</td><td>0.027</td><td>0.499</td><td>No</td></tr><tr><td>IGF / insulin</td><td>0.004</td><td>0.277</td><td>No</td></tr><tr><td>Wnt</td><td>0.008</td><td>0.420</td><td>No</td></tr><tr><td>TGF-β</td><td>0.003</td><td>0.403</td><td>No</td></tr><tr><td>ECM / skin-ageing</td><td>0.000005</td><td>0.208</td><td>No</td></tr></tbody></table></div>
 <div class="note"><div class="note-h">Reading this honestly</div><div>No longevity gene set shows enrichment that survives correction. This is a clear negative result at the pathway level. The dependable signals in this project are at the level of individual sites and genes, not broad pathways.</div></div>
 <div class="takeaway"><div class="tlabel">Key takeaway</div><p>Tested fairly, none of the longevity pathways hold up — a clear, honest negative result. The dependable findings live at the level of individual genes and sites, not broad pathways.</p></div>
 <nav class="pager"><div><a href="08_baseline.html">← Healthy-tissue baseline</a></div><div><a href="10_atlas.html">Longevity site atlas →</a></div></nav>
