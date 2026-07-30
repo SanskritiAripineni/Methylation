@@ -1,7 +1,9 @@
-# The published site is a verbatim copy and must stay byte-identical to the original.
-# -text disables all line-ending conversion so a fresh clone reproduces it exactly.
-web/site/** -text
+# web/site/ is a verbatim copy of ../../results/. Deliberately NO attribute rule
+# here: results/ has none either, so both are stored and checked out under the
+# same normalisation and a clone reproduces the copy identically to the original.
+# An earlier -text override broke exactly that - it stored this copy with CRLF
+# while results/ was stored with LF, making the two differ inside the repo.
 
-# Bundled sample data is generated; keep it byte-stable too.
+# Generated sample data: keep byte-stable so the fixed-seed cohort round-trips.
 data/sample/** -text
 data/reference/** -text
