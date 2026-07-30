@@ -67,6 +67,28 @@ def build_graph(cfg, thresholds, mode, n_per_class, work_dir, paths=None):
     }
 
     adjustments = []
+
+    # effect_filter.min_group_n is a cohort-size gate, and the block ships with
+    # it at 30 - the size of the published cohort. On any smaller study it
+    # silently drops EVERY probe and the run dies two steps later with
+    # "nothing left to build a panel from". Tie it to the minimum-group-size
+    # threshold the user actually controls instead. On the published cohort
+    # (90 vs 40) this changes nothing: both groups clear 30 and 3 alike.
+    ef_default = int(catalog.merged_params("effect_filter", {}).get("min_group_n", 0) or 0)
+    floor_spec = tcfg.get("min_samples_per_class") or {}
+    floor = int(thresholds.get("min_samples_per_class", floor_spec.get("default", 3)))
+    if ef_default != floor:
+        per_type.setdefault("effect_filter", {})["min_group_n"] = floor
+        adjustments.append({
+            "param": "effect_filter.min_group_n",
+            "from": ef_default, "to": floor,
+            "why": "This is a cohort-size gate, not an effect threshold. Left at %d it drops "
+                   "every probe in any study with fewer than %d samples per group. It now "
+                   "follows the minimum group size you set. No effect-size, FDR or QC "
+                   "threshold is changed." % (ef_default, ef_default),
+            "silent_on_published_cohort": True,
+        })
+
     if mode == "demo":
         # The subset is written into the run's own working copy; the bundled
         # cohort on disk is never touched.
@@ -77,20 +99,10 @@ def build_graph(cfg, thresholds, mode, n_per_class, work_dir, paths=None):
         resolved["manifest"] = str(sub_manifest)
         resolved["demo_samples"] = picked
 
-        # effect_filter.min_group_n is a cohort-size gate, not a biological
-        # threshold: left at its default of 30 it drops EVERY probe on a
-        # 3-per-class subset and the run "succeeds" with an empty result.
-        # Lower it to the subset size and say so, loudly, everywhere.
-        ef = int(catalog.merged_params("effect_filter", {}).get("min_group_n", 0) or 0)
-        if ef > n_per_class:
+        # The subset is smaller than the cohort's own minimum, so the same
+        # cohort-size gate has to come down with it.
+        if floor > n_per_class:
             per_type.setdefault("effect_filter", {})["min_group_n"] = n_per_class
-            adjustments.append({
-                "param": "effect_filter.min_group_n",
-                "from": ef, "to": n_per_class,
-                "why": "A cohort-size gate, not an effect threshold. At %d it drops every "
-                       "probe on a %d-per-class subset and the run would finish empty but "
-                       "green. No effect-size, FDR or QC threshold is changed." % (ef, n_per_class),
-            })
         for key in ("min_samples_per_class",):
             spec = tcfg.get(key) or {}
             want = int(thresholds.get(key, spec.get("default", 3)))
@@ -502,10 +514,15 @@ def compute_verdict(run):
         return {"level": "plan", "summary": LEVELS["plan"], "reasons": [], "caveat": caveat}
 
     data = cfg.get("data", {})
-    if "SIMULATED" in (data.get("provenance") or "").upper():
+    user_data = bool(run.resolved_inputs.get("user_supplied"))
+    if not user_data and "SIMULATED" in (data.get("provenance") or "").upper():
         reasons.append("The per-sample values in this cohort are simulated. "
                        "Per-probe group means for 500 reference probes are real; "
                        "every individual value is drawn, not measured.")
+    if user_data:
+        reasons.append("Run on files supplied by you. Nothing here has checked where they "
+                       "came from, how they were normalized, or whether the groups are "
+                       "balanced for anything other than what is listed in the sample table.")
     if not data.get("batch_columns") or not any(
             c in (run.resolved_inputs.get("batch_present") or []) for c in data.get("batch_columns", [])):
         reasons.append("No batch/slide/plate column, so batch confounding cannot be "

@@ -71,7 +71,13 @@ def preview(study_id, mode="demo", thresholds=None, n_per_class=None, paths=None
 
     matrix_path = study.resolve(paths.get("matrix") or data.get("matrix_path", ""))
     manifest_path = study.resolve(paths.get("manifest") or data.get("manifest_path", ""))
-    annot_path = study.resolve(paths.get("annotation") or data.get("annotation_path", ""))
+    # With user-supplied data and no annotation of their own, the bundled
+    # annotation is for a different array entirely. Checking their probes
+    # against it would report a mismatch that is not their mistake.
+    if paths and not paths.get("annotation"):
+        annot_path = None
+    else:
+        annot_path = study.resolve(paths.get("annotation") or data.get("annotation_path", ""))
     if paths:
         checks.append(_check("source", "Input source", "warn",
                              "Running against user-supplied paths, not the bundled cohort:\n"
@@ -80,7 +86,7 @@ def preview(study_id, mode="demo", thresholds=None, n_per_class=None, paths=None
                              "against them, not against the study defaults."))
 
     m_info = study.sniff_table(matrix_path)
-    a_info = study.sniff_table(annot_path)
+    a_info = study.sniff_table(annot_path) if annot_path else {}
 
     # --- inputs present ----------------------------------------------------
     missing = [str(p) for p in (matrix_path, manifest_path) if not Path(p).is_file()]
@@ -147,11 +153,14 @@ def preview(study_id, mode="demo", thresholds=None, n_per_class=None, paths=None
     # This is this pipeline's version of an array/manifest mismatch: an
     # annotation table that does not cover the matrix rows silently strips
     # genes, regions and the direction-of-effect call.
-    if not Path(annot_path).is_file():
+    if annot_path is None or not Path(annot_path).is_file():
         checks.append(_check("annotation", "Probe annotation covers the matrix", "warn",
-                             "No annotation table at %s." % annot_path,
-                             "Probes are still tested but lose gene, region, direction and "
-                             "enrichment. Supply a probe_id -> gene/chrom/region table."))
+                             "No site-information file supplied."
+                             if annot_path is None else "No annotation table at %s." % annot_path,
+                             "The run still works: every site is tested and ranked. What it "
+                             "loses is gene names, promoter context, the switched-off / "
+                             "switched-on call and pathway enrichment. Add a table of "
+                             "probe_id, gene, chrom and region to get those back."))
     else:
         ann = pd.read_csv(annot_path, sep="\t", usecols=lambda c: c in ("probe_id", "chrom", "gene"))
         ann_ids = set(ann["probe_id"].astype(str)) if "probe_id" in ann.columns else set()
@@ -219,6 +228,20 @@ def preview(study_id, mode="demo", thresholds=None, n_per_class=None, paths=None
         else:
             checks.append(_check("groups", "Group column and class sizes", "ok", detail, ""))
 
+    # --- would the effect filter empty the result? -------------------------
+    # The failure this prevents is not obvious from the error it produces:
+    # every probe is dropped at step 5 and the run dies at step 8 saying
+    # "nothing left to build a panel from".
+    if counts:
+        smallest = min((min(v, n_per_class) if mode == "demo" else v) for v in counts.values())
+        if want > smallest:
+            checks.append(_check("empty_result", "The run will produce something", "fail",
+                                 "The minimum group size is set to %d but the smaller group has "
+                                 "%d samples. Every probe would be dropped at the effect-size "
+                                 "step, and the run would fail at the shortlist step with "
+                                 "'nothing left to build a panel from'." % (want, smallest),
+                                 "Set the minimum group size to %d or less." % smallest))
+
     # --- batch confound ----------------------------------------------------
     batch_present = [c for c in data.get("batch_columns", []) if c in manifest.columns]
     if not batch_present:
@@ -283,7 +306,9 @@ def preview(study_id, mode="demo", thresholds=None, n_per_class=None, paths=None
                                  "chrX/chrY retained; recorded sex available for comparison.", ""))
 
     # --- simulated cohort --------------------------------------------------
-    if "SIMULATED" in (data.get("provenance") or "").upper():
+    # Only about the bundled cohort. Running user files, it would be a claim
+    # about data this check has never seen.
+    if not paths and "SIMULATED" in (data.get("provenance") or "").upper():
         checks.append(_check("simulated", "Cohort is measured data", "warn",
                              "Per-sample values in this cohort are SIMULATED. Per-probe "
                              "tumour/normal means for 500 reference probes are real; every "
@@ -355,16 +380,6 @@ def preview(study_id, mode="demo", thresholds=None, n_per_class=None, paths=None
                                  "Samples are subset, probes are not."
                                  % (", ".join("%s=%d" % kv for kv in sorted(eligible.items())),
                                     n_per_class), ""))
-        ef = int(catalog.merged_params("effect_filter", {}).get("min_group_n", 0) or 0)
-        if ef > n_per_class:
-            checks.append(_check("demo_adjust", "Demo parameter adjustments", "warn",
-                                 "effect_filter.min_group_n will be lowered from %d to %d for "
-                                 "this rehearsal. It is a cohort-size gate, not an effect "
-                                 "threshold: left at %d it drops every probe on a %d-per-class "
-                                 "subset and the run finishes empty but green. |Δβ|, FDR and "
-                                 "every QC threshold are unchanged." % (ef, n_per_class, ef, n_per_class),
-                                 "Nothing to do. The adjustment is recorded in the run record "
-                                 "and shown on the verdict."))
         if n_per_class <= fail_below:
             checks.append(_check("demo_slack", "Demo has QC slack", "warn",
                                  "%d per class with a %d-sample floor leaves no slack: if the QC "

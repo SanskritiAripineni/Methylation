@@ -166,7 +166,7 @@ async function upload(files) {
       continue;
     }
     try {
-      last = await fetch('/api/v3/upload', {
+        last = await fetch('/api/v3/upload', {
         method: 'POST', headers: { 'X-Filename': f.name }, body: f,
       }).then(r => r.json());
     } catch (err) { say(status, 'bad', esc(err.message)); return; }
@@ -174,11 +174,32 @@ async function upload(files) {
   if (last && last.workspace) {
     state.useExample = false;
     $('#use-example').classList.remove('on');
-    renderWorkspace(last.workspace, last.readiness);
+    renderWorkspace(last.workspace, last.readiness, false, last.ingest);
   }
 }
 
-function renderWorkspace(ws, readiness, initial) {
+/* What had to be translated to fit the pipeline. Shown, never silent: which
+ * group became the comparison side decides the sign of every difference. */
+function ingestHtml(ing) {
+  if (!ing) return '';
+  const g = (ing.mapping || {}).groups;
+  const cols = (ing.mapping || {}).columns;
+  const bits = [];
+  if (g) {
+    bits.push(`<div class="ingrow"><b>Comparing ${esc(g.case)} against ${esc(g.reference)}.</b>
+      A positive difference means more methylation in <b>${esc(g.case)}</b>.
+      <small>${esc(g.why)}</small></div>`);
+  }
+  if (cols) {
+    bits.push(`<div class="ingrow">Reading <code>${esc(cols.sample_barcode || '—')}</code>
+      as the sample name and <code>${esc(cols.sample_class || '—')}</code> as the group.
+      <small>Your files are not modified — a translated copy is used for the run.</small></div>`);
+  }
+  (ing.warnings || []).forEach(w => bits.push(`<div class="ingrow warnrow">${esc(w)}</div>`));
+  return bits.length ? `<div class="ingest">${bits.join('')}</div>` : '';
+}
+
+function renderWorkspace(ws, readiness, initial, ingest) {
   const list = $('#filelist');
   list.innerHTML = (ws.files || []).map(f => `
     <div class="fileitem ${f.ok ? '' : 'bad'}">
@@ -199,7 +220,8 @@ function renderWorkspace(ws, readiness, initial) {
     });
     state.useExample = false;
     $('#use-example').classList.remove('on');
-    say($('#data-status'), readiness.ready ? 'ok' : 'warn', esc(readiness.message));
+    say($('#data-status'), readiness.ready ? 'ok' : 'warn',
+        esc(readiness.message) + ingestHtml(ingest));
   } else if (initial || state.useExample) {
     selectExample();
   }

@@ -11,8 +11,26 @@ from console_v2 import preview as preview_mod
 from console_v2 import runs as runs_mod
 from console_v2 import study
 
+from . import ingest
 from . import reference
 from . import workspace
+
+
+def _run_paths(study_id, use_example=False):
+    """What a run should actually read, plus what had to be translated.
+
+    Returns ({} , {}) for the example cohort - it is already the right shape.
+    """
+    if use_example:
+        return {}, {}
+    ws = workspace.current()
+    roles = ws["roles"]
+    if not roles:
+        return {}, {}
+    paths = {"matrix": roles.get("matrix"), "manifest": roles.get("manifest"),
+             "annotation": roles.get("annotation")}
+    cfg = study.load_config(study_id)
+    return ingest.normalize(paths, cfg)
 
 PREFIX = "/api/v3/"
 
@@ -191,7 +209,9 @@ def handle_get(h, route, query):
 
     if rest == "workspace":
         ws = workspace.current()
-        h._json({"workspace": ws, "readiness": workspace.readiness(ws["roles"])})
+        _, report = _run_paths(study_id)
+        h._json({"workspace": ws, "readiness": workspace.readiness(ws["roles"]),
+                 "ingest": report})
         return True
 
     if rest == "history":
@@ -201,11 +221,13 @@ def handle_get(h, route, query):
     if rest == "check":
         # One sentence, plus the full v2 check list for anyone who wants it.
         mode = _q(query, "mode", "demo")
+        use_example = _q(query, "use_example") == "1"
+        paths, _ = _run_paths(study_id, use_example)
         try:
             p = preview_mod.preview(study_id, mode,
                                     thresholds=_json_arg(query, "thresholds"),
                                     n_per_class=_q(query, "n_per_class"),
-                                    paths=_json_arg(query, "paths"))
+                                    paths=paths)
         except Exception as exc:
             h._json({"ok": False, "headline": "Could not check the inputs.",
                      "detail": "%s: %s" % (type(exc).__name__, exc), "checks": []})
@@ -333,15 +355,13 @@ def handle_post(h, route, payload):
         use_example = bool(payload.get("use_example"))
         cfg = study.load_config(study_id)
 
-        paths = {}
+        paths, ingest_report = {}, {}
         if not use_example:
-            roles = workspace.current()["roles"]
-            ready = workspace.readiness(roles)
+            ready = workspace.readiness(workspace.current()["roles"])
             if not ready["ready"]:
                 h._error(400, ready["message"])
                 return True
-            paths = {"matrix": roles.get("matrix"), "manifest": roles.get("manifest"),
-                     "annotation": roles.get("annotation")}
+            paths, ingest_report = _run_paths(study_id)
 
         try:
             gate = preview_mod.preview(study_id, mode,
@@ -359,6 +379,7 @@ def handle_post(h, route, payload):
 
         opts = dict(payload)
         opts["paths"] = paths
+        opts["ingest"] = ingest_report
         opts.setdefault("source_label",
                         "example data" if use_example else "files you dropped in")
         if mode == "full" and not opts.get("validated_by"):
@@ -394,6 +415,7 @@ def handle_upload(h, route, headers, rfile):
     name = headers.get("X-Filename", "dropped.tsv")
     stored = workspace.store(name, rfile.read(length))
     ws = workspace.current()
+    _, report = _run_paths("brca_sim")
     h._json({"file": workspace.identify(stored), "workspace": ws,
-             "readiness": workspace.readiness(ws["roles"])})
+             "readiness": workspace.readiness(ws["roles"]), "ingest": report})
     return True
