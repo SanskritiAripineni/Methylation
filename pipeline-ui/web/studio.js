@@ -742,6 +742,12 @@ function ctx2(id, h) {
   return { x, W: r.width, H: h };
 }
 
+/* Canvas palette. Same rule as the stylesheet: the only colours are the ones
+ * that say which way the methylation went. Axes, grids, validation dots and
+ * cohort bars encode no direction, so they are grey. */
+const INK = '#0d0d0d', MUTED = '#6b6b6b', GRID = '#ececec', FAINT = '#d4d4d4';
+const RED = '#c0392b', GREEN = '#1a7a3a', NEUTRAL = '#bdbdbd';
+
 function drawCharts(d) {
   donut(d.direction);
   folds(d.folds, d.model);
@@ -752,10 +758,10 @@ function donut(counts) {
   const d = ctx2('donut', 230); if (!d) return;
   const { x, W, H } = d;
   const label = { silencing: 'switched off', activation: 'switched on', ambiguous: 'unclear' };
-  const colour = { silencing: '#c0392b', activation: '#1a7a3a', ambiguous: '#b9c3ce' };
+  const colour = { silencing: RED, activation: GREEN, ambiguous: NEUTRAL };
   const e = Object.entries(counts || {}).filter(([, v]) => v != null && v > 0);
   if (!e.length) {
-    x.fillStyle = '#9aabbc'; x.font = '13px sans-serif';
+    x.fillStyle = MUTED; x.font = '13px sans-serif';
     x.fillText('No effect call in this run.', 20, H / 2);
     $('#donut-legend').innerHTML = '';
     return;
@@ -770,9 +776,9 @@ function donut(counts) {
     x.fillStyle = colour[k] || '#7d4fbf'; x.fill();
     a0 = a1;
   });
-  x.fillStyle = '#16212c'; x.font = 'bold 19px sans-serif'; x.textAlign = 'center';
+  x.fillStyle = INK; x.font = 'bold 19px sans-serif'; x.textAlign = 'center';
   x.fillText(total >= 1000 ? (total / 1000).toFixed(0) + 'k' : String(total), cx, cy + 2);
-  x.font = '11px sans-serif'; x.fillStyle = '#67788a';
+  x.font = '11px sans-serif'; x.fillStyle = MUTED;
   x.fillText('sites', cx, cy + 17);
   x.textAlign = 'left';
   $('#donut-legend').innerHTML = e.map(([k, v]) => `
@@ -788,38 +794,38 @@ function folds(list, model) {
   if (!list || !list.length) {
     if (model && model.roc_auc_mean != null) {
       // No per-round scores recorded, but the average is real - show that alone.
-      x.fillStyle = '#2e75b6'; x.font = 'bold 44px sans-serif'; x.textAlign = 'center';
+      x.fillStyle = INK; x.font = 'bold 44px sans-serif'; x.textAlign = 'center';
       x.fillText(model.roc_auc_mean.toFixed(3), W / 2, H / 2);
-      x.fillStyle = '#67788a'; x.font = '12px sans-serif';
+      x.fillStyle = MUTED; x.font = '12px sans-serif';
       x.fillText('average score across ' + (model.cv_folds || '?') + ' rounds', W / 2, H / 2 + 22);
       x.textAlign = 'left';
       return;
     }
-    x.fillStyle = '#9aabbc'; x.font = '13px sans-serif';
+    x.fillStyle = MUTED; x.font = '13px sans-serif';
     x.fillText('No prediction test in this run.', 20, H / 2);
     return;
   }
   const lo = Math.min(0.5, ...list) - 0.02, hi = 1.002;
   const py = v => H - pad - ((v - lo) / (hi - lo)) * (H - pad - 26);
-  x.strokeStyle = '#eef2f7';
+  x.strokeStyle = GRID;
   [0.5, 0.75, 0.9, 1.0].filter(v => v >= lo).forEach(v => {
     const y = py(v);
     x.beginPath(); x.moveTo(pad, y); x.lineTo(W - 14, y); x.stroke();
-    x.fillStyle = '#8494a5'; x.font = '10.5px sans-serif';
+    x.fillStyle = MUTED; x.font = '10.5px sans-serif';
     x.fillText(v.toFixed(2), 8, y + 3);
   });
   const step = (W - pad - 24) / list.length;
   list.forEach((v, i) => {
     const X = pad + step * (i + 0.5), Y = py(v);
-    x.strokeStyle = '#cddae6'; x.beginPath(); x.moveTo(X, H - pad); x.lineTo(X, Y); x.stroke();
-    x.fillStyle = '#2e75b6'; x.beginPath(); x.arc(X, Y, 6, 0, 6.284); x.fill();
-    x.fillStyle = '#67788a'; x.font = '10.5px sans-serif'; x.textAlign = 'center';
+    x.strokeStyle = FAINT; x.beginPath(); x.moveTo(X, H - pad); x.lineTo(X, Y); x.stroke();
+    x.fillStyle = INK; x.beginPath(); x.arc(X, Y, 6, 0, 6.284); x.fill();
+    x.fillStyle = MUTED; x.font = '10.5px sans-serif'; x.textAlign = 'center';
     x.fillText('round ' + (i + 1), X, H - pad + 15);
     x.textAlign = 'left';
   });
   if (model && model.roc_auc_mean != null) {
     const y = py(model.roc_auc_mean);
-    x.strokeStyle = '#1a7a3a'; x.setLineDash([5, 4]);
+    x.strokeStyle = MUTED; x.setLineDash([5, 4]);
     x.beginPath(); x.moveTo(pad, y); x.lineTo(W - 14, y); x.stroke(); x.setLineDash([]);
   }
 }
@@ -832,7 +838,7 @@ function volcano(v) {
   const ym = Math.max(2, ...v.y) * 1.08;
   const px = t => pad + (t + xm) / (2 * xm) * (W - pad - 20);
   const py = t => H - pad - (t / ym) * (H - pad - 24);
-  x.strokeStyle = '#eef2f7'; x.fillStyle = '#8494a5'; x.font = '11px sans-serif';
+  x.strokeStyle = GRID; x.fillStyle = MUTED; x.font = '11px sans-serif';
   for (let i = 0; i <= 4; i++) {
     const val = ym * i / 4, y = py(val);
     x.beginPath(); x.moveTo(pad, y); x.lineTo(W - 20, y); x.stroke();
@@ -845,11 +851,11 @@ function volcano(v) {
   }
   for (let i = 0; i < v.x.length; i++) {
     const sig = v.y[i] > 1.301 && Math.abs(v.x[i]) >= 0.2;
-    x.fillStyle = sig ? (v.x[i] > 0 ? 'rgba(192,57,43,.55)' : 'rgba(26,122,58,.55)')
+    x.fillStyle = sig ? (v.x[i] > 0 ? 'rgba(192,57,43,.62)' : 'rgba(26,122,58,.62)')
       : 'rgba(154,165,177,.28)';
     x.beginPath(); x.arc(px(v.x[i]), py(v.y[i]), 2.4, 0, 6.284); x.fill();
   }
-  x.fillStyle = '#3b4756'; x.font = '12px sans-serif';
+  x.fillStyle = '#3f3f3f'; x.font = '12px sans-serif';
   x.fillText('size of the difference', W / 2 - 62, H - 12);
   x.save(); x.translate(16, H / 2 + 46); x.rotate(-Math.PI / 2);
   x.fillText('confidence', 0, 0); x.restore();
