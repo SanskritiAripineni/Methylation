@@ -1,0 +1,7 @@
+# The published site is a verbatim copy and must stay byte-identical to the original.
+# -text disables all line-ending conversion so a fresh clone reproduces it exactly.
+web/site/** -text
+
+# Bundled sample data is generated; keep it byte-stable too.
+data/sample/** -text
+data/reference/** -text

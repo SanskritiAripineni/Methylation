@@ -1,0 +1,14 @@
+{
+  "seed": 20260729,
+  "n_probes": 2900,
+  "n_reference_probes_real_stats": 500,
+  "n_simulated_background_probes": 2400,
+  "n_samples": 130,
+  "n_tumor": 90,
+  "n_normal": 40,
+  "n_sex_chromosome_probes": 88,
+  "deliberately_low_quality_samples": 4,
+  "deliberately_low_quality_probes": 70,
+  "per_sample_values": "SIMULATED",
+  "per_probe_group_means": "REAL for reference probes, simulated for background"
+}

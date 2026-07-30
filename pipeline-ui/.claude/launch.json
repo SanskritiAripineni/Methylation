@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "methylation-builder",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["server/app.py", "--no-browser", "--port", "8765"],
+      "port": 8765
+    }
+  ]
+}

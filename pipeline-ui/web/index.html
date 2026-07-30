@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRCA Methylation — Pipeline Builder</title>
+<link rel="stylesheet" href="builder.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">CpG</span>
+    <div>
+      <h1>BRCA Methylation — Pipeline Builder</h1>
+      <p>Drag blocks, tune the filters, run it end to end.</p>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs">
+    <button class="tab active" data-view="builder">Builder</button>
+    <button class="tab" data-view="results">Results</button>
+    <button class="tab" data-view="report">Report</button>
+    <button class="tab" data-view="files">Downloads</button>
+    <button class="tab" data-view="site">Published site</button>
+  </nav>
+  <div class="actions">
+    <button class="btn ghost" id="btn-reset" title="Restore the published pipeline graph">Reset graph</button>
+    <button class="btn ghost" id="btn-export" title="Save this graph as JSON">Export graph</button>
+    <button class="btn primary" id="btn-run">▶ Run sample</button>
+  </div>
+</header>
+
+<div class="statusstrip" id="statusstrip">
+  <span class="dot idle" id="status-dot"></span>
+  <span id="status-text">Idle — the graph below is the published pipeline. Press <b>Run sample</b>.</span>
+  <span class="spacer"></span>
+  <span id="status-elapsed"></span>
+</div>
+
+<!-- ================= BUILDER ================= -->
+<main class="view active" id="view-builder">
+  <aside class="palette">
+    <h2>Blocks</h2>
+    <p class="hint"><b>Drag</b> a block onto the canvas, or <b>click</b> it to chain it onto the selected block. Connect blocks by dragging from a block's <b>right dot</b> to another block's <b>left dot</b>; click a connection to delete it.</p>
+    <div id="palette-list"></div>
+  </aside>
+
+  <section class="canvaswrap">
+    <div class="canvastools">
+      <span id="graph-summary" class="small"></span>
+      <span class="spacer"></span>
+      <button class="btn tiny ghost" id="btn-tidy">Tidy layout</button>
+      <button class="btn tiny ghost" id="btn-clear">Clear canvas</button>
+    </div>
+    <div class="canvas" id="canvas">
+      <svg class="edges" id="edges"></svg>
+      <div class="nodes" id="nodes"></div>
+      <div class="emptyhint" id="empty-hint">Drop blocks here</div>
+    </div>
+    <div class="console" id="console">
+      <div class="consolehead">
+        <b>Run log</b>
+        <span class="spacer"></span>
+        <button class="btn tiny ghost" id="btn-toggle-console">hide</button>
+      </div>
+      <div class="consolebody" id="console-body">
+        <div class="logline muted">No run yet.</div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="inspector" id="inspector">
+    <h2>Parameters</h2>
+    <div id="inspector-body">
+      <p class="hint">Select a block on the canvas to adjust its parameters. Every value here is live — change it and run again.</p>
+    </div>
+  </aside>
+</main>
+
+<!-- ================= RESULTS ================= -->
+<main class="view" id="view-results">
+  <div class="page">
+    <div id="results-empty" class="placeholder">
+      <h2>No results yet</h2>
+      <p>Run the pipeline from the Builder tab. Results land here: headline numbers, the volcano plot, the ROC curve, the direction-of-effect split and the marker tables.</p>
+      <button class="btn primary" data-goto="builder">Go to the builder</button>
+    </div>
+    <div id="results-body" class="hidden">
+      <div class="callout danger" id="provenance-note"></div>
+      <div class="cards" id="stat-cards"></div>
+
+      <h2>Volcano plot</h2>
+      <p class="explain"><span class="tag">How to read it</span>Each dot is one CpG site. Left/right is how big the methylation change is and in which direction; up is statistical confidence. Hover a dot for its probe id.</p>
+      <div class="chartbox"><canvas id="volcano" height="430"></canvas>
+        <div class="legend"><span class="sw" style="background:#c0392b"></span>hypermethylated
+          <span class="sw" style="background:#1a7a3a"></span>hypomethylated
+          <span class="sw" style="background:#9aa5b1"></span>not significant</div>
+      </div>
+
+      <div class="split">
+        <div>
+          <h2>Classifier ROC</h2>
+          <div class="chartbox"><canvas id="roc" height="330"></canvas>
+            <div class="legend" id="roc-note"></div></div>
+        </div>
+        <div>
+          <h2>Direction of effect</h2>
+          <div class="chartbox"><canvas id="mech" height="330"></canvas>
+            <div class="legend">Promoter + hyper → silencing. Promoter + hypo → activation. Outside a promoter → ambiguous.</div></div>
+        </div>
+      </div>
+
+      <h2>Strongest markers</h2>
+      <div class="tscroll" id="table-markers"></div>
+
+      <h2>Candidate biomarker panel</h2>
+      <div class="tscroll" id="table-panel"></div>
+
+      <div id="enrich-wrap" class="hidden">
+        <h2>Pathway enrichment <span class="badge warn">exploratory</span></h2>
+        <div class="callout warn">HM450 over-samples promoters of neuronal and developmental genes, so enrichment on array-derived gene lists inherits that bias. Treat these terms as exploratory.</div>
+        <div class="callout hidden" id="enrich-null"><b>No gene set reached the FDR threshold.</b> That is a real result, not a broken step — the hit genes are not concentrated in any curated pathway more than chance would predict. The closest-ranked terms are listed below so you can see what came nearest.</div>
+        <div class="tscroll" id="table-enrich"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ================= REPORT ================= -->
+<main class="view" id="view-report">
+  <div class="framebar">
+    <span id="report-label" class="small">No report generated yet.</span>
+    <span class="spacer"></span>
+    <button class="btn tiny ghost" id="btn-report-new">Open in new tab</button>
+    <button class="btn tiny primary" id="btn-report-dl">Download report</button>
+  </div>
+  <iframe id="report-frame" title="Generated report"></iframe>
+</main>
+
+<!-- ================= FILES ================= -->
+<main class="view" id="view-files">
+  <div class="page">
+    <h2>Download everything this run produced</h2>
+    <p class="explain"><span class="tag">Note</span>Every table below is a real file written to <code>runs/&lt;run-id&gt;/</code> on disk. The zip contains all of them plus the run manifest, which records the exact parameter values used.</p>
+    <button class="btn primary" id="btn-download-all" disabled>⬇ Download all as .zip</button>
+    <div class="tscroll" id="table-files"><p class="hint">No run yet.</p></div>
+  </div>
+</main>
+
+<!-- ================= ORIGINAL SITE ================= -->
+<main class="view" id="view-site">
+  <div class="framebar">
+    <span class="small"><b>Published results site</b> — served verbatim, read-only. Nothing here is modified by the builder.</span>
+    <span class="spacer"></span>
+    <select id="site-pick">
+      <option value="/site/Results_Presentation.html">Results Presentation (single page)</option>
+      <option value="/site/website_v2/index.html">Results website v2 (multi-page)</option>
+      <option value="/site/PREVIEW_design.html">Design preview</option>
+    </select>
+    <button class="btn tiny ghost" id="btn-site-new">Open in new tab</button>
+  </div>
+  <iframe id="site-frame" title="Published results site" src="/site/Results_Presentation.html"></iframe>
+</main>
+
+<div class="tip" id="tip"></div>
+<script src="builder.js"></script>
+</body>
+</html>

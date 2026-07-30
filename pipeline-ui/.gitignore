@@ -1,0 +1,6 @@
+# Run outputs — regenerated on every run
+runs/
+
+__pycache__/
+*.pyc
+.DS_Store
