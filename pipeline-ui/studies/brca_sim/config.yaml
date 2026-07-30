@@ -1,0 +1,305 @@
+# ---------------------------------------------------------------------------
+# Study: BRCA tumour vs adjacent-normal, bundled sample cohort
+# ---------------------------------------------------------------------------
+# This file is the single source of truth for thresholds, anchors and the step
+# plan. The frontend renders from it; it never hard-codes a number.
+#
+# Every `default` below is the value the ENGINE ACTUALLY USES today
+# (server/engine/catalog.py). Where that differs from the published literature
+# convention, the literature value appears as a named anchor and the difference
+# is stated in `convention`. Setting the default to the textbook number instead
+# would mean a "Full" run silently stopped reproducing the committed results.
+# ---------------------------------------------------------------------------
+
+id: brca_sim
+label: BRCA tumour vs adjacent normal (bundled cohort)
+tissue: breast
+comparison: tumor_vs_normal
+
+# What this pipeline eats. Stated once, here, so the intake screen can be
+# honest about the difference between "your file is missing" and "this
+# pipeline could not use that file even if you had it".
+consumes:
+  matrix: beta_value_matrix          # probes x samples, TSV(.gz), row index = probe_id
+  manifest: sample_table             # sample_barcode + sample_class (+ optional covariates)
+  annotation: probe_annotation_table # probe_id -> gene / chrom / pos / region
+
+data:
+  matrix_path: data/sample/sample_betas.tsv.gz
+  manifest_path: data/sample/sample_manifest.tsv
+  annotation_path: data/sample/probe_annotation.tsv
+  summary_path: data/sample/sample_summary.json
+  provenance: >-
+    Per-probe tumour/normal group means for 500 reference probes are REAL, taken
+    from the published TCGA-BRCA analysis. Every per-sample value is SIMULATED,
+    drawn to match those means and the spread implied by the published
+    t-statistics. 2400 further probes are simulated background.
+
+  # Columns the checks look for. Absent columns are reported as "not assessable",
+  # never silently skipped.
+  group_column: sample_class
+  id_column: sample_barcode
+  batch_columns: [plate, slide, sentrix_id, batch]   # none present in this cohort - see checks
+  covariate_columns: [subtype, age_years, gender, tumor_purity]
+  sex_column: gender
+  simulated_flag_column: simulated
+
+# ---------------------------------------------------------------------------
+# Thresholds. Each one maps to a real engine parameter (node.param) - if it
+# does not map, it belongs in `not_applicable` below, not here.
+# ---------------------------------------------------------------------------
+thresholds:
+
+  delta_beta_min:
+    label: Minimum effect size (|Δβ|)
+    maps_to: effect_filter.min_abs_delta_beta
+    default: 0.20
+    direction: higher_is_stricter
+    min: 0.0
+    max: 0.6
+    step: 0.01
+    convention: >-
+      A 5 percentage-point difference (0.05) is the usual literature floor for
+      biological interest - significance alone finds thousands of 1-2% shifts no
+      assay replicates. This project publishes at 0.20 because a tumour/normal
+      contrast on a 130-sample cohort returns tens of thousands of probes at
+      0.05, and the committed results were produced at 0.20. Lower it to 0.05 to
+      match the literature; the run records whichever you chose.
+    anchors:
+      - {value: 0.05, label: Literature floor, note: "The usual 5-point floor. Returns far more probes than the published run."}
+      - {value: 0.20, label: This project, note: "The value that produced the committed results. Default."}
+      - {value: 0.30, label: Conservative, note: "Large, robust differences only."}
+
+  fdr_max:
+    label: FDR threshold
+    maps_to: multiple_testing.fdr_threshold
+    default: 0.05
+    direction: lower_is_stricter
+    min: 0.001
+    max: 0.25
+    step: 0.005
+    convention: >-
+      Benjamini-Hochberg at 0.05 is the standard false-discovery ceiling for
+      genome-wide methylation testing. A convention, not a measurement on this
+      cohort.
+    anchors:
+      - {value: 0.10, label: Discovery, note: "Hypothesis generation; expect 1 in 10 hits to be false."}
+      - {value: 0.05, label: Standard, note: "The usual call. This project's default."}
+      - {value: 0.01, label: Strict, note: "High-confidence probes only."}
+
+  sample_call_rate_min:
+    label: Minimum sample call rate
+    maps_to: qc_filter.max_sample_missingness   # stored as 1 - call_rate
+    invert: true
+    default: 0.75
+    direction: higher_is_stricter
+    min: 0.50
+    max: 0.99
+    step: 0.01
+    convention: >-
+      Illumina/minfi practice is to drop samples below a 0.95 call rate. This
+      pipeline's QC block ships at 0.75 (max_sample_missingness 0.25) because the
+      bundled cohort deliberately contains 4 low-quality samples that a 0.95 gate
+      removes - which is the point of them. Raise it to 0.95 for real data.
+    anchors:
+      - {value: 0.75, label: This project, note: "Keeps the deliberately-degraded demo samples. Default."}
+      - {value: 0.95, label: Standard, note: "Illumina/minfi practice for real cohorts."}
+      - {value: 0.98, label: Strict, note: "Near-complete arrays only."}
+
+  probe_call_rate_min:
+    label: Minimum probe call rate
+    maps_to: qc_filter.max_probe_missingness
+    invert: true
+    default: 0.90
+    direction: higher_is_stricter
+    min: 0.50
+    max: 1.0
+    step: 0.01
+    convention: >-
+      A probe missing in more than 10% of samples is usually dropped before
+      testing. Applied across the cohort, after sample filtering.
+    anchors:
+      - {value: 0.80, label: Permissive, note: "Keeps sparser probes; more tests, more noise."}
+      - {value: 0.90, label: Standard, note: "This project's default."}
+      - {value: 0.98, label: Strict, note: "Near-complete probes only."}
+
+  min_samples_per_class:
+    label: Minimum samples per class
+    maps_to: differential.min_group_n
+    default: 3
+    direction: higher_is_stricter
+    min: 2
+    max: 20
+    step: 1
+    # Decided deliberately: FAIL below 3, WARN below 5, silent at 5+.
+    # A gate that fires on every run gets ignored, so the power warning is a
+    # warning. The fit-impossible case is the one that blocks.
+    fail_below: 3
+    warn_below: 5
+    convention: >-
+      A Welch t-test cannot fit below 2 per group and is unstable at 2. Below
+      about 5 per group there is essentially no power to detect a 0.20 Δβ, so
+      "no significant probes" stops being an informative result. The bundled
+      tumour/normal contrast has 90 vs 40 and clears both bars; thin subtype
+      contrasts (Her2 n=4, Normal n=4) trip the power warning, which is the
+      case the warning exists for.
+    anchors:
+      - {value: 3, label: Will fit, note: "Model converges. Default. No real power."}
+      - {value: 5, label: Minimum power, note: "Below this the warning fires."}
+      - {value: 10, label: Comfortable, note: "Stable estimates for a 0.20 effect."}
+
+  panel_size:
+    label: Biomarker panel size
+    maps_to: panel_select.top_n
+    default: 100
+    direction: lower_is_stricter
+    min: 10
+    max: 500
+    step: 10
+    convention: >-
+      The panel is a ranked shortlist, not a validated assay. 100 is a working
+      size for downstream feature selection; the classifier then uses
+      n_features of them.
+    anchors:
+      - {value: 25, label: Tight, note: "Assay-sized shortlist."}
+      - {value: 100, label: Standard, note: "This project's default."}
+      - {value: 250, label: Broad, note: "Wider net for follow-up."}
+
+  exclude_sex_chromosomes:
+    label: Drop chrX / chrY probes
+    maps_to: qc_filter.drop_sex_chromosomes
+    default: true
+    type: bool
+    convention: >-
+      Standard practice unless sex is the variable of interest: X-inactivation
+      makes chrX beta values bimodal by sex and swamps the contrast. The bundled
+      cohort is 130/130 female, so dropping them changes little here - it matters
+      on mixed-sex cohorts.
+
+# ---------------------------------------------------------------------------
+# Declared NOT APPLICABLE. These are real methylation controls that this
+# pipeline cannot perform, because it starts from a beta matrix rather than
+# from IDATs. They are rendered on screen with these reasons rather than shown
+# as knobs that do nothing.
+# ---------------------------------------------------------------------------
+not_applicable:
+
+  detection_p_max:
+    label: Detection p-value threshold
+    literature_default: 0.01
+    reason: >-
+      Detection p-values are computed from raw Grn/Red intensities against the
+      array's control probes. This pipeline is handed beta values, so no
+      detection call exists to threshold. Per-probe missingness is the only
+      quality signal available here, and it is a weaker one.
+    consequence: >-
+      Probes that failed detection upstream are indistinguishable from good
+      probes unless whoever produced the matrix already set them to NA.
+
+  normalization:
+    label: Normalization method
+    literature_default: funnorm
+    reason: >-
+      Noob / Funnorm / BMIQ / quantile all operate on raw intensities or on the
+      full probe distribution including control probes. By the time a beta
+      matrix exists the choice has already been made upstream.
+    consequence: >-
+      Normalization is provenance for this pipeline, not a parameter. It is
+      recorded from the input's own documentation if supplied, and reported as
+      "unknown" if not - it is never guessed.
+
+  dmr_min_cpgs:
+    label: Minimum CpGs per DMR
+    literature_default: 3
+    reason: >-
+      There is no region-finding step (DMRcate / bumphunter) in this graph. The
+      pipeline tests probes individually and annotates them to regions; it does
+      not call differentially methylated regions.
+    consequence: >-
+      Results are per-probe. Do not describe them as DMRs.
+
+  exclude_cross_reactive:
+    label: Drop cross-reactive probes
+    literature_default: true
+    reason: >-
+      The Chen / McCartney cross-reactive probe lists are not bundled with this
+      project, and the sample matrix carries 2400 simulated background probes
+      with synthetic ids that are not on any published list.
+    consequence: >-
+      Cross-hybridising probes are not removed. On real 450K/EPIC data this is a
+      known source of spurious hits and should be added before publishing.
+
+  cell_type_adjustment:
+    label: Cell-composition adjustment
+    literature_default: true
+    reason: >-
+      Houseman deconvolution needs a tissue-matched reference set of sorted cell
+      types. This study's tissue is breast; the published references are for
+      whole blood. No breast reference is bundled.
+    consequence: >-
+      Bulk tumour composition (epithelial fraction, stromal and immune
+      infiltrate) is uncorrected. `tumor_purity` is present in the manifest as a
+      covariate but the differential block does not adjust for it. Treat any hit
+      as potentially a composition difference rather than a per-cell methylation
+      difference.
+    verdict_trigger_if_tissue_in: [blood, whole_blood, pbmc, buffy_coat]
+
+  array_manifest:
+    label: Illumina array manifest / annotation package
+    reason: >-
+      No array type is declared or detectable: a beta matrix carries no Sentrix
+      ids and no control probes. The local equivalent of a manifest mismatch is
+      a probe-annotation table that does not cover the matrix rows, and that IS
+      checked (see the probe_annotation_overlap check).
+    consequence: >-
+      Probes present in the matrix but absent from the annotation table lose
+      their gene, region and direction-of-effect call. They are still tested.
+
+# ---------------------------------------------------------------------------
+# Step plan. `runs` is evaluated per mode; a false value must carry a reason
+# that the UI shows verbatim.
+# ---------------------------------------------------------------------------
+steps:
+  - {node: n1,  type: load_data,        name: Load dataset,                  runs: true}
+  - {node: n2,  type: qc_filter,        name: QC filter,                     runs: true}
+  - {node: n3,  type: differential,     name: Differential test,             runs: true}
+  - {node: n4,  type: multiple_testing, name: Multiple-testing correction,   runs: true}
+  - {node: n5,  type: effect_filter,    name: Effect-size filter,            runs: true}
+  - {node: n6,  type: annotate,         name: Annotate sites,                runs: true}
+  - {node: n7,  type: direction_label,  name: Direction of effect,           runs: true}
+  - {node: n8,  type: panel_select,     name: Biomarker panel,               runs: true}
+  - {node: n9,  type: classifier,       name: Classifier + validation,       runs: true}
+  - {node: n10, type: enrichment,       name: Pathway enrichment,            runs: true,
+     caveat: "HM450 over-samples promoters of neuronal and developmental genes; array-derived gene lists inherit that bias."}
+  - {node: n11, type: report,           name: Generate report,               runs: true}
+
+# ---------------------------------------------------------------------------
+# Demo tier
+# ---------------------------------------------------------------------------
+demo:
+  n_per_class_default: 3
+  n_per_class_min: 2
+  subset: samples          # never probes - see below
+  probe_subset_allowed: false
+  probe_subset_reason: >-
+    Subsetting probes would change the multiple-testing burden, the effect-size
+    ranking and the classifier's feature pool - which are exactly the steps the
+    rehearsal exists to test. Samples are subset instead; every probe filter,
+    threshold and model stays identical to the full run.
+  stratify_by: [subtype]   # keep the strata spread if the column exists
+
+# ---------------------------------------------------------------------------
+# Verdict
+# ---------------------------------------------------------------------------
+verdict:
+  standing_caveat: >-
+    Association and model behaviour only. Not a clinical diagnostic, and a
+    methylation difference is not evidence of causation.
+  research_only_triggers:
+    - simulated_cohort
+    - batch_not_assessable
+    - below_min_samples_per_class
+    - probe_annotation_partial
+    - unverifiable_step_inputs
+    - call_rate_below_threshold
+    - no_independent_validation_cohort

@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BRCA Methylation — Run Console</title>
+<link rel="stylesheet" href="console-v2.css">
+</head>
+<body>
+
+<!--
+  console-v2 is standalone on purpose.
+
+  builder.js is a closed IIFE: it exposes no functions and no globals, and it
+  binds ~16 element ids unconditionally at load (see wireChrome), so any page
+  that loads it must carry its entire DOM or it throws during load and takes
+  the page down. There is nothing to feature-detect and nothing to hook, so
+  this page reuses none of it. index.html, builder.js, builder.css and
+  engine/report.py are untouched - `git diff ui-v1-baseline` shows no entry
+  for any of them.
+
+  For finished results this page embeds the run's OWN run_report.html, which
+  the frozen report generator wrote during the run. That keeps one renderer
+  rather than a second copy of the charts that could drift from it.
+-->
+
+<header class="topbar">
+  <div class="brand">
+    <span class="logo">CpG</span>
+    <div>
+      <h1>Methylation — Run Console</h1>
+      <p id="brand-sub">End to end: point at data, check readiness, launch, watch.</p>
+    </div>
+  </div>
+  <div class="topright">
+    <a class="btn ghost tiny" href="/index.html" title="The original drag-and-drop builder, unchanged">Open v1 builder</a>
+  </div>
+</header>
+
+<div class="shell">
+
+<!-- ================================================================ SIDEBAR -->
+<aside class="sidebar">
+
+  <div class="modeswitch" id="modeswitch">
+    <button class="mode active" data-mode="explore">Explore results</button>
+    <button class="mode" data-mode="new">New run</button>
+  </div>
+
+  <!-- ---------------------------------------------------------- EXPLORE -->
+  <section class="pane active" id="pane-explore">
+    <h2>Runs</h2>
+    <label class="checkline">
+      <input type="checkbox" id="show-rehearsals">
+      <span>Show rehearsals (plan / demo)</span>
+    </label>
+    <p class="hint" id="rehearsal-hint">Hidden by default: a demo finishes and is instantly the
+      newest run, so anything that opens "the latest" would open a rehearsal.</p>
+    <div id="run-list" class="runlist"><p class="hint">No runs yet this session.</p></div>
+
+    <h2>This run's inputs</h2>
+    <p class="hint">Read-only provenance, taken from the run record — not from the pickers above.</p>
+    <div id="provenance" class="provenance"><p class="hint">Select a run.</p></div>
+  </section>
+
+  <!-- --------------------------------------------------------- NEW RUN -->
+  <section class="pane" id="pane-new">
+
+    <h2>1 · Data source</h2>
+    <div class="tiles" id="tiles">
+      <button class="tile selected" data-source="bundled">
+        <b>Study cohort</b><span>Bundled with the project</span></button>
+      <button class="tile" data-source="repeat">
+        <b>Repeat a run</b><span>Reuse earlier settings</span></button>
+      <button class="tile" data-source="local">
+        <b>Local path</b><span>Read where it sits</span></button>
+      <button class="tile" data-source="upload">
+        <b>Upload files</b><span>Small tables only</span></button>
+      <button class="tile disabled" data-source="fastq" disabled>
+        <b>Raw bisulfite FASTQ</b><span>Needs alignment + methylation calling (Bismark) — a separate pipeline</span></button>
+    </div>
+    <div class="sourcepanel" id="sourcepanel"></div>
+
+    <h2>2 · What these files provide</h2>
+    <button class="btn ghost wide" id="btn-inspect">Inspect the inputs</button>
+    <div id="capabilities" class="caps"><p class="hint">Not inspected yet.</p></div>
+
+    <h2>3 · Run identity</h2>
+    <div class="field">
+      <label for="run-name">Display label</label>
+      <input type="text" id="run-name" placeholder="e.g. tumour vs normal, Δβ 0.20">
+    </div>
+    <div class="field">
+      <label for="source-label">Source label <span class="sub">prints in the report</span></label>
+      <input type="text" id="source-label" placeholder="e.g. bundled simulated cohort, 2026-07-29">
+    </div>
+    <p class="hint">The run id is assigned by the server and always contains the tier, so a
+      rehearsal is never mistaken for a result in a folder listing.</p>
+
+    <h2>4 · Settings</h2>
+    <div id="thresholds" class="thresholds"><p class="hint">Loading…</p></div>
+
+    <details class="disclosure">
+      <summary>What this pipeline cannot do <span id="na-count"></span></summary>
+      <div id="not-applicable" class="nalist"></div>
+    </details>
+
+    <details class="disclosure">
+      <summary>Reproducibility</summary>
+      <div id="repro" class="repro"></div>
+    </details>
+
+    <h2>5 · Readiness</h2>
+    <div class="tierrow" id="tierrow">
+      <button class="tierbtn" data-mode="plan">Plan<span>seconds</span></button>
+      <button class="tierbtn active" data-mode="demo">Demo<span>minutes</span></button>
+      <button class="tierbtn" data-mode="full">Full<span>hours</span></button>
+    </div>
+    <div class="field inline" id="demo-n-wrap">
+      <label for="demo-n">Samples per class</label>
+      <input type="number" id="demo-n" min="2" max="20" value="3">
+    </div>
+    <button class="btn ghost wide" id="btn-check">Run readiness check</button>
+    <div id="checks" class="checks"><p class="hint">Not checked yet.</p></div>
+    <button class="btn primary wide" id="btn-start" disabled>Start</button>
+    <p class="hint" id="start-note">Run the readiness check first.</p>
+  </section>
+</aside>
+
+<!-- =================================================================== MAIN -->
+<main class="main">
+
+  <div class="verdict" id="verdict-banner">
+    <div class="vlevel" id="verdict-level">no run selected</div>
+    <div class="vbody">
+      <div id="verdict-summary">Pick a run on the left, or launch a new one.</div>
+      <ul id="verdict-reasons" class="vreasons"></ul>
+      <div class="vcaveat" id="verdict-caveat"></div>
+    </div>
+  </div>
+
+  <div class="maintabs" id="maintabs">
+    <button class="mtab active" data-view="steps">Steps</button>
+    <button class="mtab" data-view="report">Report</button>
+    <button class="mtab" data-view="files">Files</button>
+  </div>
+
+  <!-- STEPS -->
+  <section class="mview active" id="view-steps">
+    <div class="runbar">
+      <span id="run-title">No run</span>
+      <span class="spacer"></span>
+      <span id="run-elapsed" class="mono"></span>
+      <button class="btn tiny ghost" id="btn-cancel" disabled>Cancel</button>
+    </div>
+    <div id="estimate-note" class="estnote"></div>
+    <div id="stepcards" class="stepcards">
+      <p class="hint">Steps appear here once a readiness check or a run has run.</p>
+    </div>
+    <div class="logwrap">
+      <div class="loghead">
+        <b>Live log</b>
+        <span class="spacer"></span>
+        <span class="hint" id="log-follow">following</span>
+      </div>
+      <div class="logbody mono" id="logbody"><div class="muted">No output yet.</div></div>
+    </div>
+  </section>
+
+  <!-- REPORT -->
+  <section class="mview" id="view-report">
+    <div class="runbar">
+      <span id="report-label">No report yet.</span>
+      <span class="spacer"></span>
+      <button class="btn tiny ghost" id="btn-report-new" disabled>Open in new tab</button>
+    </div>
+    <iframe id="report-frame" title="Run report"></iframe>
+  </section>
+
+  <!-- FILES -->
+  <section class="mview" id="view-files">
+    <div class="runbar">
+      <span>Files this run actually produced</span>
+      <span class="spacer"></span>
+      <button class="btn tiny primary" id="btn-download" disabled>Download all (.zip)</button>
+    </div>
+    <p class="hint pad">An artifact is listed only if the step that produces it succeeded.
+      Otherwise a skipped report step would still "produce" the repo's committed report,
+      dated before the run existed.</p>
+    <div id="filetable" class="tscroll"><p class="hint pad">No run selected.</p></div>
+  </section>
+</main>
+</div>
+
+<div class="tip" id="tip"></div>
+<script src="console-v2.js"></script>
+</body>
+</html>
