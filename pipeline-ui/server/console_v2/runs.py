@@ -230,6 +230,11 @@ class V2Run(runner.Run):
         self.waiting_behind = None
         self.cancel_requested = False
         self.cancel_outcome = None
+        # `status` reaching a terminal value is not the same as the run being
+        # readable. The record, the results and the bundle are written after the
+        # last step, so anything that acts on "done" alone can arrive before the
+        # files exist. Callers wait for `finalized`.
+        self.finalized = False
         self._cancel = threading.Event()
 
     # -- helpers -----------------------------------------------------------
@@ -247,6 +252,7 @@ class V2Run(runner.Run):
             self.cancel_outcome = "Stopped before it started - it was still queued."
             self.finished = time.time()
             self._finish_record()
+            self.finalized = True
             return self.cancel_outcome
         running = next((s["name"] for s in self.steps if s["state"] == "running"), None)
         self.cancel_outcome = (
@@ -344,9 +350,12 @@ class V2Run(runner.Run):
             if self.mode != "plan":
                 try:
                     self.bundle()
-                except Exception:
-                    pass
+                except Exception as exc:
+                    self.warn("Could not build the download bundle: %s" % exc)
             self._finish_record()
+            # Everything is on disk now. Only at this point is the run safe for
+            # a caller to open.
+            self.finalized = True
 
     def _restate_provenance(self):
         """Say what the data actually is, in the string the report renders.
@@ -420,6 +429,10 @@ class V2Run(runner.Run):
             "provenance": self.mode if self.mode in ("plan", "demo") else "full",
             "data_provenance": self.ctx.get("data_provenance", ""),
             "warnings": list(self.warnings),
+            # Headline counts belong in the record, not only in the results
+            # file: a run that ends with nothing to report still has numbers
+            # worth showing ("800 tested, 0 significant").
+            "stats": list(self.stats),
             "reproducibility": study.reproducibility(),
             "verdict": self.verdict(),
             "artifacts": self._artifacts(),
@@ -450,12 +463,14 @@ class V2Run(runner.Run):
         return out
 
     def _finish_record(self):
+        """Write the durable record. A run with no record vanishes from history,
+        so a failure here is logged rather than swallowed."""
         try:
             rec = self.record()
             self.artifact_json("run_record.json", rec)
             append_history(rec)
-        except Exception:
-            pass
+        except Exception as exc:
+            self.warn("Could not write the run record: %s: %s" % (type(exc).__name__, exc))
         # Charts and tables, written to disk so an earlier run can still be
         # opened after the server restarts. In-memory state does not survive,
         # and "your results are gone" is not an acceptable answer.
@@ -480,6 +495,7 @@ class V2Run(runner.Run):
             "waiting_behind": self.waiting_behind,
             "cancel_requested": self.cancel_requested,
             "cancel_outcome": self.cancel_outcome,
+            "finalized": self.finalized,
             "verdict": self.verdict(),
             "n_per_class": self.n_per_class if self.mode == "demo" else None,
             # Wall clock, not the sum of finished steps: a 15-minute step must

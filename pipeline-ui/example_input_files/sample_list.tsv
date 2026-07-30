@@ -1,0 +1,13 @@
+sample_id	group	age
+CASE_01	case	55
+CASE_02	case	42
+CASE_03	case	72
+CASE_04	case	45
+CASE_05	case	49
+CASE_06	case	47
+CONT_01	control	56
+CONT_02	control	69
+CONT_03	control	67
+CONT_04	control	54
+CONT_05	control	57
+CONT_06	control	44

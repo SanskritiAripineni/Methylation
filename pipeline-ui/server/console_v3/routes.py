@@ -45,6 +45,23 @@ TIERS = {
 }
 
 
+
+# "Nothing passed the filters" is a RESULT, not a crash. The engine raises when
+# a downstream step has an empty table, which is correct for the engine but
+# would tell the reader their run broke when in fact their data showed no
+# difference at these thresholds. Detect it so it can be labelled honestly.
+_NULL_RESULT_MARKERS = (
+    "nothing left to build a panel from",
+    "no probe survived the effect filter",
+    "no probes left",
+)
+
+
+def is_null_result(error, warnings=()):
+    haystack = " ".join([str(error or "")] + [str(w) for w in (warnings or [])]).lower()
+    return any(m in haystack for m in _NULL_RESULT_MARKERS)
+
+
 def _q(query, key, default=None):
     vals = query.get(key)
     return vals[0] if vals else default
@@ -116,6 +133,7 @@ def _decorate(snap, cfg, est):
     snap["steps"] = _friendly_steps(cfg, snap.get("steps"))
     snap["progress"] = _progress(snap, est)
     snap["tier_label"] = TIERS.get(snap.get("mode"), {}).get("label", snap.get("mode"))
+    snap["null_result"] = is_null_result(snap.get("error"), snap.get("warnings"))
     return snap
 
 
@@ -148,6 +166,7 @@ def history(include_tests=True):
             "elapsed": rec.get("elapsed"),
             "verdict": (rec.get("verdict") or {}).get("level"),
             "is_test": rec.get("mode") in ("demo", "plan"),
+            "null_result": is_null_result(rec.get("error"), rec.get("warnings")),
             "has_report": (d / "run_report.html").is_file(),
             "has_results": (d / "results.json").is_file(),
             "source_label": rec.get("source_label") or "",
@@ -267,6 +286,10 @@ def handle_get(h, route, query):
             snap = {
                 "id": rec["run_id"], "status": rec["status"], "mode": rec["mode"],
                 "label": rec["label"], "steps": rec["steps"], "logs": [], "log_count": 0,
+                # error and warnings must travel: without them a reopened run
+                # cannot be told apart from a crash.
+                "error": rec.get("error"), "warnings": rec.get("warnings") or [],
+                "finalized": True, "stats": rec.get("stats") or [],
                 "elapsed_wall": rec["elapsed"], "verdict": rec["verdict"],
                 "artifacts": rec.get("artifacts") or [], "results": rec.get("results"),
                 "source_label": rec.get("source_label", ""),

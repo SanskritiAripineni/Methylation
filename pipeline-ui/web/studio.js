@@ -406,8 +406,13 @@ async function poll() {
   renderProgress(snap);
   renderBanner(snap);
 
-  if (['running', 'queued'].includes(snap.status)) {
-    state.timer = setTimeout(poll, 2000);
+  // A terminal status does not mean the files exist yet — the record, the
+  // results and the bundle are written after the last step. Acting on "done"
+  // alone races the writes and shows "no results" for a run that has them.
+  const live = ['running', 'queued'].includes(snap.status);
+  const settling = !live && snap.finalized === false;
+  if (live || settling) {
+    state.timer = setTimeout(poll, settling ? 400 : 2000);
     return;
   }
   clearInterval(state.ticker);
@@ -454,6 +459,23 @@ function renderBanner(snap) {
   const el = $('#banner');
   const v = snap.verdict || {};
   el.hidden = false;
+  // "Nothing passed the filters" is an answer, not a breakage. Reporting it as
+  // a crash would send someone hunting for a bug that is not there.
+  if (snap.status === 'error' && snap.null_result) {
+    const st = (snap.results && snap.results.stats) || snap.stats || [];
+    const get = k => (st.find(s => s.label === k) || {}).value;
+    el.className = 'banner test';
+    el.innerHTML = `<b>No sites passed the filters — that is a result, not a fault.</b>
+      Every step up to the shortlist ran. ${get('Probes tested') != null
+        ? `${num(get('Probes tested'))} sites were tested and ${num(get('Significant probes') ?? 0)}
+           reached the confidence threshold.` : ''}
+      Nothing cleared both the confidence and effect-size bars, so there was no shortlist
+      to build and the run stopped there.
+      <div class="more">If you expected hits: try the <b>Exploratory</b> preset, or lower the
+      minimum effect size under "Fine-tune the settings". If you did not, this is your
+      answer — these two groups do not differ at these thresholds.</div>`;
+    return;
+  }
   if (snap.status === 'error') {
     const failed = (snap.steps || []).find(s => s.state === 'failed');
     el.className = 'banner bad';
@@ -605,8 +627,9 @@ async function refreshHistory() {
     box.innerHTML = shown.map(r => `
       <button class="hrun ${r.id === state.runId ? 'on' : ''}" data-open="${esc(r.id)}">
         <b>${esc(r.label)}</b>
-        <span class="badge ${r.status === 'error' ? 'bad' : (r.is_test ? 'test' : 'full')}">${
-          r.status === 'error' ? 'failed' : (r.is_test ? 'test' : 'full')}</span>
+        <span class="badge ${r.null_result ? 'test' : (r.status === 'error' ? 'bad'
+          : (r.is_test ? 'test' : 'full'))}">${r.null_result ? 'no hits'
+          : (r.status === 'error' ? 'failed' : (r.is_test ? 'test' : 'full'))}</span>
         <div class="meta">${esc(r.when)} · ${esc(secs(r.elapsed) || '')}${
           r.has_report ? ' · report saved' : ''}</div>
       </button>`).join('');

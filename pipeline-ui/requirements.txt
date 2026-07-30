@@ -1,0 +1,12 @@
+# Methylation Studio — everything the pipeline needs.
+#   pip install -r requirements.txt
+#   python server/app_v3.py
+#
+# Versions are the ones this project is known to run on; newer minor releases
+# are normally fine. The web layer itself is Python standard library only.
+pandas>=2.0
+numpy>=1.24
+scipy>=1.10
+scikit-learn>=1.3
+PyYAML>=6.0
+psutil>=5.9
