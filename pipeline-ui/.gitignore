@@ -1,6 +1,9 @@
 # Run outputs — regenerated on every run
 runs/
 
+# Files a user dropped into the studio. Their data, not the project's.
+workspace/
+
 __pycache__/
 *.pyc
 .DS_Store

@@ -259,19 +259,68 @@ not_applicable:
 # Step plan. `runs` is evaluated per mode; a false value must carry a reason
 # that the UI shows verbatim.
 # ---------------------------------------------------------------------------
+#
+# `friendly` and `plain` are what the simple interface (studio) shows. `name`
+# stays the technical label and is what run history is keyed by, so renaming a
+# friendly label never re-keys a historical timing.
+#
 steps:
-  - {node: n1,  type: load_data,        name: Load dataset,                  runs: true}
-  - {node: n2,  type: qc_filter,        name: QC filter,                     runs: true}
-  - {node: n3,  type: differential,     name: Differential test,             runs: true}
-  - {node: n4,  type: multiple_testing, name: Multiple-testing correction,   runs: true}
-  - {node: n5,  type: effect_filter,    name: Effect-size filter,            runs: true}
-  - {node: n6,  type: annotate,         name: Annotate sites,                runs: true}
-  - {node: n7,  type: direction_label,  name: Direction of effect,           runs: true}
-  - {node: n8,  type: panel_select,     name: Biomarker panel,               runs: true}
-  - {node: n9,  type: classifier,       name: Classifier + validation,       runs: true}
+  - {node: n1,  type: load_data,        name: Load dataset,                  runs: true,
+     friendly: "Reading your data",
+     plain: "Opens the methylation table and the sample list and matches them up."}
+  - {node: n2,  type: qc_filter,        name: QC filter,                     runs: true,
+     friendly: "Quality check",
+     plain: "Drops samples and sites with too much missing data."}
+  - {node: n3,  type: differential,     name: Differential test,             runs: true,
+     friendly: "Comparing the two groups",
+     plain: "Tests every site for a methylation difference between your groups."}
+  - {node: n4,  type: multiple_testing, name: Multiple-testing correction,   runs: true,
+     friendly: "Correcting for chance",
+     plain: "Testing thousands of sites throws up flukes. This adjusts for that."}
+  - {node: n5,  type: effect_filter,    name: Effect-size filter,            runs: true,
+     friendly: "Keeping the real changes",
+     plain: "Keeps only sites where the difference is big enough to matter."}
+  - {node: n6,  type: annotate,         name: Annotate sites,                runs: true,
+     friendly: "Adding gene names",
+     plain: "Looks up which gene each site belongs to, and which part of it."}
+  - {node: n7,  type: direction_label,  name: Direction of effect,           runs: true,
+     friendly: "Working out the effect",
+     plain: "Decides whether each change likely switches a gene off or on."}
+  - {node: n8,  type: panel_select,     name: Biomarker panel,               runs: true,
+     friendly: "Picking the top markers",
+     plain: "Ranks the strongest sites into a shortlist."}
+  - {node: n9,  type: classifier,       name: Classifier + validation,       runs: true,
+     friendly: "Testing if it can predict",
+     plain: "Checks whether the shortlist can tell the two groups apart."}
   - {node: n10, type: enrichment,       name: Pathway enrichment,            runs: true,
+     friendly: "Looking for pathways",
+     plain: "Checks whether the hit genes cluster into known biology.",
      caveat: "HM450 over-samples promoters of neuronal and developmental genes; array-derived gene lists inherit that bias."}
-  - {node: n11, type: report,           name: Generate report,               runs: true}
+  - {node: n11, type: report,           name: Generate report,               runs: true,
+     friendly: "Writing the report",
+     plain: "Builds the report you can open, print or send."}
+
+# ---------------------------------------------------------------------------
+# Presets: one click sets every threshold together. The simple interface leads
+# with these; the individual controls stay available behind "Advanced".
+# ---------------------------------------------------------------------------
+presets:
+  - id: standard
+    label: Standard
+    blurb: The settings that produced this project's published results.
+    recommended: true
+    values: {delta_beta_min: 0.20, fdr_max: 0.05, sample_call_rate_min: 0.75,
+             probe_call_rate_min: 0.90, min_samples_per_class: 3, panel_size: 100}
+  - id: strict
+    label: Strict
+    blurb: Fewer results, each one harder to argue with.
+    values: {delta_beta_min: 0.30, fdr_max: 0.01, sample_call_rate_min: 0.95,
+             probe_call_rate_min: 0.98, min_samples_per_class: 5, panel_size: 25}
+  - id: exploratory
+    label: Exploratory
+    blurb: Casts a wide net. More to follow up, more of it noise.
+    values: {delta_beta_min: 0.05, fdr_max: 0.10, sample_call_rate_min: 0.75,
+             probe_call_rate_min: 0.80, min_samples_per_class: 3, panel_size: 250}
 
 # ---------------------------------------------------------------------------
 # Demo tier

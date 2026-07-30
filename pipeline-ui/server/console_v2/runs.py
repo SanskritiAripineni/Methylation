@@ -444,6 +444,14 @@ class V2Run(runner.Run):
             append_history(rec)
         except Exception:
             pass
+        # Charts and tables, written to disk so an earlier run can still be
+        # opened after the server restarts. In-memory state does not survive,
+        # and "your results are gone" is not an acceptable answer.
+        try:
+            if self.status == "done" and self.mode != "plan":
+                self.artifact_json("results.json", self.results())
+        except Exception:
+            pass
 
     # -- UI snapshot -------------------------------------------------------
     def snapshot(self, since=0):
