@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methylation Studio</title>
+<link rel="stylesheet" href="studio-v4.css">
+</head>
+<body>
+
+<!--
+  studio v4.
+
+  What changed from v3 (still running on 8767, frozen at tag ui-v3.1-studio):
+
+  * one selection drives everything. The report, the numbers, the charts and
+    the downloads all come from a single /api/v4/dashboard response, so they
+    cannot end up describing different runs.
+  * every panel is always here. A panel with nothing to draw says why, in a
+    sentence, in place of the chart. It never disappears - a panel that
+    vanishes is indistinguishable from a panel that is broken.
+  * the ROC curve and the pathway enrichment, computed by every run since v1
+    and thrown away by every interface until now, are drawn.
+
+  The left column is v3's, unchanged in behaviour: same three steps, same
+  readiness gate, same tier buttons.
+-->
+
+<header class="top">
+  <div class="brandwrap">
+    <span class="logo">CpG</span>
+    <div>
+      <h1>Methylation Studio</h1>
+      <p id="tagline">Drop in your data, press a button, read the report.</p>
+    </div>
+  </div>
+  <span class="spacer"></span>
+  <span class="vtag" title="Version 4. Version 3 is unchanged at /studio.html">v4</span>
+</header>
+
+<div class="shell">
+
+<!-- ============================================================== LEFT: DO -->
+<aside class="left">
+
+  <section class="stepblock">
+    <div class="stepnum">1</div>
+    <div class="stepbody">
+      <h2>Your data</h2>
+
+      <button class="bigbtn on" id="use-example">
+        <span><b>Example data</b>
+          <span id="example-blurb">130 breast samples bundled with this project.</span></span>
+      </button>
+
+      <div class="orline"><span>or use your own</span></div>
+
+      <div class="drop" id="drop">
+        <div class="dropinner">
+          <div class="dropicon">＋</div>
+          <b>Drag your files here</b>
+          <span>or <button class="linkbtn" id="browse">browse your computer</button></span>
+          <small>The methylation table, the sample list, and site information if you have it.</small>
+        </div>
+        <input type="file" id="filepick" multiple hidden accept=".tsv,.csv,.txt,.gz">
+      </div>
+
+      <div id="filelist" class="filelist"></div>
+      <div id="data-status" class="status"></div>
+    </div>
+  </section>
+
+  <section class="stepblock">
+    <div class="stepnum">2</div>
+    <div class="stepbody">
+      <h2>Settings</h2>
+      <p class="sub">Pick one. You can fine-tune afterwards if you want to.</p>
+      <div id="presets" class="presets"></div>
+      <details class="adv">
+        <summary>Fine-tune the settings</summary>
+        <div id="advanced" class="advanced"></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="stepblock">
+    <div class="stepnum">3</div>
+    <div class="stepbody">
+      <h2>Run it</h2>
+      <div id="tiers" class="tiers"></div>
+      <div id="run-status" class="status"></div>
+    </div>
+  </section>
+
+  <section class="stepblock nonum">
+    <div class="stepbody">
+      <h2>Earlier runs</h2>
+      <label class="checkline"><input type="checkbox" id="show-tests" checked>
+        <span>Include test runs</span></label>
+      <div id="history" class="history"><p class="sub">Nothing yet.</p></div>
+    </div>
+  </section>
+</aside>
+
+<!-- ========================================================= RIGHT: SEE -->
+<main class="right">
+
+  <section class="progress" id="progress" hidden>
+    <div class="prow">
+      <div class="pnow">
+        <div class="pstep" id="p-step">Step 1 of 11</div>
+        <div class="pname" id="p-name">Starting…</div>
+        <div class="pplain" id="p-plain"></div>
+      </div>
+      <div class="ptimes">
+        <div><span id="p-elapsed">0s</span><small>running for</small></div>
+        <div><span id="p-left">—</span><small>time left</small></div>
+      </div>
+      <button class="btn ghost small" id="p-cancel">Stop</button>
+    </div>
+    <div class="pbar"><div class="pfill" id="p-fill"></div></div>
+    <div class="ptrack" id="p-track"></div>
+    <details class="adv"><summary>Show the technical log</summary>
+      <div class="logbody mono" id="logbody"></div></details>
+  </section>
+
+  <div class="banner" id="banner" hidden></div>
+
+  <!-- One selection bar. Everything below it describes whatever is named
+       here, and nothing below it can name something else. -->
+  <nav class="tabs">
+    <div class="tabgroup" id="tabs">
+      <button class="tab active" data-view="report">Report</button>
+      <button class="tab" data-view="results">Results</button>
+      <button class="tab" data-view="files">Downloads</button>
+    </div>
+    <span class="spacer"></span>
+    <div class="sourcepick" id="sourcepick"></div>
+  </nav>
+
+  <div class="selbar" id="selbar">
+    <span class="selkind" id="sel-kind">Published study</span>
+    <b id="sel-title">—</b>
+    <span class="selsub" id="sel-sub"></span>
+    <span class="spacer"></span>
+    <span class="loading" id="sel-loading" hidden>loading…</span>
+  </div>
+
+  <!-- REPORT ---------------------------------------------------------- -->
+  <section class="view active" id="view-report">
+    <div class="viewbar">
+      <span id="report-label">—</span>
+      <span class="spacer"></span>
+      <select id="report-variant" class="mini" hidden></select>
+      <button class="btn ghost small" id="report-open">Open in a new tab</button>
+      <button class="btn small" id="report-print">Print / save as PDF</button>
+    </div>
+    <div class="framewrap" data-panel="report">
+      <div data-body><iframe id="report-frame" title="Report"></iframe></div>
+      <div class="pstate" data-state hidden></div>
+    </div>
+  </section>
+
+  <!-- RESULTS --------------------------------------------------------- -->
+  <section class="view" id="view-results">
+    <div class="scroller">
+
+      <div class="panelbox flush" data-panel="cards">
+        <div class="cards" data-body id="cards"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+
+      <div class="panelbox" data-panel="movers">
+        <div class="phead">
+          <h3>The genes that moved most</h3>
+          <p>Each bar is one gene. To the right, the tumour samples gained methylation —
+             which usually switches a gene <b>off</b>. To the left, they lost it, which can
+             switch one <b>on</b>.</p>
+        </div>
+        <div class="movers" data-body id="movers"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+
+      <div class="grid2">
+        <div class="panelbox" data-panel="direction">
+          <div class="phead"><h3>What the changes likely do</h3>
+            <p>Whether each changed site sits where methylation predictably silences a gene,
+               activates one, or neither.</p></div>
+          <div data-body>
+            <div class="donutwrap"><canvas id="donut" height="230"></canvas>
+              <div id="donut-legend" class="dlegend"></div></div>
+          </div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+
+        <div class="panelbox" data-panel="validation">
+          <div class="phead"><h3>Does it actually predict?</h3>
+            <p>A score of 1.0 is perfect, 0.5 is a coin flip. Each dot is one round of
+               testing on samples the model had not seen.</p></div>
+          <div data-body>
+            <canvas id="folds" height="230"></canvas>
+            <div class="legend" id="val-note"></div>
+          </div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="panelbox" data-panel="roc">
+          <div class="phead"><h3>Where it trades off</h3>
+            <p>Every threshold at once. Up is catching more of the tumours; right is
+               calling more healthy samples tumours by mistake. The further the line
+               bows into the top-left, the better the shortlist separates the groups.</p></div>
+          <div data-body><canvas id="roc" height="300"></canvas></div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+
+        <div class="panelbox" data-panel="enrichment">
+          <div class="phead"><h3>What the hit genes have in common</h3>
+            <p>Biological pathways that show up in the changed genes more often than
+               chance would explain.</p></div>
+          <div class="cohortbars" data-body id="enrichbars"></div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+      </div>
+
+      <div class="panelbox" data-panel="volcano">
+        <div class="phead"><h3>Every site at once</h3>
+          <p>One dot per DNA site. Left and right is the size of the difference; up is how
+             confident we are. The coloured dots in the top corners are the interesting ones.</p></div>
+        <div data-body>
+          <div class="chartbox"><canvas id="volcano" height="360"></canvas>
+            <div class="legend">
+              <span><i class="sw hyper"></i>gained methylation</span>
+              <span><i class="sw hypo"></i>lost methylation</span>
+              <span><i class="sw none"></i>no real change</span></div></div>
+        </div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+
+      <div class="panelbox" data-panel="cohort">
+        <div class="phead"><h3>Who is in the study</h3>
+          <p>Tumour subtypes represented in the cohort.</p></div>
+        <div class="cohortbars" data-body id="cohortbars"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+
+      <div class="panelbox" data-panel="table">
+        <div class="phead tablehead">
+          <div><h3>Every strong site</h3>
+            <p>Sorted by how big the difference is. Search a gene to find it.</p></div>
+          <input type="search" id="tsearch" placeholder="Search a gene or site…">
+        </div>
+        <div class="tscroll" data-body id="tbl-markers"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOADS ------------------------------------------------------- -->
+  <section class="view" id="view-files">
+    <div class="viewbar">
+      <span id="files-label">—</span>
+      <span class="spacer"></span>
+      <button class="btn small" id="download-all" disabled>Download everything (.zip)</button>
+    </div>
+    <div class="scroller">
+      <div class="panelbox flush" data-panel="downloads">
+        <div class="tscroll" data-body id="filetable"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<script type="module" src="studio-v4.js"></script>
+</body>
+</html>

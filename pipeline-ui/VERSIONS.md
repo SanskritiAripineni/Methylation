@@ -1,0 +1,92 @@
+# Versions
+
+Every interface this project has shipped is still here and still runs. None of
+them is edited once it is tagged — a new version is a new set of files beside
+the old ones, and each server subclasses the one before it.
+
+To go back to any version exactly as it was:
+
+```bash
+git checkout ui-v3.1-studio
+```
+
+| # | Tag | Port | Start with | What it is |
+|---|-----|------|------------|------------|
+| 1 | `ui-v1-baseline` | 8765 | `server/app.py` | The original drag-and-drop pipeline builder. `web/index.html`, `web/builder.js`, `web/builder.css`, `engine/report.py`. |
+| 2 | `ui-v2-sidebar-launcher` | 8766 | `server/app_v2.py` | The sidebar launcher. Adds the graded readiness check list, run history and verdicts. `console_v2/`, `web/console-v2.*`. |
+| 3 | `ui-v3-studio` | 8767 | `server/app_v3.py` | The studio — plain language on top of v2's checks. Adds the workspace so an upload can actually be run, history that survives a restart, and a measured time-left. `console_v3/`, `web/studio.*`. |
+| 3.1 | `ui-v3.1-studio` | 8767 | `server/app_v3.py` | **The freeze point.** v3 as it stood before the v4 work started. Same files as v3; the tag exists so there is a named commit to come back to. |
+| 4 | *(in progress)* | 8769 | `server/app_v4.py` | One dashboard contract behind every screen. `dashboard/`, `console_v4/`, `web/studio-v4.*`, `web/viz-v4.js`. |
+
+Older versions stay reachable from a newer server: v4 on 8769 still serves
+v3 at `/studio.html`, v2 at `/console-v2.html` and v1 at `/index.html`.
+
+## What v4 changed, and why
+
+**1. One dashboard contract.** `server/dashboard/schema.py` declares every panel
+the Results tab can show. Both the published study and a run you started are
+built through it, so they return the same sections in the same shape.
+
+Before, two hand-written builders drifted: the published study had a cohort
+panel and no volcano, a run had a volcano and no cohort, the direction donut
+drew three slices for one source and two for the other, and the ROC curve and
+the pathway enrichment were computed by every run and then discarded because
+no builder mentioned them. The interface hid whichever panel was missing, so
+a panel that could not exist looked exactly like a panel that was broken.
+
+Every section now carries its own state — `ok`, `empty` (the step ran and
+found nothing, which is a result) or `unavailable` (this source cannot produce
+it) — and a panel that has nothing to draw says which, in a sentence, in
+place of the chart. `tests/test_dashboard_schema.py` holds both builders to it.
+
+**2. One selection.** `GET /api/v4/dashboard` answers for the whole screen at
+once — the report, the numbers, the charts and the file list. Every load
+carries the generation it started in, and a response that arrives after the
+selection has moved on is dropped instead of drawn.
+
+Before, the report was set synchronously and the charts were fetched
+separately with no guard between them. Clicking one run and then another
+before the first landed left the header describing one analysis and the charts
+drawing a different one.
+
+**3. The visualizations are fixed functions.** `web/viz-v4.js` holds one pure
+function per panel, and it is *shared* — v5 imports it rather than copying it.
+Forking the chart code per version is what let the two sources drift apart in
+the first place. Only the shell (`studio-v*.html/css/js`) forks per version.
+
+**4. The colour scheme.** The interface greys were perfectly neutral (chroma
+0.000); they are now tinted toward one low-chroma ink-indigo, which is what
+makes the screen read as designed rather than default. Contrast went up:
+`--muted` moved from 4.93:1 to 5.78:1 against the page.
+
+The data pair changed from red/green to red/blue. Measured under the Machado
+deuteranopia simulation, `#c0392b` against `#1a7a3a` sits at OKLab ΔE 6.1 —
+inside the band where colour may only carry meaning alongside a second
+channel. The volcano plot encodes direction by colour alone, so it was
+unreadable for a deuteranopic reader. `#c0392b` against `#2a78d6` measures
+26.1 and passes every check. Two hues on screen, and nothing louder than
+before.
+
+## What v4 deliberately did not touch
+
+The engine, the readiness checks, the verdicts, the run records on disk, and
+the whole left-hand column of the studio. v4 reuses `console_v2`'s
+preview/runs/study and `console_v3`'s ingest/workspace exactly as they are —
+neither package is edited.
+
+## Known, not fixed
+
+The published study's *report* (`web/site/Results_Presentation.html`, authored
+by hand) and its *dashboard numbers* (`data/reference/*.tsv`) are independent
+sources, and nothing checks that they agree. A run you started does not have
+this problem — its report and its `results.json` come from the same run.
+
+## Adding version 5
+
+1. Tag the current one first: `git tag ui-v4-<name>` and push it.
+2. Branch: `git checkout -b feature/ui-v5`.
+3. New shell only — `server/app_v5.py` subclassing v4's handler,
+   `console_v5/`, `web/studio-v5.*`, a new port in `.claude/launch.json`.
+4. **Import `dashboard/` and `web/viz-v4.js`. Do not copy them.** If a chart
+   needs to change, change it there and let both versions get it.
+5. Add a row to the table above.
