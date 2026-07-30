@@ -11,6 +11,7 @@ from console_v2 import preview as preview_mod
 from console_v2 import runs as runs_mod
 from console_v2 import study
 
+from . import reference
 from . import workspace
 
 PREFIX = "/api/v3/"
@@ -184,6 +185,10 @@ def handle_get(h, route, query):
         })
         return True
 
+    if rest == "reference":
+        h._json(reference.payload())
+        return True
+
     if rest == "workspace":
         ws = workspace.current()
         h._json({"workspace": ws, "readiness": workspace.readiness(ws["roles"])})
@@ -253,11 +258,16 @@ def handle_get(h, route, query):
 
         if sub == "results":
             if run is not None and run.status == "done":
-                h._json(run.results())
+                est = runs_mod.estimates(run.study_id, run.mode)
+                snap = _decorate(run.snapshot(0), cfg, est)
+                h._json(reference.from_run(run.results(), snap))
                 return True
             rec = _archived(run_id)
             if rec and rec.get("results"):
-                h._json(rec["results"])
+                h._json(reference.from_run(rec["results"], {
+                    "label": rec.get("label"),
+                    "tier_label": TIERS.get(rec.get("mode"), {}).get("label", rec.get("mode")),
+                }))
                 return True
             h._error(404, "No saved results for that run.")
             return True

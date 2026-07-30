@@ -1,8 +1,12 @@
 /* Methylation Studio (v3).
  *
  * Plain language on the surface, the v2 checks underneath: the same readiness
- * gate runs before every launch and a `fail` still blocks. What changes here
- * is how much someone has to read.
+ * gate runs before every launch and a `fail` still blocks.
+ *
+ * The middle opens on the published study - its real report and its real
+ * numbers - so nothing is ever a blank screen. That view is labelled as the
+ * published study everywhere it appears, and is replaced by your own run the
+ * moment one finishes.
  *
  * Things this file will not do: invent a time estimate, show a report from a
  * run that did not write one, or call a test run a result.
@@ -18,15 +22,19 @@ const num = n => (typeof n === 'number' ? n.toLocaleString() : n);
 
 const state = {
   setup: null,
+  reference: null,     // the published study
+  dash: null,          // whatever the Results tab is currently showing
+  showing: 'reference',// 'reference' | 'run'
   preset: 'standard',
   thresholds: {},
-  useExample: false,
+  useExample: true,    // the example cohort is selected on load, so every
+                       // run button works the moment the page opens
   runId: null,
   snap: null,
   logCursor: 0,
   timer: null,
   ticker: null,
-  results: null,
+  filter: '',
 };
 
 const api = {
@@ -56,35 +64,7 @@ const secs = s => {
 const bytes = b => b < 1024 ? b + ' B'
   : b < 1048576 ? (b / 1024).toFixed(0) + ' KB' : (b / 1048576).toFixed(1) + ' MB';
 
-const HELP = {
-  volcano: 'Each dot is one spot on the DNA. Further left or right means a bigger difference ' +
-    'between your two groups. Higher up means we are more confident it is real. The coloured ' +
-    'dots in the top corners are the interesting ones.',
-  roc: 'A test of whether the shortlist can actually tell your two groups apart. The line ' +
-    'bulges towards the top-left when it works. The dashed diagonal is a coin flip. AUC of ' +
-    '1.0 is perfect, 0.5 is useless.',
-  mech: 'Methylation in the wrong place usually switches a gene off; losing it can switch one ' +
-    'on. This counts how many of the changed sites fall into each case. "Unclear" means the ' +
-    'site is not in a position where the effect is predictable.',
-};
-
-function tipOn(el, text) {
-  if (!text) return;
-  const tip = $('#tip');
-  el.addEventListener('mouseenter', () => {
-    tip.textContent = text;
-    tip.style.opacity = 1;
-    const r = el.getBoundingClientRect();
-    tip.style.left = Math.min(window.innerWidth - 350, r.left) + 'px';
-    tip.style.top = (r.bottom + 8) + 'px';
-  });
-  el.addEventListener('mouseleave', () => { tip.style.opacity = 0; });
-}
-
-function say(el, kind, html) {
-  el.className = 'status show ' + kind;
-  el.innerHTML = html;
-}
+function say(el, kind, html) { el.className = 'status show ' + kind; el.innerHTML = html; }
 function hide(el) { el.className = 'status'; }
 
 /* ------------------------------------------------------------------ boot */
@@ -99,10 +79,19 @@ async function boot() {
   $('#example-blurb').textContent = state.setup.example.blurb;
   applyPreset('standard');
   renderPresets();
-  renderTiers();
-  renderWorkspace(state.setup.workspace, state.setup.readiness);
+  renderWorkspace(state.setup.workspace, state.setup.readiness, true);
   wire();
   await refreshHistory();
+  renderTiers();
+
+  // Fill the middle before anything has been run.
+  try {
+    state.reference = await api.get('/api/v3/reference');
+    showReference();
+  } catch (err) {
+    $('#dash-title').textContent = 'Could not load the published study';
+    $('#dash-sub').textContent = err.message;
+  }
 }
 
 function wire() {
@@ -119,25 +108,19 @@ function wire() {
   }));
   drop.addEventListener('drop', e => upload(Array.from(e.dataTransfer.files)));
 
-  $('#use-example').addEventListener('click', () => {
-    state.useExample = true;
-    $('#use-example').classList.add('on');
-    say($('#data-status'), 'ok',
-      '<b>Using the example data.</b> 130 breast samples, tumour against normal tissue. ' +
-      'The individual values in it are simulated, so treat anything it finds as a demonstration.');
-    renderTiers();
-  });
+  $('#use-example').addEventListener('click', selectExample);
 
   $$('.tab').forEach(t => t.addEventListener('click', () => {
     $$('.tab').forEach(x => x.classList.toggle('active', x === t));
     $$('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + t.dataset.view));
-    if (t.dataset.view === 'results' && state.results) drawAll(state.results);
+    if (t.dataset.view === 'results' && state.dash) drawCharts(state.dash);
   }));
 
   $('#p-cancel').addEventListener('click', cancel);
   $('#show-tests').addEventListener('change', refreshHistory);
   $('#report-open').addEventListener('click', () => {
-    if (state.runId) window.open(fileUrl(state.runId, 'run_report.html', true), '_blank');
+    const src = $('#report-frame').getAttribute('src');
+    if (src) window.open(src, '_blank');
   });
   $('#report-print').addEventListener('click', () => {
     const f = $('#report-frame');
@@ -146,14 +129,30 @@ function wire() {
   $('#download-all').addEventListener('click', () => {
     if (state.runId) window.location = `/api/v3/runs/${state.runId}/download`;
   });
-  $$('.q').forEach(b => tipOn(b, HELP[b.dataset.q]));
-  window.addEventListener('resize', () => { if (state.results) drawAll(state.results); });
+  $('#tsearch').addEventListener('input', e => {
+    state.filter = e.target.value.toLowerCase();
+    if (state.dash) renderTable(state.dash);
+  });
+  $('#report-variant').addEventListener('change', e => {
+    $('#report-frame').src = e.target.value;
+  });
+  window.addEventListener('resize', () => { if (state.dash) drawCharts(state.dash); });
 }
 
 const fileUrl = (id, name, inline) =>
   `/api/v3/runs/${id}/file?path=${encodeURIComponent(name)}${inline ? '&inline=1' : ''}`;
 
-/* ------------------------------------------------------------- uploading */
+/* ------------------------------------------------------- data selection */
+function selectExample() {
+  state.useExample = true;
+  $('#use-example').classList.add('on');
+  say($('#data-status'), 'ok',
+    '<b>Using the example data.</b> 130 breast samples, tumour against normal tissue. ' +
+    'The individual values in it are simulated, so treat anything it finds as a demonstration ' +
+    'of the method rather than a finding.');
+  renderTiers();
+}
+
 async function upload(files) {
   if (!files.length) return;
   const status = $('#data-status');
@@ -162,18 +161,15 @@ async function upload(files) {
   for (const f of files) {
     if (f.size > 100 * 1024 * 1024) {
       say(status, 'bad', `<b>${esc(f.name)} is ${(f.size / 1048576).toFixed(0)} MB.</b>
-        The browser limit is 100 MB. For a file that big, use the advanced console and point
-        it at the file where it already sits.`);
+        The browser limit is 100 MB. Put a file that big on this machine and point the
+        pipeline at it directly.`);
       continue;
     }
     try {
       last = await fetch('/api/v3/upload', {
         method: 'POST', headers: { 'X-Filename': f.name }, body: f,
       }).then(r => r.json());
-    } catch (err) {
-      say(status, 'bad', esc(err.message));
-      return;
-    }
+    } catch (err) { say(status, 'bad', esc(err.message)); return; }
   }
   if (last && last.workspace) {
     state.useExample = false;
@@ -182,7 +178,7 @@ async function upload(files) {
   }
 }
 
-function renderWorkspace(ws, readiness) {
+function renderWorkspace(ws, readiness, initial) {
   const list = $('#filelist');
   list.innerHTML = (ws.files || []).map(f => `
     <div class="fileitem ${f.ok ? '' : 'bad'}">
@@ -199,14 +195,13 @@ function renderWorkspace(ws, readiness) {
     $('#clear-files').addEventListener('click', async () => {
       const j = await api.post('/api/v3/workspace/clear');
       renderWorkspace(j.workspace, j.readiness);
-      hide($('#data-status'));
+      selectExample();
     });
-  }
-  const status = $('#data-status');
-  if (ws.files && ws.files.length) {
-    say(status, readiness.ready ? 'ok' : 'warn', esc(readiness.message));
-  } else if (!state.useExample) {
-    hide(status);
+    state.useExample = false;
+    $('#use-example').classList.remove('on');
+    say($('#data-status'), readiness.ready ? 'ok' : 'warn', esc(readiness.message));
+  } else if (initial || state.useExample) {
+    selectExample();
   }
   renderTiers();
 }
@@ -230,10 +225,22 @@ function renderPresets() {
     applyPreset(b.dataset.preset);
     renderPresets();
     renderAdvanced();
-    renderTiers();
   }));
   renderAdvanced();
 }
+
+const PLAIN = {
+  delta_beta_min: 'How big a difference has to be before it counts. Higher means fewer, ' +
+    'stronger results.',
+  fdr_max: 'How much luck you are willing to tolerate. Lower means fewer false alarms.',
+  sample_call_rate_min: 'Throw out samples with too much missing data. Higher is stricter.',
+  probe_call_rate_min: 'Throw out DNA sites measured in too few samples.',
+  min_samples_per_class: 'The smallest group size the analysis will accept. Below about 5 per ' +
+    'group there is very little chance of finding anything real.',
+  panel_size: 'How many of the top sites go into the shortlist.',
+  exclude_sex_chromosomes: 'X and Y behave differently between sexes and can drown out ' +
+    'everything else. Normally left on.',
+};
 
 function renderAdvanced() {
   const tcfg = state.setup.thresholds || {};
@@ -243,13 +250,13 @@ function renderAdvanced() {
       return `<div class="ctrl"><label class="checkline">
         <input type="checkbox" data-bool="${key}" ${v ? 'checked' : ''}>
         <span>${esc(spec.label || key)}</span></label>
-        <div class="expl">${esc(plainFor(key))}</div></div>`;
+        <div class="expl">${esc(PLAIN[key] || '')}</div></div>`;
     }
     return `<div class="ctrl">
       <label>${esc(spec.label || key)} <span class="val" data-val="${key}">${v}</span></label>
       <input type="range" data-range="${key}" min="${spec.min}" max="${spec.max}"
              step="${spec.step}" value="${v}">
-      <div class="expl">${esc(plainFor(key))}</div>
+      <div class="expl">${esc(PLAIN[key] || '')}</div>
       <div class="measured" data-measured="${key}"></div>
     </div>`;
   }).join('');
@@ -273,26 +280,11 @@ function renderAdvanced() {
   Object.keys(tcfg).forEach(measure);
 }
 
-const PLAIN = {
-  delta_beta_min: 'How big a difference has to be before it counts. Higher means fewer, ' +
-    'stronger results.',
-  fdr_max: 'How much luck you are willing to tolerate. Lower means fewer false alarms.',
-  sample_call_rate_min: 'Throw out samples with too much missing data. Higher is stricter.',
-  probe_call_rate_min: 'Throw out DNA sites measured in too few samples.',
-  min_samples_per_class: 'The smallest group size the analysis will accept. Below about 5 per ' +
-    'group there is very little chance of finding anything real.',
-  panel_size: 'How many of the top sites go into the shortlist.',
-  exclude_sex_chromosomes: 'X and Y behave differently between sexes and can drown out ' +
-    'everything else. Normally left on.',
-};
-const plainFor = key => PLAIN[key] || '';
-
 async function measure(key) {
   const el = $(`[data-measured="${key}"]`);
   if (!el) return;
-  const v = state.thresholds[key];
   try {
-    const q = new URLSearchParams({ key, value: v });
+    const q = new URLSearchParams({ key, value: state.thresholds[key] });
     if (state.runId) q.set('run', state.runId);
     const j = await api.get(`/api/v2/studies/brca_sim/threshold-effect?${q}`);
     el.textContent = j.available ? j.text : '';
@@ -300,7 +292,7 @@ async function measure(key) {
 }
 
 /* ------------------------------------------------------------------ run */
-function canRun() {
+function dataReady() {
   if (state.useExample) return true;
   const ws = state.setup && state.setup.workspace;
   return !!(ws && ws.roles && ws.roles.matrix && ws.roles.manifest);
@@ -309,30 +301,41 @@ function canRun() {
 function renderTiers() {
   const tiers = state.setup.tiers || {};
   const testDone = (state.history || []).some(r => r.mode === 'demo' && r.status === 'done');
-  const ready = canRun();
-  const order = [
-    ['demo', '▶', true],
-    ['full', '★', false],
-    ['plan', '✓', false],
-  ];
+  const order = [['demo', '▶', true], ['full', '★', false], ['plan', '✓', false]];
   $('#tiers').innerHTML = order.map(([mode, ico, primary]) => {
     const t = tiers[mode] || {};
-    const locked = mode === 'full' && !testDone;
-    const disabled = !ready || locked;
-    const lock = locked
-      ? '<span class="lock">Run the quick test first</span>'
-      : (!ready ? '<span class="lock">Pick your data first</span>' : '');
-    return `<button class="tierbtn ${primary ? 'primary' : ''}" data-tier="${mode}"
-              ${disabled ? 'disabled' : ''}>
+    const needsTest = mode === 'full' && !testDone;
+    // Every button stays clickable. A button that does nothing when you press
+    // it is indistinguishable from a broken one, so pressing always gets you
+    // an answer - and for the locked case, a one-press way out of it.
+    return `<button class="tierbtn ${primary ? 'primary' : ''} ${needsTest ? 'needs' : ''}"
+              data-tier="${mode}">
       <span class="ico">${ico}</span>
       <span><b>${esc(t.label || mode)}</b><span>${esc(t.blurb || '')}</span></span>
-      ${lock}</button>`;
+      ${needsTest ? '<span class="lock">quick test first</span>' : ''}</button>`;
   }).join('');
   $$('[data-tier]').forEach(b => b.addEventListener('click', () => launch(b.dataset.tier)));
 }
 
 async function launch(mode) {
   const status = $('#run-status');
+
+  if (!dataReady()) {
+    say(status, 'warn',
+      `<b>Pick your data first.</b> Press <b>Example data</b> at the top, or drop in your own
+       methylation table and sample list.`);
+    return;
+  }
+  const testDone = (state.history || []).some(r => r.mode === 'demo' && r.status === 'done');
+  if (mode === 'full' && !testDone) {
+    say(status, 'warn',
+      `<b>Run the quick test first.</b> It runs all 11 steps on a few samples so a full run
+       does not fail an hour in on something a one-minute test would have caught.
+       <button class="inlinebtn" id="do-test">Run the quick test now</button>`);
+    $('#do-test').addEventListener('click', () => launch('demo'));
+    return;
+  }
+
   say(status, 'warn', 'Checking your files…');
   try {
     const j = await api.post('/api/v3/runs', {
@@ -350,7 +353,6 @@ async function launch(mode) {
     startTicker();
     poll();
   } catch (err) {
-    // The gate refused. Show its own sentence — it is written to be actionable.
     say(status, 'bad', `<b>Cannot run yet.</b> ${esc(err.message)}`);
   }
 }
@@ -360,7 +362,6 @@ function startTicker() {
   state.ticker = setInterval(() => {
     const s = state.snap;
     if (!s || !['running', 'queued'].includes(s.status)) return;
-    // Tick the clock between polls so it never looks frozen.
     const p = s.progress || {};
     const shown = (p.elapsed || 0) + (Date.now() - (state.polledAt || Date.now())) / 1000;
     $('#p-elapsed').textContent = secs(shown);
@@ -375,10 +376,7 @@ async function poll() {
   let snap;
   try {
     snap = await api.get(`/api/v3/runs/${state.runId}?since=${state.logCursor}`);
-  } catch (err) {
-    say($('#run-status'), 'bad', esc(err.message));
-    return;
-  }
+  } catch (err) { say($('#run-status'), 'bad', esc(err.message)); return; }
   state.snap = snap;
   state.polledAt = Date.now();
   state.logCursor = snap.log_count || state.logCursor;
@@ -393,20 +391,20 @@ async function poll() {
   clearInterval(state.ticker);
   await settle(snap);
   await refreshHistory();
+  renderTiers();
 }
 
 function renderProgress(snap) {
   const p = snap.progress || {};
+  const live = ['running', 'queued'].includes(snap.status);
   $('#p-step').textContent = `Step ${p.index || 0} of ${p.total || 0}`;
   $('#p-name').textContent = p.current ? p.current.friendly
     : (snap.status === 'done' ? 'Finished' : snap.status === 'error' ? 'Stopped early'
       : snap.status === 'cancelled' ? 'Stopped' : 'Starting…');
   $('#p-plain').textContent = p.current ? (p.current.plain || '') : '';
-  const live = ['running', 'queued'].includes(snap.status);
   $('#p-elapsed').textContent = secs(p.elapsed) || '0s';
   $('#p-elapsed').nextElementSibling.textContent = live ? 'running for' : 'took';
   if (!live) {
-    // Finished. "No estimate yet" would be a true sentence in the wrong place.
     $('#p-left').textContent = snap.status === 'done' ? 'done' : snap.status;
     $('#p-left').title = '';
   } else {
@@ -435,21 +433,23 @@ function renderBanner(snap) {
   const v = snap.verdict || {};
   el.hidden = false;
   if (snap.status === 'error') {
+    const failed = (snap.steps || []).find(s => s.state === 'failed');
     el.className = 'banner bad';
-    el.innerHTML = `<b>It stopped at "${esc((snap.steps || []).find(s => s.state === 'failed')
-      ? snap.steps.find(s => s.state === 'failed').friendly : 'a step')}".</b>
+    el.innerHTML = `<b>It stopped at "${esc(failed ? failed.friendly : 'a step')}".</b>
       ${esc(snap.error || '')}<div class="more">Nothing was overwritten. Earlier runs are
-      untouched, and the technical log above says exactly where it stopped.</div>`;
+      untouched, and the technical log says exactly where it stopped.</div>`;
+    return;
+  }
+  if (['running', 'queued'].includes(snap.status)) {
+    el.className = 'banner test';
+    el.innerHTML = `<b>Running.</b> Results and the report appear here as soon as it finishes.`;
     return;
   }
   if (snap.mode === 'demo') {
     el.className = 'banner test';
-    el.innerHTML = `<b>This was a quick test on ${snap.n_per_class || 3} samples per group.</b>
-      It proves the whole thing runs. The numbers are not a result — press
-      <b>Full analysis</b> for that.
-      ${(snap.demo_adjustments || []).length
-        ? `<div class="more">${esc(snap.demo_adjustments[0].param)} was adjusted for the small
-           sample count, because the run would otherwise finish with nothing in it.</div>` : ''}`;
+    el.innerHTML = `<b>That was a quick test on ${snap.n_per_class || 3} samples per group.</b>
+      It proves all 11 steps run end to end. The numbers are not a result — press
+      <b>Full analysis</b> for that.`;
     return;
   }
   if (snap.mode === 'plan') {
@@ -462,16 +462,50 @@ function renderBanner(snap) {
   el.className = 'banner ' + (limited ? 'test' : 'ok');
   el.innerHTML = `<b>${limited ? 'Finished — read with care.' : 'Finished.'}</b>
     ${esc(v.summary || '')}
-    ${(v.reasons || []).length ? `<div class="more">${esc(v.reasons[0])}${
-      v.reasons.length > 1 ? ` (+${v.reasons.length - 1} more in the advanced console)` : ''}</div>` : ''}
+    ${(v.reasons || []).length ? `<div class="more">${esc(v.reasons[0])}</div>` : ''}
     <div class="more">${esc(v.caveat || '')}</div>`;
 }
 
+/* ------------------------------------------------- what the middle shows */
+function renderSourcePick() {
+  const hasRun = !!state.runId && state.snap && !['running', 'queued'].includes(state.snap.status);
+  $('#sourcepick').innerHTML = `
+    <button class="src ${state.showing === 'run' ? 'on' : ''}" data-src="run" ${hasRun ? '' : 'disabled'}>
+      ${hasRun ? esc(state.snap.label || 'Your run') : 'Your run'}</button>
+    <button class="src ${state.showing === 'reference' ? 'on' : ''}" data-src="reference">
+      Published study</button>`;
+  $$('[data-src]').forEach(b => b.addEventListener('click', () => {
+    if (b.disabled) return;
+    if (b.dataset.src === 'reference') showReference();
+    else if (state.snap) settle(state.snap);
+  }));
+}
+
+function showReference() {
+  const ref = state.reference;
+  if (!ref) return;
+  state.showing = 'reference';
+  state.dash = ref;
+  renderDash(ref);
+  $('#report-variant').innerHTML = (ref.report_alt || [])
+    .map(o => `<option value="${esc(o.url)}">${esc(o.label)}</option>`).join('');
+  $('#report-variant').hidden = false;
+  $('#report-frame').src = ref.report_url;
+  $('#report-label').innerHTML = `<b>Published study report</b> — the completed breast analysis.`;
+  $('#files-label').textContent =
+    'Downloads come from runs you start here. The published study is read-only.';
+  $('#filetable').innerHTML =
+    '<p class="sub pad">No run selected. Start a run and its files appear here.</p>';
+  $('#download-all').disabled = true;
+  renderSourcePick();
+}
+
 async function settle(snap) {
+  state.showing = 'run';
   const files = snap.artifacts || snap.files || [];
   $('#download-all').disabled = !files.length;
   $('#files-label').textContent = files.length
-    ? `${files.length} files from ${snap.label || snap.id}. Only steps that finished are listed here.`
+    ? `${files.length} files from ${snap.label || snap.id}. Only steps that finished are listed.`
     : 'Nothing to download — no step produced a file.';
   $('#filetable').innerHTML = files.length ? `<table><thead><tr>
       <th>File</th><th>Size</th><th>What it is</th><th></th></tr></thead><tbody>${
@@ -480,36 +514,29 @@ async function settle(snap) {
       <td><a href="${fileUrl(snap.id, f.name)}">download</a></td></tr>`).join('')}
     </tbody></table>` : '<p class="sub pad">No files.</p>';
 
+  $('#report-variant').hidden = true;
   if (snap.has_report) {
     $('#report-frame').src = fileUrl(snap.id, 'run_report.html', true);
-    $('#report-empty').hidden = true;
-    $('#report-label').innerHTML = `Report from <b>${esc(snap.label || snap.id)}</b>
-      · ${esc(snap.tier_label || snap.mode)}`;
-    $('#report-open').disabled = false;
-    $('#report-print').disabled = false;
+    $('#report-label').innerHTML = `<b>${esc(snap.label || snap.id)}</b> — ${
+      esc(snap.tier_label || snap.mode)}, generated by this run.`;
   } else {
     $('#report-frame').removeAttribute('src');
-    $('#report-empty').hidden = false;
-    $('#report-empty').querySelector('h3').textContent = 'No report from this run';
-    $('#report-empty').querySelector('p').textContent =
-      'The report step did not finish, so there is nothing to show. An older report is not ' +
-      'shown in its place — it would not describe this run.';
-    $('#report-label').textContent = 'No report from this run.';
-    $('#report-open').disabled = true;
-    $('#report-print').disabled = true;
+    $('#report-label').innerHTML = `<b>No report from this run.</b> The report step did not
+      finish. An older report is not shown in its place — it would not describe this run.`;
   }
 
   try {
-    state.results = await api.get(`/api/v3/runs/${snap.id}/results`);
-    $('#results-empty').hidden = true;
-    $('#results-body').hidden = false;
-    fillResults(state.results);
+    state.dash = await api.get(`/api/v3/runs/${snap.id}/results`);
+    renderDash(state.dash);
   } catch (_) {
-    state.results = null;
-    $('#results-empty').hidden = false;
-    $('#results-body').hidden = true;
+    state.dash = null;
+    $('#dash-title').textContent = snap.label || snap.id;
+    $('#dash-sub').textContent = 'This run produced no results to chart.';
+    $('#cards').innerHTML = '';
+    $('#movers').innerHTML = '<p class="sub">Nothing to show.</p>';
   }
   Object.keys(state.setup.thresholds || {}).forEach(measure);
+  renderSourcePick();
 }
 
 function describe(name) {
@@ -542,12 +569,18 @@ async function cancel() {
 async function refreshHistory() {
   const inc = $('#show-tests').checked;
   try {
-    const j = await api.get(`/api/v3/history?include_tests=${inc ? 1 : 0}`);
+    // Always fetch everything: the Full-analysis gate asks whether a quick test
+    // has ever passed, and that must not depend on a display filter.
+    const j = await api.get('/api/v3/history?include_tests=1');
     state.history = j.runs;
-    renderTiers();
+    const shown = inc ? j.runs : j.runs.filter(r => !r.is_test);
     const box = $('#history');
-    if (!j.runs.length) { box.innerHTML = '<p class="sub">Nothing yet.</p>'; return; }
-    box.innerHTML = j.runs.map(r => `
+    if (!shown.length) {
+      box.innerHTML = `<p class="sub">${inc ? 'Nothing yet.'
+        : 'No full runs yet — tick the box to see test runs.'}</p>`;
+      return;
+    }
+    box.innerHTML = shown.map(r => `
       <button class="hrun ${r.id === state.runId ? 'on' : ''}" data-open="${esc(r.id)}">
         <b>${esc(r.label)}</b>
         <span class="badge ${r.status === 'error' ? 'bad' : (r.is_test ? 'test' : 'full')}">${
@@ -555,13 +588,13 @@ async function refreshHistory() {
         <div class="meta">${esc(r.when)} · ${esc(secs(r.elapsed) || '')}${
           r.has_report ? ' · report saved' : ''}</div>
       </button>`).join('');
-    $$('[data-open]').forEach(b => b.addEventListener('click', () => open(b.dataset.open)));
+    $$('[data-open]').forEach(b => b.addEventListener('click', () => openRun(b.dataset.open)));
   } catch (err) {
     $('#history').innerHTML = `<p class="sub">${esc(err.message)}</p>`;
   }
 }
 
-async function open(runId) {
+async function openRun(runId) {
   clearTimeout(state.timer);
   state.runId = runId;
   state.logCursor = 0;
@@ -571,45 +604,114 @@ async function open(runId) {
   refreshHistory();
 }
 
-/* --------------------------------------------------------------- charts */
-function fillResults(r) {
-  $('#cards').innerHTML = (r.stats || []).map(s => {
-    const cls = /significant|passing/i.test(s.label) ? ' red' : (/AUC/i.test(s.label) ? ' green' : '');
-    return `<div class="card${cls}"><div class="num">${num(s.value)}</div>
-      <div class="lbl">${esc(s.label)}</div></div>`;
-  }).join('');
-  $('#roc-note').textContent = r.model
-    ? `${r.model.model.replace(/_/g, ' ')} · ${r.model.cv_folds}-fold · AUC ${
-      r.model.roc_auc_mean.toFixed(3)} ± ${r.model.roc_auc_std.toFixed(3)}`
-    : 'No classifier in this run.';
-  $('#tbl-markers').innerHTML = table(r.top_markers, r.top_marker_columns);
-  $('#tbl-panel').innerHTML = table(r.panel, r.panel_columns);
-  drawAll(r);
+/* ====================================================== RESULTS DASHBOARD */
+
+function renderDash(d) {
+  $('#dash-title').textContent = d.title || '';
+  $('#dash-sub').textContent = d.subtitle || '';
+  $('#dash-note').innerHTML = d.caveat
+    ? `<span class="chip">Published study</span> ${esc(d.caveat)}` : '';
+
+  $('#cards').innerHTML = (d.cards || []).map(c => `
+    <div class="card ${c.tone || ''}">
+      <div class="num">${c.kind === 'auc' && typeof c.value === 'number'
+        ? c.value.toFixed(3) : num(c.value)}</div>
+      <div class="lbl">${esc(c.label)}</div>
+      ${c.note ? `<div class="cnote">${esc(c.note)}</div>` : ''}
+    </div>`).join('');
+
+  $('#box-volcano').hidden = !(d.volcano && d.volcano.x && d.volcano.x.length);
+  $('#box-cohort').hidden = !(d.cohort && d.cohort.subtypes &&
+    Object.keys(d.cohort.subtypes).length);
+  if (!$('#box-cohort').hidden) renderCohort(d.cohort);
+
+  const m = d.model || {};
+  $('#val-sub').textContent = m.roc_auc_mean != null
+    ? `A score of 1.0 is perfect, 0.5 is a coin flip. Each dot is one round of testing on ` +
+      `samples the model had not seen.`
+    : 'This run did not include the prediction test.';
+  $('#val-note').textContent = m.roc_auc_mean != null
+    ? `${String(m.model || '').replace(/_/g, ' ')} · ${m.cv_folds || '?'} rounds · average ` +
+      `${m.roc_auc_mean.toFixed(3)}${m.roc_auc_std != null ? ' ± ' + m.roc_auc_std.toFixed(3) : ''}` +
+      `${m.nested ? ' · nested cross-validation' : ''}`
+    : '';
+
+  renderMovers(d);
+  renderTable(d);
+  drawCharts(d);
 }
 
-function table(rows, cols) {
-  if (!rows || !rows.length) return '<p class="sub pad">Nothing to show.</p>';
-  cols = cols || Object.keys(rows[0]);
-  const nice = c => c.replace(/_/g, ' ').replace('delta beta', 'difference')
-    .replace('fdr', 'confidence (FDR)').replace('probe id', 'site');
-  return `<table><thead><tr>${cols.map(c => `<th>${esc(nice(c))}</th>`).join('')}</tr></thead>
-    <tbody>${rows.map(row => '<tr>' + cols.map(c => {
-      const v = row[c];
-      if (c === 'direction') return `<td class="${String(v).startsWith('hyper') ? 'hyper' : 'hypo'}">${
-        esc(String(v).replace('hyper', 'more methylated').replace('hypo', 'less methylated'))}</td>`;
+function renderCohort(c) {
+  const subs = c.subtypes || {};
+  const total = Object.values(subs).reduce((a, b) => a + b, 0) || 1;
+  $('#cohortbars').innerHTML = Object.entries(subs)
+    .sort((a, b) => b[1] - a[1]).map(([k, v]) => `
+    <div class="crow"><span class="ck">${esc(k)}</span>
+      <span class="cbar"><i style="width:${(v / total * 100).toFixed(1)}%"></i></span>
+      <span class="cv">${num(v)}</span></div>`).join('') +
+    `<p class="sub" style="margin-top:8px">${num(c.tumor)} tumour · ${num(c.normal)} normal
+     tissue${c.age && c.age.tumor_median ? ` · median age ${c.age.tumor_median}` : ''}</p>`;
+}
+
+function renderMovers(d) {
+  const rows = d.movers || [];
+  if (!rows.length) { $('#movers').innerHTML = '<p class="sub">Nothing to show.</p>'; return; }
+  const max = Math.max(...rows.map(r => Math.abs(r.delta))) || 1;
+  $('#movers').innerHTML = rows.map(r => {
+    const pct = Math.abs(r.delta) / max * 50;   // half-width each side of centre
+    const up = r.delta > 0;
+    return `<div class="mrow" title="${esc(r.probe)} · ${r.delta > 0 ? '+' : ''}${r.delta}">
+      <span class="mgene">${esc(r.gene.split(',')[0])}</span>
+      <span class="mtrack">
+        <i class="mbar ${up ? 'up' : 'down'}"
+           style="${up ? 'left:50%' : `right:50%`};width:${pct}%"></i>
+        <i class="mzero"></i>
+      </span>
+      <span class="mval ${up ? 'up' : 'down'}">${up ? '+' : ''}${r.delta.toFixed(2)}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderTable(d) {
+  const t = d.table || {};
+  let rows = t.rows || [];
+  if (state.filter) {
+    rows = rows.filter(r => Object.values(r).some(v =>
+      String(v).toLowerCase().includes(state.filter)));
+  }
+  if (!rows.length) {
+    $('#tbl-markers').innerHTML = `<p class="sub pad">${state.filter
+      ? 'Nothing matches “' + esc(state.filter) + '”.' : 'Nothing to show.'}</p>`;
+    return;
+  }
+  const cols = t.columns && t.columns.length ? t.columns : Object.keys(rows[0]);
+  const nice = c => ({
+    probe_id: 'site', gene: 'gene', chrom: 'chromosome', delta_beta: 'difference',
+    abs_delta_beta: 'size of difference', fdr: 'confidence (FDR)', direction: 'change',
+  }[c] || c.replace(/_/g, ' '));
+  $('#tbl-markers').innerHTML = `<table><thead><tr>${
+    cols.map(c => `<th>${esc(nice(c))}</th>`).join('')}</tr></thead><tbody>${
+    rows.slice(0, 200).map(r => '<tr>' + cols.map(c => {
+      const v = r[c];
+      if (c === 'direction') {
+        const up = String(v).startsWith('hyper');
+        return `<td class="${up ? 'hyper' : 'hypo'}">${up ? 'gained' : 'lost'} methylation</td>`;
+      }
       if (c === 'probe_id') return `<td><code>${esc(v)}</code></td>`;
       if (typeof v === 'number' && !Number.isInteger(v)) {
-        return `<td>${Math.abs(v) < 1e-3 && v !== 0 ? v.toExponential(2) : v.toFixed(3)}</td>`;
+        return `<td>${Math.abs(v) < 1e-3 && v !== 0 ? v.toExponential(1) : v.toFixed(3)}</td>`;
       }
       return `<td>${esc(v)}</td>`;
-    }).join('') + '</tr>').join('')}</tbody></table>`;
+    }).join('') + '</tr>').join('')}</tbody></table>
+    ${rows.length > 200 ? `<p class="sub pad">Showing the first 200 of ${num(rows.length)}.</p>` : ''}`;
 }
 
-function ctx(id, h) {
-  const c = $('#' + id);
+/* --------------------------------------------------------------- canvas */
+function ctx2(id, h) {
+  const c = document.getElementById(id);
   if (!c) return null;
   const r = c.getBoundingClientRect();
-  if (!r.width) return null;              // hidden tab; redrawn when shown
+  if (!r.width) return null;                 // hidden tab; redrawn when shown
   const d = window.devicePixelRatio || 1;
   c.width = r.width * d; c.height = h * d;
   const x = c.getContext('2d');
@@ -618,17 +720,92 @@ function ctx(id, h) {
   return { x, W: r.width, H: h };
 }
 
-function drawAll(r) { volcano(r.volcano); roc(r.roc); mech(r.mechanics_counts); }
+function drawCharts(d) {
+  donut(d.direction);
+  folds(d.folds, d.model);
+  if (d.volcano) volcano(d.volcano);
+}
 
-function blank(x, W, H, msg) {
-  x.fillStyle = '#9aabbc'; x.font = '13px sans-serif';
-  x.fillText(msg, W / 2 - x.measureText(msg).width / 2, H / 2);
+function donut(counts) {
+  const d = ctx2('donut', 230); if (!d) return;
+  const { x, W, H } = d;
+  const label = { silencing: 'switched off', activation: 'switched on', ambiguous: 'unclear' };
+  const colour = { silencing: '#c0392b', activation: '#1a7a3a', ambiguous: '#b9c3ce' };
+  const e = Object.entries(counts || {}).filter(([, v]) => v != null && v > 0);
+  if (!e.length) {
+    x.fillStyle = '#9aabbc'; x.font = '13px sans-serif';
+    x.fillText('No effect call in this run.', 20, H / 2);
+    $('#donut-legend').innerHTML = '';
+    return;
+  }
+  const total = e.reduce((a, b) => a + b[1], 0);
+  const cx = Math.min(120, W / 3), cy = H / 2, R = Math.min(88, H / 2 - 12), r0 = R * 0.58;
+  let a0 = -Math.PI / 2;
+  e.forEach(([k, v]) => {
+    const a1 = a0 + (v / total) * Math.PI * 2;
+    x.beginPath();
+    x.arc(cx, cy, R, a0, a1); x.arc(cx, cy, r0, a1, a0, true); x.closePath();
+    x.fillStyle = colour[k] || '#7d4fbf'; x.fill();
+    a0 = a1;
+  });
+  x.fillStyle = '#16212c'; x.font = 'bold 19px sans-serif'; x.textAlign = 'center';
+  x.fillText(total >= 1000 ? (total / 1000).toFixed(0) + 'k' : String(total), cx, cy + 2);
+  x.font = '11px sans-serif'; x.fillStyle = '#67788a';
+  x.fillText('sites', cx, cy + 17);
+  x.textAlign = 'left';
+  $('#donut-legend').innerHTML = e.map(([k, v]) => `
+    <div class="dl"><i style="background:${colour[k] || '#7d4fbf'}"></i>
+      <span><b>${num(v)}</b> ${esc(label[k] || k)}
+        <small>${(v / total * 100).toFixed(0)}%</small></span></div>`).join('');
+}
+
+function folds(list, model) {
+  const d = ctx2('folds', 230); if (!d) return;
+  const { x, W, H } = d;
+  const pad = 40;
+  if (!list || !list.length) {
+    if (model && model.roc_auc_mean != null) {
+      // No per-round scores recorded, but the average is real - show that alone.
+      x.fillStyle = '#2e75b6'; x.font = 'bold 44px sans-serif'; x.textAlign = 'center';
+      x.fillText(model.roc_auc_mean.toFixed(3), W / 2, H / 2);
+      x.fillStyle = '#67788a'; x.font = '12px sans-serif';
+      x.fillText('average score across ' + (model.cv_folds || '?') + ' rounds', W / 2, H / 2 + 22);
+      x.textAlign = 'left';
+      return;
+    }
+    x.fillStyle = '#9aabbc'; x.font = '13px sans-serif';
+    x.fillText('No prediction test in this run.', 20, H / 2);
+    return;
+  }
+  const lo = Math.min(0.5, ...list) - 0.02, hi = 1.002;
+  const py = v => H - pad - ((v - lo) / (hi - lo)) * (H - pad - 26);
+  x.strokeStyle = '#eef2f7';
+  [0.5, 0.75, 0.9, 1.0].filter(v => v >= lo).forEach(v => {
+    const y = py(v);
+    x.beginPath(); x.moveTo(pad, y); x.lineTo(W - 14, y); x.stroke();
+    x.fillStyle = '#8494a5'; x.font = '10.5px sans-serif';
+    x.fillText(v.toFixed(2), 8, y + 3);
+  });
+  const step = (W - pad - 24) / list.length;
+  list.forEach((v, i) => {
+    const X = pad + step * (i + 0.5), Y = py(v);
+    x.strokeStyle = '#cddae6'; x.beginPath(); x.moveTo(X, H - pad); x.lineTo(X, Y); x.stroke();
+    x.fillStyle = '#2e75b6'; x.beginPath(); x.arc(X, Y, 6, 0, 6.284); x.fill();
+    x.fillStyle = '#67788a'; x.font = '10.5px sans-serif'; x.textAlign = 'center';
+    x.fillText('round ' + (i + 1), X, H - pad + 15);
+    x.textAlign = 'left';
+  });
+  if (model && model.roc_auc_mean != null) {
+    const y = py(model.roc_auc_mean);
+    x.strokeStyle = '#1a7a3a'; x.setLineDash([5, 4]);
+    x.beginPath(); x.moveTo(pad, y); x.lineTo(W - 14, y); x.stroke(); x.setLineDash([]);
+  }
 }
 
 function volcano(v) {
-  const d = ctx('volcano', 380); if (!d) return;
+  const d = ctx2('volcano', 360); if (!d) return;
   const { x, W, H } = d, pad = 54;
-  if (!v || !v.x || !v.x.length) return blank(x, W, H, 'No comparison in this run.');
+  if (!v || !v.x || !v.x.length) return;
   const xm = Math.max(0.2, ...v.x.map(Math.abs)) * 1.08;
   const ym = Math.max(2, ...v.y) * 1.08;
   const px = t => pad + (t + xm) / (2 * xm) * (W - pad - 20);
@@ -647,56 +824,13 @@ function volcano(v) {
   for (let i = 0; i < v.x.length; i++) {
     const sig = v.y[i] > 1.301 && Math.abs(v.x[i]) >= 0.2;
     x.fillStyle = sig ? (v.x[i] > 0 ? 'rgba(192,57,43,.55)' : 'rgba(26,122,58,.55)')
-      : 'rgba(154,165,177,.3)';
+      : 'rgba(154,165,177,.28)';
     x.beginPath(); x.arc(px(v.x[i]), py(v.y[i]), 2.4, 0, 6.284); x.fill();
   }
   x.fillStyle = '#3b4756'; x.font = '12px sans-serif';
   x.fillText('size of the difference', W / 2 - 62, H - 12);
   x.save(); x.translate(16, H / 2 + 46); x.rotate(-Math.PI / 2);
   x.fillText('confidence', 0, 0); x.restore();
-}
-
-function roc(r) {
-  const d = ctx('roc', 300); if (!d) return;
-  const { x, W, H } = d, pad = 46;
-  if (!r || !r.fpr) return blank(x, W, H, 'No prediction test in this run.');
-  const px = t => pad + t * (W - pad - 18), py = t => H - pad - t * (H - pad - 20);
-  x.strokeStyle = '#eef2f7';
-  for (let i = 0; i <= 5; i++) {
-    const y = py(i / 5); x.beginPath(); x.moveTo(pad, y); x.lineTo(W - 18, y); x.stroke();
-  }
-  x.strokeStyle = '#c9d3de'; x.setLineDash([4, 4]);
-  x.beginPath(); x.moveTo(px(0), py(0)); x.lineTo(px(1), py(1)); x.stroke(); x.setLineDash([]);
-  x.strokeStyle = '#2e75b6'; x.lineWidth = 2.6; x.beginPath();
-  r.fpr.forEach((f, i) => { const X = px(f), Y = py(r.tpr[i]); i ? x.lineTo(X, Y) : x.moveTo(X, Y); });
-  x.stroke(); x.lineWidth = 1;
-  x.fillStyle = '#3b4756'; x.font = '12px sans-serif';
-  x.fillText('false alarms', W / 2 - 36, H - 11);
-  x.save(); x.translate(16, H / 2 + 40); x.rotate(-Math.PI / 2);
-  x.fillText('correct calls', 0, 0); x.restore();
-}
-
-function mech(counts) {
-  const d = ctx('mech', 300); if (!d) return;
-  const { x, W, H } = d, pad = 46;
-  const label = { silencing: 'switched off', activation: 'switched on', ambiguous: 'unclear' };
-  const colour = { silencing: '#c0392b', activation: '#1a7a3a', ambiguous: '#9aa5b1' };
-  const e = Object.entries(counts || {}).sort((a, b) => b[1] - a[1]);
-  if (!e.length) return blank(x, W, H, 'No effect call in this run.');
-  const max = Math.max(...e.map(v => v[1])) * 1.2 || 1;
-  const bw = (W - pad - 24) / e.length;
-  e.forEach(([k, v], i) => {
-    const h = (v / max) * (H - pad - 44);
-    const X = pad + i * bw + bw * 0.18, Y = H - pad - h;
-    x.fillStyle = colour[k] || '#7d4fbf';
-    x.fillRect(X, Y, bw * 0.64, h);
-    x.fillStyle = '#16212c'; x.font = 'bold 14px sans-serif';
-    x.fillText(v.toLocaleString(), X, Y - 8);
-    x.fillStyle = '#67788a'; x.font = '12px sans-serif';
-    x.fillText(label[k] || k, X, H - pad + 17);
-  });
-  x.strokeStyle = '#dde4ec';
-  x.beginPath(); x.moveTo(pad, H - pad); x.lineTo(W - 18, H - pad); x.stroke();
 }
 
 boot();

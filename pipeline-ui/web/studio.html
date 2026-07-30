@@ -9,12 +9,13 @@
 <body>
 
 <!--
-  studio (v3) — the plain-language interface.
+  studio (v3) — the plain-language interface. Standalone: index.html,
+  builder.js, builder.css and engine/report.py are byte-identical to tag
+  ui-v1-baseline.
 
-  Standalone, like console-v2: index.html, builder.js, builder.css and
-  engine/report.py are byte-identical to tag ui-v1-baseline. Same engine and
-  the same readiness checks as v2 run underneath; this layer only changes what
-  a person has to read and click.
+  The middle opens on the published breast study — its report and its real
+  numbers — so the screen is never empty. It is labelled as the published
+  study throughout, and swaps to your own run the moment one finishes.
 -->
 
 <header class="top">
@@ -25,10 +26,6 @@
       <p id="tagline">Drop in your data, press a button, read the report.</p>
     </div>
   </div>
-  <div class="topright">
-    <a class="link" href="/console-v2.html">Advanced console</a>
-    <a class="link" href="/index.html">Pipeline builder</a>
-  </div>
 </header>
 
 <div class="shell">
@@ -36,11 +33,18 @@
 <!-- ============================================================== LEFT: DO -->
 <aside class="left">
 
-  <!-- 1 ---------------------------------------------------------------- -->
   <section class="stepblock">
     <div class="stepnum">1</div>
     <div class="stepbody">
       <h2>Your data</h2>
+
+      <button class="bigbtn on" id="use-example">
+        <span class="tick">✓</span>
+        <span><b>Example data</b>
+          <span id="example-blurb">130 breast samples bundled with this project.</span></span>
+      </button>
+
+      <div class="orline"><span>or use your own</span></div>
 
       <div class="drop" id="drop">
         <div class="dropinner">
@@ -49,23 +53,14 @@
           <span>or <button class="linkbtn" id="browse">browse your computer</button></span>
           <small>The methylation table, the sample list, and site information if you have it.</small>
         </div>
-        <input type="file" id="filepick" multiple hidden
-               accept=".tsv,.csv,.txt,.gz">
+        <input type="file" id="filepick" multiple hidden accept=".tsv,.csv,.txt,.gz">
       </div>
 
       <div id="filelist" class="filelist"></div>
-
-      <div class="orline"><span>or</span></div>
-      <button class="bigbtn soft" id="use-example">
-        <b>Use the example data</b>
-        <span id="example-blurb">130 breast samples bundled with this project.</span>
-      </button>
-
       <div id="data-status" class="status"></div>
     </div>
   </section>
 
-  <!-- 2 ---------------------------------------------------------------- -->
   <section class="stepblock">
     <div class="stepnum">2</div>
     <div class="stepbody">
@@ -79,7 +74,6 @@
     </div>
   </section>
 
-  <!-- 3 ---------------------------------------------------------------- -->
   <section class="stepblock">
     <div class="stepnum">3</div>
     <div class="stepbody">
@@ -89,7 +83,6 @@
     </div>
   </section>
 
-  <!-- history ---------------------------------------------------------- -->
   <section class="stepblock nonum">
     <div class="stepbody">
       <h2>Earlier runs</h2>
@@ -103,7 +96,6 @@
 <!-- ========================================================= RIGHT: SEE -->
 <main class="right">
 
-  <!-- progress --------------------------------------------------------- -->
   <section class="progress" id="progress" hidden>
     <div class="prow">
       <div class="pnow">
@@ -123,79 +115,106 @@
       <div class="logbody mono" id="logbody"></div></details>
   </section>
 
-  <!-- banner ----------------------------------------------------------- -->
   <div class="banner" id="banner" hidden></div>
 
-  <!-- tabs ------------------------------------------------------------- -->
-  <nav class="tabs" id="tabs">
-    <button class="tab active" data-view="report">Report</button>
-    <button class="tab" data-view="results">Results</button>
-    <button class="tab" data-view="files">Downloads</button>
+  <nav class="tabs">
+    <div class="tabgroup" id="tabs">
+      <button class="tab active" data-view="report">Report</button>
+      <button class="tab" data-view="results">Results</button>
+      <button class="tab" data-view="files">Downloads</button>
+    </div>
+    <span class="spacer"></span>
+    <div class="sourcepick" id="sourcepick"></div>
   </nav>
 
+  <!-- REPORT ---------------------------------------------------------- -->
   <section class="view active" id="view-report">
     <div class="viewbar">
-      <span id="report-label">No report yet — run something and it lands here.</span>
+      <span id="report-label">Published study report</span>
       <span class="spacer"></span>
-      <button class="btn ghost small" id="report-open" disabled>Open in a new tab</button>
-      <button class="btn small" id="report-print" disabled>Print / save as PDF</button>
+      <select id="report-variant" class="mini"></select>
+      <button class="btn ghost small" id="report-open">Open in a new tab</button>
+      <button class="btn small" id="report-print">Print / save as PDF</button>
     </div>
     <iframe id="report-frame" title="Report"></iframe>
-    <div class="empty" id="report-empty">
-      <div>
-        <h3>Your report will appear here</h3>
-        <p>Pick your data on the left, choose settings, and press a run button.
-           The quick test takes about a minute.</p>
-      </div>
-    </div>
   </section>
 
+  <!-- RESULTS --------------------------------------------------------- -->
   <section class="view" id="view-results">
-    <div class="scroller" id="results-scroll">
-      <div class="empty" id="results-empty">
-        <div><h3>No results loaded</h3><p>Run the analysis, or open an earlier run from the left.</p></div>
+    <div class="scroller">
+      <div class="dashhead">
+        <div>
+          <h2 id="dash-title">—</h2>
+          <p id="dash-sub"></p>
+        </div>
+        <div class="dashnote" id="dash-note"></div>
       </div>
-      <div id="results-body" hidden>
-        <div class="cards" id="cards"></div>
 
-        <h3>Which sites changed <button class="q" data-q="volcano">?</button></h3>
-        <div class="chartbox"><canvas id="volcano" height="380"></canvas>
-          <div class="legend">
-            <span><i class="sw red"></i>more methylated in group A</span>
-            <span><i class="sw green"></i>less methylated</span>
-            <span><i class="sw grey"></i>no real change</span>
-          </div></div>
+      <div class="cards" id="cards"></div>
 
-        <div class="split">
-          <div>
-            <h3>Can it tell the groups apart? <button class="q" data-q="roc">?</button></h3>
-            <div class="chartbox"><canvas id="roc" height="300"></canvas>
-              <div class="legend" id="roc-note"></div></div>
-          </div>
-          <div>
-            <h3>What the changes likely do <button class="q" data-q="mech">?</button></h3>
-            <div class="chartbox"><canvas id="mech" height="300"></canvas>
-              <div class="legend">Switched off · switched on · unclear</div></div>
-          </div>
+      <div class="panelbox">
+        <div class="phead">
+          <h3>The genes that moved most</h3>
+          <p>Each bar is one gene. To the right, the tumour samples gained methylation —
+             which usually switches a gene <b>off</b>. To the left, they lost it, which can
+             switch one <b>on</b>.</p>
+        </div>
+        <div id="movers" class="movers"></div>
+      </div>
+
+      <div class="grid2">
+        <div class="panelbox">
+          <div class="phead"><h3>What the changes likely do</h3>
+            <p>Whether each changed site sits where methylation predictably silences a gene,
+               activates one, or neither.</p></div>
+          <div class="donutwrap"><canvas id="donut" height="230"></canvas>
+            <div id="donut-legend" class="dlegend"></div></div>
         </div>
 
-        <h3>Strongest sites</h3>
-        <div class="tscroll" id="tbl-markers"></div>
+        <div class="panelbox" id="box-validation">
+          <div class="phead"><h3 id="val-title">Does it actually predict?</h3>
+            <p id="val-sub"></p></div>
+          <canvas id="folds" height="230"></canvas>
+          <div class="legend" id="val-note"></div>
+        </div>
+      </div>
 
-        <h3>Shortlist</h3>
-        <div class="tscroll" id="tbl-panel"></div>
+      <div class="panelbox" id="box-volcano" hidden>
+        <div class="phead"><h3>Every site at once</h3>
+          <p>One dot per DNA site. Left and right is the size of the difference; up is how
+             confident we are. The coloured dots in the top corners are the interesting ones.</p></div>
+        <div class="chartbox"><canvas id="volcano" height="360"></canvas>
+          <div class="legend">
+            <span><i class="sw red"></i>gained methylation</span>
+            <span><i class="sw green"></i>lost methylation</span>
+            <span><i class="sw grey"></i>no real change</span></div></div>
+      </div>
+
+      <div class="panelbox" id="box-cohort" hidden>
+        <div class="phead"><h3>Who is in the study</h3>
+          <p>Breast tumour subtypes represented in the cohort.</p></div>
+        <div id="cohortbars" class="cohortbars"></div>
+      </div>
+
+      <div class="panelbox">
+        <div class="phead tablehead">
+          <div><h3>Every strong site</h3>
+            <p>Sorted by how big the difference is. Search a gene to find it.</p></div>
+          <input type="search" id="tsearch" placeholder="Search a gene or site…">
+        </div>
+        <div class="tscroll" id="tbl-markers"></div>
       </div>
     </div>
   </section>
 
+  <!-- DOWNLOADS ------------------------------------------------------- -->
   <section class="view" id="view-files">
     <div class="viewbar">
-      <span id="files-label">Everything this run produced.</span>
+      <span id="files-label">Files from your runs appear here.</span>
       <span class="spacer"></span>
       <button class="btn small" id="download-all" disabled>Download everything (.zip)</button>
     </div>
-    <div class="scroller"><div class="tscroll" id="filetable">
-      <p class="sub pad">No run selected.</p></div></div>
+    <div class="scroller"><div class="tscroll" id="filetable"></div></div>
   </section>
 </main>
 </div>
