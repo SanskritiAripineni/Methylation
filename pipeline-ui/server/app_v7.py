@@ -25,6 +25,8 @@ from console_v7 import routes as v7_routes  # noqa: E402
 SAVED_SAMPLE_RUN_ID = "20260731-062458-full-8217f9"
 SAVED_SAMPLE_RUN = ROOT / "Results" / "BRCA_Sample_Run"
 RUNS_DIR = ROOT / "runs"
+PUBLISHED_FIGURES = ROOT.parent / "results" / "Figures"
+PUBLISHED_FIGURE_NAMES = {"pca.png", "volcano.png"}
 
 
 def restore_saved_sample_run(source=SAVED_SAMPLE_RUN, runs_dir=RUNS_DIR):
@@ -55,6 +57,12 @@ class Handler(v6.Handler):
         url = urlparse(self.path)
         if url.path in ("/", "/studio-v7", "/studio-v7.html"):
             return self._file(v1.WEB / "studio-v7.html")
+        figure_prefix = "/api/v7/published-figure/"
+        if url.path.startswith(figure_prefix):
+            name = url.path[len(figure_prefix):]
+            if name not in PUBLISHED_FIGURE_NAMES:
+                return self._error(404, "Unknown published-study figure.")
+            return self._file(PUBLISHED_FIGURES / name)
         try:
             if v7_routes.handle_get(self, url.path, parse_qs(url.query)):
                 return

@@ -232,6 +232,32 @@ export function renderValidation(host, section, canvas, note) {
 /* Computed by every run since v1 and never drawn until now. */
 export function renderRoc(host, section, canvas) {
   if (!paintState(host, section)) return;
+  const head = host.querySelector('.phead h3');
+  const copy = host.querySelector('.phead p');
+  if (head) head.textContent = section.heading || 'Where it trades off';
+  if (copy) copy.textContent = section.description ||
+    'Every threshold at once. Up is catching more of the tumours; right is calling more healthy samples tumours by mistake. The further the line bows into the top-left, the better the shortlist separates the groups.';
+  const body = host.querySelector('[data-body]');
+  const oldFigure = body && body.querySelector('.published-figure');
+  const oldCaption = body && body.querySelector('.figure-caption');
+  if (section.image_url) {
+    if (canvas) canvas.hidden = true;
+    const img = oldFigure || document.createElement('img');
+    img.className = 'published-figure';
+    img.src = section.image_url;
+    img.alt = section.image_alt || 'Published BRCA validation figure';
+    if (!oldFigure) body.prepend(img);
+    if (section.caption) {
+      const caption = oldCaption || document.createElement('p');
+      caption.className = 'figure-caption';
+      caption.textContent = section.caption;
+      if (!oldCaption) body.append(caption);
+    } else if (oldCaption) oldCaption.remove();
+    return;
+  }
+  if (oldFigure) oldFigure.remove();
+  if (oldCaption) oldCaption.remove();
+  if (canvas) canvas.hidden = false;
   const d = ctx2(canvas, 300);
   if (!d) return;
   const { x, W, H } = d, pad = 46;
@@ -277,6 +303,31 @@ export function renderRoc(host, section, canvas) {
 
 export function renderVolcano(host, section, canvas) {
   if (!paintState(host, section)) return;
+  const body = host.querySelector('[data-body]');
+  const chartbox = body && body.querySelector('.chartbox');
+  const legend = chartbox && chartbox.querySelector('.legend');
+  const oldFigure = chartbox && chartbox.querySelector('.published-figure');
+  const oldCaption = body && body.querySelector('.figure-caption');
+  if (section.image_url) {
+    if (canvas) canvas.hidden = true;
+    if (legend) legend.hidden = true;
+    const img = oldFigure || document.createElement('img');
+    img.className = 'published-figure';
+    img.src = section.image_url;
+    img.alt = section.image_alt || 'Published BRCA volcano plot';
+    if (!oldFigure) chartbox.prepend(img);
+    if (section.caption) {
+      const caption = oldCaption || document.createElement('p');
+      caption.className = 'figure-caption';
+      caption.textContent = section.caption;
+      if (!oldCaption) body.append(caption);
+    } else if (oldCaption) oldCaption.remove();
+    return;
+  }
+  if (oldFigure) oldFigure.remove();
+  if (oldCaption) oldCaption.remove();
+  if (canvas) canvas.hidden = false;
+  if (legend) legend.hidden = false;
   const d = ctx2(canvas, 360);
   if (!d) return;
   const { x, W, H } = d, pad = 54;
@@ -346,7 +397,8 @@ export function renderEnrichment(host, section) {
   const rows = section.items || [];
   const key = r => r.term || r.pathway || r.name || r.description || '';
   const score = r => r.neg_log10_p != null ? r.neg_log10_p
-    : (r.p_value != null ? -Math.log10(Math.max(r.p_value, 1e-300)) : null);
+    : (r.adjusted_p != null ? -Math.log10(Math.max(r.adjusted_p, 1e-300))
+      : (r.p_value != null ? -Math.log10(Math.max(r.p_value, 1e-300)) : null));
   const max = Math.max(...rows.map(r => score(r) || 0), 0.0001);
   host.querySelector('[data-body]').innerHTML = rows.slice(0, 12).map(r => {
     const s = score(r);
@@ -356,7 +408,8 @@ export function renderEnrichment(host, section) {
       <span class="cbar"><i style="width:${s ? (s / max * 100).toFixed(1) : 0}%"></i></span>
       <span class="cv">${n != null ? num(n) + ' genes' : (s ? s.toFixed(1) : '')}</span>
     </div>`;
-  }).join('');
+  }).join('') + (section.caption
+    ? `<p class="figure-caption">${esc(section.caption)}</p>` : '');
 }
 
 /* ------------------------------------------------------------------ table */

@@ -1,0 +1,12 @@
+term	adjusted_p	n_genes	library	direction
+Sequence-Specific Double-Stranded DNA Binding	4.774e-67	331	GO_MF	hypermethylated
+Sequence-Specific DNA Binding	1.081e-65	329	GO_MF	hypermethylated
+RNA Polymerase II Transcription Regulatory Region Sequence-Specific DNA Binding	4.252e-58	454	GO_MF	hypermethylated
+Regulation Of Transcription By RNA Polymerase II	1.385e-57	651	GO_BP	hypermethylated
+Double-Stranded DNA Binding	1.086e-56	296	GO_MF	hypermethylated
+RNA Polymerase II Cis-Regulatory Region Sequence-Specific DNA Binding	2.800e-52	414	GO_MF	hypermethylated
+Regulation Of DNA-templated Transcription	7.419e-50	610	GO_BP	hypermethylated
+Cis-Regulatory Region Sequence-Specific DNA Binding	2.907e-47	396	GO_MF	hypermethylated
+Signal Transduction	5.835e-44	1079	Reactome	combined
+Olfactory Signaling Pathway	1.845e-43	161	Reactome	hypomethylated
+Expression And Translocation Of Olfactory Receptors	2.302e-43	158	Reactome	hypomethylated

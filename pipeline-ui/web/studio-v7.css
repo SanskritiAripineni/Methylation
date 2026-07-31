@@ -240,10 +240,6 @@ input[type=checkbox]{accent-color:var(--accent)}
 .attachment-files[open]>summary{margin-bottom:10px}
 .attachment-files table{font-size:12px}
 .attachment-error{border-left-style:dashed}
-.state-switch{margin-left:auto;flex:none;border:1px solid var(--accent);
-  background:var(--accent);color:#fff;border-radius:6px;padding:6px 10px;
-  font:700 11.5px/1.3 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;cursor:pointer}
-.state-switch:hover{background:var(--accent-dk);border-color:var(--accent-dk)}
 
 .prow{display:flex;align-items:center;gap:20px}
 .pnow{flex:1;min-width:0}
@@ -411,6 +407,9 @@ input[type=checkbox]{accent-color:var(--accent)}
 
 .chartbox{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:10px}
 .chartbox canvas{width:100%;display:block}
+.published-figure{display:block;width:100%;height:auto;max-height:520px;object-fit:contain;
+  border-radius:6px;background:#fff}
+.figure-caption{margin:9px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
 .legend{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:8px}
 .legend .sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
 .sw.hyper{background:var(--hyper)} .sw.hypo{background:var(--hypo)} .sw.none{background:var(--none)}
@@ -470,7 +469,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-seri
 }
 @media(max-width:500px){.wordmark{font-size:14px}.dataset-control select{max-width:165px}.topnav{gap:17px}.toplink{font-size:11.5px}.left{padding:15px 12px 50px}.stepblock{gap:10px}.stepnum{width:26px;height:26px}.selbar .selkind{display:none}.viewbar .btn{font-size:11px;padding:6px 8px}}
 @media(max-width:700px){.attachment-head{flex-direction:column}.attachment-actions{width:100%;flex-wrap:wrap}.attachment-actions .btn{flex:1;text-align:center}}
-@media(max-width:500px){.pstate{flex-wrap:wrap}.state-switch{margin-left:0;width:100%}}
 a{color:var(--accent)}
 
 /* Version 6 data-source chooser. The four cards mirror the source controls in

@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT / "server"))
 
 from dashboard import build, schema          # noqa: E402
 from console_v4 import sources               # noqa: E402
+from console_v7 import routes as v7_routes   # noqa: E402
 
 FAILURES = []
 
@@ -49,6 +50,18 @@ check("reference has a report to show", ref["report"]["state"] == schema.OK)
 check("reference states why it has no volcano",
       ref["volcano"]["state"] == schema.UNAVAILABLE and len(ref["volcano"]["reason"]) > 40,
       "reason was: %r" % ref["volcano"]["reason"])
+
+v7_ref = v7_routes._published_dashboard()
+check("V7 uses the published BRCA volcano without changing the shared schema",
+      v7_ref["schema"] == schema.SCHEMA_VERSION
+      and v7_ref["volcano"]["state"] == schema.OK
+      and v7_ref["volcano"]["image_url"].endswith("/volcano.png"))
+check("V7 uses the published BRCA PCA instead of inventing a ROC curve",
+      v7_ref["roc"]["state"] == schema.OK and not v7_ref["roc"]["fpr"]
+      and v7_ref["roc"]["image_url"].endswith("/pca.png"))
+check("V7 uses BRCA pathway results",
+      v7_ref["enrichment"]["state"] == schema.OK
+      and len(v7_ref["enrichment"]["items"]) >= 4)
 
 # ---------------------------------------------------------------------------
 print("\nevery run on disk")

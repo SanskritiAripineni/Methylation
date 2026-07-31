@@ -37,10 +37,11 @@ stylesheet, script, API prefix and server launcher are version-specific, so
 future development can continue without changing the release tagged
 `ui-v7-hosting-ready`.
 
-Hosted V7 also restores the committed BRCA demonstration run from `Results/`
-into a fresh server's run history. This keeps the sample selector enabled on
-ephemeral hosts and makes its ROC, enrichment and volcano visualizations
-reachable without mixing simulated outputs into the published-study panels.
+Hosted V7 restores the committed BRCA demonstration run from `Results/` into a
+fresh server's run history so the sample selector remains available on
+ephemeral hosts. The two result sources stay separate: the published-study
+selection uses the real TCGA-BRCA PCA, full-study volcano figure and BRCA
+pathway outputs, while the sample selection uses only its own run artifacts.
 
 ## What v6 changed
 
