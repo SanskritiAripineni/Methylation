@@ -17,12 +17,27 @@ git checkout ui-v3.1-studio
 | 3 | `ui-v3-studio` | 8767 | `server/app_v3.py` | The studio — plain language on top of v2's checks. Adds the workspace so an upload can actually be run, history that survives a restart, and a measured time-left. `console_v3/`, `web/studio.*`. |
 | 3.1 | `ui-v3.1-studio` | 8767 | `server/app_v3.py` | **The freeze point.** v3 as it stood before the v4 work started. Same files as v3; the tag exists so there is a named commit to come back to. |
 | 4 | `ui-v4-dashboard` | 8769 | `server/app_v4.py` | One dashboard contract behind every screen. `dashboard/`, `console_v4/`, `web/studio-v4.*`, `web/viz-v4.js`. |
-| 5 | *(in progress)* | 8770 | `server/app_v5.py` | Neoantigen-style console header and palette, a header-level breast/sample selector, and one responsive report layout for every source. `console_v5/`, `web/studio-v5.*`, `web/report-v5.*`. |
+| 5 | `ui-v5-neo-shell` | 8770 | `server/app_v5.py` | Neoantigen-style console header and palette, a header-level breast/sample selector, and one responsive report layout for every source. `console_v5/`, `web/studio-v5.*`, `web/report-v5.*`. |
+| 6 | *(in progress)* | 8771 | `server/app_v6.py` | Removes the secondary product name from the header and adds explicit cohort, repeat-run, local-folder and browser-upload data sources. `console_v6/`, `web/studio-v6.*`, `web/report-v6.*`. |
 
 Older versions stay reachable from a newer server: v4 on 8769 still serves
 v3 at `/studio.html`, v2 at `/console-v2.html` and v1 at `/index.html`.
 
 V5 on 8770 also serves V4 unchanged at `/studio-v4.html`.
+
+V6 on 8771 serves V5 unchanged at `/studio-v5.html`.
+
+## What v6 changed
+
+**1. One brand in the header.** The secondary “Methylation Studio” text is
+removed. The header now shows MRKTechSolutions, Version 6, navigation and the
+active report-source selector.
+
+**2. Explicit data access choices.** The first step now offers the bundled
+study cohort, an earlier run, a local folder path, or browser file upload. A
+local folder is scanned for the methylation matrix, sample list and optional
+site annotation; supported files stay in place and are linked into the local
+workspace when possible.
 
 ## What v5 changed
 

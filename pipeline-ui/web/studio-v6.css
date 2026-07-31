@@ -1,0 +1,458 @@
+/* Methylation Studio (v5) — standalone stylesheet.
+   studio.css (v3) is neither loaded nor edited; v3 is frozen at tag
+   ui-v3.1-studio and still served at /studio.html.
+
+   COLOUR RULE, unchanged from v3: the interface carries no decorative
+   colour. Colour is reserved for the one thing it can encode honestly —
+   whether methylation was gained or lost.
+
+   WHAT CHANGED, and why:
+
+   1. The interface greys were perfectly neutral (chroma 0.000). Neutral
+      grey plus a stock red/green is the default-framework look, and it
+      read as unfinished rather than restrained. The ramp is now tinted
+      toward a single low-chroma ink-indigo (chroma 0.053 on the accent —
+      enough that the screen reads as chosen, far too little to read as
+      loud). Contrast went up, not down: --muted moved from 4.93:1 to
+      5.78:1 against the page.
+
+   2. The data pair was red #c0392b against green #1a7a3a. Measured under
+      the Machado deuteranopia simulation those two sit at OKLab ΔE 6.1 —
+      inside the band where colour may only carry meaning alongside a
+      second channel. The volcano plot encodes direction by colour alone,
+      so for a deuteranopic reader it was unreadable. Green is now blue
+      #2a78d6: same red, ΔE 26.1, and the blue shares the interface's hue
+      family so the charts stop looking like a separate product.
+
+   Two hues on screen. Nothing is bolder than it was. */
+
+:root{
+  /* interface — one low-chroma ink-indigo family */
+  --bg:#f5f6f8; --panel:#fff; --ink:#15181f; --muted:#5f6673; --line:#e3e5ea;
+  --accent:#26314d; --accent-dk:#1b2338; --accent-sf:#eef0f5;
+  --okbg:#eef0f5; --warnbg:#e7eaf0;
+  --failbg:#dfe3ea;
+  --dark:#1b2130;                     /* strong-signal fill (errors, log) */
+  --hair:#cfd4de;
+
+  /* data — the only colours in the product, and only where they mean
+     something: red = gained methylation, blue = lost, grey = no change.
+     Kept in lockstep with the shared constants in viz-v4.js. */
+  --hyper:#c0392b; --hypo:#2a78d6; --none:#8f94a0;
+  --hyper-sf:#d9705f; --hypo-sf:#5b98e0;
+
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:12px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1,h2,h3{margin:0}
+button{font:inherit}
+
+/* -------------------------------------------------------------- top bar */
+.top{display:flex;align-items:center;gap:16px;padding:12px 22px;background:#fff;
+  border-bottom:1px solid var(--line)}
+.brandwrap{display:flex;align-items:center;gap:13px}
+.logo{display:grid;place-items:center;width:42px;height:42px;border-radius:11px;
+  background:var(--accent);color:#fff;font-weight:800;letter-spacing:.5px}
+.top h1{font-size:18px;letter-spacing:-.2px}
+.top p{margin:1px 0 0;color:var(--muted);font-size:13px}
+.vtag{font-size:11px;font-weight:800;letter-spacing:.6px;color:var(--muted);
+  border:1px solid var(--line);border-radius:20px;padding:3px 10px}
+
+.shell{display:flex;height:calc(100vh - 67px);overflow:hidden}
+
+/* ----------------------------------------------------------------- left */
+.left{width:430px;min-width:430px;overflow-y:auto;padding:18px 18px 60px;
+  background:var(--panel);border-right:1px solid var(--line)}
+.stepblock{display:flex;gap:13px;padding-bottom:22px;margin-bottom:20px;
+  border-bottom:1px solid var(--line)}
+.stepblock:last-child{border-bottom:0}
+.stepblock.nonum{padding-left:0}
+.stepnum{flex:none;width:28px;height:28px;border-radius:50%;background:var(--accent);
+  color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;margin-top:2px}
+.stepbody{flex:1;min-width:0}
+.stepbody h2{font-size:17px;letter-spacing:-.2px}
+.sub{color:var(--muted);font-size:13px;margin:4px 0}
+.pad{padding:0 18px}
+.mono{font-family:var(--mono)}
+.spacer{flex:1}
+
+/* ------------------------------------------------------------ drop zone */
+.drop{margin-top:10px;border:2px dashed var(--hair);border-radius:var(--r);background:#fafbfc;
+  padding:22px 14px;text-align:center;cursor:pointer;transition:.15s}
+.drop:hover,.drop.over{border-color:var(--accent);background:var(--accent-sf)}
+.drop.over{transform:scale(1.01)}
+.dropicon{font-size:26px;color:var(--accent);line-height:1}
+.dropinner b{display:block;margin-top:7px;font-size:15px}
+.dropinner span{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.dropinner small{display:block;color:var(--muted);font-size:11.5px;margin-top:8px;line-height:1.45}
+.linkbtn{border:0;background:none;color:var(--accent);text-decoration:underline;cursor:pointer;padding:0}
+
+.filelist{margin-top:10px;display:grid;gap:6px}
+.fileitem{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);
+  border-radius:10px;padding:9px 11px;background:#fff}
+/* a problem file is marked by a heavier rule and an outlined glyph, not by hue */
+.fileitem.bad{border-color:var(--accent);border-width:1.5px;background:var(--failbg)}
+.fmark{flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;
+  font-size:12px;font-weight:800;color:#fff;background:var(--accent);margin-top:1px}
+.fileitem.bad .fmark{background:#fff;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.fname{font-weight:650;font-size:13.5px;word-break:break-all}
+.fdetail{color:var(--muted);font-size:12px}
+.frole{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:700}
+
+.orline{display:flex;align-items:center;gap:10px;margin:14px 0 10px;color:var(--muted);font-size:12px}
+.orline::before,.orline::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.bigbtn{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;
+  border-radius:var(--r);padding:12px 14px;cursor:pointer}
+.bigbtn:hover{border-color:var(--accent)}
+.bigbtn b{display:block;font-size:14.5px}
+.bigbtn span{display:block;color:var(--muted);font-size:12.5px;margin-top:2px;line-height:1.4}
+.bigbtn.on{border-color:var(--accent);background:var(--accent-sf);
+  box-shadow:0 0 0 2px rgba(38,49,77,.10)}
+.bigbtn:disabled{opacity:.5;cursor:not-allowed}
+
+/* status: told apart by fill weight and left rule, not by hue */
+.status{margin-top:10px;font-size:13px;padding:9px 11px;border-radius:10px;display:none;
+  border-left:3px solid var(--line)}
+.status.show{display:block}
+.status.ok{background:var(--okbg);color:var(--ink);border-left-color:var(--accent)}
+.status.warn{background:var(--warnbg);color:#3d4354;border-left-color:var(--muted);
+  border-left-width:5px}
+.status.bad{background:var(--dark);color:#f2f3f6;border-left-color:#fff;border-left-width:5px}
+.status.bad code{background:rgba(255,255,255,.14)}
+.ingest{margin-top:8px;display:grid;gap:6px}
+.ingrow{background:rgba(255,255,255,.72);border-radius:8px;padding:7px 9px;font-size:12.5px;
+  line-height:1.45}
+.ingrow small{display:block;opacity:.72;font-size:11.5px;margin-top:2px}
+.ingrow code{background:rgba(21,24,31,.07);padding:1px 5px;border-radius:4px;font-size:11.5px}
+.ingrow.warnrow{background:#fff;color:#3d4354;box-shadow:inset 0 0 0 1px var(--line);
+  border-left:3px solid var(--muted)}
+
+/* ------------------------------------------------------------- presets */
+.presets{display:grid;gap:7px;margin-top:8px}
+.preset{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;
+  border:1px solid var(--line);background:#fff;border-radius:11px;padding:10px 12px;cursor:pointer}
+.preset:hover{border-color:var(--accent)}
+.preset.on{border-color:var(--accent);background:var(--accent-sf);
+  box-shadow:0 0 0 2px rgba(38,49,77,.10)}
+.preset .radio{flex:none;width:16px;height:16px;border-radius:50%;border:2px solid var(--hair);margin-top:3px}
+.preset.on .radio{border-color:var(--accent);
+  background:radial-gradient(circle,var(--accent) 45%,transparent 47%)}
+.preset b{font-size:14px}
+.preset .tag{font-size:10.5px;font-weight:800;color:var(--muted);letter-spacing:.4px}
+.preset span{display:block;color:var(--muted);font-size:12.5px;line-height:1.4}
+
+.adv{margin-top:12px}
+.adv summary{cursor:pointer;color:var(--accent);font-size:13px;font-weight:650;
+  text-decoration:underline;text-underline-offset:3px}
+.advanced{margin-top:10px;display:grid;gap:12px}
+.ctrl label{display:flex;justify-content:space-between;align-items:baseline;font-size:13px;font-weight:650}
+.ctrl .val{font-family:var(--mono);color:var(--ink);font-weight:700}
+.ctrl input[type=range]{width:100%;margin:5px 0 2px;accent-color:var(--accent)}
+.ctrl .expl{color:var(--muted);font-size:11.5px;line-height:1.45}
+.ctrl .measured{color:#3d4354;font-size:11.5px}
+.checkline{display:flex;gap:8px;align-items:center;font-size:13px;margin:6px 0}
+input[type=checkbox]{accent-color:var(--accent)}
+
+/* --------------------------------------------------------------- tiers */
+.tiers{display:grid;gap:8px;margin-top:6px}
+.tierbtn{display:flex;gap:11px;align-items:center;width:100%;text-align:left;border:1px solid var(--line);
+  background:#fff;border-radius:12px;padding:13px 14px;cursor:pointer}
+.tierbtn:hover:not(:disabled){border-color:var(--accent);background:var(--accent-sf)}
+.tierbtn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.tierbtn.primary:hover:not(:disabled){background:var(--accent-dk)}
+.tierbtn.primary span{color:#c8cede}
+.tierbtn:disabled{opacity:.55;cursor:not-allowed}
+.tierbtn b{display:block;font-size:15px}
+.tierbtn span{display:block;font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.4}
+.tierbtn .ico{flex:none;font-size:19px}
+.tierbtn .lock{margin-left:auto;font-size:10.5px;color:var(--muted);font-weight:800;
+  text-transform:uppercase;letter-spacing:.4px;text-align:right;max-width:120px;line-height:1.3}
+
+/* ------------------------------------------------------------- history */
+.history{display:grid;gap:6px;margin-top:4px}
+.hrun{display:block;width:100%;text-align:left;border:1px solid var(--line);background:#fff;
+  border-radius:10px;padding:9px 11px;cursor:pointer}
+.hrun:hover{border-color:var(--accent)}
+.hrun.on{border-color:var(--accent);background:var(--accent-sf);
+  box-shadow:inset 3px 0 0 var(--accent)}
+.hrun.live{border-color:var(--accent)}
+.hrow{display:flex;align-items:baseline;gap:6px}
+.hrun b{font-size:13.5px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.hrun .meta{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+/* a run in flight carries its own bar, so the list answers "how far along"
+   without having to open it */
+.hbar{display:block;height:4px;border-radius:3px;background:var(--line);margin-top:7px;
+  overflow:hidden}
+.hbar i{display:block;height:100%;background:var(--accent);border-radius:3px;
+  transition:width .5s ease}
+/* three states, three fills: outlined = rehearsal, solid = real, ruled = failed */
+.badge{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10px;font-weight:800;
+  letter-spacing:.4px;text-transform:uppercase;margin-left:6px;vertical-align:1px}
+.badge.test{background:var(--accent-sf);color:#4b5265;box-shadow:inset 0 0 0 1px var(--hair)}
+.badge.full{background:var(--accent);color:#fff}
+.badge.bad{background:#fff;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.badge.live{background:var(--accent);color:#fff;animation:blink 1.4s infinite}
+
+/* the Runs tab keeps its own step counter, so a run stays visible from any
+   tab without having to go and look */
+.tabbadge{display:inline-block;margin-left:7px;padding:1px 7px;border-radius:20px;
+  font-size:10.5px;font-weight:800;font-variant-numeric:tabular-nums;
+  background:var(--accent);color:#fff;vertical-align:1px}
+.tabbadge.live{animation:blink 1.4s infinite}
+
+/* ---------------------------------------------------------------- right */
+.right{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
+
+/* --------------------------------------------------- runs & files tab */
+/* Picking a run, watching it, and taking its files were three separate
+   places - a list in the sidebar, a strip above the tabs, a Downloads tab.
+   None of them was where you were looking. They are one screen now. */
+#view-runs{overflow:hidden}
+.runsgrid{flex:1;display:grid;grid-template-columns:290px 1fr;min-height:0}
+.runlist{border-right:1px solid var(--line);background:#fff;overflow-y:auto;
+  padding:14px 14px 40px;display:flex;flex-direction:column;gap:2px}
+.runlisthead{display:flex;align-items:baseline;gap:8px;font-size:15px}
+.runlisthead b{letter-spacing:-.2px}
+.runcount{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.checkline.tight{margin:2px 0 8px;font-size:12.5px;color:var(--muted)}
+.rundetail{overflow-y:auto;padding:18px 22px 40px;min-width:0}
+.runstatus{margin-bottom:16px}
+
+.prow{display:flex;align-items:center;gap:20px}
+.pnow{flex:1;min-width:0}
+.pstep{font-size:11.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);font-weight:800}
+.pname{font-size:19px;font-weight:700;letter-spacing:-.2px;margin-top:1px}
+.pplain{color:var(--muted);font-size:13px}
+.ptimes{display:flex;gap:26px;text-align:right}
+.ptimes span{display:block;font-size:19px;font-weight:700;font-variant-numeric:tabular-nums}
+.ptimes small{display:block;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.5px}
+.pbar{height:8px;background:var(--line);border-radius:20px;overflow:hidden;margin:12px 0 9px}
+.pfill{height:100%;width:0;background:var(--accent);border-radius:20px;transition:width .5s ease}
+.ptrack{display:flex;gap:3px;padding-bottom:12px}
+.tick{flex:1;height:5px;border-radius:3px;background:var(--line)}
+.tick.done{background:var(--accent)}
+.tick.running{background:var(--accent);animation:blink 1.1s infinite}
+/* failed is striped rather than red — still unmistakable at a glance */
+.tick.failed{background:repeating-linear-gradient(45deg,var(--accent),var(--accent) 2px,#fff 2px,#fff 4px)}
+.tick.skipped{background:var(--hair)}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+/* every step by name — the bar says how far, this says what it is doing */
+.steplist{display:grid;gap:1px;margin:4px 0 10px}
+.srow{display:flex;align-items:baseline;gap:10px;padding:5px 8px;border-radius:7px;
+  font-size:12.5px;color:var(--muted)}
+.srow.done{color:var(--ink)}
+.srow.running{background:var(--accent-sf);color:var(--ink)}
+.srow.failed{background:var(--failbg);color:var(--ink)}
+.smark{flex:none;width:14px;text-align:center;font-weight:800;font-size:11px;color:var(--accent)}
+.srow.pending .smark{color:var(--hair)}
+.snum{flex:none;width:16px;text-align:right;font-variant-numeric:tabular-nums;
+  font-size:11px;color:var(--muted)}
+.sname{flex:1;min-width:0}
+.sname b{font-weight:650}
+.sname span{display:block;font-size:11.5px;color:var(--muted);line-height:1.4;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srow.running .sname b::after{content:" …"}
+.stime{flex:none;font-variant-numeric:tabular-nums;font-size:11.5px;color:var(--muted)}
+
+.logbody{height:170px;overflow-y:auto;background:var(--dark);color:#a8afc0;padding:9px 11px;
+  border-radius:9px;font-size:11.5px;line-height:1.55;margin:8px 0 12px}
+.logbody .l-warn{color:#e3e6ec;font-weight:600}
+.logbody .l-error{color:#fff;font-weight:700;background:rgba(255,255,255,.09);
+  display:block;border-radius:4px;padding:0 4px}
+.logbody .t{color:#8d95a7;margin-right:8px}   /* readable on the dark panel */
+
+.banner{padding:11px 22px;font-size:13.5px;border-bottom:1px solid var(--line);
+  border-left:4px solid transparent}
+.banner.test{background:var(--warnbg);color:#3d4354;border-left-color:var(--muted)}
+.banner.ok{background:var(--okbg);color:var(--ink);border-left-color:var(--accent)}
+.banner.bad{background:var(--dark);color:#f2f3f6;border-left-color:#fff}
+.banner b{font-weight:750}
+.banner .more{margin-top:4px;font-size:12.5px;opacity:.85}
+
+.tabs{display:flex;gap:3px;padding:9px 22px 0;background:#fff;border-bottom:1px solid var(--line);
+  align-items:center}
+.tabgroup{display:flex;gap:3px}
+.tab{border:0;background:transparent;padding:9px 14px;border-bottom:2px solid transparent;
+  font-weight:650;color:var(--muted);cursor:pointer}
+.tab.active{color:var(--accent);border-bottom-color:var(--accent)}
+
+/* --------------------------------------------------- the selection bar */
+/* One line naming what every panel below it is describing. It exists so the
+   answer to "which run am I looking at?" is never assembled from three
+   different headings that can disagree. */
+.selbar{display:flex;align-items:center;gap:10px;padding:9px 22px;background:var(--accent-sf);
+  border-bottom:1px solid var(--line);font-size:13px;min-height:40px}
+.selbar b{font-weight:750;letter-spacing:-.1px}
+.selkind{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;
+  padding:3px 9px;border-radius:20px;background:var(--accent);color:#fff;flex:none}
+.selkind.reference{background:#fff;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.selsub{color:var(--muted);font-size:12.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.loading{color:var(--muted);font-size:12px;font-weight:650}
+
+.view{display:none;flex:1;overflow:hidden;flex-direction:column;position:relative}
+.view.active{display:flex}
+.viewbar{display:flex;align-items:center;gap:10px;padding:10px 22px;background:#fff;
+  border-bottom:1px solid var(--line);font-size:13px}
+.scroller{flex:1;overflow-y:auto;padding:18px 22px 40px}
+.framewrap{flex:1;display:flex;flex-direction:column;min-height:0}
+.framewrap>[data-body]{flex:1;display:flex;min-height:0}
+#report-frame{flex:1;width:100%;border:0;background:#fff}
+
+.btn{border:1px solid var(--line);background:#fff;color:var(--ink);padding:8px 13px;
+  border-radius:9px;font-weight:650;cursor:pointer}
+.btn:hover:not(:disabled){border-color:var(--accent)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.small{padding:6px 11px;font-size:12.5px}
+.btn.ghost{background:#fff}
+
+/* ------------------------------------------------------- panel states */
+/* A panel with nothing to draw stays on screen and says why. A panel that
+   disappears looks exactly like a panel that is broken, and the reader has
+   no way to tell which one they are looking at. */
+.pstate{display:flex;gap:11px;align-items:flex-start;padding:16px 18px;border-radius:10px;
+  background:#fafbfc;box-shadow:inset 0 0 0 1px var(--line);color:var(--muted);
+  font-size:13px;line-height:1.55}
+.framewrap .pstate{margin:22px}
+.pstate-tag{flex:none;font-size:10px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;
+  padding:3px 9px;border-radius:20px;background:#fff;color:var(--muted);
+  box-shadow:inset 0 0 0 1px var(--hair);margin-top:1px}
+/* "the step ran and found nothing" is a result, so it is stated more firmly
+   than "this source cannot produce this panel" */
+.pstate.empty{background:var(--accent-sf);color:#3d4354}
+.pstate.empty .pstate-tag{background:var(--accent);color:#fff;box-shadow:none}
+.pstate.loading{opacity:.6}
+
+/* -------------------------------------------------------------- results */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:11px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:15px 16px}
+.cnum{font-size:29px;font-weight:800;letter-spacing:-.8px;font-variant-numeric:tabular-nums;
+  line-height:1.1}
+.clbl{font-size:13px;margin-top:3px;font-weight:600}
+.cnote{color:var(--muted);font-size:11.5px;margin-top:2px}
+/* headline numbers are figures, not findings — they stay ink. The tone only
+   sets a hairline so the eye can group them, never the number's colour. */
+.card.tone-hyper{box-shadow:inset 3px 0 0 var(--hyper)}
+.card.tone-hypo{box-shadow:inset 3px 0 0 var(--hypo)}
+
+.panelbox{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;
+  margin-bottom:16px}
+.panelbox.flush{background:none;border:0;padding:0}
+.phead h3{font-size:16px}
+.phead p{margin:3px 0 12px;color:var(--muted);font-size:12.5px;line-height:1.5;max-width:640px}
+.phead.tablehead{display:flex;gap:16px;align-items:flex-start}
+.phead.tablehead input{margin-left:auto;padding:8px 11px;border:1px solid var(--line);
+  border-radius:9px;font:inherit;font-size:13px;min-width:210px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:1180px){.grid2{grid-template-columns:1fr}}
+/* narrow: the run list sits above its detail rather than beside it, so
+   neither column ends up too thin to read */
+@media (max-width:1000px){
+  .runsgrid{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .runlist{border-right:0;border-bottom:1px solid var(--line);max-height:230px}
+}
+
+/* ---- data colour starts here: red = gained methylation, blue = lost ---- */
+.movers{display:grid;gap:5px}
+.mrow{display:flex;align-items:center;gap:10px;font-size:12.5px}
+.mgene{width:120px;text-align:right;font-weight:650;white-space:nowrap;overflow:hidden;
+  text-overflow:ellipsis}
+.mtrack{flex:1;position:relative;height:17px;background:#f1f3f6;border-radius:4px}
+.mbar{position:absolute;top:3px;height:11px;border-radius:3px}
+.mbar.up{background:linear-gradient(90deg,var(--hyper-sf),var(--hyper))}
+.mbar.down{background:linear-gradient(270deg,var(--hypo-sf),var(--hypo))}
+.mzero{position:absolute;left:50%;top:0;width:1px;height:100%;background:var(--hair)}
+.mval{width:52px;font-variant-numeric:tabular-nums;font-weight:650}
+.mval.up{color:var(--hyper)} .mval.down{color:var(--hypo)}
+
+.donutwrap{display:flex;align-items:center;gap:18px}
+.donutwrap canvas{width:55%;max-width:260px}
+.dlegend{flex:1;display:grid;gap:9px}
+.dl{display:flex;gap:9px;align-items:flex-start;font-size:12.5px}
+.dl i{width:11px;height:11px;border-radius:3px;margin-top:4px;flex:none}
+.dl b{font-variant-numeric:tabular-nums}
+.dl small{display:block;color:var(--muted);font-size:11px}
+
+/* cohort makeup, enrichment and validation scores encode no direction,
+   so they stay ink */
+#folds,#roc{width:100%;display:block}
+.cohortbars{display:grid;gap:6px}
+.crow{display:flex;align-items:center;gap:10px;font-size:12.5px}
+.ck{width:120px;font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cbar{flex:1;height:15px;background:#f1f3f6;border-radius:4px;overflow:hidden}
+.cbar i{display:block;height:100%;background:var(--accent)}
+.cv{width:70px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+
+.chartbox{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:10px}
+.chartbox canvas{width:100%;display:block}
+.legend{display:flex;gap:16px;flex-wrap:wrap;color:var(--muted);font-size:12px;margin-top:8px}
+.legend .sw{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px}
+.sw.hyper{background:var(--hyper)} .sw.hypo{background:var(--hypo)} .sw.none{background:var(--none)}
+/* ---- end of data colour ---- */
+
+/* which run the middle is showing */
+.sourcepick{display:flex;gap:5px;padding-bottom:8px}
+.src{border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 13px;
+  font-size:12px;font-weight:650;color:var(--muted);cursor:pointer;max-width:190px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.src.on{border-color:var(--accent);background:var(--accent);color:#fff}
+.src:disabled{opacity:.45;cursor:not-allowed}
+.mini{padding:5px 9px;border:1px solid var(--line);border-radius:8px;font:inherit;font-size:12.5px}
+.inlinebtn{border:0;background:var(--accent);color:#fff;border-radius:7px;padding:5px 10px;
+  font:inherit;font-size:12.5px;font-weight:650;cursor:pointer;margin-top:7px;display:inline-block}
+.status.bad .inlinebtn{background:#fff;color:var(--accent)}
+
+.tscroll{overflow:auto;border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;font-size:12.5px;background:#fff}
+th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;white-space:nowrap}
+th{background:#fafbfc;font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted)}
+td.numcell{font-variant-numeric:tabular-nums}
+/* direction is a finding, so it keeps its colour here too */
+td.hyper{color:var(--hyper);font-weight:650} td.hypo{color:var(--hypo);font-weight:650}
+
+/* --------------------------------------------------------------------------
+   Version 6 shell: compact MRKTechSolutions console header and palette.
+   The dashboard and chart functions remain shared with v4; only the shell is
+   restyled here so Version 4 stays byte-for-byte available.
+   ----------------------------------------------------------------------- */
+:root{
+  --bg:#f5f7f9;--panel:#fff;--ink:#172b3a;--muted:#5f7180;--line:#d9e1e7;
+  --accent:#183b56;--accent-dk:#102a43;--accent-sf:#eaf0f4;
+  --okbg:#eaf0f4;--warnbg:#f2eee3;--failbg:#edf1f4;--dark:#102a43;
+  --hair:#b9c9d4;--r:7px;
+}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif}
+[hidden]{display:none!important}
+.top{height:58px;padding:0 24px;gap:26px;border-color:var(--line);position:relative;z-index:30}
+.brandwrap{gap:10px;white-space:nowrap}.wordmark{font-size:17px;font-weight:820;letter-spacing:-.35px;color:#0f2537}
+.productname{font-size:12px;color:var(--muted);padding-left:10px;border-left:1px solid var(--line)}
+.top .vtag{border:0;border-radius:0;border-bottom:2px solid var(--accent);padding:4px 0 3px;color:var(--accent);font-size:9.5px;text-transform:uppercase}
+.topnav{align-self:stretch;display:flex;align-items:stretch;gap:22px}.toplink{border:0;border-bottom:2px solid transparent;background:transparent;padding:2px 2px 0;color:var(--muted);font-size:13px;font-weight:680;cursor:pointer;white-space:nowrap}.toplink:hover{color:var(--accent)}.toplink.active{color:var(--accent);border-bottom-color:var(--accent)}
+.dataset-control{display:flex;align-items:center;gap:8px;white-space:nowrap}.dataset-control>span{font-size:10px;text-transform:uppercase;letter-spacing:.65px;color:var(--muted);font-weight:800}.dataset-control select{max-width:265px;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);padding:7px 30px 7px 10px;font:600 12px/1.2 inherit;cursor:pointer}.dataset-control select:focus{outline:2px solid rgba(24,59,86,.2);outline-offset:1px}
+.shell{height:calc(100vh - 58px)}.left{width:390px;min-width:390px;padding:18px 17px 60px}.tabs{display:none}.sourcepick{display:none}.selbar{padding:9px 20px;background:#eaf0f4}.scroller{padding:18px 20px 40px}.viewbar{padding:10px 20px}.framewrap.report-loading::before{content:"Preparing selected report…";position:absolute;top:11px;right:20px;color:var(--muted);font-size:11px;font-weight:700}.framewrap.report-loading .pstate{display:none!important}
+.stepnum,.logo{background:var(--accent)}.drop,.bigbtn,.preset,.tierbtn,.panelbox,.card,.btn,.fileitem,.hrun{border-radius:7px}.drop{background:#f8fafb}.bigbtn.on,.preset.on{box-shadow:0 0 0 1px rgba(24,59,86,.1)}
+.selkind{background:var(--accent)}.selkind.reference{color:var(--accent)}table th{background:#f8fafb;color:var(--muted)}
+@media(max-width:1180px){.productname{display:none}.top{gap:18px}.topnav{gap:14px}.dataset-control>span{display:none}.left{width:350px;min-width:350px}}
+@media(max-width:850px){
+  .top{height:92px;padding:0 14px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:48px 44px;gap:0 10px}
+  .brandwrap{grid-column:1;grid-row:1;min-width:0}.wordmark{font-size:15px}.top .vtag{display:none}
+  .dataset-control{grid-column:2;grid-row:1}.dataset-control select{max-width:190px;padding:6px 24px 6px 8px;font-size:11px}
+  .topnav{grid-column:1/3;grid-row:2;gap:20px;overflow-x:auto}.toplink{font-size:12px;flex:none}
+  .shell{height:calc(100vh - 92px)}.left{display:none;width:100%;min-width:100%;border-right:0}.right{width:100%}
+  body.setup-mode .left{display:block}body.setup-mode .right{display:none}
+  .selbar{padding:8px 13px}.selsub{display:none}.viewbar{padding:8px 13px;flex-wrap:wrap}.viewbar #report-label{width:100%}.scroller{padding:14px 12px 32px}
+}
+@media(max-width:500px){.wordmark{font-size:14px}.dataset-control select{max-width:165px}.topnav{gap:17px}.toplink{font-size:11.5px}.left{padding:15px 12px 50px}.stepblock{gap:10px}.stepnum{width:26px;height:26px}.selbar .selkind{display:none}.viewbar .btn{font-size:11px;padding:6px 8px}}
+a{color:var(--accent)}
+
+/* Version 6 data-source chooser. The four cards mirror the source controls in
+   the Neoantigen console while using methylation-specific inputs. */
+.sourcehead{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}.sourcehead h2{text-transform:uppercase;font-size:12px;letter-spacing:.55px;color:var(--muted)}.sourcehead>span{border:1px solid var(--accent-border,var(--hair));border-radius:5px;padding:3px 8px;color:var(--accent);background:#fff;font-size:9.5px;font-weight:850;text-transform:uppercase;letter-spacing:.4px}
+.datasources{display:grid;grid-template-columns:1fr 1fr;gap:7px}.datasource,.unsupported-source{display:flex;align-items:flex-start;gap:9px;text-align:left;border:1px solid var(--line);border-radius:7px;background:#fff;color:var(--ink);padding:11px 10px;min-height:72px}.datasource{cursor:pointer}.datasource:hover{border-color:var(--hair);background:#f8fafb}.datasource.on{border-color:var(--hair);background:var(--accent-sf);box-shadow:inset 0 0 0 1px rgba(24,59,86,.04)}.source-radio{flex:none;width:14px;height:14px;border:1px solid var(--hair);border-radius:50%;background:#fff;margin-top:2px}.datasource.on .source-radio{border-color:var(--accent);background:radial-gradient(circle,var(--accent) 0 42%,transparent 46%)}.datasource b,.unsupported-source b{display:block;font-size:12.5px;line-height:1.25}.datasource small,.unsupported-source small{display:block;color:var(--muted);font-size:10.5px;line-height:1.35;margin-top:5px}.unsupported-source{margin-top:7px;min-height:auto;opacity:.58}.unsupported-source span:last-child{min-width:0}.sourcepanel{margin-top:11px;border:1px solid var(--line);border-radius:7px;background:#fff;padding:12px}.sourcepanel>label{display:block;font-size:12px;margin-bottom:7px}.sourcepanel>small{display:block;color:var(--muted);font-size:10.5px;line-height:1.45;margin-top:7px}.pathrow{display:flex;gap:7px}.pathrow input{min-width:0;flex:1;border:1px solid var(--line);border-radius:6px;padding:8px 9px;color:var(--ink);font:12px var(--mono)}.pathrow input:focus{outline:2px solid rgba(24,59,86,.16);border-color:var(--accent)}.pathrow .btn{padding:7px 10px;font-size:11.5px}.shared-note{border-left:3px solid var(--accent);background:var(--accent-sf);padding:9px 10px;margin-bottom:10px;font-size:11.5px;line-height:1.45}.sourcepanel .drop{margin-top:0;padding:16px 10px}.sourcepanel .dropinner b{font-size:13px}.sourcepanel .dropinner small{font-size:10.5px}
+@media(max-width:500px){.datasources{grid-template-columns:1fr 1fr}.datasource{padding:10px 8px}.pathrow{flex-direction:column}.pathrow .btn{width:100%}}
+
