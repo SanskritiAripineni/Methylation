@@ -180,19 +180,50 @@ input[type=checkbox]{accent-color:var(--accent)}
 .hrun:hover{border-color:var(--accent)}
 .hrun.on{border-color:var(--accent);background:var(--accent-sf);
   box-shadow:inset 3px 0 0 var(--accent)}
-.hrun b{font-size:13.5px}
-.hrun .meta{color:var(--muted);font-size:11.5px;margin-top:2px}
+.hrun.live{border-color:var(--accent)}
+.hrow{display:flex;align-items:baseline;gap:6px}
+.hrun b{font-size:13.5px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;
+  white-space:nowrap}
+.hrun .meta{display:block;color:var(--muted);font-size:11.5px;margin-top:2px}
+/* a run in flight carries its own bar, so the list answers "how far along"
+   without having to open it */
+.hbar{display:block;height:4px;border-radius:3px;background:var(--line);margin-top:7px;
+  overflow:hidden}
+.hbar i{display:block;height:100%;background:var(--accent);border-radius:3px;
+  transition:width .5s ease}
 /* three states, three fills: outlined = rehearsal, solid = real, ruled = failed */
 .badge{display:inline-block;padding:1px 7px;border-radius:20px;font-size:10px;font-weight:800;
   letter-spacing:.4px;text-transform:uppercase;margin-left:6px;vertical-align:1px}
 .badge.test{background:var(--accent-sf);color:#4b5265;box-shadow:inset 0 0 0 1px var(--hair)}
 .badge.full{background:var(--accent);color:#fff}
 .badge.bad{background:#fff;color:var(--accent);box-shadow:inset 0 0 0 1.5px var(--accent)}
+.badge.live{background:var(--accent);color:#fff;animation:blink 1.4s infinite}
+
+/* the Runs tab keeps its own step counter, so a run stays visible from any
+   tab without having to go and look */
+.tabbadge{display:inline-block;margin-left:7px;padding:1px 7px;border-radius:20px;
+  font-size:10.5px;font-weight:800;font-variant-numeric:tabular-nums;
+  background:var(--accent);color:#fff;vertical-align:1px}
+.tabbadge.live{animation:blink 1.4s infinite}
 
 /* ---------------------------------------------------------------- right */
 .right{flex:1;display:flex;flex-direction:column;overflow:hidden;min-width:0}
 
-.progress{background:#fff;border-bottom:1px solid var(--line);padding:14px 22px 0}
+/* --------------------------------------------------- runs & files tab */
+/* Picking a run, watching it, and taking its files were three separate
+   places - a list in the sidebar, a strip above the tabs, a Downloads tab.
+   None of them was where you were looking. They are one screen now. */
+#view-runs{overflow:hidden}
+.runsgrid{flex:1;display:grid;grid-template-columns:290px 1fr;min-height:0}
+.runlist{border-right:1px solid var(--line);background:#fff;overflow-y:auto;
+  padding:14px 14px 40px;display:flex;flex-direction:column;gap:2px}
+.runlisthead{display:flex;align-items:baseline;gap:8px;font-size:15px}
+.runlisthead b{letter-spacing:-.2px}
+.runcount{color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.checkline.tight{margin:2px 0 8px;font-size:12.5px;color:var(--muted)}
+.rundetail{overflow-y:auto;padding:18px 22px 40px;min-width:0}
+.runstatus{margin-bottom:16px}
+
 .prow{display:flex;align-items:center;gap:20px}
 .pnow{flex:1;min-width:0}
 .pstep{font-size:11.5px;text-transform:uppercase;letter-spacing:.7px;color:var(--muted);font-weight:800}
@@ -211,6 +242,24 @@ input[type=checkbox]{accent-color:var(--accent)}
 .tick.failed{background:repeating-linear-gradient(45deg,var(--accent),var(--accent) 2px,#fff 2px,#fff 4px)}
 .tick.skipped{background:var(--hair)}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+/* every step by name — the bar says how far, this says what it is doing */
+.steplist{display:grid;gap:1px;margin:4px 0 10px}
+.srow{display:flex;align-items:baseline;gap:10px;padding:5px 8px;border-radius:7px;
+  font-size:12.5px;color:var(--muted)}
+.srow.done{color:var(--ink)}
+.srow.running{background:var(--accent-sf);color:var(--ink)}
+.srow.failed{background:var(--failbg);color:var(--ink)}
+.smark{flex:none;width:14px;text-align:center;font-weight:800;font-size:11px;color:var(--accent)}
+.srow.pending .smark{color:var(--hair)}
+.snum{flex:none;width:16px;text-align:right;font-variant-numeric:tabular-nums;
+  font-size:11px;color:var(--muted)}
+.sname{flex:1;min-width:0}
+.sname b{font-weight:650}
+.sname span{display:block;font-size:11.5px;color:var(--muted);line-height:1.4;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.srow.running .sname b::after{content:" …"}
+.stime{flex:none;font-variant-numeric:tabular-nums;font-size:11.5px;color:var(--muted)}
+
 .logbody{height:170px;overflow-y:auto;background:var(--dark);color:#a8afc0;padding:9px 11px;
   border-radius:9px;font-size:11.5px;line-height:1.55;margin:8px 0 12px}
 .logbody .l-warn{color:#e3e6ec;font-weight:600}
@@ -301,6 +350,12 @@ input[type=checkbox]{accent-color:var(--accent)}
   border-radius:9px;font:inherit;font-size:13px;min-width:210px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 @media (max-width:1180px){.grid2{grid-template-columns:1fr}}
+/* narrow: the run list sits above its detail rather than beside it, so
+   neither column ends up too thin to read */
+@media (max-width:1000px){
+  .runsgrid{grid-template-columns:1fr;grid-template-rows:auto 1fr}
+  .runlist{border-right:0;border-bottom:1px solid var(--line);max-height:230px}
+}
 
 /* ---- data colour starts here: red = gained methylation, blue = lost ---- */
 .movers{display:grid;gap:5px}

@@ -88,6 +88,14 @@ function say(el, kind, html) { el.className = 'status show ' + kind; el.innerHTM
 function hide(el) { el.className = 'status'; }
 const panel = name => $(`[data-panel="${name}"]`);
 
+function showTab(view) {
+  $$('.tab').forEach(x => x.classList.toggle('active', x.dataset.view === view));
+  $$('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + view));
+  // Canvases cannot be drawn while their tab is off screen, so redraw the
+  // one that just appeared.
+  if (view === 'results' && state.dash) drawCharts(state.dash);
+}
+
 /* ------------------------------------------------------------------ boot */
 async function boot() {
   try {
@@ -134,13 +142,7 @@ function wire() {
 
   $('#use-example').addEventListener('click', selectExample);
 
-  $$('.tab').forEach(t => t.addEventListener('click', () => {
-    $$('.tab').forEach(x => x.classList.toggle('active', x === t));
-    $$('.view').forEach(v => v.classList.toggle('active', v.id === 'view-' + t.dataset.view));
-    // Canvases cannot be drawn while their tab is off screen, so redraw the
-    // one that just appeared.
-    if (t.dataset.view === 'results' && state.dash) drawCharts(state.dash);
-  }));
+  $$('.tab').forEach(t => t.addEventListener('click', () => showTab(t.dataset.view)));
 
   $('#p-cancel').addEventListener('click', cancel);
   $('#show-tests').addEventListener('change', refreshHistory);
@@ -185,6 +187,7 @@ async function select(sel) {
 
   markLoading(sel);
   renderSourcePick();
+  syncRunPanel();
   refreshHistory();
 
   let dash;
@@ -247,6 +250,19 @@ function showSelectionError(sel, err) {
 function labelForRun(id) {
   const r = (state.history || []).find(x => x.id === id);
   return r ? r.label : null;
+}
+
+/* The status panel belongs to the run being watched, the file list belongs to
+ * the selection. They are the same run in every normal case; the one case they
+ * differ is reading an old run while a new one is still going, and then the
+ * status panel stays up because a run in flight is the more urgent of the two. */
+function syncRunPanel() {
+  const snap = state.snap;
+  const live = snap && ['running', 'queued'].includes(snap.status);
+  const selectedIsWatched = state.selection && state.selection.kind === 'run'
+    && state.selection.id === state.runId;
+  $('#progress').hidden = !(snap && (live || selectedIsWatched));
+  if (!live) renderRunsBadge(null);
 }
 
 /* ------------------------------------------------- drawing the selection */
@@ -547,6 +563,9 @@ async function launch(mode) {
       name: mode === 'full' ? 'Full analysis' : (mode === 'demo' ? 'Quick test' : 'File check'),
     });
     hide(status);
+    // Go where the progress is. Starting a run and being left on a screen
+    // that does not change is how people conclude nothing happened.
+    showTab('runs');
     watch(j.run_id);
   } catch (err) {
     say(status, 'bad', `<b>Cannot run yet.</b> ${esc(err.message)}`);
@@ -595,12 +614,16 @@ async function poll(gen) {
   }
   if (gen !== state.pollGen) return;        // a newer run is being watched
 
+  const firstSight = !state.snap || state.snap.id !== snap.id;
   state.snap = snap;
   state.polledAt = Date.now();
   state.logCursor = snap.log_count || state.logCursor;
   appendLog(snap.logs);
   renderProgress(snap);
   renderBanner(snap);
+  // The list needs one refresh to learn which row is the live one; after that
+  // renderProgress moves its bar directly rather than re-fetching every 2s.
+  if (firstSight) refreshHistory();
 
   // A terminal status does not mean the files exist yet - the record, the
   // results and the bundle are written after the last step. Acting on "done"
@@ -644,6 +667,44 @@ function renderProgress(snap) {
       s.seconds != null ? ' — ' + secs(s.seconds) : ''}"></span>`).join('');
   $('#p-cancel').disabled = !live;
   $('#p-cancel').textContent = live ? 'Stop' : 'Done';
+
+  // Every step by name, with what it is doing and what it took. The bar alone
+  // tells you how far along it is; this tells you what it is actually doing,
+  // which is the question people are really asking while they wait.
+  const MARK = { done: '✓', running: '▶', failed: '✕', skipped: '–', pending: '' };
+  $('#p-steps').innerHTML = (snap.steps || []).map((s, i) => `
+    <div class="srow ${esc(s.state)}">
+      <span class="smark">${MARK[s.state] || ''}</span>
+      <span class="snum">${i + 1}</span>
+      <span class="sname"><b>${esc(s.friendly)}</b>
+        ${s.plain ? `<span>${esc(s.plain)}</span>` : ''}</span>
+      <span class="stime">${s.seconds != null ? esc(secs(s.seconds))
+    : (s.state === 'running' ? 'running…' : '')}</span>
+    </div>`).join('');
+
+  const bar = $(`.hrun[data-open="${snap.id}"] .hbar i`);
+  if (bar) bar.style.width = (p.percent || 0) + '%';
+
+  renderRunsBadge(snap);
+}
+
+/* A run you cannot see is a run you assume has stalled. The tab carries how
+ * far along it is, so the Runs tab does not have to be the open one. */
+function renderRunsBadge(snap) {
+  const b = $('#runs-badge');
+  const p = (snap && snap.progress) || {};
+  const live = snap && ['running', 'queued'].includes(snap.status);
+  if (!live) {
+    b.hidden = true;
+    b.className = 'tabbadge';
+    return;
+  }
+  b.hidden = false;
+  b.className = 'tabbadge live';
+  b.textContent = `${p.index || 0}/${p.total || 0}`;
+  b.title = p.current
+    ? `${p.current.friendly}${p.remaining != null ? ' · ' + secs(p.remaining) + ' left' : ''}`
+    : 'running';
 }
 
 function appendLog(lines) {
@@ -726,8 +787,21 @@ async function refreshHistory() {
     // Always fetch everything: the Full-analysis gate asks whether a quick test
     // has ever passed, and that must not depend on a display filter.
     const j = await api.get(`${API}/history?include_tests=1`);
-    state.history = j.runs;
-    const shown = inc ? j.runs : j.runs.filter(r => !r.is_test);
+    // History is read from runs/*/run_record.json, and that file is written
+    // when a run finishes - so the run happening right now is not in it. Put
+    // it at the top from what the poller already knows, or the list claims
+    // nothing is running while the bar above it says otherwise.
+    const s = state.snap;
+    const live = s && ['running', 'queued'].includes(s.status)
+      && !j.runs.some(r => r.id === s.id)
+      ? [{
+        id: s.id, label: s.label || 'Running', mode: s.mode,
+        status: s.status, when: 'now', elapsed: null,
+        is_test: ['demo', 'plan'].includes(s.mode),
+        null_result: false, has_report: false, has_results: false,
+      }] : [];
+    state.history = live.concat(j.runs);
+    const shown = inc ? state.history : state.history.filter(r => !r.is_test);
     const box = $('#history');
     if (!shown.length) {
       box.innerHTML = `<p class="sub">${inc ? 'Nothing yet.'
@@ -735,15 +809,30 @@ async function refreshHistory() {
       return;
     }
     const selId = state.selection && state.selection.kind === 'run' ? state.selection.id : null;
-    box.innerHTML = shown.map(r => `
-      <button class="hrun ${r.id === selId ? 'on' : ''}" data-open="${esc(r.id)}">
-        <b>${esc(r.label)}</b>
-        <span class="badge ${r.null_result ? 'test' : (r.status === 'error' ? 'bad'
-    : (r.is_test ? 'test' : 'full'))}">${r.null_result ? 'no hits'
-    : (r.status === 'error' ? 'failed' : (r.is_test ? 'test' : 'full'))}</span>
-        <div class="meta">${esc(r.when)} · ${esc(secs(r.elapsed) || '')}${
-  r.has_report ? ' · report saved' : ''}</div>
-      </button>`).join('');
+    const liveId = state.snap && ['running', 'queued'].includes(state.snap.status)
+      ? state.snap.id : null;
+    $('#run-count').textContent = shown.length === j.runs.length
+      ? `${shown.length}` : `${shown.length} of ${j.runs.length}`;
+
+    box.innerHTML = shown.map(r => {
+      const isLive = r.id === liveId;
+      const pc = isLive ? ((state.snap.progress || {}).percent || 0) : null;
+      return `<button class="hrun ${r.id === selId ? 'on' : ''} ${isLive ? 'live' : ''}"
+        data-open="${esc(r.id)}">
+        <span class="hrow">
+          <b>${esc(r.label)}</b>
+          <span class="badge ${isLive ? 'live' : (r.null_result ? 'test'
+    : (r.status === 'error' ? 'bad' : (r.is_test ? 'test' : 'full')))}">${
+  isLive ? 'running' : (r.null_result ? 'no hits'
+    : (r.status === 'error' ? 'failed' : (r.is_test ? 'test' : 'full')))}</span>
+        </span>
+        <span class="meta">${esc(r.when)}${
+  r.elapsed ? ' · ' + esc(secs(r.elapsed)) : ''}${
+  r.has_report ? ' · report' : ''}${
+  r.has_results ? ' · results' : ''}</span>
+        ${isLive ? `<span class="hbar"><i style="width:${pc}%"></i></span>` : ''}
+      </button>`;
+    }).join('');
     $$('[data-open]').forEach(b => b.addEventListener('click', () => openRun(b.dataset.open)));
   } catch (err) {
     $('#history').innerHTML = `<p class="sub">${esc(err.message)}</p>`;

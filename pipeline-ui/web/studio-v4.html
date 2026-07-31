@@ -92,37 +92,13 @@
     </div>
   </section>
 
-  <section class="stepblock nonum">
-    <div class="stepbody">
-      <h2>Earlier runs</h2>
-      <label class="checkline"><input type="checkbox" id="show-tests" checked>
-        <span>Include test runs</span></label>
-      <div id="history" class="history"><p class="sub">Nothing yet.</p></div>
-    </div>
-  </section>
+  <!-- Earlier runs used to sit here. It is a workspace, not a setting - it
+       needs room for progress, steps and files - so it moved to its own tab.
+       The sidebar is now only the three things you do before pressing go. -->
 </aside>
 
 <!-- ========================================================= RIGHT: SEE -->
 <main class="right">
-
-  <section class="progress" id="progress" hidden>
-    <div class="prow">
-      <div class="pnow">
-        <div class="pstep" id="p-step">Step 1 of 11</div>
-        <div class="pname" id="p-name">Starting…</div>
-        <div class="pplain" id="p-plain"></div>
-      </div>
-      <div class="ptimes">
-        <div><span id="p-elapsed">0s</span><small>running for</small></div>
-        <div><span id="p-left">—</span><small>time left</small></div>
-      </div>
-      <button class="btn ghost small" id="p-cancel">Stop</button>
-    </div>
-    <div class="pbar"><div class="pfill" id="p-fill"></div></div>
-    <div class="ptrack" id="p-track"></div>
-    <details class="adv"><summary>Show the technical log</summary>
-      <div class="logbody mono" id="logbody"></div></details>
-  </section>
 
   <div class="banner" id="banner" hidden></div>
 
@@ -132,7 +108,8 @@
     <div class="tabgroup" id="tabs">
       <button class="tab active" data-view="report">Report</button>
       <button class="tab" data-view="results">Results</button>
-      <button class="tab" data-view="files">Downloads</button>
+      <button class="tab" data-view="runs">Runs &amp; files
+        <span class="tabbadge" id="runs-badge" hidden></span></button>
     </div>
     <span class="spacer"></span>
     <div class="sourcepick" id="sourcepick"></div>
@@ -257,17 +234,59 @@
     </div>
   </section>
 
-  <!-- DOWNLOADS ------------------------------------------------------- -->
-  <section class="view" id="view-files">
-    <div class="viewbar">
-      <span id="files-label">—</span>
-      <span class="spacer"></span>
-      <button class="btn small" id="download-all" disabled>Download everything (.zip)</button>
-    </div>
-    <div class="scroller">
-      <div class="panelbox flush" data-panel="downloads">
-        <div class="tscroll" data-body id="filetable"></div>
-        <div class="pstate" data-state hidden></div>
+  <!-- RUNS & FILES ----------------------------------------------------- -->
+  <!-- Everything to do with a run in one place: pick it on the left, watch
+       it and take its files on the right. This was three places before -
+       a list in the sidebar, a progress strip above the tabs, and a separate
+       Downloads tab - and none of them were where you were looking. -->
+  <section class="view" id="view-runs">
+    <div class="runsgrid">
+
+      <aside class="runlist">
+        <div class="runlisthead">
+          <b>Your runs</b>
+          <span class="runcount" id="run-count"></span>
+        </div>
+        <label class="checkline tight"><input type="checkbox" id="show-tests" checked>
+          <span>Include test runs</span></label>
+        <div id="history" class="history"><p class="sub">Nothing yet.</p></div>
+      </aside>
+
+      <div class="rundetail">
+
+        <!-- live status: what step, how far, how long left -->
+        <section class="panelbox runstatus" id="progress" hidden>
+          <div class="prow">
+            <div class="pnow">
+              <div class="pstep" id="p-step">Step 1 of 11</div>
+              <div class="pname" id="p-name">Starting…</div>
+              <div class="pplain" id="p-plain"></div>
+            </div>
+            <div class="ptimes">
+              <div><span id="p-elapsed">0s</span><small>running for</small></div>
+              <div><span id="p-left">—</span><small>time left</small></div>
+            </div>
+            <button class="btn ghost small" id="p-cancel">Stop</button>
+          </div>
+          <div class="pbar"><div class="pfill" id="p-fill"></div></div>
+          <div class="ptrack" id="p-track"></div>
+          <div class="steplist" id="p-steps"></div>
+          <details class="adv"><summary>Show the technical log</summary>
+            <div class="logbody mono" id="logbody"></div></details>
+        </section>
+
+        <!-- the files that run produced -->
+        <div class="panelbox" data-panel="downloads">
+          <div class="phead tablehead">
+            <div><h3>Files from this run</h3>
+              <p id="files-label">—</p></div>
+            <button class="btn small" id="download-all" disabled>
+              Download everything (.zip)</button>
+          </div>
+          <div class="tscroll" data-body id="filetable"></div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+
       </div>
     </div>
   </section>

@@ -54,7 +54,22 @@ function per panel, and it is *shared* — v5 imports it rather than copying it.
 Forking the chart code per version is what let the two sources drift apart in
 the first place. Only the shell (`studio-v*.html/css/js`) forks per version.
 
-**4. The colour scheme.** The interface greys were perfectly neutral (chroma
+**4. Runs, progress and files are one screen.** Picking a run, watching it and
+taking its files used to be three separate places — a list crammed into the
+sidebar, a progress strip above the tabs, and a Downloads tab — and none of
+them was where you were looking. They are now the **Runs & files** tab: the
+run list on the left, and on the right what step it is on, how long is left,
+every step by name with its own timing, and the file table with download
+links.
+
+The sidebar is now only the three things you do *before* pressing go. The tab
+carries a live step counter (`4/11`) so a run stays visible from any tab, and
+a run in flight shows its own progress bar in the list. History is read from
+`run_record.json`, which is written when a run *finishes*, so the run
+happening right now is inserted at the top from the poller — otherwise the
+list would claim nothing was running while the bar above it said otherwise.
+
+**5. The colour scheme.** The interface greys were perfectly neutral (chroma
 0.000); they are now tinted toward one low-chroma ink-indigo, which is what
 makes the screen read as designed rather than default. Contrast went up:
 `--muted` moved from 4.93:1 to 5.78:1 against the page.
