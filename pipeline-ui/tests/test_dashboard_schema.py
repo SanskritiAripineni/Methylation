@@ -55,7 +55,12 @@ v7_ref = v7_routes._published_dashboard()
 check("V7 uses the published BRCA volcano without changing the shared schema",
       v7_ref["schema"] == schema.SCHEMA_VERSION
       and v7_ref["volcano"]["state"] == schema.OK
-      and v7_ref["volcano"]["image_url"].endswith("/volcano.png"))
+      and len(v7_ref["volcano"]["background"]) == 4500
+      and len(v7_ref["volcano"]["highlighted"]) == 1536
+      and "image_url" not in v7_ref["volcano"])
+check("V7 BRCA volcano keeps marker identity for hover details",
+      len(v7_ref["volcano"]["highlighted"][0]) == 8
+      and v7_ref["volcano"]["highlighted"][0][4].startswith("cg"))
 check("V7 uses the published BRCA PCA instead of inventing a ROC curve",
       v7_ref["roc"]["state"] == schema.OK and not v7_ref["roc"]["fpr"]
       and v7_ref["roc"]["image_url"].endswith("/pca.png"))

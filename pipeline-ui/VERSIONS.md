@@ -40,8 +40,12 @@ future development can continue without changing the release tagged
 Hosted V7 restores the committed BRCA demonstration run from `Results/` into a
 fresh server's run history so the sample selector remains available on
 ephemeral hosts. The two result sources stay separate: the published-study
-selection uses the real TCGA-BRCA PCA, full-study volcano figure and BRCA
-pathway outputs, while the sample selection uses only its own run artifacts.
+selection uses the real TCGA-BRCA PCA, the interactive plotting data embedded
+in the completed BRCA report and BRCA pathway outputs, while the sample
+selection uses only its own run artifacts. The BRCA volcano overlays all 1,536
+saved high-change sites on the report's 4,500-point background sample, keeps
+the published ±0.20 cutoffs, and reveals the gene, probe, location, change and
+FDR on hover without overlapping labels.
 
 ## What v6 changed
 

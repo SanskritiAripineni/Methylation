@@ -405,8 +405,11 @@ input[type=checkbox]{accent-color:var(--accent)}
 .cbar i{display:block;height:100%;background:var(--accent)}
 .cv{width:70px;text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
 
-.chartbox{background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:10px}
+.chartbox{position:relative;background:#fafbfc;border:1px solid var(--line);border-radius:10px;padding:10px}
 .chartbox canvas{width:100%;display:block}
+.volcano-tip{position:absolute;z-index:4;max-width:240px;padding:8px 10px;border-radius:7px;
+  background:rgba(19,51,77,.96);color:#fff;font-size:11px;line-height:1.45;
+  box-shadow:0 5px 18px rgba(16,36,52,.2);pointer-events:none}
 .published-figure{display:block;width:100%;height:auto;max-height:520px;object-fit:contain;
   border-radius:6px;background:#fff}
 .figure-caption{margin:9px 0 0;color:var(--muted);font-size:12px;line-height:1.5}

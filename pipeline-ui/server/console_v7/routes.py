@@ -29,13 +29,22 @@ def _published_dashboard():
         "caption": "Published TCGA-BRCA PCA. The exact ROC curve coordinates were not "
                    "retained; the leakage-safe 5-fold AUC is shown above.",
     })
-    model["volcano"].update({
-        "state": "ok", "reason": "",
-        "image_url": PREFIX + "published-figure/volcano.png",
-        "image_alt": "BRCA differential-methylation volcano plot",
-        "caption": "Published TCGA-BRCA volcano plot generated from all 486,427 tested "
-                   "DNA sites; the 15 most confident sites are labelled.",
-    })
+    volcano = files.json("brca_volcano.json") or {}
+    background = volcano.get("background") or []
+    highlighted = volcano.get("highlighted") or []
+    if background and highlighted:
+        model["volcano"].update({
+            "state": "ok", "reason": "",
+            "background": background,
+            "highlighted": highlighted,
+            "delta_threshold": 0.20,
+            "fdr_threshold": 0.05,
+            "caption": "The completed TCGA-BRCA tumour-versus-normal analysis. "
+                       "For readable browser rendering, 4,500 background sites are "
+                       "sampled from the full array and all 1,536 high-change sites "
+                       "saved in the published report are overlaid. Hover a coloured "
+                       "site for its gene, CpG probe, location, change and FDR.",
+        })
 
     enrichment = files.table("brca_pathway_enrichment.tsv") or []
     if enrichment:

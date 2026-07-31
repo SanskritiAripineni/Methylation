@@ -330,10 +330,19 @@ export function renderVolcano(host, section, canvas) {
   if (legend) legend.hidden = false;
   const d = ctx2(canvas, 360);
   if (!d) return;
-  const { x, W, H } = d, pad = 54;
-  const vx = section.x || [], vy = section.y || [];
-  const xm = Math.max(0.2, ...vx.map(Math.abs)) * 1.08;
-  const ym = Math.max(2, ...vy) * 1.08;
+  const { x, W, H } = d;
+  const background = section.background || [];
+  const highlighted = section.highlighted || [];
+  const published = background.length > 0 && highlighted.length > 0;
+  const pad = published ? 64 : 54;
+  const vx = published
+    ? background.map(p => p[0]).concat(highlighted.map(p => p[0]))
+    : (section.x || []);
+  const vy = published
+    ? background.map(p => p[1]).concat(highlighted.map(p => p[1]))
+    : (section.y || []);
+  const xm = Math.max(published ? 0.7 : 0.2, ...vx.map(Math.abs)) * (published ? 1 : 1.08);
+  const ym = Math.max(published ? 270 : 2, ...vy) * (published ? 1 : 1.08);
   const px = t => pad + (t + xm) / (2 * xm) * (W - pad - 20);
   const py = t => H - pad - (t / ym) * (H - pad - 24);
 
@@ -344,31 +353,101 @@ export function renderVolcano(host, section, canvas) {
     x.strokeStyle = GRID;
     x.beginPath(); x.moveTo(pad, y); x.lineTo(W - 20, y); x.stroke();
     x.fillStyle = MUTED;
-    x.fillText(val.toFixed(0), 10, y + 3);
+    x.textAlign = 'right';
+    x.fillText(val.toFixed(0), pad - 8, y + 3);
   }
   for (let i = -2; i <= 2; i++) {
     const val = xm * i / 2, X = px(val);
     x.strokeStyle = GRID;
     x.beginPath(); x.moveTo(X, 18); x.lineTo(X, H - pad); x.stroke();
     x.fillStyle = MUTED;
-    x.fillText(val.toFixed(2), X - 13, H - pad + 17);
+    x.textAlign = 'center';
+    x.fillText(val.toFixed(2), X, H - pad + 17);
   }
-  for (let i = 0; i < vx.length; i++) {
-    const sig = vy[i] > 1.301 && Math.abs(vx[i]) >= 0.2;
-    x.fillStyle = sig ? (vx[i] > 0 ? 'rgba(192,57,43,.62)' : 'rgba(42,120,214,.62)')
-      : 'rgba(143,148,160,.26)';
-    x.beginPath();
-    x.arc(px(vx[i]), py(vy[i]), 2.4, 0, 6.284);
-    x.fill();
+  x.textAlign = 'left';
+
+  if (published) {
+    // This is the exact compact plotting bundle embedded in the completed
+    // BRCA report: a representative background plus every saved high-change
+    // point. It stays separate from the generic per-run x/y contract.
+    const threshold = Number(section.delta_threshold || 0.2);
+    x.strokeStyle = '#b08b17';
+    x.setLineDash([5, 4]);
+    [-threshold, threshold].forEach(value => {
+      x.beginPath(); x.moveTo(px(value), 18); x.lineTo(px(value), H - pad); x.stroke();
+    });
+    x.setLineDash([]);
+
+    x.fillStyle = 'rgba(143,148,160,.30)';
+    background.forEach(point => {
+      x.beginPath(); x.arc(px(point[0]), py(point[1]), 1.45, 0, 6.284); x.fill();
+    });
+
+    canvas._volcanoPoints = highlighted.map(point => {
+      const X = px(point[0]), Y = py(point[1]);
+      x.fillStyle = point[0] >= 0 ? 'rgba(192,57,43,.78)' : 'rgba(42,120,214,.78)';
+      x.beginPath(); x.arc(X, Y, 2.45, 0, 6.284); x.fill();
+      return [X, Y, point];
+    });
+
+    let tip = chartbox.querySelector('.volcano-tip');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'volcano-tip';
+      tip.hidden = true;
+      chartbox.append(tip);
+    }
+    canvas.onmousemove = event => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = event.clientX - rect.left, my = event.clientY - rect.top;
+      let best = null, bestDistance = 90;
+      canvas._volcanoPoints.forEach(point => {
+        const dx = point[0] - mx, dy = point[1] - my;
+        const distance = dx * dx + dy * dy;
+        if (distance < bestDistance) { bestDistance = distance; best = point[2]; }
+      });
+      if (!best) { tip.hidden = true; return; }
+      tip.innerHTML = `<b>${esc(best[3] || '(intergenic)')}</b><br>` +
+        `${esc(best[4])} · ${esc(best[5])}<br>` +
+        `difference ${esc(best[6])} · FDR ${esc(best[7])}`;
+      const box = chartbox.getBoundingClientRect();
+      tip.style.left = Math.max(8, Math.min(chartbox.clientWidth - 250,
+        event.clientX - box.left + 12)) + 'px';
+      tip.style.top = Math.max(8, event.clientY - box.top + 12) + 'px';
+      tip.hidden = false;
+    };
+    canvas.onmouseleave = () => { tip.hidden = true; };
+  } else {
+    const tip = chartbox.querySelector('.volcano-tip');
+    if (tip) tip.remove();
+    canvas.onmousemove = null;
+    canvas.onmouseleave = null;
+    for (let i = 0; i < vx.length; i++) {
+      const sig = vy[i] > 1.301 && Math.abs(vx[i]) >= 0.2;
+      x.fillStyle = sig ? (vx[i] > 0 ? 'rgba(192,57,43,.62)' : 'rgba(42,120,214,.62)')
+        : 'rgba(143,148,160,.26)';
+      x.beginPath();
+      x.arc(px(vx[i]), py(vy[i]), 2.4, 0, 6.284);
+      x.fill();
+    }
   }
   x.fillStyle = MUTED;
   x.font = '12px system-ui, -apple-system, "Segoe UI", sans-serif';
-  x.fillText('size of the difference', W / 2 - 62, H - 12);
+  x.textAlign = 'center';
+  x.fillText(published ? 'difference in methylation (tumour − normal)' : 'size of the difference',
+    (pad + W - 20) / 2, H - 12);
   x.save();
   x.translate(16, H / 2 + 46);
   x.rotate(-Math.PI / 2);
-  x.fillText('confidence', 0, 0);
+  x.fillText(published ? 'confidence (−log10 FDR)' : 'confidence', 0, 0);
   x.restore();
+  x.textAlign = 'left';
+  if (section.caption) {
+    const caption = document.createElement('p');
+    caption.className = 'figure-caption';
+    caption.textContent = section.caption;
+    body.append(caption);
+  }
 }
 
 /* ----------------------------------------------------------------- cohort */
