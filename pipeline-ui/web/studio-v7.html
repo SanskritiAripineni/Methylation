@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Methylation Studio · Version 7</title>
+<link rel="stylesheet" href="studio-v7.css">
+</head>
+<body>
+
+<!--
+  studio v7 - frozen hosting candidate built from the completed v6 interface.
+
+  What changed from v3 (still running on 8767, frozen at tag ui-v3.1-studio):
+
+  * one selection drives everything. The report, the numbers, the charts and
+    the downloads all come from a single /api/v5/dashboard response, so they
+    cannot end up describing different runs.
+  * every panel is always here. A panel with nothing to draw says why, in a
+    sentence, in place of the chart. It never disappears - a panel that
+    vanishes is indistinguishable from a panel that is broken.
+  * the ROC curve and the pathway enrichment, computed by every run since v1
+    and thrown away by every interface until now, are drawn.
+
+  The left column is v3's, unchanged in behaviour: same three steps, same
+  readiness gate, same tier buttons.
+-->
+
+<header class="top">
+  <div class="brandwrap">
+    <span class="wordmark">MRKTechSolutions</span>
+    <span class="vtag" title="MRKTechSolutions Version 7">Version 7</span>
+  </div>
+  <nav class="topnav" aria-label="Primary">
+    <button class="toplink active" data-target-view="setup">Upload &amp; Settings</button>
+    <button class="toplink" data-target-view="runs">Runs</button>
+    <button class="toplink" data-target-view="results">Results</button>
+    <button class="toplink" data-target-view="report">Report</button>
+  </nav>
+  <span class="spacer"></span>
+  <label class="dataset-control" for="dataset-select">
+    <span>Viewing</span>
+    <select id="dataset-select" aria-label="Choose report data">
+      <option value="reference">Breast published study</option>
+      <option value="run" disabled>Sample / uploaded analysis</option>
+    </select>
+  </label>
+</header>
+
+<div class="shell">
+
+<!-- ============================================================== LEFT: DO -->
+<aside class="left">
+
+  <section class="stepblock">
+    <div class="stepnum">1</div>
+    <div class="stepbody">
+      <div class="sourcehead"><h2>Data source</h2><span id="data-source-badge">Example</span></div>
+
+      <div class="datasources" id="data-sources">
+        <button class="datasource on" id="use-example" data-source="example">
+          <span class="source-radio"></span><span><b>Study cohort</b><small>Bundled breast example</small></span>
+        </button>
+        <button class="datasource" id="repeat-run" data-source="repeat">
+          <span class="source-radio"></span><span><b>Repeat a run</b><small>Reuse earlier settings</small></span>
+        </button>
+        <button class="datasource" id="use-local" data-source="local">
+          <span class="source-radio"></span><span><b>Local folder</b><small>Read a server path</small></span>
+        </button>
+        <button class="datasource" id="use-upload" data-source="upload">
+          <span class="source-radio"></span><span><b>Upload files</b><small>Choose from this computer</small></span>
+        </button>
+      </div>
+
+      <div class="unsupported-source">
+        <span class="source-radio"></span><span><b>IDAT → beta values</b><small>Not supported here. Normalize IDAT files first, then provide the beta matrix.</small></span>
+      </div>
+
+      <div class="sourcepanel" id="local-path-panel" hidden>
+        <label for="local-path-input"><b>Folder path on this machine</b></label>
+        <div class="pathrow"><input id="local-path-input" type="text" placeholder="C:\\data\\methylation-study"><button class="btn" id="load-local-path">Use folder</button></div>
+        <small>Version 6 looks in this folder for a methylation matrix, sample list, and optional site annotation. Files stay in place.</small>
+      </div>
+
+      <div class="sourcepanel" id="upload-panel" hidden>
+        <div class="shared-note"><b>Local analysis.</b> Select a methylation matrix and sample list. Uploaded files stay only in this local project workspace.</div>
+        <div class="drop" id="drop">
+          <div class="dropinner">
+            <div class="dropicon">＋</div>
+            <b>Drop files, or click to choose</b>
+            <span><button class="linkbtn" id="browse">Browse this computer</button></span>
+            <small>TSV · CSV · TXT · GZ. Add site information if you have it.</small>
+          </div>
+          <input type="file" id="filepick" multiple hidden accept=".tsv,.csv,.txt,.gz">
+        </div>
+      </div>
+
+      <div id="filelist" class="filelist"></div>
+      <div id="data-status" class="status"></div>
+    </div>
+  </section>
+
+  <section class="stepblock">
+    <div class="stepnum">2</div>
+    <div class="stepbody">
+      <h2>Settings</h2>
+      <p class="sub">Pick one. You can fine-tune afterwards if you want to.</p>
+      <div id="presets" class="presets"></div>
+      <details class="adv">
+        <summary>Fine-tune the settings</summary>
+        <div id="advanced" class="advanced"></div>
+      </details>
+    </div>
+  </section>
+
+  <section class="stepblock">
+    <div class="stepnum">3</div>
+    <div class="stepbody">
+      <h2>Run it</h2>
+      <div id="tiers" class="tiers"></div>
+      <div id="run-status" class="status"></div>
+    </div>
+  </section>
+
+  <!-- Earlier runs used to sit here. It is a workspace, not a setting - it
+       needs room for progress, steps and files - so it moved to its own tab.
+       The sidebar is now only the three things you do before pressing go. -->
+</aside>
+
+<!-- ========================================================= RIGHT: SEE -->
+<main class="right">
+
+  <div class="banner" id="banner" hidden></div>
+
+  <!-- One selection bar. Everything below it describes whatever is named
+       here, and nothing below it can name something else. -->
+  <nav class="tabs">
+    <div class="tabgroup" id="tabs">
+      <button class="tab active" data-view="report">Report</button>
+      <button class="tab" data-view="results">Results</button>
+      <button class="tab" data-view="runs">Runs &amp; files
+        <span class="tabbadge" id="runs-badge" hidden></span></button>
+    </div>
+    <span class="spacer"></span>
+    <div class="sourcepick" id="sourcepick"></div>
+  </nav>
+
+  <div class="selbar" id="selbar">
+    <span class="selkind" id="sel-kind">Published study</span>
+    <b id="sel-title">—</b>
+    <span class="selsub" id="sel-sub"></span>
+    <span class="spacer"></span>
+    <span class="loading" id="sel-loading" hidden>loading…</span>
+  </div>
+
+  <!-- REPORT ---------------------------------------------------------- -->
+  <section class="view active" id="view-report">
+    <div class="viewbar">
+      <span id="report-label">—</span>
+      <span class="spacer"></span>
+      <select id="report-variant" class="mini" hidden></select>
+      <button class="btn ghost small" id="report-open">Open in a new tab</button>
+      <button class="btn small" id="report-print">Print / save as PDF</button>
+    </div>
+    <div class="framewrap" data-panel="report">
+      <div data-body><iframe id="report-frame" title="Report"></iframe></div>
+      <div class="pstate" data-state hidden></div>
+    </div>
+  </section>
+
+  <!-- RESULTS --------------------------------------------------------- -->
+  <section class="view" id="view-results">
+    <div class="scroller">
+
+      <div class="panelbox flush" data-panel="cards">
+        <div class="cards" data-body id="cards"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+
+      <div class="panelbox" data-panel="movers">
+        <div class="phead">
+          <h3>The genes that moved most</h3>
+          <p>Each bar is one gene. To the right, the tumour samples gained methylation —
+             which usually switches a gene <b>off</b>. To the left, they lost it, which can
+             switch one <b>on</b>.</p>
+        </div>
+        <div class="movers" data-body id="movers"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+
+      <div class="grid2">
+        <div class="panelbox" data-panel="direction">
+          <div class="phead"><h3>What the changes likely do</h3>
+            <p>Whether each changed site sits where methylation predictably silences a gene,
+               activates one, or neither.</p></div>
+          <div data-body>
+            <div class="donutwrap"><canvas id="donut" height="230"></canvas>
+              <div id="donut-legend" class="dlegend"></div></div>
+          </div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+
+        <div class="panelbox" data-panel="validation">
+          <div class="phead"><h3>Does it actually predict?</h3>
+            <p>A score of 1.0 is perfect, 0.5 is a coin flip. Each dot is one round of
+               testing on samples the model had not seen.</p></div>
+          <div data-body>
+            <canvas id="folds" height="230"></canvas>
+            <div class="legend" id="val-note"></div>
+          </div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="panelbox" data-panel="roc">
+          <div class="phead"><h3>Where it trades off</h3>
+            <p>Every threshold at once. Up is catching more of the tumours; right is
+               calling more healthy samples tumours by mistake. The further the line
+               bows into the top-left, the better the shortlist separates the groups.</p></div>
+          <div data-body><canvas id="roc" height="300"></canvas></div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+
+        <div class="panelbox" data-panel="enrichment">
+          <div class="phead"><h3>What the hit genes have in common</h3>
+            <p>Biological pathways that show up in the changed genes more often than
+               chance would explain.</p></div>
+          <div class="cohortbars" data-body id="enrichbars"></div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+      </div>
+
+      <div class="panelbox" data-panel="volcano">
+        <div class="phead"><h3>Every site at once</h3>
+          <p>One dot per DNA site. Left and right is the size of the difference; up is how
+             confident we are. The coloured dots in the top corners are the interesting ones.</p></div>
+        <div data-body>
+          <div class="chartbox"><canvas id="volcano" height="360"></canvas>
+            <div class="legend">
+              <span><i class="sw hyper"></i>gained methylation</span>
+              <span><i class="sw hypo"></i>lost methylation</span>
+              <span><i class="sw none"></i>no real change</span></div></div>
+        </div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+
+      <div class="panelbox" data-panel="cohort">
+        <div class="phead"><h3>Who is in the study</h3>
+          <p>Tumour subtypes represented in the cohort.</p></div>
+        <div class="cohortbars" data-body id="cohortbars"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+
+      <div class="panelbox" data-panel="table">
+        <div class="phead tablehead">
+          <div><h3>Every strong site</h3>
+            <p>Sorted by how big the difference is. Search a gene to find it.</p></div>
+          <input type="search" id="tsearch" placeholder="Search a gene or site…">
+        </div>
+        <div class="tscroll" data-body id="tbl-markers"></div>
+        <div class="pstate" data-state hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RUNS & FILES ----------------------------------------------------- -->
+  <!-- Everything to do with a run in one place: pick it on the left, watch
+       it and take its files on the right. This was three places before -
+       a list in the sidebar, a progress strip above the tabs, and a separate
+       Downloads tab - and none of them were where you were looking. -->
+  <section class="view" id="view-runs">
+    <div class="runsgrid">
+
+      <aside class="runlist">
+        <div class="runlisthead">
+          <b>Your runs</b>
+          <span class="runcount" id="run-count"></span>
+        </div>
+        <label class="checkline tight"><input type="checkbox" id="show-tests" checked>
+          <span>Include test runs</span></label>
+        <div id="history" class="history"><p class="sub">Nothing yet.</p></div>
+      </aside>
+
+      <div class="rundetail">
+
+        <section class="panelbox brca-attachments" id="brca-attachments">
+          <div class="attachment-head">
+            <div>
+              <span class="attachment-kicker">Attached sample results</span>
+              <h3>BRCA breast tumor vs normal</h3>
+              <p id="brca-results-label">Loading the saved result package&hellip;</p>
+            </div>
+            <div class="attachment-actions">
+              <a class="btn small" id="brca-open-report" href="#" target="_blank"
+                rel="noopener" hidden>Open full report</a>
+              <a class="btn small primary" id="brca-download-all" href="#" hidden>
+                Download everything (.zip)</a>
+            </div>
+          </div>
+          <p class="attachment-caveat"><b>Demonstration data:</b> this bundled BRCA
+            cohort compares breast tumor with normal breast tissue, but its per-sample
+            methylation values are simulated. These are workflow results, not clinical findings.</p>
+          <details class="attachment-files" id="brca-files-details">
+            <summary>Show all attached result files</summary>
+            <div id="brca-results-files">
+              <div class="tscroll" data-body></div>
+              <div class="pstate loading" data-state>
+                <span class="pstate-tag">Loading</span><span>Reading the saved files&hellip;</span>
+              </div>
+            </div>
+          </details>
+        </section>
+
+        <!-- live status: what step, how far, how long left -->
+        <section class="panelbox runstatus" id="progress" hidden>
+          <div class="prow">
+            <div class="pnow">
+              <div class="pstep" id="p-step">Step 1 of 11</div>
+              <div class="pname" id="p-name">Starting…</div>
+              <div class="pplain" id="p-plain"></div>
+            </div>
+            <div class="ptimes">
+              <div><span id="p-elapsed">0s</span><small>running for</small></div>
+              <div><span id="p-left">—</span><small>time left</small></div>
+            </div>
+            <button class="btn ghost small" id="p-cancel">Stop</button>
+          </div>
+          <div class="pbar"><div class="pfill" id="p-fill"></div></div>
+          <div class="ptrack" id="p-track"></div>
+          <div class="steplist" id="p-steps"></div>
+          <details class="adv"><summary>Show the technical log</summary>
+            <div class="logbody mono" id="logbody"></div></details>
+        </section>
+
+        <!-- the files that run produced -->
+        <div class="panelbox" data-panel="downloads">
+          <div class="phead tablehead">
+            <div><h3>Files from this run</h3>
+              <p id="files-label">—</p></div>
+            <button class="btn small" id="download-all" disabled>
+              Download everything (.zip)</button>
+          </div>
+          <div class="tscroll" data-body id="filetable"></div>
+          <div class="pstate" data-state hidden></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+</div>
+
+<script type="module" src="studio-v7.js"></script>
+</body>
+</html>

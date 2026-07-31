@@ -24,6 +24,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["server/app_v6.py", "--no-browser", "--port", "8771"],
       "port": 8771
+    },
+    {
+      "name": "methylation-studio-v7",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["server/app_v7.py", "--no-browser", "--port", "8772"],
+      "port": 8772
     }
   ]
 }

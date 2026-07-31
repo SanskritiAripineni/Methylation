@@ -18,7 +18,8 @@ git checkout ui-v3.1-studio
 | 3.1 | `ui-v3.1-studio` | 8767 | `server/app_v3.py` | **The freeze point.** v3 as it stood before the v4 work started. Same files as v3; the tag exists so there is a named commit to come back to. |
 | 4 | `ui-v4-dashboard` | 8769 | `server/app_v4.py` | One dashboard contract behind every screen. `dashboard/`, `console_v4/`, `web/studio-v4.*`, `web/viz-v4.js`. |
 | 5 | `ui-v5-neo-shell` | 8770 | `server/app_v5.py` | Neoantigen-style console header and palette, a header-level breast/sample selector, and one responsive report layout for every source. `console_v5/`, `web/studio-v5.*`, `web/report-v5.*`. |
-| 6 | *(in progress)* | 8771 | `server/app_v6.py` | Removes the secondary product name from the header, adds explicit cohort/repeat/local-folder/upload sources, and restores the original complete one-page report in the Report tab. `console_v6/`, `web/studio-v6.*`. |
+| 6 | `ui-v6-brca-results` | 8771 | `server/app_v6.py` | Removes the secondary product name from the header, adds explicit cohort/repeat/local-folder/upload sources, restores the complete report, and attaches BRCA outputs in Runs & Files. `console_v6/`, `web/studio-v6.*`. |
+| 7 | `ui-v7-hosting-ready` | 8772 | `server/app_v7.py` | **Locked hosting candidate.** A version-isolated copy of the completed V6 experience with its own page, assets, API prefix and server entry point. `console_v7/`, `web/studio-v7.*`. |
 
 Older versions stay reachable from a newer server: v4 on 8769 still serves
 v3 at `/studio.html`, v2 at `/console-v2.html` and v1 at `/index.html`.
@@ -26,6 +27,15 @@ v3 at `/studio.html`, v2 at `/console-v2.html` and v1 at `/index.html`.
 V5 on 8770 also serves V4 unchanged at `/studio-v4.html`.
 
 V6 on 8771 serves V5 unchanged at `/studio-v5.html`.
+
+V7 on 8772 serves V6 unchanged at `/studio-v6.html`.
+
+## What v7 changed
+
+V7 freezes the approved V6 interface as a separate hosting target. Its page,
+stylesheet, script, API prefix and server launcher are version-specific, so
+future development can continue without changing the release tagged
+`ui-v7-hosting-ready`.
 
 ## What v6 changed
 
