@@ -130,10 +130,37 @@ async function boot() {
   renderPresets();
   renderWorkspace(state.setup.workspace, state.setup.readiness, true);
   wire();
+  loadSampleResults();
   showTab('report');
   await refreshHistory();
   renderTiers();
   await select({ kind: 'reference', id: 'published-study' });
+}
+
+async function loadSampleResults() {
+  const host = $('#brca-attachments');
+  const label = $('#brca-results-label');
+  const report = $('#brca-open-report');
+  const bundle = $('#brca-download-all');
+  try {
+    const result = await api.get(`${API}/sample-results`);
+    if (result.state !== 'ok') throw new Error(result.reason || 'The saved package is unavailable.');
+    label.textContent = result.subtitle;
+    report.href = result.report_url;
+    report.hidden = false;
+    bundle.href = result.bundle_url;
+    bundle.hidden = false;
+    viz.renderDownloads($('#brca-results-files'), result.downloads);
+    const count = (result.downloads.items || []).length;
+    $('#brca-files-details').querySelector('summary').textContent =
+      `Show all ${count} attached result files`;
+  } catch (err) {
+    host.classList.add('attachment-error');
+    label.textContent = `Could not attach the saved files: ${err.message}`;
+    viz.paintState($('#brca-results-files'), {
+      state: 'unavailable', reason: err.message,
+    });
+  }
 }
 
 function wire() {

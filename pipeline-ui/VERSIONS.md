@@ -43,6 +43,10 @@ workspace when possible.
 selection embeds `Results_Presentation.html` with its full visualization set.
 A sample or uploaded selection embeds that run's generated `run_report.html`.
 
+**4. BRCA sample outputs are attached in Runs & Files.** The saved bundled-
+cohort run has permanent links to its complete report, ZIP archive and every
+individual output file, with the simulated-data warning kept beside them.
+
 ## What v5 changed
 
 **1. The selector moved into the product header.** The breast published study

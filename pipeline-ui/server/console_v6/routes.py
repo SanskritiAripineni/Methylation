@@ -11,10 +11,71 @@ from console_v5 import routes as v5
 
 PREFIX = "/api/v6/"
 SUPPORTED = {".tsv", ".csv", ".txt", ".gz"}
+SAMPLE_RESULTS = Path(__file__).resolve().parents[2] / "Results" / "BRCA_Sample_Run"
+
+RESULT_NOTES = {
+    "README.md": "Guide to these files and the simulated-data warning.",
+    "bundle.zip": "Every BRCA sample-run output in one download.",
+    "run_report.html": "Complete one-page report with charts and explanations.",
+    "candidate_biomarker_panel.tsv": "The 100-site candidate biomarker panel.",
+    "differential_methylation.tsv": "Results for every CpG site tested.",
+    "differential_with_mechanics.tsv": "Effect-filtered sites with gene interpretation.",
+    "classifier_summary.json": "Internal classifier and cross-validation summary.",
+    "cv_folds.tsv": "Fold-by-fold internal cross-validation scores.",
+    "qc_sample_missingness.tsv": "Sample-level quality-control results.",
+    "results.json": "Machine-readable data used to build the report.",
+    "run_record.json": "Run provenance, settings, caveats and headline counts.",
+    "run_manifest.json": "Manifest of the files used and produced by the run.",
+    "run_log.txt": "Plain-text execution log for all pipeline steps.",
+}
+
+RESULT_ORDER = [
+    "run_report.html", "bundle.zip", "README.md",
+    "candidate_biomarker_panel.tsv", "differential_methylation.tsv",
+    "differential_with_mechanics.tsv", "classifier_summary.json",
+    "cv_folds.tsv", "qc_sample_missingness.tsv", "results.json",
+    "run_record.json", "run_manifest.json", "run_log.txt",
+]
 
 
 def _v5(route):
     return v5.PREFIX + route[len(PREFIX):]
+
+
+def _result_url(name, inline=False):
+    from urllib.parse import quote
+    return "%s/sample-results/file?path=%s%s" % (
+        PREFIX.rstrip("/"), quote(name), "&inline=1" if inline else "")
+
+
+def _sample_results():
+    """Describe the saved BRCA demonstration package shown in Runs & Files."""
+    if not SAMPLE_RESULTS.is_dir():
+        return {"state": "unavailable", "reason": "The BRCA sample-results folder is missing."}
+
+    files = [p for p in SAMPLE_RESULTS.iterdir() if p.is_file()]
+    order = {name: i for i, name in enumerate(RESULT_ORDER)}
+    files.sort(key=lambda p: (order.get(p.name, len(order)), p.name.lower()))
+    items = []
+    for path in files:
+        note = RESULT_NOTES.get(path.name)
+        if note is None and path.name.startswith("enrichment_"):
+            note = "Pathway-enrichment output for this BRCA sample run."
+        items.append({
+            "name": path.name,
+            "size": path.stat().st_size,
+            "note": note or "Output produced by the BRCA sample run.",
+            "url": _result_url(path.name),
+        })
+    return {
+        "state": "ok",
+        "run_id": "20260731-062458-full-8217f9",
+        "title": "BRCA breast tumor vs normal sample results",
+        "subtitle": "%d attached files from the complete bundled-cohort run." % len(items),
+        "report_url": _result_url("run_report.html", inline=True),
+        "bundle_url": _result_url("bundle.zip"),
+        "downloads": {"state": "ok", "items": items},
+    }
 
 
 def _local_folder(raw_path):
@@ -75,6 +136,18 @@ def _local_folder(raw_path):
 def handle_get(h, route, query):
     if not route.startswith(PREFIX):
         return False
+    if route == PREFIX + "sample-results":
+        h._json(_sample_results())
+        return True
+    if route == PREFIX + "sample-results/file":
+        name = v3._q(query, "path", "")
+        target = h._safe_join(SAMPLE_RESULTS, name)
+        if target is None:
+            h._error(400, "Invalid result-file path.")
+            return True
+        inline = v3._q(query, "inline", "0") == "1"
+        h._file(target, download_name=None if inline else Path(name).name)
+        return True
     return v5.handle_get(h, _v5(route), query)
 
 
@@ -96,4 +169,3 @@ def handle_upload(h, route, headers, rfile):
     if not route.startswith(PREFIX):
         return False
     return v5.handle_upload(h, _v5(route), headers, rfile)
-

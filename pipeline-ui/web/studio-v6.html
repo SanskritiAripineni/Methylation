@@ -284,6 +284,34 @@
 
       <div class="rundetail">
 
+        <section class="panelbox brca-attachments" id="brca-attachments">
+          <div class="attachment-head">
+            <div>
+              <span class="attachment-kicker">Attached sample results</span>
+              <h3>BRCA breast tumor vs normal</h3>
+              <p id="brca-results-label">Loading the saved result package&hellip;</p>
+            </div>
+            <div class="attachment-actions">
+              <a class="btn small" id="brca-open-report" href="#" target="_blank"
+                rel="noopener" hidden>Open full report</a>
+              <a class="btn small primary" id="brca-download-all" href="#" hidden>
+                Download everything (.zip)</a>
+            </div>
+          </div>
+          <p class="attachment-caveat"><b>Demonstration data:</b> this bundled BRCA
+            cohort compares breast tumor with normal breast tissue, but its per-sample
+            methylation values are simulated. These are workflow results, not clinical findings.</p>
+          <details class="attachment-files" id="brca-files-details">
+            <summary>Show all attached result files</summary>
+            <div id="brca-results-files">
+              <div class="tscroll" data-body></div>
+              <div class="pstate loading" data-state>
+                <span class="pstate-tag">Loading</span><span>Reading the saved files&hellip;</span>
+              </div>
+            </div>
+          </details>
+        </section>
+
         <!-- live status: what step, how far, how long left -->
         <section class="panelbox runstatus" id="progress" hidden>
           <div class="prow">
@@ -326,4 +354,3 @@
 <script type="module" src="studio-v6.js"></script>
 </body>
 </html>
-
