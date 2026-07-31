@@ -1,0 +1,5 @@
+term	overlap	set_size	hits_tested	background_size	expected	odds_ratio	p_value	genes	fdr	significant
+kegg_pluripotency_stem_cell_signaling	2	19	160	2262	1.344	1.488	0.3934589042782677	IGF1R;ZFHX3	0.8296665768656916	False
+kegg_foxo_signaling	1	12	160	2262	0.849	1.178	0.5862734609120386	IGF1R	0.8296665768656916	False
+kegg_ampk_signaling	1	19	160	2262	1.344	0.744	0.7533115449874921	IGF1R	0.8296665768656916	False
+kegg_mtor_signaling	1	24	160	2262	1.698	0.589	0.8296665768656916	IGF1R	0.8296665768656916	False

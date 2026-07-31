@@ -1,0 +1,294 @@
+{
+  "run_id": "20260731-062458-full-8217f9",
+  "study": "brca_sim",
+  "mode": "full",
+  "label": "Full analysis",
+  "source_label": "example data",
+  "status": "done",
+  "error": null,
+  "started": 1785497098.444046,
+  "elapsed": 0.79,
+  "steps": [
+    {
+      "node": "n1",
+      "name": "Load dataset",
+      "type": "load_data",
+      "state": "done",
+      "seconds": 0.08,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n2",
+      "name": "QC filter",
+      "type": "qc_filter",
+      "state": "done",
+      "seconds": 0.02,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n3",
+      "name": "Differential test",
+      "type": "differential",
+      "state": "done",
+      "seconds": 0.0,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n4",
+      "name": "Multiple-testing correction",
+      "type": "multiple_testing",
+      "state": "done",
+      "seconds": 0.05,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n5",
+      "name": "Effect-size filter",
+      "type": "effect_filter",
+      "state": "done",
+      "seconds": 0.0,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n6",
+      "name": "Annotate sites",
+      "type": "annotate",
+      "state": "done",
+      "seconds": 0.01,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n7",
+      "name": "Direction of effect",
+      "type": "direction_label",
+      "state": "done",
+      "seconds": 0.01,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n8",
+      "name": "Biomarker panel",
+      "type": "panel_select",
+      "state": "done",
+      "seconds": 0.0,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n9",
+      "name": "Classifier + validation",
+      "type": "classifier",
+      "state": "done",
+      "seconds": 0.13,
+      "reason": null,
+      "caveat": null
+    },
+    {
+      "node": "n10",
+      "name": "Pathway enrichment",
+      "type": "enrichment",
+      "state": "done",
+      "seconds": 0.14,
+      "reason": null,
+      "caveat": "HM450 over-samples promoters of neuronal and developmental genes; array-derived gene lists inherit that bias."
+    },
+    {
+      "node": "n11",
+      "name": "Generate report",
+      "type": "report",
+      "state": "done",
+      "seconds": 0.01,
+      "reason": null,
+      "caveat": null
+    }
+  ],
+  "thresholds": {
+    "delta_beta_min": 0.2,
+    "fdr_max": 0.05,
+    "sample_call_rate_min": 0.75,
+    "probe_call_rate_min": 0.9,
+    "min_samples_per_class": 3,
+    "panel_size": 100,
+    "exclude_sex_chromosomes": true
+  },
+  "n_per_class": null,
+  "demo_adjustments": [
+    {
+      "param": "effect_filter.min_group_n",
+      "from": 30,
+      "to": 3,
+      "why": "This is a cohort-size gate, not an effect threshold. Left at 30 it drops every probe in any study with fewer than 30 samples per group. It now follows the minimum group size you set. No effect-size, FDR or QC threshold is changed.",
+      "silent_on_published_cohort": true
+    }
+  ],
+  "resolved_inputs": {
+    "matrix": "C:\\Users\\aripi\\OneDrive\\Documents\\Methylation-Source\\pipeline-ui\\data\\sample\\sample_betas.tsv.gz",
+    "manifest": "C:\\Users\\aripi\\OneDrive\\Documents\\Methylation-Source\\pipeline-ui\\data\\sample\\sample_manifest.tsv",
+    "annotation": "C:\\Users\\aripi\\OneDrive\\Documents\\Methylation-Source\\pipeline-ui\\data\\sample\\probe_annotation.tsv",
+    "user_supplied": false
+  },
+  "validated_by": "20260731-055958-demo-2fef8f",
+  "provenance": "full",
+  "data_provenance": "bundled study cohort - per-sample values are SIMULATED; per-probe group means for 500 reference probes are real",
+  "warnings": [
+    "Demo adjustment: effect_filter.min_group_n 30 -> 3. This is a cohort-size gate, not an effect threshold. Left at 30 it drops every probe in any study with fewer than 30 samples per group. It now follows the minimum group size you set. No effect-size, FDR or QC threshold is changed.",
+    "Array-design caveat: HM450 over-samples promoters of neuronal and developmental genes, which inflates those terms. Treat enrichment as exploratory."
+  ],
+  "stats": [
+    {
+      "label": "Probes loaded",
+      "value": 2900
+    },
+    {
+      "label": "Samples loaded",
+      "value": 130
+    },
+    {
+      "label": "Probes after QC",
+      "value": 2747
+    },
+    {
+      "label": "Samples after QC",
+      "value": 126
+    },
+    {
+      "label": "Probes tested",
+      "value": 2747
+    },
+    {
+      "label": "Significant probes",
+      "value": 832
+    },
+    {
+      "label": "Probes passing effect filter",
+      "value": 494
+    },
+    {
+      "label": "Probes annotated",
+      "value": 494
+    },
+    {
+      "label": "Predicted silencing",
+      "value": 117
+    },
+    {
+      "label": "Predicted activation",
+      "value": 87
+    },
+    {
+      "label": "Predicted ambiguous",
+      "value": 290
+    },
+    {
+      "label": "Panel size",
+      "value": 100
+    },
+    {
+      "label": "Enriched terms (FDR<0.05)",
+      "value": 0
+    },
+    {
+      "label": "ROC-AUC",
+      "value": 0.9871
+    }
+  ],
+  "reproducibility": {
+    "python": "3.9.13",
+    "platform": "Windows 10",
+    "packages": {
+      "pandas": "2.3.3",
+      "numpy": "2.0.2",
+      "scipy": "1.13.1",
+      "sklearn": "1.6.1",
+      "statsmodels": null,
+      "yaml": "6.0.3"
+    },
+    "git_commit": "5289d98",
+    "git_dirty": true,
+    "array_type": null,
+    "array_type_note": "Not detectable from a beta matrix - no Sentrix ids, no control probes.",
+    "annotation_version": null,
+    "annotation_version_note": "The bundled probe annotation carries no version stamp."
+  },
+  "verdict": {
+    "level": "research-only",
+    "summary": "Research use only. One or more conditions below limit what this supports.",
+    "reasons": [
+      "The per-sample values in this cohort are simulated. Per-probe group means for 500 reference probes are real; every individual value is drawn, not measured.",
+      "No batch/slide/plate column, so batch confounding cannot be assessed - not ruled out, unassessable.",
+      "Parameters were adjusted for the subset: effect_filter.min_group_n 30->3",
+      "Probe annotation is read from a path fixed inside load_data(), not from a declared input - what it read cannot be verified from the run record.",
+      "No independent validation cohort: the classifier is cross-validated within this cohort only."
+    ],
+    "caveat": "Association and model behaviour only. Not a clinical diagnostic, and a methylation difference is not evidence of causation."
+  },
+  "artifacts": [
+    {
+      "name": "candidate_biomarker_panel.tsv",
+      "size": 28489
+    },
+    {
+      "name": "classifier_summary.json",
+      "size": 370
+    },
+    {
+      "name": "cv_folds.tsv",
+      "size": 185
+    },
+    {
+      "name": "differential_methylation.tsv",
+      "size": 439079
+    },
+    {
+      "name": "differential_with_mechanics.tsv",
+      "size": 139054
+    },
+    {
+      "name": "enrichment_KEGG_2021_Human__all.tsv",
+      "size": 21191
+    },
+    {
+      "name": "enrichment_KEGG_2021_Human__hypermethylated.tsv",
+      "size": 17702
+    },
+    {
+      "name": "enrichment_KEGG_2021_Human__hypomethylated.tsv",
+      "size": 12597
+    },
+    {
+      "name": "enrichment_longevity_gene_sets__all.tsv",
+      "size": 556
+    },
+    {
+      "name": "enrichment_longevity_gene_sets__hypermethylated.tsv",
+      "size": 527
+    },
+    {
+      "name": "enrichment_longevity_gene_sets__hypomethylated.tsv",
+      "size": 513
+    },
+    {
+      "name": "qc_sample_missingness.tsv",
+      "size": 3890
+    },
+    {
+      "name": "run_log.txt",
+      "size": 3644
+    },
+    {
+      "name": "run_manifest.json",
+      "size": 5511
+    },
+    {
+      "name": "run_report.html",
+      "size": 108932
+    }
+  ]
+}

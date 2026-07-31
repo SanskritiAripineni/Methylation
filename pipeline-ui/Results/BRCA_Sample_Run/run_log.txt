@@ -1,0 +1,45 @@
+[  0.34s] WARN  Demo adjustment: effect_filter.min_group_n 30 -> 3. This is a cohort-size gate, not an effect threshold. Left at 30 it drops every probe in any study with fewer than 30 samples per group. It now follows the minimum group size you set. No effect-size, FDR or QC threshold is changed.
+[  0.34s] INFO  Executing 11 steps in full mode.
+[  0.34s] INFO  Reading custom matrix: C:\Users\aripi\OneDrive\Documents\Methylation-Source\pipeline-ui\data\sample\sample_betas.tsv.gz
+[  0.42s] INFO  Loaded 2,900 probes x 130 samples (40 normal, 90 tumor)
+[  0.42s] INFO  Data provenance: bundled study cohort - per-sample values are SIMULATED; per-probe group means for 500 reference probes are real
+[  0.42s] INFO  Load dataset finished in 0.08s
+[  0.44s] INFO  QC: dropped 4 samples, 70 probes on missingness, 83 sex-chromosome probes
+[  0.44s] INFO  QC: 2,747 probes x 126 samples retained
+[  0.44s] INFO  QC filter finished in 0.02s
+[  0.44s] INFO  Comparison: tumor_vs_normal (tumor n=87) vs (normal n=39)
+[  0.44s] INFO  Testing 2,747 probes with welch_t
+[  0.44s] INFO  2,747 probes returned a finite p-value
+[  0.44s] INFO  Differential test finished in 0.00s
+[  0.45s] INFO  Benjamini-Hochberg FDR: 832 of 2,747 probes significant at adj-p < 0.05
+[  0.49s] INFO  Multiple-testing correction finished in 0.05s
+[  0.49s] INFO  Effect filter: 2,747 -> 494 probes (|delta-beta| >= 0.20, direction=both, n>=3)
+[  0.49s] INFO  Effect-size filter finished in 0.00s
+[  0.50s] INFO  Annotated 494 probes (100.0% with region context, promoter window -1500..+500 bp)
+[  0.50s] INFO  Region mix: gene_body 173, TSS1500 97, 5UTR_1stExon 88, intergenic 70, TSS200 66
+[  0.50s] INFO  Annotate sites finished in 0.01s
+[  0.50s] INFO  Direction of effect: 290 ambiguous, 117 silencing, 87 activation
+[  0.51s] INFO  Direction of effect finished in 0.01s
+[  0.51s] INFO  Panel: 100 probes (86 hypermethylated, 14 hypomethylated), ranked by abs_delta_beta
+[  0.51s] INFO  Strongest marker: cg17326769 |delta-beta|=0.770
+[  0.51s] INFO  Biomarker panel finished in 0.00s
+[  0.53s] INFO  KEGG_2021_Human: 319 gene sets, background 2,262 genes
+[  0.57s] INFO    KEGG_2021_Human / all: 340 genes tested, 0 terms at FDR < 0.05
+[  0.61s] INFO    KEGG_2021_Human / hypermethylated: 185 genes tested, 0 terms at FDR < 0.05
+[  0.63s] INFO    KEGG_2021_Human / hypomethylated: 160 genes tested, 0 terms at FDR < 0.05
+[  0.63s] INFO  longevity_gene_sets: 14 gene sets, background 2,262 genes
+[  0.64s] INFO    longevity_gene_sets / all: 340 genes tested, 0 terms at FDR < 0.05
+[  0.64s] INFO    longevity_gene_sets / hypermethylated: 185 genes tested, 0 terms at FDR < 0.05
+[  0.65s] INFO    longevity_gene_sets / hypomethylated: 160 genes tested, 0 terms at FDR < 0.05
+[  0.65s] INFO  No gene set reached FDR < 0.05. That is a real result, not a failure - the top-ranked terms are still written out so you can see what came closest.
+[  0.65s] WARN  Array-design caveat: HM450 over-samples promoters of neuronal and developmental genes, which inflates those terms. Treat enrichment as exploratory.
+[  0.65s] INFO  Pathway enrichment finished in 0.14s
+[  0.76s] INFO  Fold 1/5: AUC 0.9583 (25 features)
+[  0.76s] INFO  Fold 2/5: AUC 0.9921 (25 features)
+[  0.77s] INFO  Fold 3/5: AUC 0.9926 (25 features)
+[  0.77s] INFO  Fold 4/5: AUC 1.0000 (25 features)
+[  0.78s] INFO  Fold 5/5: AUC 0.9926 (25 features)
+[  0.78s] INFO  Cross-validated ROC-AUC: 0.9871 +/- 0.0147
+[  0.78s] INFO  Classifier + validation finished in 0.13s
+[  0.79s] INFO  Report written: run_report.html
+[  0.79s] INFO  Generate report finished in 0.01s

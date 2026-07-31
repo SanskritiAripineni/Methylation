@@ -1,0 +1,15 @@
+{
+  "model": "logistic_regression",
+  "feature_selection": "nested (re-selected inside each training fold)",
+  "n_features": 25,
+  "cv_folds": 5,
+  "roc_auc_mean": 0.9871381886087768,
+  "roc_auc_std": 0.014697617466172227,
+  "roc_auc_per_fold": [
+    0.9583333333333333,
+    0.9920634920634921,
+    0.9926470588235294,
+    1.0,
+    0.9926470588235294
+  ]
+}

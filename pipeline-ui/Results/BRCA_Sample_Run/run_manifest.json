@@ -1,0 +1,239 @@
+{
+  "run_id": "20260731-062458-full-8217f9",
+  "label": "Full analysis",
+  "status": "running",
+  "elapsed_seconds": 0.79,
+  "data_provenance": "bundled study cohort - per-sample values are SIMULATED; per-probe group means for 500 reference probes are real",
+  "blocks": [
+    {
+      "id": "n1",
+      "type": "load_data",
+      "name": "Load dataset",
+      "parameters": {
+        "dataset": "custom",
+        "matrix_path": "C:\\Users\\aripi\\OneDrive\\Documents\\Methylation-Source\\pipeline-ui\\data\\sample\\sample_betas.tsv.gz",
+        "manifest_path": "C:\\Users\\aripi\\OneDrive\\Documents\\Methylation-Source\\pipeline-ui\\data\\sample\\sample_manifest.tsv",
+        "max_probes": 0
+      }
+    },
+    {
+      "id": "n2",
+      "type": "qc_filter",
+      "name": "QC filter",
+      "parameters": {
+        "max_sample_missingness": 0.25,
+        "max_probe_missingness": 0.1,
+        "drop_sex_chromosomes": true,
+        "min_group_n": 3
+      }
+    },
+    {
+      "id": "n3",
+      "type": "differential",
+      "name": "Differential test",
+      "parameters": {
+        "comparison": "tumor_vs_normal",
+        "subtype_label": "Basal",
+        "test": "welch_t",
+        "min_group_n": 3
+      }
+    },
+    {
+      "id": "n4",
+      "type": "multiple_testing",
+      "name": "Multiple-testing correction",
+      "parameters": {
+        "method": "benjamini_hochberg",
+        "fdr_threshold": 0.05
+      }
+    },
+    {
+      "id": "n5",
+      "type": "effect_filter",
+      "name": "Effect-size filter",
+      "parameters": {
+        "min_abs_delta_beta": 0.2,
+        "direction": "both",
+        "min_group_n": 3
+      }
+    },
+    {
+      "id": "n6",
+      "type": "annotate",
+      "name": "Annotate sites",
+      "parameters": {
+        "promoter_upstream": 1500,
+        "promoter_downstream": 500,
+        "require_island": false
+      }
+    },
+    {
+      "id": "n7",
+      "type": "direction_label",
+      "name": "Direction of effect",
+      "parameters": {
+        "strict_promoter_only": true,
+        "include_shores": false
+      }
+    },
+    {
+      "id": "n8",
+      "type": "panel_select",
+      "name": "Biomarker panel",
+      "parameters": {
+        "top_n": 100,
+        "rank_by": "abs_delta_beta",
+        "balance_direction": false,
+        "max_per_gene": 0
+      }
+    },
+    {
+      "id": "n10",
+      "type": "enrichment",
+      "name": "Pathway enrichment",
+      "parameters": {
+        "libraries": [
+          "KEGG_2021_Human",
+          "longevity_gene_sets"
+        ],
+        "background": "array_universe",
+        "split_direction": true,
+        "min_set_size": 5,
+        "max_set_size": 500,
+        "fdr_threshold": 0.05
+      }
+    },
+    {
+      "id": "n9",
+      "type": "classifier",
+      "name": "Classifier + validation",
+      "parameters": {
+        "model": "logistic_regression",
+        "n_features": 25,
+        "cv_folds": 5,
+        "nested": true,
+        "seed": 42
+      }
+    },
+    {
+      "id": "n11",
+      "type": "report",
+      "name": "Generate report",
+      "parameters": {
+        "title": "BRCA Methylation - Pipeline Run",
+        "include_caveats": true,
+        "include_volcano": true,
+        "include_tables": true,
+        "include_methods": true
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "n1",
+      "to": "n2"
+    },
+    {
+      "from": "n2",
+      "to": "n3"
+    },
+    {
+      "from": "n3",
+      "to": "n4"
+    },
+    {
+      "from": "n4",
+      "to": "n5"
+    },
+    {
+      "from": "n5",
+      "to": "n6"
+    },
+    {
+      "from": "n6",
+      "to": "n7"
+    },
+    {
+      "from": "n7",
+      "to": "n8"
+    },
+    {
+      "from": "n8",
+      "to": "n9"
+    },
+    {
+      "from": "n7",
+      "to": "n10"
+    },
+    {
+      "from": "n9",
+      "to": "n11"
+    },
+    {
+      "from": "n10",
+      "to": "n11"
+    }
+  ],
+  "headline_stats": [
+    {
+      "label": "Probes loaded",
+      "value": 2900
+    },
+    {
+      "label": "Samples loaded",
+      "value": 130
+    },
+    {
+      "label": "Probes after QC",
+      "value": 2747
+    },
+    {
+      "label": "Samples after QC",
+      "value": 126
+    },
+    {
+      "label": "Probes tested",
+      "value": 2747
+    },
+    {
+      "label": "Significant probes",
+      "value": 832
+    },
+    {
+      "label": "Probes passing effect filter",
+      "value": 494
+    },
+    {
+      "label": "Probes annotated",
+      "value": 494
+    },
+    {
+      "label": "Predicted silencing",
+      "value": 117
+    },
+    {
+      "label": "Predicted activation",
+      "value": 87
+    },
+    {
+      "label": "Predicted ambiguous",
+      "value": 290
+    },
+    {
+      "label": "Panel size",
+      "value": 100
+    },
+    {
+      "label": "Enriched terms (FDR<0.05)",
+      "value": 0
+    },
+    {
+      "label": "ROC-AUC",
+      "value": 0.9871
+    }
+  ],
+  "warnings": [
+    "Demo adjustment: effect_filter.min_group_n 30 -> 3. This is a cohort-size gate, not an effect threshold. Left at 30 it drops every probe in any study with fewer than 30 samples per group. It now follows the minimum group size you set. No effect-size, FDR or QC threshold is changed.",
+    "Array-design caveat: HM450 over-samples promoters of neuronal and developmental genes, which inflates those terms. Treat enrichment as exploratory."
+  ]
+}
