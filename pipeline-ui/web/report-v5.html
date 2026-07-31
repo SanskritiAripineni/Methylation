@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Methylation Studio Report</title>
+  <link rel="stylesheet" href="studio-v5.css">
+  <link rel="stylesheet" href="report-v5.css">
+</head>
+<body class="report-page">
+  <header class="reporthero">
+    <div>
+      <span class="reporteyebrow" id="report-kind">Methylation Studio · Version 5</span>
+      <h1 id="report-title">Preparing report…</h1>
+      <p id="report-subtitle">The report sections stay the same; the selected data supplies the content.</p>
+      <p class="reportmeta" id="report-meta"></p>
+    </div>
+    <button class="print-action" type="button" onclick="window.print()">Print / save as PDF</button>
+  </header>
+
+  <nav class="reportnav" aria-label="Report sections">
+    <a href="#provenance">Provenance</a>
+    <a href="#headline">Headline numbers</a>
+    <a href="#changes">Strongest changes</a>
+    <a href="#volcano-section">Volcano</a>
+    <a href="#markers">Top markers</a>
+    <a href="#direction-section">Direction</a>
+    <a href="#panel-section">Panel</a>
+    <a href="#validation-section">Validation</a>
+    <a href="#pathways">Pathways</a>
+    <a href="#methods">Methods</a>
+    <a href="#files">Files</a>
+  </nav>
+
+  <main class="reportmain" id="report-main" aria-busy="true">
+    <section class="reportsection" id="provenance">
+      <div class="sectionintro"><span>01</span><div><h2>Data provenance</h2><p>Which data this report describes and how it should be interpreted.</p></div></div>
+      <div class="provenance-grid">
+        <div class="provenance-card"><small>Report source</small><strong id="provenance-source">—</strong><p id="provenance-detail"></p></div>
+        <div class="callout" id="report-caveat"></div>
+      </div>
+    </section>
+
+    <section class="reportsection" id="headline">
+      <div class="sectionintro"><span>02</span><div><h2>Headline numbers</h2><p>The same measures are used for the breast study and every completed sample run.</p></div></div>
+      <div class="panelbox flush" data-panel="cards"><div class="cards" data-body></div><div class="pstate" data-state hidden></div></div>
+    </section>
+
+    <section class="reportsection" id="changes">
+      <div class="sectionintro"><span>03</span><div><h2>Strongest methylation changes</h2><p>Genes are ordered by the absolute difference between tumour and normal samples.</p></div></div>
+      <div class="panelbox" data-panel="movers"><div class="movers" data-body></div><div class="pstate" data-state hidden></div></div>
+    </section>
+
+    <section class="reportsection" id="volcano-section">
+      <div class="sectionintro"><span>04</span><div><h2>Volcano plot</h2><p>Effect size and statistical confidence for every available DNA site.</p></div></div>
+      <div class="panelbox" data-panel="volcano"><div class="chartbox" data-body><canvas id="report-volcano" height="360"></canvas><div class="legend"><span><i class="sw hyper"></i>gained methylation</span><span><i class="sw hypo"></i>lost methylation</span><span><i class="sw none"></i>no real change</span></div></div><div class="pstate" data-state hidden></div></div>
+    </section>
+
+    <section class="reportsection" id="markers">
+      <div class="sectionintro"><span>05</span><div><h2>Top markers</h2><p>The strongest sites available for this selected source.</p></div></div>
+      <div class="panelbox" data-panel="table"><div class="tscroll" data-body></div><div class="pstate" data-state hidden></div></div>
+    </section>
+
+    <section class="reportsection" id="direction-section">
+      <div class="sectionintro"><span>06</span><div><h2>Predicted direction of effect</h2><p>Whether the observed changes are most consistent with gene silencing, activation, or an unclear effect.</p></div></div>
+      <div class="panelbox" data-panel="direction"><div class="donutwrap" data-body><canvas id="report-direction" height="230"></canvas><div id="report-direction-legend" class="dlegend"></div></div><div class="pstate" data-state hidden></div></div>
+    </section>
+
+    <section class="reportsection" id="panel-section">
+      <div class="sectionintro"><span>07</span><div><h2>Candidate biomarker panel</h2><p>A compact panel selected from the strongest supported sites.</p></div></div>
+      <div class="panelbox" data-panel="panel"><div class="tscroll" data-body></div><div class="pstate" data-state hidden></div></div>
+    </section>
+
+    <section class="reportsection" id="validation-section">
+      <div class="sectionintro"><span>08</span><div><h2>Classifier validation</h2><p>Performance on samples that were not used to train the model.</p></div></div>
+      <div class="reportgrid">
+        <div class="panelbox" data-panel="validation"><div data-body><canvas id="report-validation" height="230"></canvas><div class="legend" id="report-validation-note"></div></div><div class="pstate" data-state hidden></div></div>
+        <div class="panelbox" data-panel="roc"><div data-body><canvas id="report-roc" height="300"></canvas></div><div class="pstate" data-state hidden></div></div>
+      </div>
+    </section>
+
+    <section class="reportsection" id="pathways">
+      <div class="sectionintro"><span>09</span><div><h2>Pathway enrichment</h2><p>Biological processes represented more often than chance among the changed genes.</p></div></div>
+      <div class="panelbox" data-panel="enrichment"><div class="cohortbars" data-body></div><div class="pstate" data-state hidden></div></div>
+    </section>
+
+    <section class="reportsection" id="cohort-section">
+      <div class="sectionintro"><span>10</span><div><h2>Cohort</h2><p>The samples and tumour subtypes represented in this analysis.</p></div></div>
+      <div class="panelbox" data-panel="cohort"><div class="cohortbars" data-body></div><div class="pstate" data-state hidden></div></div>
+    </section>
+
+    <section class="reportsection" id="methods">
+      <div class="sectionintro"><span>11</span><div><h2>Methods and thresholds</h2><p>The settings recorded with this source.</p></div></div>
+      <div class="methodgrid" id="method-grid"></div>
+    </section>
+
+    <section class="reportsection" id="files">
+      <div class="sectionintro"><span>12</span><div><h2>Files</h2><p>The artifacts that belong to this selected analysis.</p></div></div>
+      <div class="panelbox" data-panel="downloads"><div class="tscroll" data-body></div><div class="pstate" data-state hidden></div></div>
+    </section>
+  </main>
+
+  <script type="module" src="report-v5.js"></script>
+</body>
+</html>
+

@@ -16,10 +16,29 @@ git checkout ui-v3.1-studio
 | 2 | `ui-v2-sidebar-launcher` | 8766 | `server/app_v2.py` | The sidebar launcher. Adds the graded readiness check list, run history and verdicts. `console_v2/`, `web/console-v2.*`. |
 | 3 | `ui-v3-studio` | 8767 | `server/app_v3.py` | The studio — plain language on top of v2's checks. Adds the workspace so an upload can actually be run, history that survives a restart, and a measured time-left. `console_v3/`, `web/studio.*`. |
 | 3.1 | `ui-v3.1-studio` | 8767 | `server/app_v3.py` | **The freeze point.** v3 as it stood before the v4 work started. Same files as v3; the tag exists so there is a named commit to come back to. |
-| 4 | *(in progress)* | 8769 | `server/app_v4.py` | One dashboard contract behind every screen. `dashboard/`, `console_v4/`, `web/studio-v4.*`, `web/viz-v4.js`. |
+| 4 | `ui-v4-dashboard` | 8769 | `server/app_v4.py` | One dashboard contract behind every screen. `dashboard/`, `console_v4/`, `web/studio-v4.*`, `web/viz-v4.js`. |
+| 5 | *(in progress)* | 8770 | `server/app_v5.py` | Neoantigen-style console header and palette, a header-level breast/sample selector, and one responsive report layout for every source. `console_v5/`, `web/studio-v5.*`, `web/report-v5.*`. |
 
 Older versions stay reachable from a newer server: v4 on 8769 still serves
 v3 at `/studio.html`, v2 at `/console-v2.html` and v1 at `/index.html`.
+
+V5 on 8770 also serves V4 unchanged at `/studio-v4.html`.
+
+## What v5 changed
+
+**1. The selector moved into the product header.** The breast published study
+and the latest completed sample or uploaded run are chosen in one persistent
+control. The selection continues to drive the report, results and files as one
+unit through the shared dashboard contract.
+
+**2. One report composition.** `web/report-v5.*` renders the same fixed section
+order for either source. Content comes from the selected dashboard; sections
+that are empty or unavailable stay in place and explain why.
+
+**3. A compact scientific-console shell.** The navigation, density, border
+radii and ink-blue palette follow the Neoantigen console visual system. The
+unused bottom loading panel is gone; source changes use the small status in the
+selection bar instead.
 
 ## What v4 changed, and why
 
@@ -96,7 +115,11 @@ by hand) and its *dashboard numbers* (`data/reference/*.tsv`) are independent
 sources, and nothing checks that they agree. A run you started does not have
 this problem — its report and its `results.json` come from the same run.
 
-## Adding version 5
+V5 does not embed that independent document. It composes both published and
+run reports directly from the selected dashboard, so the report shown in V5
+and the V5 results tab share one source.
+
+## Version 5 implementation checklist
 
 1. Tag the current one first: `git tag ui-v4-<name>` and push it.
 2. Branch: `git checkout -b feature/ui-v5`.
