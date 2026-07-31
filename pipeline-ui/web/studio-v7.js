@@ -381,6 +381,29 @@ function drawCharts(d) {
   viz.renderValidation(panel('validation'), d.validation, $('#folds'), $('#val-note'));
   viz.renderRoc(panel('roc'), d.roc, $('#roc'));
   viz.renderVolcano(panel('volcano'), d.volcano, $('#volcano'));
+  renderUnavailableSwitches(d);
+}
+
+/* The published summary honestly cannot draw panels whose underlying rows were
+ * not included in that bundle. When the saved BRCA demonstration run exists,
+ * make the next action explicit instead of leaving the reader at a dead end. */
+function renderUnavailableSwitches(d) {
+  if (!d || !d.source || d.source.kind !== 'reference') return;
+  const runId = selectableRunId();
+  if (!runId) return;
+  [
+    ['roc', d.roc],
+    ['enrichment', d.enrichment],
+    ['volcano', d.volcano],
+  ].forEach(([name, section]) => {
+    if (!section || section.state !== 'unavailable') return;
+    const note = panel(name).querySelector('[data-state]');
+    if (!note || note.querySelector('.state-switch')) return;
+    note.insertAdjacentHTML('beforeend',
+      '<button class="state-switch" type="button">View the sample-run visualization</button>');
+    note.querySelector('.state-switch').addEventListener('click', () =>
+      select({ kind: 'run', id: runId }));
+  });
 }
 
 function selectableRunId() {

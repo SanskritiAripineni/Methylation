@@ -37,6 +37,11 @@ stylesheet, script, API prefix and server launcher are version-specific, so
 future development can continue without changing the release tagged
 `ui-v7-hosting-ready`.
 
+Hosted V7 also restores the committed BRCA demonstration run from `Results/`
+into a fresh server's run history. This keeps the sample selector enabled on
+ephemeral hosts and makes its ROC, enrichment and volcano visualizations
+reachable without mixing simulated outputs into the published-study panels.
+
 ## What v6 changed
 
 **1. One brand in the header.** The secondary “Methylation Studio” text is

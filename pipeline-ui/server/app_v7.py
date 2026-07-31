@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import shutil
 import sys
 import threading
 import webbrowser
@@ -20,6 +21,31 @@ sys.path.insert(0, str(ROOT / "server"))
 import app as v1  # noqa: E402
 import app_v6 as v6  # noqa: E402
 from console_v7 import routes as v7_routes  # noqa: E402
+
+SAVED_SAMPLE_RUN_ID = "20260731-062458-full-8217f9"
+SAVED_SAMPLE_RUN = ROOT / "Results" / "BRCA_Sample_Run"
+RUNS_DIR = ROOT / "runs"
+
+
+def restore_saved_sample_run(source=SAVED_SAMPLE_RUN, runs_dir=RUNS_DIR):
+    """Make the bundled BRCA run selectable on fresh hosted instances.
+
+    Generated runs are intentionally gitignored. The approved demonstration
+    run is committed under Results/, so a new Render filesystem needs this
+    small restoration step before history and dashboard routes can see it.
+    Existing local or hosted runs are never overwritten.
+    """
+    source = Path(source)
+    target = Path(runs_dir) / SAVED_SAMPLE_RUN_ID
+    if (target / "run_record.json").is_file():
+        return False
+    if not (source / "run_record.json").is_file():
+        return False
+    target.mkdir(parents=True, exist_ok=True)
+    for path in source.iterdir():
+        if path.is_file():
+            shutil.copy2(path, target / path.name)
+    return True
 
 
 class Handler(v6.Handler):
@@ -70,6 +96,8 @@ def main():
         print("Example data missing - building it now...")
         from engine import make_sample_data
         make_sample_data.main()
+
+    restore_saved_sample_run()
 
     httpd = ThreadingHTTPServer((args.host, args.port), Handler)
     base = "http://%s:%d" % (args.host, args.port)
