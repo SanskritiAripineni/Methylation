@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DNA Methylation in Breast Cancer — Results</title>
+<style>
+:root{--ink:#0d0d0d;--muted:#6b6b6b;--line:#e4e4e4;--bg:#f6f6f6}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  display:flex;min-height:100vh;align-items:center;justify-content:center;padding:32px}
+.wrap{max-width:760px;width:100%}
+.logo{display:grid;place-items:center;width:46px;height:46px;border-radius:12px;
+  background:var(--ink);color:#fff;font-weight:800;letter-spacing:.5px;margin-bottom:20px}
+h1{font-size:30px;letter-spacing:-.6px;margin:0 0 6px}
+.lede{color:var(--muted);margin:0 0 4px;font-size:16px}
+.facts{display:flex;gap:26px;flex-wrap:wrap;margin:22px 0 26px;padding:16px 0;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fact b{display:block;font-size:22px;font-variant-numeric:tabular-nums;letter-spacing:-.4px}
+.fact span{color:var(--muted);font-size:12.5px}
+a.card{display:block;text-decoration:none;color:inherit;background:#fff;
+  border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:10px}
+a.card:hover{border-color:var(--ink)}
+a.card b{display:block;font-size:17px;margin-bottom:2px}
+a.card span{color:var(--muted);font-size:13.5px}
+.note{margin-top:22px;padding:14px 16px;background:#ececec;border-left:4px solid var(--muted);
+  border-radius:8px;font-size:13px;color:#3f3f3f}
+footer{margin-top:20px;color:var(--muted);font-size:12px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">CpG</div>
+  <h1>DNA Methylation in Breast Cancer</h1>
+  <p class="lede">Tumour tissue against adjacent normal tissue, TCGA-BRCA.</p>
+
+  <div class="facts">
+    <div class="fact"><b>888</b><span>samples</span></div>
+    <div class="fact"><b>486,427</b><span>DNA sites tested</span></div>
+    <div class="fact"><b>30,827</b><span>sites changed</span></div>
+    <div class="fact"><b>0.996</b><span>classifier AUC</span></div>
+  </div>
+
+  <a class="card" href="website/index.html">
+    <b>Results website</b>
+    <span>Ten sections: cohort, differential testing, validation, annotation,
+      direction of effect, the marker panel, pathways and the atlas.</span></a>
+
+  <a class="card" href="report.html">
+    <b>Single-page report</b>
+    <span>The whole analysis in one scrolling document. Print or save as PDF.</span></a>
+
+  <div class="note">
+    <b>Association only.</b> Not a clinical diagnostic, and a methylation
+    difference is not evidence of causation. The classifier is cross-validated
+    within this cohort and has not been tested on an independent one.
+  </div>
+
+  <footer>Static results. The pipeline that produced them runs separately.</footer>
+</div>
+</body>
+</html>
