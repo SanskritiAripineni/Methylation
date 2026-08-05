@@ -20,6 +20,11 @@ git checkout ui-v3.1-studio
 | 5 | `ui-v5-neo-shell` | 8770 | `server/app_v5.py` | Neoantigen-style console header and palette, a header-level breast/sample selector, and one responsive report layout for every source. `console_v5/`, `web/studio-v5.*`, `web/report-v5.*`. |
 | 6 | `ui-v6-brca-results` | 8771 | `server/app_v6.py` | Removes the secondary product name from the header, adds explicit cohort/repeat/local-folder/upload sources, restores the complete report, and attaches BRCA outputs in Runs & Files. `console_v6/`, `web/studio-v6.*`. |
 | 7 | `ui-v7-hosting-ready` | 8772 | `server/app_v7.py` | **Locked hosting candidate.** A version-isolated copy of the completed V6 experience with its own page, assets, API prefix and server entry point. `console_v7/`, `web/studio-v7.*`. |
+| 8 | `ui-v8-persistent-runs` *(not cut yet)* | 8773 | `server/app_v8.py` | The Runs tab stops blanking, run history stops resetting on hosts that can keep it, and Upload & Settings becomes a collapsible sidebar. `console_v8/`, `web/studio-v8.*`. |
+
+V8 lives on `codex/ui-v8` and is deliberately **not tagged yet** — a tag is
+what freezes a version against further edits, so it is cut once V8 is
+approved, not when it is written.
 
 Older versions stay reachable from a newer server: v4 on 8769 still serves
 v3 at `/studio.html`, v2 at `/console-v2.html` and v1 at `/index.html`.
@@ -29,6 +34,91 @@ V5 on 8770 also serves V4 unchanged at `/studio-v4.html`.
 V6 on 8771 serves V5 unchanged at `/studio-v5.html`.
 
 V7 on 8772 serves V6 unchanged at `/studio-v6.html`.
+
+V8 on 8773 serves V7 unchanged at `/studio-v7.html`.
+
+## What v8 changed
+
+### 1. Results in the Runs tab stopped disappearing
+
+Clicking a finished run loaded it **twice**. `openRun()` started a poll and a
+selection together; the poll came back "done", and the poller's finished-branch
+selected the same run again. Every selection began by blanking every panel:
+
+```
+t+0ms    blank      select #1, from the click
+t+118ms  16 files   the dashboard arrives
+t+120ms  blank      select #2, from the poller — same run, nothing new to show
+t+201ms  16 files   the same dashboard arrives again
+```
+
+Locally that second blank is 80ms and reads as a flicker. On a host that
+sleeps between visits it is seconds long, and when that second request is the
+one that fails, the screen stays empty — for a run whose results were on
+screen a moment earlier.
+
+Two changes, neither of which weakens v4's generation guard:
+
+* **A loaded selection is kept.** `state.cache` in `web/studio-v8.js` holds the
+  dashboard for every selection the page has read. Re-selecting one paints
+  from it immediately. A finished run and the published study are immutable,
+  so a cache hit is not stale — it is the bytes the server would resend.
+* **The poller no longer takes over the screen for a run that was already
+  finished when it was clicked.** It selects only when the run it was watching
+  has just *become* finished, and re-reads that one explicitly, because that
+  run's dashboard did not exist the last time the page looked.
+
+Measured on the same six alternating clicks between two runs:
+
+| | panels blanked | panels painted |
+|---|---|---|
+| v7 | 12 | 12 (each run drawn twice) |
+| v8 | 0 | 6 (each run drawn once) |
+
+A failed re-check now keeps what is on screen and says so in one line, instead
+of replacing a real result with an error.
+
+### 2. Run history stopped resetting on its own
+
+`runs/` is gitignored and sits on the container's own filesystem. A free Render
+instance rebuilds that filesystem on every redeploy and after every sleep, so
+runs vanished overnight — and because `restore_saved_sample_run()` put the
+bundled demonstration run back, the list looked *almost* right and was missing
+exactly the runs someone had started themselves.
+
+`console_v8/store.py` resolves where runs are kept before the server starts:
+
+* `METHYLATION_DATA_DIR`, if set and writable — attach a Render disk, point
+  this at its mount path, and history survives a restart. Runs already on the
+  ephemeral disk are copied across once, on the first start.
+* Otherwise a disk mounted at `/var/data`, `/data` or `/mnt/data`.
+* Otherwise the old location, **and the Runs tab says so.** `GET
+  /api/v8/storage` answers with where runs live and whether that survives a
+  restart; the interface prints it. Losing a run is bad. Losing one while the
+  screen implies it was saved is worse.
+
+`app_v8.py` also defaults its host and port to `$PORT`/`$HOST` when they are
+set, so the same command runs locally and on a managed host.
+
+### 3. Upload & Settings is a sidebar
+
+V7 had two controls for one panel: a permanent 390px column *and* a "Upload &
+Settings" item in the top nav which, on a narrow screen, replaced the whole
+right-hand side and, on a wide screen, appeared to do nothing.
+
+There is one control now — a toggle in the header. Wide: the sidebar collapses
+and the report, results or run files get the width. Narrow: it is a drawer
+over the work, with a scrim and Escape to close, so the tab being read is
+still behind it rather than replaced by it. The choice is remembered in
+`localStorage`; until one is made, it opens on a wide screen and stays shut on
+a narrow one.
+
+### What v8 deliberately did not touch
+
+The engine, the pipeline, the dashboard contract, the readiness checks, the
+verdicts, and `web/viz-v4.js`. V8 reuses `console_v7` — and through it every
+package back to `console_v2` — exactly as it is. No V7 file is edited; V7 runs
+from its own files on its own port, and V8 serves V7's page unchanged.
 
 ## What v7 changed
 
